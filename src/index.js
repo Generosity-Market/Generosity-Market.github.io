@@ -14,7 +14,7 @@ import { Switch, BrowserRouter, Route, Redirect } from 'react-router-dom';
 
 // component imports
 import BaseLayout from './containers/BaseLayout';
-import App from './App';
+import App from './containers/App';
 import Splash from './containers/Splash';
 
 

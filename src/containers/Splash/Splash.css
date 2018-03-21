@@ -1,0 +1,69 @@
+.Splash {
+  background-image: url('../../Assets/Photography/khendi-lee-25583.jpg');
+  background-size: cover;
+  background-position: 50%, 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.Splash .logo-container {
+  display: flex;
+  justify-content: center;
+  height: 45%;
+  width: 40%;
+  margin: 0 auto;
+}
+
+.Splash .Logo {
+  height: 100%;
+  width: auto;
+}
+
+.Splash .links {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 40%;
+  width: 25%;
+  margin: 3rem auto 0rem;
+  text-align: center;
+}
+
+.Splash .links a {
+  cursor: pointer;
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 1.25rem 0rem;
+}
+
+.Splash .create-cause {
+  background-color: var(--bright-green-85);
+  color: var(--white);
+}
+
+.Splash .find-cause {
+  background-color: var(--dark-green-85);
+  color: var(--white);
+}
+
+.Splash .sign-in {
+  background-color: var(--white-85);
+  color: var(--dark-green);
+}
+
+.Splash .sign-up {
+  cursor: pointer;
+  color: var(--white);
+  font-size: 14px;
+  text-transform: capitalize;
+  width: 25%;
+  margin: 0rem auto;
+  text-align: center;
+}
+
+.Splash h1 {
+  color: var(--dark-green-85);
+}
