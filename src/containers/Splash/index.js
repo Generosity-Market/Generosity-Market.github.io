@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Splash.css';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import LinkButton from '../../components/LinkButton';
 
 class Splash extends Component {
   render() {
@@ -10,9 +11,9 @@ class Splash extends Component {
           <img className='Logo' src={require('../../Assets/Logo/PNG/Artboard-1-copy-2Generosity-Logo.png')} alt=""/>
         </div>
         <div className='links'>
-          <a className='create-cause'>Create a cause</a>
-          <a className='find-cause'>Find a cause</a>
-          <a className='sign-in'>Sign in</a>
+          <LinkButton classname='create-cause' linkText={'Create a cause'} />
+          <LinkButton classname='find-cause' linkText={'Find a cause'} />
+          <LinkButton classname='sign-in' linkText={'Sign in'} />
         </div>
         <a href='#' className='sign-up'>Not a member? Sign up here</a>
       </div>

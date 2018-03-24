@@ -10,10 +10,11 @@
 }
 
 .Splash .logo-container {
+  background: linear-gradient(var(--white) 65%, rgba(255,255,255,0.0));
   display: flex;
   justify-content: center;
   height: 45%;
-  width: 40%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -27,19 +28,18 @@
   flex-direction: column;
   justify-content: space-around;
   height: 40%;
-  width: 25%;
+  width: 30%;
   margin: 3rem auto 0rem;
   text-align: center;
 }
 
-.Splash .links a {
-  cursor: pointer;
-  font-size: 18px;
-  text-transform: uppercase;
-  padding: 1.25rem 0rem;
+.LinkButton {
+  font-family: var(--main-font);
+  font-weight: 300;
+  letter-spacing: 0.1rem;
 }
 
-.Splash .create-cause {
+.Splash .LinkButton .create-cause {
   background-color: var(--bright-green-85);
   color: var(--white);
 }
@@ -66,4 +66,34 @@
 
 .Splash h1 {
   color: var(--dark-green-85);
+}
+
+@media screen and (max-width: 767px) {
+
+  .Splash {
+    background-size: 275%;
+    background-position: 50%, 70%;
+  }
+
+  .Splash .logo-container {
+    width: 100%;
+  }
+
+  .Splash .Logo {
+    height: 65%;
+    margin-top: 2rem;
+    width: 60%;
+  }
+
+  .Splash .links {
+    height: 35%;
+    margin-top: 0rem;
+    width: 70%;
+  }
+
+  .Splash .sign-up {
+    margin: 1rem 0rem 3rem;
+    width: 80%;
+  }
+
 }

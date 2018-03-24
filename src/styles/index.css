@@ -41,6 +41,7 @@ var(--white-85)        --> rgba(255,255,255,0.85)
   --light-gray:        #ddd;
   --white:             rgba(255,255,255,1);
   --white-85:          rgba(255,255,255,0.85);
+  --main-font:         'Roboto Condensed', sans-serif;
 }
 
 body {
