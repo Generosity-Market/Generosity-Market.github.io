@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 export default class LinkButton extends Component {
 
+  // takes two props 'href' and the 'linkText'
   render() {
     let linkStyles = {
         width:          '100%',
@@ -17,7 +18,7 @@ export default class LinkButton extends Component {
 
     return (
       <div className="LinkButton">
-        <a href='#' className={this.props.classname} style={linkStyles}>{this.props.linkText}</a>
+        <a href={this.props.href || '#'} className={this.props.classname} style={linkStyles}>{this.props.linkText}</a>
       </div>
     );
   }

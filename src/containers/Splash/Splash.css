@@ -36,7 +36,7 @@
 .LinkButton {
   font-family: var(--main-font);
   font-weight: 300;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.2rem;
 }
 
 .Splash .LinkButton .create-cause {
