@@ -5,7 +5,7 @@ import './index.css';
 
 class BaseLayout extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       showMenu: false
     }
@@ -43,7 +43,9 @@ class BaseLayout extends Component {
 
 
         <nav style={this.state.showMenu ? {left: '0%'} : {left: '-100%'}}>
-          <div className='navLinks' onClick={() => this.handleNavigation('/splash')}>Splash</div>
+          <div className='navLinks' onClick={() => this.handleNavigation('/splash')}>Splash Page</div>
+          <div className='navLinks' onClick={() => this.handleNavigation('/splash')}>Causes Page</div>
+          <div className='navLinks' onClick={() => this.handleNavigation('/splash')}>Dashboard Page</div>         
           <div className='closeMenu' onClick={() => this.setState({showMenu: false})}>
             <i className="fas fa-times"></i>
           </div>
