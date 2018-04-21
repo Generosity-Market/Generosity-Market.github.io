@@ -43,7 +43,7 @@ ReactDOM.render(
         <Switch>
           <Route  exact path='/' component={App} />
           <Route  exact path='/splash' component={Splash} />
-          <Route  exact path='/dashboard/:id' component={Dashboard} />
+          <Route  exact path='/users/:id/dashboard/' component={Dashboard} />
           {/*<Route  exact path='/cause/:id' component={SingleCause} />*/}
           <Route  exact path='/causes' component={CauseList} />
           <Route  exact path='/causes/new' component={CauseForm} />
