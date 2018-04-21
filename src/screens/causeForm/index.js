@@ -9,7 +9,7 @@ class CauseForm extends Component {
   render() {
     return(
       <div className="CauseForm">
-
+        <h2>CauseForm</h2>
       </div>
     );
   }

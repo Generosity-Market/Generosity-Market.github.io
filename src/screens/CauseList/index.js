@@ -9,7 +9,7 @@ class CauseList extends Component {
   render() {
     return(
       <div className="CauseList">
-      
+        <h2>Cause List</h2>
       </div>
     );
   }

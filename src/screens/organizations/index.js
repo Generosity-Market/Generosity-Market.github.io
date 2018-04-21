@@ -9,7 +9,7 @@ class Organizations extends Component {
   render() {
     return(
       <div className="Organizations">
-
+        <h2>Organizations</h2>
       </div>
     );
   }

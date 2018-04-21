@@ -16,6 +16,10 @@ import { Switch, BrowserRouter, Route, Redirect } from 'react-router-dom';
 import BaseLayout from './containers/BaseLayout';
 import App from './containers/App';
 import Splash from './containers/Splash';
+import Dashboard from './screens/Dashboard';
+import CauseList from './screens/CauseList';
+import CauseForm from './screens/CauseForm';
+import Organizations from './screens/Organizations';
 
 
 // creating the redux store with middleware
@@ -36,8 +40,13 @@ ReactDOM.render(
     <BrowserRouter>
       <BaseLayout>
         <Switch>
-          <Route exact path='/' component={App} />
+          <Route  exact path='/' component={App} />
           <Route  exact path='/splash' component={Splash} />
+          <Route  exact path='/dashboard/:id' component={Dashboard} />
+          {/*<Route  exact path='/cause/:id' component={SingleCause} />*/}
+          <Route  exact path='/causes' component={CauseList} />
+          <Route  exact path='/causes/new' component={CauseForm} />
+          <Route  exact path='/organizations/:id' component={Organizations} />
         </Switch>
       </BaseLayout>
     </BrowserRouter>, document.getElementById('root'));
