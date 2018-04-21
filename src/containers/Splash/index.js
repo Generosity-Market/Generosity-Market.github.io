@@ -14,8 +14,8 @@ class Splash extends Component {
         </div>
 
         <div className='links'>
-          <LinkButton classname={'create-cause'} linkText={'Create a cause'} href={'/'}/>
-          <LinkButton classname={'find-cause'} linkText={'Find a cause'} href={'/'}/>
+          <LinkButton classname={'create-cause'} linkText={'Create a cause'} href={'/causes/new'}/>
+          <LinkButton classname={'find-cause'} linkText={'Find a cause'} href={'/causes'}/>
           <LinkButton classname={'sign-in'} linkText={'Sign in'} href={'/'}/>
         </div>
 

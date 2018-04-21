@@ -20,6 +20,7 @@ import Dashboard from './screens/Dashboard';
 import CauseList from './screens/CauseList';
 import CauseForm from './screens/CauseForm';
 import Organizations from './screens/Organizations';
+// import SingleCause from './screens/SingleCause';
 
 
 // creating the redux store with middleware
