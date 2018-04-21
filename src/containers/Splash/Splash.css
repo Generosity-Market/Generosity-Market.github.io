@@ -1,7 +1,7 @@
 .Splash {
   background-image: url('../../Assets/Photography/khendi-lee-25583.jpg');
-  background-size: cover;
-  background-position: 50%, 50%;
+  background-size: 275%;
+  background-position: 50%, 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,17 +19,18 @@
 }
 
 .Splash .Logo {
-  height: 100%;
-  width: auto;
+  height: 15rem;
+  margin-top: 2rem;
+  width: 18rem;
 }
 
 .Splash .links {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 40%;
-  width: 30%;
-  margin: 3rem auto 0rem;
+  height: 34%;
+  margin-top: 0rem;
+  width: 70%;
   text-align: center;
 }
 
@@ -59,20 +60,20 @@
   color: var(--white);
   font-size: 14px;
   text-transform: capitalize;
-  width: 25%;
-  margin: 0rem auto;
   text-align: center;
+  margin: 1rem 0rem 3rem;
+  width: 80%;
 }
 
 .Splash h1 {
   color: var(--dark-green-85);
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 767px) {
 
   .Splash {
-    background-size: 275%;
-    background-position: 50%, 70%;
+  background-size: cover;
+  background-position: 50%, 50%;
   }
 
   .Splash .logo-container {
@@ -80,20 +81,18 @@
   }
 
   .Splash .Logo {
-    height: 65%;
-    margin-top: 2rem;
-    width: 60%;
+    height: 100%;
+    width: auto;
   }
 
   .Splash .links {
-    height: 35%;
-    margin-top: 0rem;
-    width: 70%;
+    height: 40%;
+    width: 25%;
+    margin: 3rem auto 0rem;
   }
 
   .Splash .sign-up {
-    margin: 1rem 0rem 3rem;
-    width: 80%;
+    width: 25%;
+    margin: 0rem auto;
   }
-
 }
