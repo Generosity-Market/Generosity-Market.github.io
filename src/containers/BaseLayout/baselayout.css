@@ -46,7 +46,7 @@ var(--white-85)        --> rgba(255,255,255,0.85)
 .BaseLayout nav {
   background-color: var(--white);
   height: 100vh;
-  padding: 5rem 0 0 2rem;
+  padding: 2rem 0 0 2rem;
   position: fixed;
   transition: left 0.4s;
   width: 92vw;
@@ -58,6 +58,15 @@ var(--white-85)        --> rgba(255,255,255,0.85)
   font-size: 1.5rem;
   margin-bottom: 3rem;
   text-shadow: 5px 3px 15px rgba(0,0,0,0.3);
+}
+
+nav .menuLogo {
+
+}
+
+nav .menuLogo img {
+  width: 50%;
+  text-align: center;
 }
 
 nav .closeMenu {

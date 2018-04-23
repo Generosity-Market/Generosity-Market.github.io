@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import { Link } from 'react-router-dom';
-import './index.css';
+import './baselayout.css';
 
 class BaseLayout extends Component {
   constructor(props) {
@@ -43,11 +43,19 @@ class BaseLayout extends Component {
 
 
         <nav style={this.state.showMenu ? {left: '0%'} : {left: '-100%'}}>
+          <div className="menuLogo navLinks">
+            <img src={require('../../Assets/Logo/PNG/Artboard-1Generosity-Logo.png')} alt="Generosity Market top menu logo"/>
+          </div>
+
           <div className='navLinks' onClick={() => this.handleNavigation('/splash')}>Splash Page</div>
 
-          <div className='navLinks' onClick={() => this.handleNavigation('/causes')}>Causes Page</div>
+          <div className='navLinks' onClick={() => this.handleNavigation('/causes')}>Find a Cause</div>
 
-          <div className='navLinks' onClick={() => this.handleNavigation('/users/1/dashboard/')}>Dashboard Page</div>
+          <div className='navLinks' onClick={() => this.handleNavigation('/causes/new')}>Create a cause</div>
+
+          <div className='navLinks' onClick={() => this.handleNavigation('/users/1/dashboard/')}>Dashboard</div>
+
+          <div className='navLinks' onClick={() => this.handleNavigation('/organizations/1')}>Organizations</div>
 
           <div className='closeMenu' onClick={() => this.setState({showMenu: false})}>
             <i className="fas fa-times"></i>
