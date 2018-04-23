@@ -1,0 +1,17 @@
+/* dashboard colors and thier css variables
+
+var(--black-30)        --> rgba(0,0,0,0.3)
+var(--black-20)        --> rgba(0,0,0,0.2)
+var(--black-10)        --> rgba(0,0,0,0.1)
+
+var(--dark-gray)       --> rgba(96,96,96,1)      or   #606060
+var(--text-gray)       --> rgba(112,112,112,1)   or   #707070
+var(--light-gray)      --> rgba(221,221,221,1)   or   #ddd
+
+var(--white)           --> rgba(255,255,255,1)   or   #fff
+var(--white-85)        --> rgba(255,255,255,0.85)
+*/
+
+.CauseList {
+  height: 100vh;
+}

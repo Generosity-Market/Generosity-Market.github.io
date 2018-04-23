@@ -44,7 +44,7 @@ var(--white-85)        --> rgba(255,255,255,0.85)
   --main-font:         'Roboto Condensed', sans-serif;
 }
 
-body {
+body, * {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
