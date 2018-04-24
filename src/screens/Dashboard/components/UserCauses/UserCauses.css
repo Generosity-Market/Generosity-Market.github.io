@@ -1,0 +1,46 @@
+.UserCauses {
+
+}
+
+.UserCauses h4 {
+  border-bottom: 1px solid var(--light-gray);
+  color: var(--bright-green);
+  margin: 0 auto;
+  padding-bottom: 0.75rem;
+  width: 92%;
+}
+
+.UserCauses .slider {
+  display: flex;
+  justify-content: space-around;
+  margin: 1.5rem auto;
+  width: 90%;
+}
+
+.cause-icon {
+  border: 1px solid var(--light-gray);
+  border-radius: 5px;
+  padding: 0.75rem;
+  flex-basis: 75px;
+  overflow-x: hidden;
+}
+
+.cause-icon img {
+  width: 100%;
+  height: 75px;
+  overflow-x: hidden;
+}
+
+.UserCauses .LinkButton {
+  border: 1px solid var(--light-gray);
+  border-radius: 5px;
+  width: 80%;
+  margin: 1.5rem auto 3rem;
+  padding: 0.5rem;
+}
+
+.UserCauses .create-cause {
+  background-color: var(--bright-green);
+  color: var(--white);
+  padding: 0.5rem 0rem !important;
+}

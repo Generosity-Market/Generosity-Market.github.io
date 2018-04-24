@@ -53,7 +53,9 @@ class BaseLayout extends Component {
 
           <div className='navLinks' onClick={() => this.handleNavigation('/causes/new')}>Create a cause</div>
 
-          <div className='navLinks' onClick={() => this.handleNavigation('/users/1/dashboard/')}>Dashboard</div>
+          <div className='navLinks' onClick={() => this.handleNavigation('/cause/1')}>Cause 1</div>
+
+          <div className='navLinks' onClick={() => this.handleNavigation('/users/1/dashboard')}>Dashboard</div>
 
           <div className='navLinks' onClick={() => this.handleNavigation('/organizations/1')}>Organizations</div>
 

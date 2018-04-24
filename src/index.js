@@ -20,7 +20,7 @@ import Dashboard from './screens/Dashboard';
 import CauseList from './screens/CauseList';
 import CauseForm from './screens/CauseForm';
 import Organizations from './screens/Organizations';
-// import SingleCause from './screens/SingleCause';
+import SingleCause from './screens/SingleCause';
 
 
 // creating the redux store with middleware
@@ -44,9 +44,9 @@ ReactDOM.render(
           <Route  exact path='/' component={App} />
           <Route  exact path='/splash' component={Splash} />
           <Route  exact path='/users/:id/dashboard/' component={Dashboard} />
-          {/*<Route  exact path='/cause/:id' component={SingleCause} />*/}
-          <Route  exact path='/causes' component={CauseList} />
+          <Route  exact path='/cause/:id' component={SingleCause} />
           <Route  exact path='/causes/new' component={CauseForm} />
+          <Route  exact path='/causes' component={CauseList} />
           <Route  exact path='/organizations/:id' component={Organizations} />
         </Switch>
       </BaseLayout>

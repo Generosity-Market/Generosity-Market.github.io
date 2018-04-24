@@ -13,7 +13,8 @@ export default class LinkButton extends Component {
         cursor:         'pointer',
         fontSize:       '18px',
         textTransform:  'uppercase',
-        textDecoration: 'none'
+        textDecoration: 'none',
+        textAlign:      'center'
     }
 
     return (
