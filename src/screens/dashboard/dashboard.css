@@ -15,3 +15,37 @@ var(--white-85)        --> rgba(255,255,255,0.85)
 .Dashboard {
   height: 100vh;
 }
+
+.Dashboard .hero-image {
+  background-image: url('../../Assets/Photography/jessica-lewis-512219.jpg');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-10%);
+  height: 29vh;
+  background-size: cover;
+}
+
+.Dashboard .hero-image h2 {
+  color: var(--white);
+  text-shadow: 3px 3px 8px rgba(0,0,0,0.8);
+  letter-spacing: 2px;
+  margin-top: 2rem;
+}
+
+.profile-image {
+  position: relative;
+  margin: -18% auto 0;
+  text-align: center;
+}
+
+/* remove the border and icon after we can generate the user image */
+.profile-image i {
+  /* position: absolute; */
+  background-color: var(--light-gray);
+  border: 2px solid var(--bright-green);
+  border-radius: 50%;
+  color: var(--white);
+  font-size: 48px;
+  padding: 1.5rem;
+}
