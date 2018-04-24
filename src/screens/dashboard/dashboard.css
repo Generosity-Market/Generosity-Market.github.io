@@ -13,7 +13,8 @@ var(--white-85)        --> rgba(255,255,255,0.85)
 */
 
 .Dashboard {
-  height: 100vh;
+  min-height: 100vh;
+  padding-bottom: 3rem;
 }
 
 .Dashboard .hero-image {

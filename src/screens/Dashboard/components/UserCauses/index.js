@@ -5,11 +5,12 @@ import './UserCauses.css';
 
 class UserCauses extends Component {
 
+  // TODO remove hard coded links once data is available
   render() {
     return(
       <div className="UserCauses">
         <h4>Your Causes</h4>
-        {/* populated from causes owned by this user */}
+
         <div className="slider">
           <div className="cause-icon">
             <Link to='/cause/1'>

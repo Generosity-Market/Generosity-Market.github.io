@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default class LinkButton extends Component {
 
@@ -19,7 +19,7 @@ export default class LinkButton extends Component {
 
     return (
       <div className="LinkButton">
-        <a href={this.props.href || '#'} className={this.props.classname} style={linkStyles}>{this.props.linkText}</a>
+        <Link to={this.props.href || '#'} className={this.props.classname} style={linkStyles}>{this.props.linkText}</Link>
       </div>
     );
   }
