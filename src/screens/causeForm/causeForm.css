@@ -12,6 +12,19 @@ var(--white)           --> rgba(255,255,255,1)   or   #fff
 var(--white-85)        --> rgba(255,255,255,0.85)
 */
 
-.causeForm {
+.CauseForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   height: 100vh;
+  padding-top: 3rem;
+}
+
+.CauseForm input, .CauseForm textarea, .CauseForm select {
+  border: 1px solid var(--light-gray);
+  border-radius: 5px;
+  font-size: 18px;
+  margin: 0 auto;
+  padding: 0.75rem;
+  width: 80%;
 }
