@@ -1,4 +1,4 @@
-/* causeForm template colors and thier css variables
+/* CauseInputs template colors and thier css variables
 
 var(--black-30)        --> rgba(0,0,0,0.3)
 var(--black-20)        --> rgba(0,0,0,0.2)
@@ -12,6 +12,24 @@ var(--white)           --> rgba(255,255,255,1)   or   #fff
 var(--white-85)        --> rgba(255,255,255,0.85)
 */
 
-.CauseForm {
 
+.CauseInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+  padding-top: 3rem;
+}
+
+.CauseInputs input, .CauseInputs textarea, .CauseInputs select {
+  border: 1px solid var(--light-gray);
+  border-radius: 5px;
+  font-size: 18px;
+  margin: 0 auto;
+  padding: 0.75rem;
+  width: 80%;
+}
+
+.CauseInputs option {
+  width: 50%;
 }
