@@ -11,12 +11,12 @@ export default class SingleCause extends Component {
   render() {
     console.log(this.props.match.params.id);
     return(
-      <div className="SingleCause" style={{paddingTop: '4rem'}}>
-        <h2>Cause Page</h2>
+      <div className="SingleCause">
+
+        <Header heading={`${this.props.match.params.id} Dashboard`} BGimage={'jessica-castro-516921.jpg'}/>
+
         <p>Cause id: {this.props.match.params.id}</p>
         <br/>
-        
-        <Header />
 
         <ProgressBar />
 
