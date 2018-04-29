@@ -14,7 +14,8 @@ export default class SingleCause extends Component {
       <div className="SingleCause">
 
         {/* TODO change to the cause title */}
-        <Header heading={`Cause #${this.props.match.params.id}`} BGimage={'jessica-castro-516921.jpg'} mainImage={'madi-robson-113926.jpg'}/>
+        <Header
+         heading={`Cause #${this.props.match.params.id}`}BGimage={'jessica-castro-516921.jpg'} mainImage={'madi-robson-113926.jpg'}/>
 
         <p>Cause id: {this.props.match.params.id}</p>
         <br/>
@@ -23,7 +24,14 @@ export default class SingleCause extends Component {
 
         <TileSection />
 
-        <AboutCause />
+        {/* TODO pass in this data from the api */}
+        <AboutCause
+         title={'Adoption'}
+
+         aboutText={'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '}
+
+         usageText={'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.'}
+        />
 
         <DonorComments />
 

@@ -21,9 +21,8 @@ class Header extends Component {
     let mainImageURL = this.mainImage();
     return(
       <div className="Header">
-        <div className="hero-image"
-             style={{ backgroundImage: `url( ${imageURL} )` }} >
-          {/* this will become generated once we have user data */}
+        <div className="hero-image" style={{ backgroundImage: `url( ${imageURL} )` }} >
+          {/* TODO This will become generated once we have user data */}
           <h2>{this.props.heading}</h2>
         </div>
 
