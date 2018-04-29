@@ -59,6 +59,8 @@ class BaseLayout extends Component {
 
           <div className='navLinks' onClick={() => this.handleNavigation('/organizations/1')}>Organizations</div>
 
+          <div className='navLinks' onClick={() => this.handleNavigation('/checkout')}>Checkout</div>
+
           <div className='closeMenu' onClick={() => this.setState({showMenu: false})}>
             <i className="fas fa-times"></i>
           </div>

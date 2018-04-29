@@ -3,3 +3,18 @@
   background-color: var(--bright-green);
   color: var(--white);
 }
+
+.share-link {
+  color: var(--text-gray);
+  margin-top: 1rem;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.donate-link {
+  background-color: var(--dark-green);
+  color: var(--white);
+  width: 90% !important;
+  margin-left: 5% !important;
+  margin-right: auto !important;
+}

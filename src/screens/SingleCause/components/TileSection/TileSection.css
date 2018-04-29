@@ -1,0 +1,5 @@
+.TileSection h2 {
+  color: var(--dark-green);
+  text-transform: uppercase;
+  text-align: center;
+}

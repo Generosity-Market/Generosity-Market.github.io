@@ -5,6 +5,7 @@ import TileSection from './components/TileSection';
 import AboutCause from './components/AboutCause';
 import DonorComments from './components/DonorComments';
 import ActionButton from '../../components/ActionButton';
+import LinkButton from '../../components/LinkButton';
 import './SingleCause.css';
 
 export default class SingleCause extends Component {
@@ -22,11 +23,13 @@ export default class SingleCause extends Component {
         <Header
          heading={`Cause #${this.props.match.params.id}`}BGimage={'jessica-castro-516921.jpg'} mainImage={'madi-robson-113926.jpg'}/>
 
-        <p>Cause id: {this.props.match.params.id}</p>
-
         <ProgressBar percentRaised={24}/>
 
         <TileSection />
+
+        <LinkButton href="/checkout" linkText="Donate" classname="donate-link"/>
+
+        <div className="share-link" onClick={() => this.sharePage()}>Or Share This Page</div>
 
         {/* TODO pass in this data from the api */}
         <AboutCause
