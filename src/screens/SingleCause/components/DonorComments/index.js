@@ -8,24 +8,31 @@ class DonorComments extends Component {
       name: 'Sally Givesalot',
       comment: 'I love this idea. Happy Birthday!',
       amount: 100,
-      imageURL: '../../../../Assets/Photography/profile.jpg'
+      imageURL: 'profile.jpg'
     }, {
       name: 'Bob Surrent',
       comment: 'Happy Birthday Fiona!',
       amount: 25,
-      imageURL: '../../../../Assets/Photography/profile3.jpg'
+      imageURL: 'profile3.jpg'
     }, {
       name: 'Jim Giver',
       comment: 'See you tonight, Happy Birthday',
       amount: 50,
-      imageURL: '../../../../Assets/Photography/profile2.jpg'
+      imageURL: 'profile2.jpg'
     }];
 
     let donorComments = donorData.map((donor, index) => {
+      const donorImage = require(`../../../../Assets/Photography/${donor.imageURL}`);
       return (
              <div key={index} className="comment-card">
-                <div></div>
-                <div></div>
+                <div style={{flexBasis: '10%'}}>
+                  <img src={donorImage} alt='Donor'/>
+                  <p className='donor-amount'>${donor.amount}</p>
+                </div>
+                <div style={{flexBasis: '65%'}}>
+                  <p style={{color: 'var(--text-gray)'}}>{donor.comment}</p>
+                  <p style={{color: 'var(--bright-green)', marginTop: '0.35rem'}}>- {donor.name}</p>
+                </div>
              </div>
            );
     });

@@ -1,0 +1,46 @@
+.DonorComments {
+  padding: 1rem;
+}
+
+.DonorComments h3 {
+  border-bottom: 1px solid var(--light-gray);
+  color: var(--bright-green);
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.comment-card {
+  align-items: center;
+  border: 1px solid var(--light-gray);
+  border-radius: 5px;
+  display: flex;
+  height: 115px;
+  justify-content: space-around;
+  margin: 0.5rem 0;
+}
+
+.comment-card div {
+  position: relative;
+}
+
+.comment-card img {
+  border-radius: 50%;
+  border: 2px solid var(--bright-green);
+  width: 86px;
+  height: 86px;
+}
+
+.donor-amount {
+  align-items: center;
+  background-color: var(--dark-green-85);
+  border-radius: 50%;
+  color: var(--white);
+  display: flex;
+  font-size: 10px;
+  height: 30px;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+}

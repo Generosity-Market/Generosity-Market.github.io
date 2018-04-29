@@ -4,9 +4,14 @@ import ProgressBar from './components/ProgressBar';
 import TileSection from './components/TileSection';
 import AboutCause from './components/AboutCause';
 import DonorComments from './components/DonorComments';
+import ActionButton from '../../components/ActionButton';
 import './SingleCause.css';
 
 export default class SingleCause extends Component {
+
+  sharePage = () => {
+    alert("Shared");
+  }
 
   render() {
     console.log(this.props.match.params.id);
@@ -33,6 +38,8 @@ export default class SingleCause extends Component {
         />
 
         <DonorComments />
+
+        <ActionButton actionText="Share this page" classname="share-page" action={this.sharePage}/>
 
       </div>
     );
