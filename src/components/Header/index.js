@@ -2,23 +2,23 @@ import React, { Component } from 'react';
 import './Header.css';
 
 class Header extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   bgImage = () => {
-    const imageUrl = require(`../../../../Assets/Photography/${this.props.BGimage}`);
+    const imageUrl = require(`../../Assets/Photography/${this.props.BGimage}`);
     return imageUrl;
   }
 
-  causeImage = () => {
-    const iconURL = require(`../../../../Assets/Photography/${this.props.causeImage}`);
-    return iconURL;
+  mainImage = () => {
+    if (this.props.mainImage) {
+      const mainImageURL = require(`../../Assets/Photography/${this.props.mainImage}`);
+      return mainImageURL;
+    }
   }
 
   render() {
     console.log("Header props", this.props);
     let imageURL = this.bgImage();
+    let mainImageURL = this.mainImage();
     return(
       <div className="Header">
         <div className="hero-image"
@@ -28,7 +28,7 @@ class Header extends Component {
         </div>
 
         <div className="profile-image">
-          {this.props.causeImage ? ' ': <i className="fas fa-user"></i>}
+          {this.props.mainImage ? <img src={mainImageURL} alt='Profile'/> : <i className="fas fa-user"></i>}
         </div>
       </div>
     );
