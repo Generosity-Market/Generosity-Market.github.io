@@ -18,9 +18,8 @@ export default class SingleCause extends Component {
          heading={`Cause #${this.props.match.params.id}`}BGimage={'jessica-castro-516921.jpg'} mainImage={'madi-robson-113926.jpg'}/>
 
         <p>Cause id: {this.props.match.params.id}</p>
-        <br/>
 
-        <ProgressBar />
+        <ProgressBar percentRaised={24}/>
 
         <TileSection />
 
