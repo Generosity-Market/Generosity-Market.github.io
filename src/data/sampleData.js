@@ -1,5 +1,5 @@
 const causes = [{
-  id: 1,
+  id: 0,
   name: "Kenya Trip",
   amount: 3500,
   description: "I will be on the ground in Kenya for 10 days this summer in which I'll be visiting the kids at Canopy Life Academy, seeing some of the kid's communities, and ending the trip with a Safari!",
@@ -9,7 +9,7 @@ const causes = [{
   mainImage: "madi-robson-113926.jpg"
 },
 {
-  id: 2,
+  id: 1,
   name: "Community Project",
   amount: 10000,
   description: "We're adding a sewing facility outside of Nairobi, Kenya",
@@ -19,7 +19,7 @@ const causes = [{
   mainImage: "madi-robson-113926.jpg"
 },
 {
-  id: 3,
+  id: 2,
   name: "Adoption",
   amount: 40000,
   description: "We're adopting!",
@@ -29,14 +29,14 @@ const causes = [{
   mainImage: "tim-bish-171738.jpg"
 },
 {
-  id: 4,
+  id: 3,
   name: "Summer Camp",
   amount: 1500,
   description: "",
   purpose: "",
   icon: "Airplane.png",
-  backgroundImage: "",
-  mainImage: ""
+  backgroundImage: "khendi-lee-25583.jpg",
+  mainImage: "jessica-castro-516921.jpg"
 }];
 
 export default causes;

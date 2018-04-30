@@ -8,6 +8,9 @@ import ActionButton from '../../components/ActionButton';
 import LinkButton from '../../components/LinkButton';
 import './SingleCause.css';
 
+// NOTE sample data to be removed when api is live
+import causes from '../../data/sampleData.js';
+
 export default class SingleCause extends Component {
   // constructor(props) {
   //   super(props);
@@ -26,13 +29,14 @@ export default class SingleCause extends Component {
   }
 
   render() {
-    console.log(this.props.match.params.id);
+    console.log("Causes::::", causes[this.props.match.params.id]);
+    let index = this.props.match.params.id;
     return(
       <div className="SingleCause">
 
         {/* TODO change to the cause title */}
         <Header
-         heading={`Cause #${this.props.match.params.id}`}BGimage={'jessica-castro-516921.jpg'} mainImage={'madi-robson-113926.jpg'}/>
+         heading={causes[index].name} BGimage={causes[index].backgroundImage} mainImage={causes[index].mainImage}/>
 
         <ProgressBar percentRaised={24}/>
 
@@ -44,11 +48,11 @@ export default class SingleCause extends Component {
 
         {/* TODO pass in this data from the api */}
         <AboutCause
-         title={'Adoption'}
+         title={causes[index].name}
 
-         aboutText={'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '}
+         aboutText={causes[index].description}
 
-         usageText={'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.'}
+         usageText={causes[index].purpose}
         />
 
         <DonorComments />
