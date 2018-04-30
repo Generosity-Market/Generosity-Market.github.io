@@ -4,12 +4,17 @@ import './TileSection.css';
 
 class TileSection extends Component {
 
+  // TODO calculate the amount of tiles needed to raise the funding goal.
+  calculateTiles = () => {
+    return <Tile amount={50} tileIcon={'Artboard-1-copy-4Africa-Logo.png'}/>;
+  };
+
   render() {
     return(
       <div className="TileSection">
         <h2>Select Amount</h2>
         <div className="tile-wrapper">
-          <Tile />
+          {this.calculateTiles()}
         </div>
       </div>
     );
