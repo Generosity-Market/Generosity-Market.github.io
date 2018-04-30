@@ -29,35 +29,46 @@ export default class SingleCause extends Component {
   }
 
   render() {
-    console.log("Causes::::", causes[this.props.match.params.id]);
     let index = this.props.match.params.id;
     return(
       <div className="SingleCause">
 
-        {/* TODO change to the cause title */}
         <Header
-         heading={causes[index].name} BGimage={causes[index].backgroundImage} mainImage={causes[index].mainImage}/>
+         heading={causes[index].name}
+         BGimage={causes[index].backgroundImage} mainImage={causes[index].mainImage}
+        />
 
-        <ProgressBar percentRaised={24}/>
+        <ProgressBar
+          percentRaised={24}
+        />
 
-        <TileSection />
+        <TileSection
+          goal={causes[index].amount}
+        />
 
-        <LinkButton href="/checkout" linkText="Donate" classname="donate-link"/>
+        <LinkButton
+          href="/checkout"
+          linkText="Donate"
+          classname="donate-link"
+        />
 
         <div className="share-link" onClick={() => this.sharePage()}>Or Share This Page</div>
 
-        {/* TODO pass in this data from the api */}
         <AboutCause
          title={causes[index].name}
-
          aboutText={causes[index].description}
-
          usageText={causes[index].purpose}
         />
 
-        <DonorComments />
+        <DonorComments
+          donorData={causes[index].comments}
+        />
 
-        <ActionButton actionText="Share this page" classname="share-page" action={this.sharePage}/>
+        <ActionButton
+          actionText="Share this page"
+          classname="share-page"
+          action={this.sharePage}
+        />
 
       </div>
     );

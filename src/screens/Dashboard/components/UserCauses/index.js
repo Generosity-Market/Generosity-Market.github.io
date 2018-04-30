@@ -23,7 +23,7 @@ class UserCauses extends Component {
             </Link>
           </div>
           <div className="cause-icon">
-            <Link to='/cause/3'>
+            <Link to='/cause/0'>
               <img src={require('../../../../Assets/Photography/madi-robson-113926.jpg')} alt=''/>
             </Link>
           </div>

@@ -4,24 +4,8 @@ import './DonorComments.css';
 class DonorComments extends Component {
 
   render() {
-    let donorData = [{
-      name: 'Sally Givesalot',
-      comment: 'I love this idea. Happy Birthday!',
-      amount: 100,
-      imageURL: 'profile.jpg'
-    }, {
-      name: 'Bob Surrent',
-      comment: 'Happy Birthday Fiona!',
-      amount: 25,
-      imageURL: 'profile3.jpg'
-    }, {
-      name: 'Jim Giver',
-      comment: 'See you tonight, Happy Birthday',
-      amount: 50,
-      imageURL: 'profile2.jpg'
-    }];
 
-    let donorComments = donorData.map((donor, index) => {
+    let donorComments = this.props.donorData.map((donor, index) => {
       const donorImage = require(`../../../../Assets/Photography/${donor.imageURL}`);
       return (
              <div key={index} className="comment-card">

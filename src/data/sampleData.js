@@ -6,7 +6,23 @@ const causes = [{
   purpose: "This will cover all administration fees (including VISA, park fees), airfare, lodging, and food while in Kenya.",
   icon: "Africa.png",
   backgroundImage: "andrew-ruiz-348420.jpg",
-  mainImage: "madi-robson-113926.jpg"
+  mainImage: "madi-robson-113926.jpg",
+  comments: [{
+    name: 'Sally Givesalot',
+    comment: 'Can\'t wait to hear the stories!!',
+    imageURL: 'profile.jpg',
+    amount: 100
+  }, {
+    name: 'Bob Surrent',
+    comment: 'This sounds fun!',
+    imageURL: 'profile3.jpg',
+    amount: 50
+  }, {
+    name: 'Jim Giver',
+    comment: 'Have a great time!',
+    imageURL: 'profile2.jpg',
+    amount: 25
+  }]
 },
 {
   id: 1,
@@ -16,7 +32,23 @@ const causes = [{
   purpose: "We will be purchasing all of the building materials, as well as the production equipment to provide much needed jobs in this community.",
   icon: "Globe.png",
   backgroundImage: "jens-johnsson-78101.jpg",
-  mainImage: "madi-robson-113926.jpg"
+  mainImage: "madi-robson-113926.jpg",
+  comments: [{
+    name: '',
+    comment: '',
+    imageURL: '',
+    amount: 0
+  }, {
+    name: '',
+    comment: '',
+    imageURL: '',
+    amount: 0
+  }, {
+    name: '',
+    comment: '',
+    imageURL: '',
+    amount: 0
+  }]
 },
 {
   id: 2,
@@ -26,7 +58,23 @@ const causes = [{
   purpose: "This will provide for the adoption fees (including all paperwork fees), baby supplies, and food for our munchkin.",
   icon: "Diaper.png",
   backgroundImage: "annie-spratt-199471.jpg",
-  mainImage: "tim-bish-171738.jpg"
+  mainImage: "tim-bish-171738.jpg",
+  comments: [{
+    name: '',
+    comment: '',
+    imageURL: '',
+    amount: 0
+  }, {
+    name: '',
+    comment: '',
+    imageURL: '',
+    amount: 0
+  }, {
+    name: '',
+    comment: '',
+    imageURL: '',
+    amount: 0
+  }]
 },
 {
   id: 3,
@@ -36,7 +84,23 @@ const causes = [{
   purpose: "",
   icon: "Airplane.png",
   backgroundImage: "khendi-lee-25583.jpg",
-  mainImage: "jessica-castro-516921.jpg"
+  mainImage: "jessica-castro-516921.jpg",
+  comments: [{
+    name: '',
+    comment: '',
+    imageURL: '',
+    amount: 0
+  }, {
+    name: '',
+    comment: '',
+    imageURL: '',
+    amount: 0
+  }, {
+    name: '',
+    comment: '',
+    imageURL: '',
+    amount: 0
+  }]
 }];
 
 export default causes;
