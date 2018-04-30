@@ -12,6 +12,7 @@
   padding: 0.8rem 0.5rem;
   overflow: visible;
   height: 20px;
+  transition: width 0.3s;
 }
 
 .percent-bar h3 {

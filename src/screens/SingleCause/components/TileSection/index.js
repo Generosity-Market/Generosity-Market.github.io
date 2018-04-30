@@ -6,7 +6,7 @@ class TileSection extends Component {
 
   // TODO calculate the amount of tiles needed to raise the funding goal.
   calculateTiles = () => {
-    return <Tile amount={50} tileIcon={'Artboard-1-copy-4Africa-Logo.png'}/>;
+    return <Tile amount={50} tileIcon={'Africa.png'}/>;
   };
 
   render() {

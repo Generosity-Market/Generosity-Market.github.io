@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import causes from '../../data/sampleData.js';
 import './causelist.css';
 
 class CauseList extends Component {
@@ -7,6 +8,7 @@ class CauseList extends Component {
   }
 
   render() {
+    console.log("Causes:: ", causes);
     return(
       <div className="CauseList">
         <h2>Cause List</h2>
