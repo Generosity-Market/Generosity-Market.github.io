@@ -6,9 +6,9 @@ import ImageUploader from './components/ImageUploader';
 import './causeForm.css';
 
 class CauseForm extends Component {
-  constructor(props) {
-    super(props)
-  }
+  // constructor(props) {
+  //   super(props)
+  // }
 
   render() {
     return(

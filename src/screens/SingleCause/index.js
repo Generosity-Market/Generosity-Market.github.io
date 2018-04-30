@@ -9,18 +9,17 @@ import LinkButton from '../../components/LinkButton';
 import './SingleCause.css';
 
 export default class SingleCause extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      id: '',
-      name: '',
-      amountToRaise: 0,
-      amountRaised: 0,
-      cart: [],
-      cartTotal: 0
-    };
-  };
-
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     id: '',
+  //     name: '',
+  //     amountToRaise: 0,
+  //     amountRaised: 0,
+  //     cart: [],
+  //     cartTotal: 0
+  //   };
+  // };
 
   sharePage = () => {
     alert("Shared");

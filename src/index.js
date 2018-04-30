@@ -5,7 +5,8 @@ import './styles/index.css';
 import registerServiceWorker from './registerServiceWorker';
 
 // imports from redux and react-router
-import { Switch, BrowserRouter, Route, Redirect } from 'react-router-dom';
+// TODO import 'Redirect' from RRD when redux/auth/api is implemented
+import { Switch, BrowserRouter, Route } from 'react-router-dom';
 // import { Provider } from 'react-redux';
 // import { createStore, applyMiddleware, compose } from 'redux';
 // import reduxThunk from 'redux-thunk';

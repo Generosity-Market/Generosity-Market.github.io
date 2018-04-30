@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './organizations.css';
 
 class Organizations extends Component {
-  constructor(props) {
-    super(props)
-  }
+  // constructor(props) {
+  //   super(props)
+  // }
 
   render() {
     return(
