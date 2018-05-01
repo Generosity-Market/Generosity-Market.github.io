@@ -16,11 +16,14 @@ class UserDetails extends Component {
         </div>
 
         <div className="user-details">
-          <p><span>Name: </span>Joe Gordy</p>
+          <p><span>Name: </span>{this.props.name}</p>
+
           <p><span>Address: </span><br/>
-          123 Charity Drive,<br/>
-          Atlanta, GA 30350</p>
-          <p><span>Phone: </span>(334) 444-4444</p>
+          {this.props.address.street},<br/>
+          {this.props.address.city}, {this.props.address.state} {this.props.address.zipcode}</p>
+
+          <p><span>Phone: </span>{this.props.phone}</p>
+          
           <div className="edit-button">
             <i className="fas fa-plus"></i> <p>edit profile</p>
           </div>
