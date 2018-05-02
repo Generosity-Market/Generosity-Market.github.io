@@ -25,7 +25,8 @@ class Dashboard extends Component {
     return(
       <div className="Dashboard">
 
-        {/* TODO change logic for the pics once we have data */}
+        {/* TODO change logic for the pics once we have data
+            TODO for now use the sample user data and pass down as props  */}
 
         <Header
           heading={`${this.getFirstName(user.name)}\'s Dashboard`}

@@ -3,14 +3,18 @@ import './DonorComments.css';
 
 class DonorComments extends Component {
 
+  getDonorImage = (imageURL) => {
+    return require(`../../../../Assets/Photography/${imageURL}`)
+  }
+
   render() {
 
     let donorComments = this.props.donorData.map((donor, index) => {
-      const donorImage = require(`../../../../Assets/Photography/${donor.imageURL}`);
+
       return (
              <div key={index} className="comment-card">
                 <div style={{flexBasis: '10%'}}>
-                  <img src={donorImage} alt='Donor'/>
+                  {donor.imageURL ? <img src={this.getDonorImage(donor.imageURL)} alt='Donor'/> : ''}
                   <p className='donor-amount'>${donor.amount}</p>
                 </div>
                 <div style={{flexBasis: '65%'}}>

@@ -30,6 +30,7 @@ export default class SingleCause extends Component {
 
   render() {
     let index = this.props.match.params.id;
+    console.log("Causes.Index:: ",causes[index]);
     return(
       <div className="SingleCause">
 
