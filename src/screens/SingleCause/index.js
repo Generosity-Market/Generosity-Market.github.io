@@ -45,6 +45,7 @@ export default class SingleCause extends Component {
 
         <TileSection
           goal={causes[index].amount}
+          tileIcon={causes[index].icon}
         />
 
         <LinkButton

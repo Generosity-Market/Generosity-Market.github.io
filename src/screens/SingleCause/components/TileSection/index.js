@@ -6,33 +6,36 @@ class TileSection extends Component {
 
   // TODO calculate the amount of tiles needed to raise the funding goal.
   calculateTiles = () => {
-    // return <Tile amount={50} tileIcon={'Africa.png'}/>;
+    // return <Tile amount={50} tileIcon={'Africa.png'} isPurchased={false}/>;
+    let tileArray = [];
     let tileNumber = 1,
         amount = this.props.goal;
 
     while (amount > 0) {
-      if (tileNumber % 21 === 0) {
+      if (tileNumber % 18 === 0) {
+        tileArray.push({tileNumber: tileNumber, isPurchased: false});
         amount = amount - tileNumber;
         tileNumber++;
-        console.log("--------------------");
-        console.log("amount:: ", amount);
-        console.log("Tile::: ", tileNumber);
-      } else if ((tileNumber === 1) || (tileNumber % 21 === 1)) {
+      } else if ((tileNumber === 1) || (tileNumber % 18 === 1)) {
+        tileArray.push({tileNumber: tileNumber, isPurchased: true});
         amount = amount - tileNumber;
         tileNumber++;
-        console.log("--------------------");
-        console.log("amount:: ", amount);
-        console.log("Tile::: ", tileNumber);
       } else {
+        tileArray.push({tileNumber: tileNumber, isPurchased: false});
         amount = amount - tileNumber;
         tileNumber++;
-        console.log("--------------------");
-        console.log("amount:: ", amount);
-        console.log("Tile::: ", tileNumber);
       }
     };
-    console.log("End Amount: ", amount);
-    console.log("Total Tiles:: ", tileNumber);
+
+    return this.mapTiles(tileArray);
+  };
+
+  mapTiles = (tiles) => {
+    return tiles.map((tile, index) => {
+      return(
+        <Tile key={index} amount={tile.tileNumber} tileIcon={this.props.tileIcon} isPurchased={tile.isPurchased}/>
+      );
+    });
   };
 
   render() {
