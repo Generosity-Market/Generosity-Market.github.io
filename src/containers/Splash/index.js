@@ -27,22 +27,23 @@ class Splash extends Component {
         <div className='links'>
           <LinkButton classname={'create-cause'} linkText={'Create a cause'} href={'/causes/new'}/>
           <LinkButton classname={'find-cause'} linkText={'Find a cause'} href={'/causes'}/>
-          <LinkButton classname={'sign-in'} linkText={'Sign in'} href={'/'}/>
+          <LinkButton classname={'sign-in'} linkText={'Sign in'} href={'/login'}/>
         </div>
 
-        <a href='/' className='sign-up'>Not a member? Sign up here</a>
+        <a href='/login' className='sign-up'>Not a member? Sign up here</a>
 
       </div>
     )
   }
 };
 
-// const mapStateToProps = (state) => {
-//   return {
-//     token: state.token,
-//     user: state.user
-//   }
-// };
+const mapStateToProps = (state) => {
+  return {
+    // token: state.token,
+    // user: state.user
+    state: state
+  }
+};
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
@@ -51,4 +52,4 @@ const mapDispatchToProps = (dispatch) => {
   }, dispatch)
 };
 
-export default connect(null, mapDispatchToProps)(Splash);
+export default connect(mapStateToProps, mapDispatchToProps)(Splash);

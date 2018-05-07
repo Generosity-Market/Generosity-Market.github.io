@@ -18,6 +18,7 @@ export const getCauseList = () => {
   return(dispatch, getState) => {
     return services.fetchCauseList()
            .then(causes => {
+             console.log(causes);
              dispatch(setData(causes))
            })
   }

@@ -27,10 +27,8 @@ const reducer = (state = initialState, action) => {
     //         $set: action.payload
     //       }
     // });
-
-
-
-
+    default:
+      return state;
   }
 };
 

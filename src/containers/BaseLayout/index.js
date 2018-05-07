@@ -21,13 +21,13 @@ class BaseLayout extends Component {
   }
 
   render() {
-    console.log("props: ", this.props);
+    // console.log("props: ", this.props);
     return(
       <div className="BaseLayout">
 
         <div className='topnav'>
           <div className='links'>
-            <Link to="/">
+            <Link to="/causes">
               <i className="fas fa-home"></i>
             </Link>
           </div>
@@ -47,7 +47,7 @@ class BaseLayout extends Component {
             <img src={require('../../Assets/Logo/PNG/Artboard-1Generosity-Logo.png')} alt="Generosity Market top menu logo"/>
           </div>
 
-          <div className='navLinks' onClick={() => this.handleNavigation('/splash')}>Splash Page</div>
+          <div className='navLinks' onClick={() => this.handleNavigation('/')}>Splash Page</div>
 
           <div className='navLinks' onClick={() => this.handleNavigation('/causes')}>Find a Cause</div>
 

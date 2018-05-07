@@ -16,7 +16,7 @@ class Header extends Component {
   }
 
   render() {
-    console.log("Header props", this.props);
+    // console.log("Header props", this.props);
     let imageURL = this.bgImage();
     let mainImageURL = this.mainImage();
     return(

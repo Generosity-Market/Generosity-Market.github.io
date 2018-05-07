@@ -1,19 +1,32 @@
 import React, { Component } from 'react';
+import Loader from '../../components/Loader';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { getCauseList } from '../../actions/actions';
 import './causelist.css';
 
 // NOTE sample data to be removed when api is live
-import causes from '../../data/sampleData.js';
+// import causes from '../../data/sampleData.js';
 
 class CauseList extends Component {
   // constructor(props) {
   //   super(props)
   // }
 
-  render() {
-    console.log("Causes:: ", causes);
+  componentDidMount() {
+  // Function for the api 'GET' call. Returns the entire game list
+  if (this.props.causeList.length === 0) {
+    this.props.getCauseList();
+  }
+};
 
-    let causeArray = causes.map(cause => {
+  render() {
+    if (this.props.causeList) {
+      console.log(this.props.causeList);
+    }
+
+    let causeArray = this.props.causeList.map(cause => {
       return(
         <div key={cause.id} style={{margin: '1rem 0rem'}}>
           <Link to={`/cause/${cause.id}`}>
@@ -34,4 +47,15 @@ class CauseList extends Component {
   }
 };
 
-export default CauseList;
+
+const mapStateToProps = (state) => {
+  return { causeList: state.causeList }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        getCauseList: getCauseList
+    }, dispatch)
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CauseList);
