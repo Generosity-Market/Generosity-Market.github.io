@@ -48,8 +48,8 @@ var(--white-85)        --> rgba(255,255,255,0.85)
   height: 100vh;
   padding: 2rem 0 0 2rem;
   position: fixed;
-  transition: left 0.4s;
-  width: 92vw;
+  transition: left 0.4s ease-in-out;
+  width: 92.25vw;
   z-index: 2;
 }
 
@@ -58,6 +58,11 @@ var(--white-85)        --> rgba(255,255,255,0.85)
   font-size: 1.5rem;
   margin-bottom: 3rem;
   text-shadow: 5px 3px 15px rgba(0,0,0,0.3);
+}
+
+.navLinks i {
+  margin-right: 2rem;
+  width: 5%;
 }
 
 nav .menuLogo {
