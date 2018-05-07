@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Loader from '../../components/Loader';
+// import Loader from '../../components/Loader';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getCauseList } from '../../actions/actions';
+import { getCauseList, causeSelected } from '../../actions/actions';
 import './causelist.css';
 
 // NOTE sample data to be removed when api is live
@@ -22,13 +22,9 @@ class CauseList extends Component {
 };
 
   render() {
-    if (this.props.causeList) {
-      console.log(this.props.causeList);
-    }
-
     let causeArray = this.props.causeList.map(cause => {
       return(
-        <div key={cause.id} style={{margin: '1rem 0rem'}}>
+        <div key={cause.id} style={{margin: '1rem 0rem'}} onClick={() => this.props.causeSelected(cause)}>
           <Link to={`/cause/${cause.id}`}>
             <h3>{cause.name}</h3>
           </Link>
@@ -54,7 +50,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-        getCauseList: getCauseList
+        getCauseList: getCauseList,
+        causeSelected: causeSelected
     }, dispatch)
 };
 

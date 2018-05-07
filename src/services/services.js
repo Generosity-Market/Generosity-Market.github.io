@@ -14,6 +14,18 @@ const services = {
            .catch(err => {
              console.log("Error: ", err);
            })
+  },
+  fetchSingleCause: (id) => {
+    return fetch(endpoint)
+           .then(response => {
+             return response.json();
+           })
+           .then(data => {
+             return data.filter(index => index.id === Number(id));
+           })
+           .catch(err => {
+             console.log("Error: ", err);
+           })
   }
 }
 

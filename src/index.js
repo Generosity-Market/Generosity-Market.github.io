@@ -11,7 +11,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk from 'redux-thunk';
 import reducers from './reducers/reducer';
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 
 // component imports
 import BaseLayout from './containers/BaseLayout';

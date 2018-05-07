@@ -1,7 +1,7 @@
-import { SET_DATA } from '../actions/actions';
+import { SET_DATA, CAUSE_SELECTED } from '../actions/actions';
 
 import update from 'immutability-helper';
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 
 const initialState = {
     causeList: [],
@@ -21,12 +21,12 @@ const reducer = (state = initialState, action) => {
               $set: action.payload
           }
     });
-    // case CAUSE_SELECTED:
-    //   return update(state, {
-    //       selectedCause: {
-    //         $set: action.payload
-    //       }
-    // });
+    case CAUSE_SELECTED:
+      return update(state, {
+          selectedCause: {
+            $set: action.payload
+          }
+    });
     default:
       return state;
   }

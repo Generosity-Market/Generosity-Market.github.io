@@ -4,6 +4,7 @@ import './Header.css';
 class Header extends Component {
 
   bgImage = () => {
+    console.log(this.props.BGimage);
     const imageUrl = require(`../../Assets/Photography/${this.props.BGimage}`);
     return imageUrl;
   }
