@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { causeSelected } from '../../actions/actions';
 import Header from '../../components/Header';
 import ProgressBar from './components/ProgressBar';
 import TileSection from './components/TileSection';
@@ -6,18 +8,14 @@ import AboutCause from './components/AboutCause';
 import DonorComments from './components/DonorComments';
 import ActionButton from '../../components/ActionButton';
 import LinkButton from '../../components/LinkButton';
+import services from '../../services/services';
+import utils from '../../utilities/utilities';
 import './SingleCause.css';
 
-// NOTE sample data to be removed when api is live
-import causes from '../../data/sampleData.js';
-
-export default class SingleCause extends Component {
+class SingleCause extends Component {
   // constructor(props) {
   //   super(props);
   //   this.state = {
-  //     id: '',
-  //     name: '',
-  //     amountToRaise: 0,
   //     amountRaised: 0,
   //     cart: [],
   //     cartTotal: 0
@@ -28,23 +26,36 @@ export default class SingleCause extends Component {
     alert("Shared");
   }
 
+  componentDidMount() {
+    utils.scrollTo('topnav');
+  };
+
   render() {
-    let index = this.props.match.params.id;
-    console.log("Causes.Index:: ",causes[index]);
+    let { cause } = this.props;
+    // fetch the current cause if undefined (Usually on refreshing the screen)
+    if (!cause) {
+      const id = this.props.match.params.id;
+      services.fetchSingleCause(id)
+      .then(cause => {
+        this.props.causeSelected(cause[0]);
+      });
+    };
+
     return(
       <div className="SingleCause">
 
-        <Header
-         heading={causes[index].name}
-         BGimage={causes[index].backgroundImage} mainImage={causes[index].mainImage}
-        />
+        {cause ? <Header
+         heading={cause.name}
+         BGimage={cause.backgroundImage} mainImage={cause.mainImage}
+        /> : '' }
 
         <ProgressBar
           percentRaised={24}
         />
 
         <TileSection
-          goal={causes[index].amount}
+          goal={cause.amount}
+          tileIcon={cause.icon}
         />
 
         <LinkButton
@@ -53,25 +64,41 @@ export default class SingleCause extends Component {
           classname="donate-link"
         />
 
-        <div className="share-link" onClick={() => this.sharePage()}>Or Share This Page</div>
+        <div className="share-link" onClick={() => this.sharePage()}>
+          <i className="fas fa-share-alt"></i>
+          Or Share This Page
+        </div>
 
         <AboutCause
-         title={causes[index].name}
-         aboutText={causes[index].description}
-         usageText={causes[index].purpose}
+         title={cause.name}
+         aboutText={cause.description}
+         usageText={cause.purpose}
         />
 
-        <DonorComments
-          donorData={causes[index].comments}
-        />
+        {cause ? <DonorComments
+          donorData={cause.comments}
+        /> : '' }
 
         <ActionButton
           actionText="Share this page"
           classname="share-page"
           action={this.sharePage}
+          icon={"fas fa-share-alt"}
         />
 
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return { cause: state.selectedCause }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        causeSelected: (payload) => dispatch(causeSelected(payload))
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SingleCause);

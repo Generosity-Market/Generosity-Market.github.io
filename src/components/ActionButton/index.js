@@ -25,6 +25,7 @@ class ActionButton extends Component {
     return(
       <div className="ActionButton" style={buttonWrap}>
         <div onClick={this.props.action} className={this.props.classname} style={buttonStyles}>
+        {this.props.icon ? <i className={this.props.icon}></i> : ''}
           {this.props.actionText}
         </div>
       </div>

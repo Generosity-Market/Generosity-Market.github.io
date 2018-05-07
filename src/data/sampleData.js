@@ -34,20 +34,20 @@ const causes = [{
   backgroundImage: "jens-johnsson-78101.jpg",
   mainImage: "madi-robson-113926.jpg",
   comments: [{
-    name: '',
-    comment: '',
-    imageURL: '',
-    amount: 0
+    name: 'Joe Whoa',
+    comment: 'Like whoa!',
+    imageURL: 'profile2.jpg',
+    amount: 124
   }, {
     name: '',
     comment: '',
-    imageURL: '',
-    amount: 0
+    imageURL: 'profile.jpg',
+    amount: 76
   }, {
     name: '',
     comment: '',
-    imageURL: '',
-    amount: 0
+    imageURL: 'profile3.jpg',
+    amount: 101
   }]
 },
 {
@@ -62,18 +62,18 @@ const causes = [{
   comments: [{
     name: '',
     comment: '',
-    imageURL: '',
-    amount: 0
+    imageURL: 'profile3.jpg',
+    amount: 109
   }, {
     name: '',
     comment: '',
-    imageURL: '',
-    amount: 0
+    imageURL: 'profile2.jpg',
+    amount: 283
   }, {
     name: '',
     comment: '',
-    imageURL: '',
-    amount: 0
+    imageURL: 'profile.jpg',
+    amount: 17
   }]
 },
 {
@@ -88,18 +88,18 @@ const causes = [{
   comments: [{
     name: '',
     comment: '',
-    imageURL: '',
-    amount: 0
+    imageURL: 'profile2.jpg',
+    amount: 10
   }, {
     name: '',
     comment: '',
-    imageURL: '',
-    amount: 0
+    imageURL: 'profile.jpg',
+    amount: 35
   }, {
     name: '',
     comment: '',
-    imageURL: '',
-    amount: 0
+    imageURL: 'profile3.jpg',
+    amount: 50
   }]
 }];
 

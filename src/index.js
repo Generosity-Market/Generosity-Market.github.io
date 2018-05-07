@@ -7,10 +7,10 @@ import registerServiceWorker from './registerServiceWorker';
 // imports from redux and react-router
 // TODO import 'Redirect' from RRD when redux/auth/api is implemented
 import { Switch, BrowserRouter, Route } from 'react-router-dom';
-// import { Provider } from 'react-redux';
-// import { createStore, applyMiddleware, compose } from 'redux';
-// import reduxThunk from 'redux-thunk';
-// import reducers from './reducers/reducer';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import reduxThunk from 'redux-thunk';
+import reducers from './reducers/reducer';
 // import Cookies from 'js-cookie';
 
 // component imports
@@ -26,12 +26,12 @@ import Checkout from './screens/Checkout';
 
 
 // creating the redux store with middleware
-// const store = createStore(
-//     reducers,
-//     compose(
-//         applyMiddleware(reduxThunk)
-//     )
-// );
+const store = createStore(
+    reducers,
+    compose(
+        applyMiddleware(reduxThunk)
+    )
+);
 
 // checking to see if there are cookies for authentication
 // const loggedIn = () => {
@@ -40,18 +40,20 @@ import Checkout from './screens/Checkout';
 // }
 
 ReactDOM.render(
-    <BrowserRouter>
-      <BaseLayout>
-        <Switch>
-          <Route  exact path='/' component={App} />
-          <Route  exact path='/splash' component={Splash} />
-          <Route  exact path='/users/:id/dashboard' component={Dashboard} />
-          <Route  exact path='/checkout' component={Checkout} />
-          <Route  exact path='/cause/:id' component={SingleCause} />
-          <Route  exact path='/causes/new' component={CauseForm} />
-          <Route  exact path='/causes' component={CauseList} />
-          <Route  exact path='/organizations/:id' component={Organizations} />
-        </Switch>
-      </BaseLayout>
-    </BrowserRouter>, document.getElementById('root'));
+<Provider store={store}>
+  <BrowserRouter>
+    <BaseLayout>
+      <Switch>
+        <Route  exact path='/login' component={App} />
+        <Route  exact path='/users/:id/dashboard' component={Dashboard} />
+        <Route  exact path='/checkout' component={Checkout} />
+        <Route  exact path='/cause/:id' component={SingleCause} />
+        <Route  exact path='/causes/new' component={CauseForm} />
+        <Route  exact path='/causes' component={CauseList} />
+        <Route  exact path='/organizations/:id' component={Organizations} />
+        <Route  exact path='/' component={Splash} />
+      </Switch>
+    </BaseLayout>
+  </BrowserRouter>
+</Provider>, document.getElementById('root'));
 registerServiceWorker();

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import navLinks from './linksData.js';
 import './baselayout.css';
 
 class BaseLayout extends Component {
@@ -21,13 +22,13 @@ class BaseLayout extends Component {
   }
 
   render() {
-    console.log("props: ", this.props);
+
     return(
       <div className="BaseLayout">
 
-        <div className='topnav'>
+        <div className='topnav' id='topnav'>
           <div className='links'>
-            <Link to="/">
+            <Link to="/causes">
               <i className="fas fa-home"></i>
             </Link>
           </div>
@@ -41,25 +42,21 @@ class BaseLayout extends Component {
           </div>
         </div>
 
-
         <nav style={this.state.showMenu ? {left: '0%'} : {left: '-100%'}}>
           <div className="menuLogo navLinks">
             <img src={require('../../Assets/Logo/PNG/Artboard-1Generosity-Logo.png')} alt="Generosity Market top menu logo"/>
           </div>
 
-          <div className='navLinks' onClick={() => this.handleNavigation('/splash')}>Splash Page</div>
+          {navLinks.map((link, index) => {
+            return(
+              <div key={index} className='navLinks' onClick={() => this.handleNavigation(link.endpoint)}>
+                <i className={link.icon} style={{color: link.color}}></i>
+                {link.name}
+              </div>
+            );
+          })}
 
-          <div className='navLinks' onClick={() => this.handleNavigation('/causes')}>Find a Cause</div>
 
-          <div className='navLinks' onClick={() => this.handleNavigation('/causes/new')}>Create a cause</div>
-
-          <div className='navLinks' onClick={() => this.handleNavigation('/cause/1')}>Cause 1</div>
-
-          <div className='navLinks' onClick={() => this.handleNavigation('/users/1/dashboard')}>Dashboard</div>
-
-          <div className='navLinks' onClick={() => this.handleNavigation('/organizations/1')}>Organizations</div>
-
-          <div className='navLinks' onClick={() => this.handleNavigation('/checkout')}>Checkout</div>
 
           <div className='closeMenu' onClick={() => this.setState({showMenu: false})}>
             <i className="fas fa-times"></i>

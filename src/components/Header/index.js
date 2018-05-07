@@ -9,14 +9,11 @@ class Header extends Component {
   }
 
   mainImage = () => {
-    if (this.props.mainImage) {
       const mainImageURL = require(`../../Assets/Photography/${this.props.mainImage}`);
       return mainImageURL;
-    }
   }
 
   render() {
-    console.log("Header props", this.props);
     let imageURL = this.bgImage();
     let mainImageURL = this.mainImage();
     return(
