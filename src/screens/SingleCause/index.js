@@ -29,8 +29,8 @@ class SingleCause extends Component {
   }
 
   render() {
-    let cause = this.props.cause;
-    // fetch teh current cause if undefined (Usually on refreshing the screen)
+    let { cause } = this.props;
+    // fetch the current cause if undefined (Usually on refreshing the screen)
     if (!cause) {
       const id = this.props.match.params.id;
       services.fetchSingleCause(id)
@@ -42,7 +42,7 @@ class SingleCause extends Component {
     return(
       <div className="SingleCause">
 
-        {this.props.cause ? <Header
+        {cause ? <Header
          heading={cause.name}
          BGimage={cause.backgroundImage} mainImage={cause.mainImage}
         /> : '' }
@@ -62,7 +62,10 @@ class SingleCause extends Component {
           classname="donate-link"
         />
 
-        <div className="share-link" onClick={() => this.sharePage()}>Or Share This Page</div>
+        <div className="share-link" onClick={() => this.sharePage()}>
+          <i className="fas fa-share-alt"></i>
+          Or Share This Page
+        </div>
 
         <AboutCause
          title={cause.name}
@@ -70,7 +73,7 @@ class SingleCause extends Component {
          usageText={cause.purpose}
         />
 
-        {this.props.cause ? <DonorComments
+        {cause ? <DonorComments
           donorData={cause.comments}
         /> : '' }
 
@@ -78,6 +81,7 @@ class SingleCause extends Component {
           actionText="Share this page"
           classname="share-page"
           action={this.sharePage}
+          icon={"fas fa-share-alt"}
         />
 
       </div>

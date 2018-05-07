@@ -16,6 +16,10 @@
   text-decoration: underline;
 }
 
+.share-link i {
+  margin-right: 0.5rem;
+}
+
 .donate-link {
   background-color: var(--dark-green);
   color: var(--white);

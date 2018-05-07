@@ -1,5 +1,4 @@
-// add any services and api calls here. Don't expose api keys here. Use .env files for that purpose
-
+// NOTE add any services and api calls here. Don't expose api keys here. Use .env files for that purpose
 const endpoint = 'http://localhost:3000/sampleData.json';
 
 const services = {

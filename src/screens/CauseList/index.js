@@ -6,9 +6,6 @@ import { bindActionCreators } from 'redux';
 import { getCauseList, causeSelected } from '../../actions/actions';
 import './causelist.css';
 
-// NOTE sample data to be removed when api is live
-// import causes from '../../data/sampleData.js';
-
 class CauseList extends Component {
   // constructor(props) {
   //   super(props)

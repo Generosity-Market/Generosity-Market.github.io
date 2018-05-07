@@ -4,20 +4,16 @@ import './Header.css';
 class Header extends Component {
 
   bgImage = () => {
-    console.log(this.props.BGimage);
     const imageUrl = require(`../../Assets/Photography/${this.props.BGimage}`);
     return imageUrl;
   }
 
   mainImage = () => {
-    if (this.props.mainImage) {
       const mainImageURL = require(`../../Assets/Photography/${this.props.mainImage}`);
       return mainImageURL;
-    }
   }
 
   render() {
-    // console.log("Header props", this.props);
     let imageURL = this.bgImage();
     let mainImageURL = this.mainImage();
     return(
