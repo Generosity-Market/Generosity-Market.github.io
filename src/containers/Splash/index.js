@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
-import './Splash.css';
+import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 import LinkButton from '../../components/LinkButton';
+import { destroyCookie, getCauseList } from '../../actions/actions';
+import './Splash.css';
 
 class Splash extends Component {
+
+
+  componentDidMount() {
+    // if (!this.props.token) {
+    //   this.setState({showLogin: true})
+    // }
+    this.props.getCauseList();
+  };
 
   render() {
     return(
@@ -26,4 +37,18 @@ class Splash extends Component {
   }
 };
 
-export default Splash;
+// const mapStateToProps = (state) => {
+//   return {
+//     token: state.token,
+//     user: state.user
+//   }
+// };
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    // destroyCookie: destroyCookie,
+    getCauseList: getCauseList
+  }, dispatch)
+};
+
+export default connect(null, mapDispatchToProps)(Splash);
