@@ -6,8 +6,6 @@ const navLinks =
 }, {
   name: 'Create A Cause', icon: 'fas fa-puzzle-piece', endpoint: '/causes/new', color: 'var(--medium-green)'
 }, {
-  name: 'Cause 1', icon: 'fas fa-hands-helping', endpoint: '/cause/1', color: 'var(--medium-green)'
-}, {
   name: 'Dashboard', icon: 'fas fa-tachometer-alt', endpoint: '/users/1/dashboard', color: 'var(--medium-green)'
 }, {
   name: 'Organizations', icon: 'fas fa-building', endpoint: '/organizations/1', color: 'var(--medium-green)'
