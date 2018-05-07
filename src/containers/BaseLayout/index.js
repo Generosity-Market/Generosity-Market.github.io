@@ -26,7 +26,7 @@ class BaseLayout extends Component {
     return(
       <div className="BaseLayout">
 
-        <div className='topnav'>
+        <div className='topnav' id='topnav'>
           <div className='links'>
             <Link to="/causes">
               <i className="fas fa-home"></i>

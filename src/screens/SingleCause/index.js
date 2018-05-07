@@ -9,15 +9,13 @@ import DonorComments from './components/DonorComments';
 import ActionButton from '../../components/ActionButton';
 import LinkButton from '../../components/LinkButton';
 import services from '../../services/services';
+import utils from '../../utilities/utilities';
 import './SingleCause.css';
 
 class SingleCause extends Component {
   // constructor(props) {
   //   super(props);
   //   this.state = {
-  //     id: '',
-  //     name: '',
-  //     amountToRaise: 0,
   //     amountRaised: 0,
   //     cart: [],
   //     cartTotal: 0
@@ -27,6 +25,10 @@ class SingleCause extends Component {
   sharePage = () => {
     alert("Shared");
   }
+
+  componentDidMount() {
+    utils.scrollTo('topnav');
+  };
 
   render() {
     let { cause } = this.props;
