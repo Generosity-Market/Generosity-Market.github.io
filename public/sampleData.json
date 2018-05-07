@@ -34,20 +34,20 @@
   "backgroundImage": "jens-johnsson-78101.jpg",
   "mainImage": "madi-robson-113926.jpg",
   "comments": [{
-    "name": "",
+    "name": "Steve Rogers",
     "comment": "",
-    "imageURL": "",
-    "amount": 0
+    "imageURL": "profile2.jpg",
+    "amount": 56
   }, {
-    "name": "",
+    "name": "Barry Allen",
     "comment": "",
-    "imageURL": "",
-    "amount": 0
+    "imageURL": "profile3.jpg",
+    "amount": 112
   }, {
-    "name": "",
+    "name": "Diana Prince",
     "comment": "",
-    "imageURL": "",
-    "amount": 0
+    "imageURL": "profile.jpg",
+    "amount": 39
   }]
 },
 {
@@ -60,20 +60,20 @@
   "backgroundImage": "annie-spratt-199471.jpg",
   "mainImage": "tim-bish-171738.jpg",
   "comments": [{
-    "name": "",
+    "name": "Bruce Banner",
     "comment": "",
-    "imageURL": "",
-    "amount": 0
+    "imageURL": "profile3.jpg",
+    "amount": 97
   }, {
-    "name": "",
-    "comment": "",
-    "imageURL": "",
-    "amount": 0
+    "name": "Joe Whoa",
+    "comment": "Like Whoa!!!",
+    "imageURL": "profile2.jpg",
+    "amount": 283
   }, {
-    "name": "",
+    "name": "Gemma Simmons",
     "comment": "",
-    "imageURL": "",
-    "amount": 0
+    "imageURL": "profile.jpg",
+    "amount": 115
   }]
 },
 {
@@ -86,19 +86,19 @@
   "backgroundImage": "khendi-lee-25583.jpg",
   "mainImage": "jessica-castro-516921.jpg",
   "comments": [{
-    "name": "",
+    "name": "Penny Ellis",
     "comment": "",
-    "imageURL": "",
-    "amount": 0
+    "imageURL": "profile.jpg",
+    "amount": 8
   }, {
-    "name": "",
+    "name": "Clark Kent",
     "comment": "",
-    "imageURL": "",
-    "amount": 0
+    "imageURL": "profile2.jpg",
+    "amount": 56
   }, {
-    "name": "",
+    "name": "Roland Rollins",
     "comment": "",
-    "imageURL": "",
-    "amount": 0
+    "imageURL": "profile3.jpg",
+    "amount": 21
   }]
 }]
