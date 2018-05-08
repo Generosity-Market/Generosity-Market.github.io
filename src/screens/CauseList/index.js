@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 // import Loader from '../../components/Loader';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { getCauseList, causeSelected } from '../../actions/actions';
 import './causelist.css';
 
@@ -12,7 +11,7 @@ class CauseList extends Component {
   // }
 
   componentDidMount() {
-  // Function for the api 'GET' call. Returns the entire game list
+  // Function for the api 'GET' call. Returns the entire cause list
   if (this.props.causeList.length === 0) {
     this.props.getCauseList();
   }
@@ -45,11 +44,9 @@ const mapStateToProps = (state) => {
   return { causeList: state.causeList }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({
-        getCauseList: getCauseList,
-        causeSelected: causeSelected
-    }, dispatch)
+const mapDispatchToProps = {
+  getCauseList,
+  causeSelected
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CauseList);

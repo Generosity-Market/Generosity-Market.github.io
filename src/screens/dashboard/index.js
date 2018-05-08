@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { getUserData } from '../../actions/actions';
 import Header from '../../components/Header';
 import UserDetails from './components/UserDetails/';
@@ -56,10 +55,8 @@ const mapStateToProps = (state) => {
   return { user: state.user }
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-      getUserData: getUserData
-  }, dispatch)
+const mapDispatchToProps = {
+      getUserData
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
-import { bindActionCreators } from 'redux';
 import LinkButton from '../../components/LinkButton';
 import { destroyCookie, getCauseList, getUserData } from '../../actions/actions';
 import './Splash.css';
@@ -46,12 +45,10 @@ const mapStateToProps = (state) => {
   }
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    // destroyCookie: destroyCookie,
-    getCauseList: getCauseList,
-    getUserData: getUserData
-  }, dispatch)
+const mapDispatchToProps = {
+    // destroyCookie,
+    getCauseList,
+    getUserData
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Splash);

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { getSingleCause, causeSelected } from '../../actions/actions';
 import Header from '../../components/Header';
 import ProgressBar from './components/ProgressBar';
@@ -92,11 +91,9 @@ const mapStateToProps = (state) => {
   return { cause: state.selectedCause }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({
-        causeSelected: causeSelected,
-        getSingleCause: getSingleCause
-    }, dispatch)
+const mapDispatchToProps = {
+        causeSelected,
+        getSingleCause
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleCause);
