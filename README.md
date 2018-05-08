@@ -8,7 +8,7 @@ Generosity Market is a platform for non-profits and charities to raise funds.
 ```sh
 git clone https://github.com/Generosity-Market/Generosity-Market.github.io.git
 cd Generosity-Market.github.io
-yarn install
+yarn
 ```
 
 ## Start
