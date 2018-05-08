@@ -17,7 +17,7 @@ const fetchData = (URL, args) =>{
          })
 };
 
-const services = {
+const Services = {
   fetchCauseList: () => {
     return fetchData('sampleData.json');
   },
@@ -29,4 +29,4 @@ const services = {
   }
 }
 
-export default services;
+export default Services;

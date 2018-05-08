@@ -1,5 +1,5 @@
 // import Cookies from 'js-cookie';
-import services from '../services/services';
+import Services from '../services/services';
 
 export const SET_DATA       = "SET_DATA",
              CAUSE_SELECTED = "CAUSE_SELECTED",
@@ -19,7 +19,7 @@ export const setData  = makeActionCreator(SET_DATA),
 // calling the api for the entire gamelist
 export const getCauseList = () => {
   return(dispatch, getState) => {
-    return services.fetchCauseList()
+    return Services.fetchCauseList()
            .then(causes => {
              dispatch(setData(causes))
            })
@@ -28,7 +28,7 @@ export const getCauseList = () => {
 
 export const getSingleCause = (id) => {
   return(dispatch, getState) => {
-    return services.fetchSingleCause()
+    return Services.fetchSingleCause()
            .then(list => {
              let cause = list.filter(index => index.id === Number(id));
              dispatch(causeSelected(cause[0]))
@@ -38,7 +38,7 @@ export const getSingleCause = (id) => {
 
 export const getUserData = () => {
   return(dispatch, getState) => {
-    return services.fetchUserData()
+    return Services.fetchUserData()
            .then(user => {
              dispatch(setUser(user))
            })
