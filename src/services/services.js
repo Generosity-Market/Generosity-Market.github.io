@@ -1,30 +1,31 @@
 // NOTE add any services and api calls here. Don't expose api keys here. Use .env files for that purpose
-const endpoint = 'http://localhost:3000/sampleData.json';
+const api = (endpoint) => {
+  let baseURL = 'http://localhost:3000/';
+  return baseURL + endpoint;
+}
+
+const fetchData = (URL, args) =>{
+  return fetch( api(URL) )
+         .then(response => {
+           return response.json();
+         })
+         .then(data =>{
+           return data;
+         })
+         .catch(err => {
+           console.log("Error: ", err);
+         })
+};
 
 const services = {
   fetchCauseList: () => {
-    return fetch(endpoint)
-           .then(response => {
-             return response.json();
-           })
-           .then(data =>{
-             return data;
-           })
-           .catch(err => {
-             console.log("Error: ", err);
-           })
+    return fetchData('sampleData.json');
   },
-  fetchSingleCause: (id) => {
-    return fetch(endpoint)
-           .then(response => {
-             return response.json();
-           })
-           .then(data => {
-             return data.filter(index => index.id === Number(id));
-           })
-           .catch(err => {
-             console.log("Error: ", err);
-           })
+  fetchSingleCause: () => {
+    return fetchData('sampleData.json');
+  },
+  fetchUserData: () => {
+    return fetchData('user.json');
   }
 }
 

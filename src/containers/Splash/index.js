@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import LinkButton from '../../components/LinkButton';
-import { destroyCookie, getCauseList } from '../../actions/actions';
+import { destroyCookie, getCauseList, getUserData } from '../../actions/actions';
 import './Splash.css';
 
 class Splash extends Component {
@@ -14,6 +14,7 @@ class Splash extends Component {
     //   this.setState({showLogin: true})
     // }
     this.props.getCauseList();
+    this.props.getUserData();
   };
 
   render() {
@@ -48,7 +49,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     // destroyCookie: destroyCookie,
-    getCauseList: getCauseList
+    getCauseList: getCauseList,
+    getUserData: getUserData
   }, dispatch)
 };
 

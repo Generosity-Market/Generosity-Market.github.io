@@ -1,4 +1,4 @@
-import { SET_DATA, CAUSE_SELECTED } from '../actions/actions';
+import { SET_USER, SET_DATA, CAUSE_SELECTED } from '../actions/actions';
 
 import update from 'immutability-helper';
 // import Cookies from 'js-cookie';
@@ -6,10 +6,9 @@ import update from 'immutability-helper';
 const initialState = {
     causeList: [],
     selectedCause: '',
+    user: '',
     // token: Cookies.get('token'),
     // filter: 'all',
-    // user: { username: null, email: null, userId: null },
-    // loggedIn: false,
     // alert: { type: null, message: null }
 };
 
@@ -26,6 +25,12 @@ const reducer = (state = initialState, action) => {
           selectedCause: {
             $set: action.payload
           }
+    });
+    case SET_USER:
+    return update(state, {
+      user: {
+        $set: action.payload
+      }
     });
     default:
       return state;
