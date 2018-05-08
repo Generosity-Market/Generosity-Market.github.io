@@ -19,7 +19,6 @@ class Header extends Component {
     return(
       <div className="Header">
         <div className="hero-image" style={{ backgroundImage: `url( ${imageURL} )` }} >
-          {/* TODO This will become generated once we have user data */}
           <h2>{this.props.heading}</h2>
         </div>
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { causeSelected } from '../../actions/actions';
+import { getSingleCause, causeSelected } from '../../actions/actions';
 import Header from '../../components/Header';
 import ProgressBar from './components/ProgressBar';
 import TileSection from './components/TileSection';
@@ -8,7 +8,6 @@ import AboutCause from './components/AboutCause';
 import DonorComments from './components/DonorComments';
 import ActionButton from '../../components/ActionButton';
 import LinkButton from '../../components/LinkButton';
-import services from '../../services/services';
 import utils from '../../utilities/utilities';
 import './SingleCause.css';
 
@@ -35,10 +34,7 @@ class SingleCause extends Component {
     // fetch the current cause if undefined (Usually on refreshing the screen)
     if (!cause) {
       const id = this.props.match.params.id;
-      services.fetchSingleCause(id)
-      .then(cause => {
-        this.props.causeSelected(cause[0]);
-      });
+      this.props.getSingleCause(id);
     };
 
     return(
@@ -95,10 +91,9 @@ const mapStateToProps = (state) => {
   return { cause: state.selectedCause }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        causeSelected: (payload) => dispatch(causeSelected(payload))
-    }
+const mapDispatchToProps = {
+        causeSelected,
+        getSingleCause
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleCause);
