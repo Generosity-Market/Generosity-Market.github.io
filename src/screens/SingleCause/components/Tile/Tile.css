@@ -31,6 +31,10 @@
   transition: background-color 0.3s, color 0.3s, transform 0.3s, border-radius 0.3s;
 }
 
+.Tile.isPurchased {
+  pointer-events: none;
+}
+
 .Tile.isPurchased p {
   opacity: 0;
 }
