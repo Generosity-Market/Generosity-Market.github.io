@@ -35,17 +35,17 @@
   "mainImage": "madi-robson-113926.jpg",
   "comments": [{
     "name": "Steve Rogers",
-    "comment": "",
+    "comment": "Now that's a great cause.",
     "imageURL": "profile2.jpg",
     "amount": 56
   }, {
     "name": "Barry Allen",
-    "comment": "",
+    "comment": "This sounds amazing!",
     "imageURL": "profile3.jpg",
     "amount": 112
   }, {
     "name": "Diana Prince",
-    "comment": "",
+    "comment": "So sweet.",
     "imageURL": "profile.jpg",
     "amount": 39
   }]
@@ -61,7 +61,7 @@
   "mainImage": "tim-bish-171738.jpg",
   "comments": [{
     "name": "Bruce Banner",
-    "comment": "",
+    "comment": "Great news!",
     "imageURL": "profile3.jpg",
     "amount": 97
   }, {
@@ -71,7 +71,7 @@
     "amount": 283
   }, {
     "name": "Gemma Simmons",
-    "comment": "",
+    "comment": "Can't wait to meet the little one",
     "imageURL": "profile.jpg",
     "amount": 115
   }]
@@ -80,14 +80,14 @@
   "id": 3,
   "name": "Summer Camp",
   "amount": 1500,
-  "description": "",
-  "purpose": "",
+  "description": "Going to summer camp!",
+  "purpose": "Your gift will help pay for room and board, admin fees, meals, and activities for the duration of the camp",
   "icon": "Airplane.png",
   "backgroundImage": "khendi-lee-25583.jpg",
   "mainImage": "jessica-castro-516921.jpg",
   "comments": [{
     "name": "Penny Ellis",
-    "comment": "",
+    "comment": "Have fun!",
     "imageURL": "profile.jpg",
     "amount": 8
   }, {
@@ -97,7 +97,7 @@
     "amount": 56
   }, {
     "name": "Roland Rollins",
-    "comment": "",
+    "comment": "Watch out for the snakes",
     "imageURL": "profile3.jpg",
     "amount": 21
   }]
