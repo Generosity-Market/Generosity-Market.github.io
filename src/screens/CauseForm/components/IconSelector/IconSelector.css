@@ -1,0 +1,77 @@
+.IconSelector {
+    margin: 0 auto;
+    width: 80%;
+}
+
+h1 {
+    border-bottom: var(--border);
+    color: var(--bright-green);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.selector {
+    position: relative;
+}
+
+.slider {
+    display: flex;
+    overflow-x: scroll;
+}
+
+.window {
+    display: grid;
+    grid-gap: 1rem;
+}
+
+.button {
+    align-items: center;
+    bottom: 40%;
+    color: var(--light-gray);
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+}
+
+.button.left {
+    left: -0.5rem;
+}
+
+.button.right {
+    right: -0.5rem;
+}
+
+.icon-tile {
+    border: var(--border);
+    border-radius: var(--border-radius);
+    height: 5rem;
+    padding: 1rem;
+    position: relative;
+    width: 5rem;
+}
+
+.icon-tile.selected {
+    pointer-events: none;
+}
+
+.icon-tile .overlay {
+    align-items: flex-start;
+    display: flex;
+    justify-content: flex-end;
+    opacity: 0.5;
+    position: absolute;
+    right: 0.25rem;
+    top: 0.5rem;
+    z-index: 1;
+}
+
+.icon-tile img {
+    transition: all 150ms ease-in-out;
+    width: 100%;
+}
+
+.icon-tile:hover img {
+    transform: scale(1.1);
+}
