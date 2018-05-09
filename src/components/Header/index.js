@@ -12,7 +12,7 @@ class Header extends Component {
       const mainImageURL = require(`../../Assets/Photography/Mobile/${this.props.mainImage}`);
       return mainImageURL;
   }
-
+  // TODO change the shape of the main image from round to square based off of the roundImage field.
   render() {
     let imageURL = this.bgImage();
     let mainImageURL = this.mainImage();

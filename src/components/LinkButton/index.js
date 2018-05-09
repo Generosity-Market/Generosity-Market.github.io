@@ -5,6 +5,7 @@ export default class LinkButton extends Component {
 
   // takes two props 'href' and the 'linkText'
   render() {
+    let { href, classname, linkText } = this.props;
     let linkStyles = {
         width:          '100%',
         height:         '100%',
@@ -19,7 +20,14 @@ export default class LinkButton extends Component {
 
     return (
       <div className="LinkButton">
-        <Link to={this.props.href || '#'} className={this.props.classname} style={linkStyles}>{this.props.linkText}</Link>
+
+        { href ?
+          href.includes('https://') ?
+        <a
+        href={href || '#'} className={classname} style={linkStyles}>{linkText}</a> :
+
+        <Link to={href || '#'} className={classname} style={linkStyles}>{linkText}</Link> : '' }
+
       </div>
     );
   }
