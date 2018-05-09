@@ -8,7 +8,7 @@ import AboutCause from './components/AboutCause';
 import DonorComments from './components/DonorComments';
 import ActionButton from '../../components/ActionButton';
 import LinkButton from '../../components/LinkButton';
-import utils from '../../utilities/utilities';
+import Utils from '../../utilities/utilities';
 import './SingleCause.css';
 
 class SingleCause extends Component {
@@ -26,7 +26,7 @@ class SingleCause extends Component {
   }
 
   componentDidMount() {
-    utils.scrollTo('topnav');
+    Utils.scrollTo('topnav');
   };
 
   render() {

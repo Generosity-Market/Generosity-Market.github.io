@@ -4,12 +4,12 @@ import './Header.css';
 class Header extends Component {
 
   bgImage = () => {
-    const imageUrl = require(`../../Assets/Photography/${this.props.BGimage}`);
+    const imageUrl = require(`../../Assets/Photography/Mobile/${this.props.BGimage}`);
     return imageUrl;
   }
 
   mainImage = () => {
-      const mainImageURL = require(`../../Assets/Photography/${this.props.mainImage}`);
+      const mainImageURL = require(`../../Assets/Photography/Mobile/${this.props.mainImage}`);
       return mainImageURL;
   }
 

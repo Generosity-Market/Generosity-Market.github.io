@@ -1,5 +1,5 @@
 // add any reusable utility functions
-const utils = {
+const Utils = {
   scrollTo: (element) => {
     window.scroll({
       behavior: 'smooth',
@@ -9,4 +9,4 @@ const utils = {
   }
 }
 
-export default utils;
+export default Utils;
