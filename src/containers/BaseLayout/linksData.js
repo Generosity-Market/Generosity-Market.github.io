@@ -8,7 +8,7 @@ const navLinks =
 }, {
   name: 'Dashboard', icon: 'fas fa-tachometer-alt', endpoint: '/users/1/dashboard', color: 'var(--medium-green)'
 }, {
-  name: 'Organizations', icon: 'fas fa-building', endpoint: '/organizations/1', color: 'var(--medium-green)'
+  name: 'Organizations', icon: 'fas fa-building', endpoint: '/organizations/0', color: 'var(--medium-green)'
 }, {
   name: 'Checkout', icon: 'fas fa-shopping-cart', endpoint: '/checkout', color: 'var(--medium-green)'
 }];

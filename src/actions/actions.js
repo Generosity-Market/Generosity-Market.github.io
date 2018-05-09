@@ -1,9 +1,10 @@
 // import Cookies from 'js-cookie';
 import Services from '../services/services';
 
-export const SET_DATA       = "SET_DATA",
-             CAUSE_SELECTED = "CAUSE_SELECTED",
-             SET_USER       = "SET_USER";
+export const SET_DATA         = "SET_DATA",
+             CAUSE_SELECTED   = "CAUSE_SELECTED",
+             SET_USER         = "SET_USER",
+             SET_ORGANIZATION = "SET_ORGANIZATION";
 
 const makeActionCreator = function(actionType) {
     return function(payload) {
@@ -11,9 +12,10 @@ const makeActionCreator = function(actionType) {
     }
 };
 
-export const setData  = makeActionCreator(SET_DATA),
-        causeSelected = makeActionCreator(CAUSE_SELECTED),
-             setUser  = makeActionCreator(SET_USER);
+export const setData   = makeActionCreator(SET_DATA),
+        causeSelected  = makeActionCreator(CAUSE_SELECTED),
+             setUser   = makeActionCreator(SET_USER),
+             setOrg = makeActionCreator(SET_ORGANIZATION);
 
 
 // calling the api for the entire gamelist
@@ -41,6 +43,15 @@ export const getUserData = () => {
     return Services.fetchUserData()
            .then(user => {
              dispatch(setUser(user))
+           })
+  }
+}
+
+export const getOrgData = () => {
+  return(dispatch, getState) => {
+    return Services.fetchOrgData()
+           .then(org => {
+             dispatch(setOrg(org))
            })
   }
 }

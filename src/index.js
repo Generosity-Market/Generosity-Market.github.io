@@ -20,7 +20,7 @@ import Splash from './containers/Splash';
 import Dashboard from './screens/Dashboard';
 import CauseList from './screens/CauseList';
 import CauseForm from './screens/CauseForm';
-import Organizations from './screens/Organizations';
+import Organization from './screens/Organization';
 import SingleCause from './screens/SingleCause';
 import Checkout from './screens/Checkout';
 
@@ -50,7 +50,7 @@ ReactDOM.render(
         <Route  exact path='/cause/:id' component={SingleCause} />
         <Route  exact path='/causes/new' component={CauseForm} />
         <Route  exact path='/causes' component={CauseList} />
-        <Route  exact path='/organizations/:id' component={Organizations} />
+        <Route  exact path='/organizations/:id' component={Organization} />
         <Route  exact path='/' component={Splash} />
       </Switch>
     </BaseLayout>

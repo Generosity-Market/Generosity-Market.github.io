@@ -8,11 +8,7 @@
   "backgroundImage": "Canopy-Header-no-logo.jpg",
   "mainImage": "Canopy-Life-Logo.jpg",
   "Causes": [
-    {
-      "cause_id": 0,
-    },
-    {
-      "cause_id": 1
-    }
+    { "cause_id": 0 },
+    { "cause_id": 1 }
   ]
 }

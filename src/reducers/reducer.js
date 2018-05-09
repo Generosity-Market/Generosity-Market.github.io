@@ -1,4 +1,4 @@
-import { SET_USER, SET_DATA, CAUSE_SELECTED } from '../actions/actions';
+import { SET_USER, SET_DATA, CAUSE_SELECTED, SET_ORGANIZATION } from '../actions/actions';
 
 import update from 'immutability-helper';
 // import Cookies from 'js-cookie';
@@ -7,6 +7,9 @@ const initialState = {
     causeList: [],
     selectedCause: '',
     user: '',
+    orgList: [],
+    selectedOrg: ''
+
     // token: Cookies.get('token'),
     // filter: 'all',
     // alert: { type: null, message: null }
@@ -29,6 +32,12 @@ const reducer = (state = initialState, action) => {
     case SET_USER:
     return update(state, {
       user: {
+        $set: action.payload
+      }
+    });
+    case SET_ORGANIZATION:
+    return update(state, {
+      selectedOrg: {
         $set: action.payload
       }
     });

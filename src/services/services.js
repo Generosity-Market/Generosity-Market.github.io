@@ -26,6 +26,9 @@ const Services = {
   },
   fetchUserData: () => {
     return fetchData('user.json');
+  },
+  fetchOrgData: () => {
+    return fetchData('organization.json');
   }
 }
 
