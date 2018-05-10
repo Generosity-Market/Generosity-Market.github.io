@@ -4,7 +4,7 @@ import './DonorComments.css';
 class DonorComments extends Component {
 
   getDonorImage = (imageURL) => {
-    return require(`../../../../Assets/Photography/${imageURL}`)
+    return require(`../../../../Assets/Photography/Mobile/${imageURL}`)
   }
 
   render() {

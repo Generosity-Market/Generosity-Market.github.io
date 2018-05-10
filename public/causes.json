@@ -1,5 +1,7 @@
 [{
   "id": 0,
+  "orgId": 0,
+  "userId": null,
   "name": "Kenya Trip",
   "amount": 3500,
   "description": "I will be on the ground in Kenya for 10 days this summer in which I'll be visiting the kids at Canopy Life Academy, seeing some of the kid's communities, and ending the trip with a Safari!",
@@ -26,6 +28,8 @@
 },
 {
   "id": 1,
+  "orgId": 0,
+  "userId": null,
   "name": "Community Project",
   "amount": 10000,
   "description": "We're adding a sewing facility outside of Nairobi, Kenya",
@@ -52,6 +56,8 @@
 },
 {
   "id": 2,
+  "orgId": null,
+  "userId": null,
   "name": "Adoption",
   "amount": 40000,
   "description": "We're adopting!",
@@ -78,6 +84,8 @@
 },
 {
   "id": 3,
+  "orgId": null,
+  "userId": null,
   "name": "Summer Camp",
   "amount": 1500,
   "description": "Going to summer camp!",

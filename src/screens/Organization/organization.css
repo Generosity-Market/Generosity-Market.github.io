@@ -12,6 +12,16 @@ var(--white)           --> rgba(255,255,255,1)   or   #fff
 var(--white-85)        --> rgba(255,255,255,0.85)
 */
 
-.Organizations {
+.Organization {
   height: 100vh;
+}
+
+.Organization .LinkButton {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.Organization .org-link {
+  background-color: var(--dark-green);
+  color: var(--white);
 }

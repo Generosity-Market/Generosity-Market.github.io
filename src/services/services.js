@@ -19,13 +19,16 @@ const fetchData = (URL, args) =>{
 
 const Services = {
   fetchCauseList: () => {
-    return fetchData('sampleData.json');
+    return fetchData('causes.json');
   },
   fetchSingleCause: () => {
-    return fetchData('sampleData.json');
+    return fetchData('causes.json');
   },
   fetchUserData: () => {
     return fetchData('user.json');
+  },
+  fetchOrgData: () => {
+    return fetchData('organization.json');
   }
 }
 

@@ -4,15 +4,15 @@ import './Header.css';
 class Header extends Component {
 
   bgImage = () => {
-    const imageUrl = require(`../../Assets/Photography/${this.props.BGimage}`);
+    const imageUrl = require(`../../Assets/Photography/Mobile/${this.props.BGimage}`);
     return imageUrl;
   }
 
   mainImage = () => {
-      const mainImageURL = require(`../../Assets/Photography/${this.props.mainImage}`);
+      const mainImageURL = require(`../../Assets/Photography/Mobile/${this.props.mainImage}`);
       return mainImageURL;
   }
-
+  // TODO change the shape of the main image from round to square based off of the roundImage field.
   render() {
     let imageURL = this.bgImage();
     let mainImageURL = this.mainImage();

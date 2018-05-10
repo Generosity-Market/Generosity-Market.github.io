@@ -7,7 +7,7 @@ class AboutCause extends Component {
     return(
       <div className="AboutCause">
         <div className="about-text">
-          <h3>{this.props.title} Cause</h3>
+          <h3>About the {this.props.title} Cause</h3>
           <p>{this.props.aboutText}</p>
         </div>
 
