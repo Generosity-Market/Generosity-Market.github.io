@@ -1,6 +1,6 @@
 // NOTE add any services and api calls here. Don't expose api keys here. Use .env files for that purpose
 const api = (endpoint) => {
-  let baseURL = 'http://localhost:3000/';
+  let baseURL = 'http://localhost:3000/api/';
   return baseURL + endpoint;
 }
 
