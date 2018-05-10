@@ -3,10 +3,14 @@ import { Link } from 'react-router-dom';
 
 export default class LinkButton extends Component {
 
-  // takes two props 'href' and the 'linkText'
+
+  isExternalLink = (href) => {
+    return href.includes('https://');
+  }
+  // NOTE takes two props 'href' and the 'linkText'
   render() {
-    let { href, classname, linkText } = this.props;
-    let linkStyles = {
+    const { href, classname, linkText } = this.props;
+    const linkStyles = {
         width:          '100%',
         height:         '100%',
         display:        'inline-block',
@@ -17,16 +21,19 @@ export default class LinkButton extends Component {
         textDecoration: 'none',
         textAlign:      'center'
     }
+    let externalLink;
+    if (href) {
+    const externalLink = this.isExternalLink(href);
+    }
 
     return (
       <div className="LinkButton">
 
-        { href ?
-          href.includes('https://') ?
+        { externalLink ?
         <a
         href={href || '#'} className={classname} style={linkStyles}>{linkText}</a> :
 
-        <Link to={href || '#'} className={classname} style={linkStyles}>{linkText}</Link> : '' }
+        <Link to={href || '#'} className={classname} style={linkStyles}>{linkText}</Link> }
 
       </div>
     );
