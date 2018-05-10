@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from '../../components/Header';
 import OrgDetails from './components/OrgDetails/OrgDetails';
-// import OrgCauses from './components/OrgCauses/OrgCauses';
+import OrgCauses from './components/OrgCauses/OrgCauses';
 import LinkButton from '../../components/LinkButton';
-import { getOrgData } from '../../actions/actions';
+import { getOrgData, getCauseList } from '../../actions/actions';
 import './organization.css';
 
 class Organization extends Component {
@@ -13,12 +13,13 @@ class Organization extends Component {
   // }
 
   componentDidMount() {
+    if (this.props.causes.length === 0) {
+      this.props.getCauseList();
+    }
     this.props.getOrgData();
   }
 
   render() {
-    // console.log("Org Data::: ",this.props.organization);
-
     const { organization } = this.props;
 
     return(
@@ -31,15 +32,16 @@ class Organization extends Component {
           roundImage={organization.preferences.roundImage}
         /> : '' }
 
+        <OrgCauses
+          orgId= {organization.id}
+          causes={this.props.causes}
+        />
+
         <OrgDetails
           heading={organization.heading}
           mission={organization.mission}
           email={organization.email}
         />
-
-        {/* <OrgCauses
-              causes={organization.Causes}
-            /> */}
 
         <LinkButton
           href={organization.siteUrl}
@@ -53,9 +55,12 @@ class Organization extends Component {
 };
 
 const mapStateToProps = (state) => {
-  return { organization: state.selectedOrg };
+  return {
+    organization: state.selectedOrg,
+    causes: state.causeList
+  };
 };
 
-const mapDispatchToProps = { getOrgData };
+const mapDispatchToProps = { getOrgData, getCauseList };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Organization);

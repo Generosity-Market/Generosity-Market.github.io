@@ -4,8 +4,7 @@ import './OrgDetails.css';
 export default class OrgDetails extends Component {
 
   render() {
-    console.log(this.props);
-    let { heading, mission, email } = this.props;
+    const { heading, mission, email } = this.props;
     return(
       <div className="OrgDetails">
 
