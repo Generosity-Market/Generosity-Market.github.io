@@ -1,0 +1,18 @@
+.OrgCauses {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.OrgCauses h3 {
+  color: var(--dark-green);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.OrgCauses .cause-wrapper {
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem auto;
+  width: 90%;
+  overflow-x: scroll;
+}

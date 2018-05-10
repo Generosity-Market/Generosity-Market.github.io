@@ -4,13 +4,10 @@ import Header from '../../components/Header';
 import OrgDetails from './components/OrgDetails/OrgDetails';
 import OrgCauses from './components/OrgCauses/OrgCauses';
 import LinkButton from '../../components/LinkButton';
-import { getOrgData, getCauseList } from '../../actions/actions';
+import { getOrgData, getCauseList, causeSelected } from '../../actions/actions';
 import './organization.css';
 
 class Organization extends Component {
-  // constructor(props) {
-  //   super(props)
-  // }
 
   componentDidMount() {
     if (this.props.causes.length === 0) {
@@ -35,6 +32,7 @@ class Organization extends Component {
         <OrgCauses
           orgId= {organization.id}
           causes={this.props.causes}
+          causeSelected={this.props.causeSelected}
         />
 
         <OrgDetails
@@ -61,6 +59,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = { getOrgData, getCauseList };
+const mapDispatchToProps = { getOrgData, getCauseList, causeSelected };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Organization);
