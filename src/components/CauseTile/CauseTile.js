@@ -9,9 +9,9 @@ export default class CauseTile extends Component {
   }
 
   render() {
-    const { cause, index } = this.props;
+    const { cause } = this.props;
     return(
-      <div key={index} className="CauseTile"
+      <div className="CauseTile"
            onClick={() => this.props.causeSelected(cause)}>
 
         <Link to={`/cause/${cause.id}`}>

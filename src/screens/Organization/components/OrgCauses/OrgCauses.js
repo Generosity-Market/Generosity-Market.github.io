@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import CauseTile from '../../../../components/CauseTile/CauseTile';
 import './OrgCauses.css';
 
@@ -16,11 +15,9 @@ export default class OrgCauses extends Component {
     let orgCauses =
     causeArr.map((cause, index) => {
       return(
-        <CauseTile cause={cause} index={index} causeSelected={this.props.causeSelected} />
+        <CauseTile key={index} cause={cause} index={index} causeSelected={this.props.causeSelected} />
       );
     });
-
-    console.log(causeArr);
 
     return(
       <div className="OrgCauses">
