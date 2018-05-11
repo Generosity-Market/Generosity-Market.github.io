@@ -75,8 +75,17 @@ class TileSection extends Component {
     return(
       <div className="TileSection">
         <h2>Select Amount</h2>
+
+        <div className="direction-arrows left">
+          <i className="fas fa-2x fa-chevron-left" />
+        </div>
+
         <div className="tile-wrapper">
           {this.createBlocks(tiles)}
+        </div>
+        
+        <div className="direction-arrows right">
+          <i className="fas fa-2x fa-chevron-right" />
         </div>
       </div>
     );

@@ -1,5 +1,6 @@
 .TileSection {
   padding: 1rem;
+  position: relative;
 }
 
 .TileSection h2 {
@@ -19,7 +20,24 @@
 
 .tile-wrapper .row{
   flex: 0 0 auto;
-  width: 100vw;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  margin-right: 1.5rem;
+  width: 100%;
+}
+
+.direction-arrows {
+  color: var(--text-gray);
+  position: absolute;
+  top: 50%;
+  width: 0%;
+}
+
+.direction-arrows.left {
+  left: 1vw;
+}
+
+.direction-arrows.right {
+  right: 6vw;
 }
