@@ -40,10 +40,13 @@ class SingleCause extends Component {
     return(
       <div className="SingleCause">
 
-        {cause ? <Header
+        {cause ?
+        <Header
          heading={cause.name}
-         BGimage={cause.backgroundImage} mainImage={cause.mainImage}
-        /> : '' }
+         BGimage={cause.backgroundImage}
+         mainImage={cause.mainImage}
+        />
+        : '' }
 
         <ProgressBar
           percentRaised={24}
@@ -71,9 +74,11 @@ class SingleCause extends Component {
          usageText={cause.purpose}
         />
 
-        {cause ? <DonorComments
+        {cause ?
+        <DonorComments
           donorData={cause.comments}
-        /> : '' }
+        />
+        : '' }
 
         <ActionButton
           actionText="Share this page"
@@ -85,15 +90,12 @@ class SingleCause extends Component {
       </div>
     );
   }
-}
+};
 
 const mapStateToProps = (state) => {
   return { cause: state.selectedCause }
-}
-
-const mapDispatchToProps = {
-        causeSelected,
-        getSingleCause
 };
+
+const mapDispatchToProps = { causeSelected, getSingleCause };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleCause);
