@@ -24,7 +24,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   margin-right: 1.5rem;
-  width: 100%;
+  max-width: 100%;
 }
 
 .direction-arrows {

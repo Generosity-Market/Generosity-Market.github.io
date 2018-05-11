@@ -49,7 +49,8 @@ class SingleCause extends Component {
         : '' }
 
         <ProgressBar
-          percentRaised={24}
+          percentRaised={Math.floor(Math.random() * 100)}
+          goal={cause.amount}
         />
 
         <TileSection

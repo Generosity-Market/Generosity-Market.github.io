@@ -17,7 +17,7 @@ class ProgressBar extends Component {
     return(
       <div className="ProgressBar">
           <div className='percent-bar' style={barStyle}>
-            <h3>{this.props.percentRaised >= 100 ? 'Goal Accomplished!!' : `Total amount raised - ${this.props.percentRaised}%`}</h3>
+            <h3>{this.props.percentRaised >= 100 ? 'Goal Accomplished!!' : `Raised  ${this.props.percentRaised}%`} of ${this.props.goal}</h3>
           </div>
       </div>
     );

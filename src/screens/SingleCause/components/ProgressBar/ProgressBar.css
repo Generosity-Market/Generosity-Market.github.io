@@ -9,13 +9,14 @@
 
 .percent-bar {
   background-color: var(--light-green);
-  padding: 0.8rem 0.5rem;
-  overflow: visible;
   height: 20px;
+  overflow: visible;
+  padding: 0.8rem 0.5rem;
   transition: width 0.3s;
 }
 
 .percent-bar h3 {
-  position: absolute;
   color: var(--dark-green);
+  letter-spacing: 0.1rem;
+  position: absolute;
 }

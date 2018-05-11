@@ -46,9 +46,10 @@ class TileSection extends Component {
     let tileArray = [],
         tileNumber = 1,
         amount = this.props.goal;
+        let rando = Math.floor(Math.random() * 37);
 
     while (amount > 0) {
-      if ((tileNumber === 1) || (tileNumber % 18 === 1)) {
+      if (tileNumber % rando === 1) {
         tileArray.push({tileNumber: tileNumber, isPurchased: true});
         amount = amount - tileNumber;
         tileNumber++;
@@ -83,7 +84,7 @@ class TileSection extends Component {
         <div className="tile-wrapper">
           {this.createBlocks(tiles)}
         </div>
-        
+
         <div className="direction-arrows right">
           <i className="fas fa-2x fa-chevron-right" />
         </div>
