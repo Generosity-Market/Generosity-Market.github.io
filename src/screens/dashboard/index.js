@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getUserData } from '../../actions/actions';
+import { getUserData, getCauseList, causeSelected } from '../../actions/actions';
 import Header from '../../components/Header';
 import UserDetails from './components/UserDetails/';
 import UserCauses from './components/UserCauses';
 import Receipts from './components/Receipts';
+import LinkButton from '../../components/LinkButton';
 import './dashboard.css';
 
 class Dashboard extends Component {
@@ -26,6 +27,7 @@ class Dashboard extends Component {
     if (!user) {
       const id = this.props.match.params.id;
       this.props.getUserData(id);
+      this.props.getCauseList();
     };
 
     return(
@@ -38,13 +40,23 @@ class Dashboard extends Component {
 
         {user ? <UserDetails
           name={user.name}
-          address={user.address}
           phone={user.phone}
+          address={user.address}
+          editProfile={this.state.editProfile}
         /> : '' }
 
-        <UserCauses />
+        <UserCauses
+          causes={this.props.causes}
+          causeSelected={this.props.causeSelected}
+        />
 
         <Receipts />
+
+        <LinkButton
+          href={'/causes/new'}
+          classname={'create-cause'}
+          linkText={'Create a cause'}
+        />
 
       </div>
     );
@@ -52,11 +64,9 @@ class Dashboard extends Component {
 };
 
 const mapStateToProps = (state) => {
-  return { user: state.user }
+  return { user: state.user, causes: state.causeList }
 };
 
-const mapDispatchToProps = {
-      getUserData
-}
+const mapDispatchToProps = { getUserData, getCauseList, causeSelected };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

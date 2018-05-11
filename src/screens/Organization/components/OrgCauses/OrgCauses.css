@@ -11,8 +11,9 @@
 
 .OrgCauses .cause-wrapper {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: nowrap;
   margin: 1rem auto;
-  width: 90%;
-  overflow-x: scroll;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
 }

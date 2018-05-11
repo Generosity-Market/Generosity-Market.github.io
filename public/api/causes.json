@@ -58,7 +58,7 @@
 },
 {
   "id": 2,
-  "orgId": null,
+  "orgId": 0,
   "userId": null,
   "type": "adoption",
   "name": "Team Gordy Expansion",
