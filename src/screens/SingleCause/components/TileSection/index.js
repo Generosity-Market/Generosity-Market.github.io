@@ -4,19 +4,52 @@ import './TileSection.css';
 
 class TileSection extends Component {
 
-  // TODO calculate the amount of tiles needed to raise the funding goal.
+  createBlocks = (tiles) => {
+    let blocks = [],
+        totalBlocks = Math.ceil(tiles.length / 18);
+
+    for (var i = 0; i < totalBlocks; i++) {
+        blocks.push(
+          <div key={i} className={`block${i} row`}>{this.addBlockContent(tiles, i + 1, totalBlocks)}</div>
+        );
+    }
+    return blocks;
+  }
+
+  addBlockContent = (tiles, i, totalBlocks) => {
+    let indexStart;
+    let indexEnd;
+    if (i === 1) {
+      indexStart = 0;
+      indexEnd = 18
+    } else if (i === totalBlocks) {
+      indexStart = (i * 18 - 18 );
+      indexEnd = tiles.length;
+    } else {
+      indexStart = (i * 18 - 18 );
+      indexEnd = i * 18;
+    }
+    let filteredData = tiles.filter((obj, index) => {
+      if ((index >= indexStart) && (index < indexEnd)) {
+        return index;
+      }
+    });
+
+    if (indexStart === 0) {
+        filteredData.unshift(tiles[0]);
+    }
+
+    return this.mapTiles(filteredData);
+  }
+
   calculateTiles = () => {
-    // return <Tile amount={50} tileIcon={'Africa.png'} isPurchased={false}/>;
-    let tileArray = [];
-    let tileNumber = 1,
+    let tileArray = [],
+        tileNumber = 1,
         amount = this.props.goal;
+        let rando = Math.floor(Math.random() * 37);
 
     while (amount > 0) {
-      if (tileNumber % 18 === 0) {
-        tileArray.push({tileNumber: tileNumber, isPurchased: false});
-        amount = amount - tileNumber;
-        tileNumber++;
-      } else if ((tileNumber === 1) || (tileNumber % 18 === 1)) {
+      if (tileNumber % rando === 1) {
         tileArray.push({tileNumber: tileNumber, isPurchased: true});
         amount = amount - tileNumber;
         tileNumber++;
@@ -26,8 +59,7 @@ class TileSection extends Component {
         tileNumber++;
       }
     };
-
-    return this.mapTiles(tileArray);
+    return tileArray;
   };
 
   mapTiles = (tiles) => {
@@ -39,11 +71,22 @@ class TileSection extends Component {
   };
 
   render() {
+    const tiles = this.calculateTiles();
+
     return(
       <div className="TileSection">
         <h2>Select Amount</h2>
+
+        <div className="direction-arrows left">
+          <i className="fas fa-2x fa-chevron-left" />
+        </div>
+
         <div className="tile-wrapper">
-          {this.calculateTiles()}
+          {this.createBlocks(tiles)}
+        </div>
+
+        <div className="direction-arrows right">
+          <i className="fas fa-2x fa-chevron-right" />
         </div>
       </div>
     );

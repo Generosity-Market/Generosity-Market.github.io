@@ -1,5 +1,6 @@
 .TileSection {
   padding: 1rem;
+  position: relative;
 }
 
 .TileSection h2 {
@@ -9,7 +10,34 @@
 }
 
 .tile-wrapper {
-  display: flex;
-  flex-flow: row wrap;
   margin: 2rem 0;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.tile-wrapper .row{
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-right: 1.5rem;
+  max-width: 100%;
+}
+
+.direction-arrows {
+  color: var(--text-gray);
+  position: absolute;
+  top: 50%;
+  width: 0%;
+}
+
+.direction-arrows.left {
+  left: 1vw;
+}
+
+.direction-arrows.right {
+  right: 6vw;
 }

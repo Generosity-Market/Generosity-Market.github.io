@@ -22,7 +22,10 @@ var(--light-gray)      --> rgba(221,221,221,1)   or   #ddd
 
 var(--white)           --> rgba(255,255,255,1)   or   #fff
 var(--white-85)        --> rgba(255,255,255,0.85)
-  */
+
+var(--border)          --> border:        1px solid var(--light-gray)
+var(--border-radius)   --> border-radius: 5px
+*/
 
 :root {
   --dark-green:        #008C49;

@@ -14,5 +14,18 @@ var(--white-85)        --> rgba(255,255,255,0.85)
 
 .Dashboard {
   min-height: 100vh;
-  padding-bottom: 3rem;
+}
+
+.Dashboard .LinkButton {
+  border: 1px solid var(--light-gray);
+  border-radius: 5px;
+  width: 80%;
+  margin: 1.5rem auto 3rem;
+  padding: 0.5rem;
+}
+
+.Dashboard .create-cause {
+  background-color: var(--bright-green);
+  color: var(--white);
+  padding: 0.5rem 0rem !important;
 }
