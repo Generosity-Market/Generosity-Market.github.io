@@ -20,20 +20,31 @@
   color: var(--dark-gray);
   margin: 0.5rem 0;
   font-size: 0.75rem;
+}
 
+.CauseTile .progress {
+  background-color: var(--light-green);
+  border-radius: var(--border-radius);
+  border-top-left-radius: 0px;
+  height: 26%;
+  position: absolute;
+  overflow: visible;
+  bottom: 0;
 }
 
 .CauseTile a h5 {
-  background-color: var(--black-30);
+  background-color: var(--black-20);
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
+  bottom: 0;
   color: var(--white);
+  left: 0;
+  letter-spacing: 0.03rem;
   margin-top: -0.3rem;
   padding: 0.3rem 0;
   position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
+  z-index: 2;
 }
 
 .CauseTile .wrapper img {

@@ -22,6 +22,6 @@ class ProgressBar extends Component {
       </div>
     );
   }
-}
+};
 
 export default ProgressBar;

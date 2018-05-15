@@ -9,14 +9,15 @@ export default class CauseTile extends Component {
   }
 
   render() {
-    const { cause } = this.props;
+    const { cause, raised } = this.props;
     return(
       <div className="CauseTile"
            onClick={() => this.props.causeSelected(cause)}>
 
         <Link to={`/cause/${cause.id}`}>
           <div className="wrapper" style={{backgroundImage: `url(${this.imgURL(cause.mainImage)})`}}>
-            <h5>${cause.amount} Goal</h5>
+            <h5>{raised}% of ${cause.amount}</h5>
+            <div className="progress" style={{width: `${raised}%`}}></div>
           </div>
           <h4>{cause.name}</h4>
         </Link>

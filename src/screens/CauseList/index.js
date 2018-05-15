@@ -11,11 +11,10 @@ class CauseList extends Component {
   // }
 
   componentDidMount() {
-  // Function for the api 'GET' call. Returns the entire cause list
-  if (this.props.causeList.length === 0) {
-    this.props.getCauseList();
-  }
-};
+    if (this.props.causeList.length === 0) {
+      this.props.getCauseList();
+    }
+  };
 
   render() {
     let causeArray = this.props.causeList.map(cause => {
@@ -30,23 +29,16 @@ class CauseList extends Component {
 
     return(
       <div className="CauseList" style={{paddingTop: '4.5rem'}}>
-        <h2>Cause List</h2>
-
         {causeArray}
-
       </div>
     );
   }
 };
 
-
 const mapStateToProps = (state) => {
   return { causeList: state.causeList }
 }
 
-const mapDispatchToProps = {
-  getCauseList,
-  causeSelected
-};
+const mapDispatchToProps = { getCauseList, causeSelected };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CauseList);

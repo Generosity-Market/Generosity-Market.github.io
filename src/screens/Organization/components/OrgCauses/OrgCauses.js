@@ -15,13 +15,13 @@ export default class OrgCauses extends Component {
     let orgCauses =
     causeArr.map((cause, index) => {
       return(
-        <CauseTile key={index} cause={cause} index={index} causeSelected={this.props.causeSelected} />
+        <CauseTile key={index} raised={58} cause={cause} index={index} causeSelected={this.props.causeSelected} />
       );
     });
 
     return(
       <div className="OrgCauses">
-        <h3>get involved</h3>
+        <h3>Get involved</h3>
         <div className="cause-wrapper">
           {orgCauses}
         </div>
