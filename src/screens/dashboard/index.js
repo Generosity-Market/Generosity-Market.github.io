@@ -34,21 +34,22 @@ class Dashboard extends Component {
       <div className="Dashboard">
 
         {user ? <Header
-          heading={`${this.getFirstName(user.name)}\'s Dashboard`}
-          BGimage={user.backgroundImage} mainImage={user.mainImage}
-        /> : '' }
+          heading={`${this.getFirstName(user.name)}s Dashboard`}
+          BGimage={user.backgroundImage}
+          mainImage={user.mainImage}
+          roundImage={user.preferences.roundImage}/>
+        : '' }
 
         {user ? <UserDetails
           name={user.name}
           phone={user.phone}
           address={user.address}
-          editProfile={this.state.editProfile}
-        /> : '' }
+          editProfile={this.state.editProfile}/>
+        : '' }
 
         <UserCauses
           causes={this.props.causes}
-          causeSelected={this.props.causeSelected}
-        />
+          causeSelected={this.props.causeSelected}/>
 
         <Receipts />
 

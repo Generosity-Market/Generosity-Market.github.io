@@ -10,6 +10,9 @@
   "icon": "Africa.png",
   "backgroundImage": "andrew-ruiz-348420.jpg",
   "mainImage": "bill-wegener-285004.jpg",
+  "preferences": {
+      "roundImage": true
+  },
   "comments": [{
     "name": "Sally Givesalot",
     "comment": "Can't wait to hear the stories!!",
@@ -39,6 +42,9 @@
   "icon": "Globe.png",
   "backgroundImage": "jens-johnsson-78101.jpg",
   "mainImage": "madi-robson-113926.jpg",
+  "preferences": {
+      "roundImage": true
+  },
   "comments": [{
     "name": "Steve Rogers",
     "comment": "Now that's a great cause.",
@@ -68,6 +74,9 @@
   "icon": "Diaper.png",
   "backgroundImage": "soap-bubbles-2417436_1280.jpg",
   "mainImage": "tim-bish-171738.jpg",
+  "preferences": {
+      "roundImage": true
+  },
   "comments": [{
     "name": "Bruce Banner",
     "comment": "Great news!",
@@ -97,6 +106,9 @@
   "icon": "Airplane.png",
   "backgroundImage": "khendi-lee-25583.jpg",
   "mainImage": "jessica-castro-516921.jpg",
+  "preferences": {
+      "roundImage": true
+  },
   "comments": [{
     "name": "Penny Ellis",
     "comment": "Have fun!",

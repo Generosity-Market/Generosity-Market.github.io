@@ -1,0 +1,12 @@
+.MainImage {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 4px solid var(--bright-green);
+  height: 96px;
+  margin: -18% auto 0;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 96px;
+}

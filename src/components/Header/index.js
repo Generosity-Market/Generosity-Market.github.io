@@ -1,30 +1,28 @@
 import React, { Component } from 'react';
+import MainImage from '../MainImage/MainImage';
 import './Header.css';
 
 class Header extends Component {
 
-  bgImage = () => {
-    const imageUrl = require(`../../Assets/Photography/Mobile/${this.props.BGimage}`);
-    return imageUrl;
+  getImageURL = (image) => {
+    return require(`../../Assets/Photography/Mobile/${image}`);
   }
 
-  mainImage = () => {
-      const mainImageURL = require(`../../Assets/Photography/Mobile/${this.props.mainImage}`);
-      return mainImageURL;
-  }
-  // TODO change the shape of the main image from round to square based off of the roundImage field.
   render() {
-    let imageURL = this.bgImage();
-    let mainImageURL = this.mainImage();
+    let imageURL = this.getImageURL(this.props.BGimage);
+    let mainImageURL = this.getImageURL(this.props.mainImage);
+
     return(
       <div className="Header">
         <div className="hero-image" style={{ backgroundImage: `url( ${imageURL} )` }} >
           <h2>{this.props.heading}</h2>
         </div>
 
-        <div className="profile-image">
-          {this.props.mainImage ? <img src={mainImageURL} alt='Profile'/> : <i className="fas fa-user"></i>}
-        </div>
+        <MainImage
+          imageURL={mainImageURL}
+          roundImage={this.props.roundImage}
+        />
+
       </div>
     );
   }

@@ -16,18 +16,17 @@
   margin-top: 2rem;
 }
 
-.profile-image {
-  background-color: var(--white);
+/* .profile-image { */
+  /* background-color: var(--white);
   border: 4px solid var(--bright-green);
   border-radius: 50%;
   height: 96px;
   margin: -18% auto 0;
   overflow: hidden;
-  padding: 0.1rem;
   position: relative;
   text-align: center;
-  width: 96px;
-}
+  width: 96px; */
+/* } */
 
 /* remove the border and icon after we can generate the user image */
 .profile-image i {

@@ -26,26 +26,23 @@ class Organization extends Component {
           heading={organization.name}
           BGimage={organization.backgroundImage}
           mainImage={organization.mainImage}
-          roundImage={organization.preferences.roundImage}
-        /> : '' }
+          roundImage={organization.preferences.roundImage} />
+        : '' }
 
         <OrgCauses
           orgId= {organization.id}
           causes={this.props.causes}
-          causeSelected={this.props.causeSelected}
-        />
+          causeSelected={this.props.causeSelected} />
 
         <OrgDetails
           heading={organization.heading}
           mission={organization.mission}
-          email={organization.email}
-        />
+          email={organization.email} />
 
         <LinkButton
           href={organization.siteUrl}
           classname={'org-link'}
-          linkText={`Visit ${organization.short_name}`}
-        />
+          linkText={`Visit ${organization.short_name}`} />
 
       </div>
     );
