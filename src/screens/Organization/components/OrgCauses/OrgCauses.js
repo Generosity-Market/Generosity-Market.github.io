@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CauseTile from '../../../../components/CauseTile/CauseTile';
+import Slider from '../../../../components/Slider/Slider';
 import './OrgCauses.css';
 
 export default class OrgCauses extends Component {
@@ -22,9 +23,9 @@ export default class OrgCauses extends Component {
     return(
       <div className="OrgCauses">
         <h3>Get involved</h3>
-        <div className="cause-wrapper">
+        <Slider>
           {orgCauses}
-        </div>
+        </Slider>
       </div>
     );
   }

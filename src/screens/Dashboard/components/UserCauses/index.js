@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CauseTile from '../../../../components/CauseTile/CauseTile';
+import Slider from '../../../../components/Slider/Slider';
 import './UserCauses.css';
 
 class UserCauses extends Component {
@@ -15,9 +16,9 @@ class UserCauses extends Component {
     return(
       <div className="UserCauses">
         <h4>Your Causes</h4>
-        <div className="cause-wrapper">
+        <Slider>
           {userCauses}
-        </div>
+        </Slider>
       </div>
     );
   }

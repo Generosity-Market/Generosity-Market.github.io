@@ -1,0 +1,9 @@
+.Slider {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 1rem auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  text-align: center;
+}

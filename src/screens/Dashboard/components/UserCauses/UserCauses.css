@@ -1,21 +1,10 @@
-.UserCauses {
-
-}
-
- .UserCauses h4 {
+.UserCauses h4 {
   border-bottom: 1px solid var(--light-gray);
   color: var(--bright-green);
   margin: 0 auto;
   padding-bottom: 0.75rem;
   width: 92%;
 }
-
-/* .UserCauses .slider {
-  display: flex;
-  justify-content: space-around;
-  margin: 1.5rem auto;
-  width: 90%;
-} */
 
 .cause-icon {
   border: 1px solid var(--light-gray);
@@ -29,18 +18,4 @@
   width: 100%;
   height: 75px;
   overflow-x: hidden;
-}
-
-.UserCauses .cause-wrapper {
-  display: flex;
-  flex-wrap: nowrap;
-  margin: 1rem 0;
-  text-align: center;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-}
-
-.UserCauses .cause-wrapper h4 {
-  border-bottom: none;
 }
