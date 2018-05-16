@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-// import Loader from '../../components/Loader';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCauseList, causeSelected } from '../../actions/actions';
+// import Loader from '../../components/Loader';
+import CauseTile from '../../components/CauseTile/CauseTile';
+import Slider from '../../components/Slider/Slider';
 import './causelist.css';
 
 class CauseList extends Component {
@@ -17,19 +18,26 @@ class CauseList extends Component {
   };
 
   render() {
-    let causeArray = this.props.causeList.map(cause => {
+    let causeArray = this.props.causeList.map((cause, index) => {
       return(
-        <div key={cause.id} style={{margin: '1rem 0rem'}} onClick={() => this.props.causeSelected(cause)}>
-          <Link to={`/cause/${cause.id}`}>
-            <h3>{cause.name}</h3>
-          </Link>
-        </div>
+        <CauseTile key={index} raised={Math.floor(Math.random() * 100)} cause={cause} causeSelected={this.props.causeSelected} />
       );
     });
 
     return(
       <div className="CauseList" style={{paddingTop: '4.5rem'}}>
-        {causeArray}
+        <h3></h3>
+        <Slider>
+          {causeArray}
+        </Slider>
+
+        <Slider>
+          {causeArray}
+        </Slider>
+
+        <Slider>
+          {causeArray}
+        </Slider>
       </div>
     );
   }

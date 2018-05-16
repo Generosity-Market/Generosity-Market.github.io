@@ -1,12 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Slider.css';
 
-export default class Slider extends Component {
-  render() {
-    return(
-      <div className="Slider">
-        {this.props.children}
-      </div>
-    );
-  }
+const Slider = (props) => {
+    return <div className="Slider">{props.children}</div>;
 };
+
+export default Slider;
