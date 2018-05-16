@@ -1,8 +1,8 @@
 import React from 'react';
 import MainImage from '../MainImage/MainImage';
-import './Header.css';
+import './Banner.css';
 
-const Header = (props) => {
+const Banner = (props) => {
   const getImageURL = image => require(`../../Assets/Photography/Mobile/${image}`);
   let imageURL = getImageURL(props.BGimage);
   let mainImageURL = getImageURL(props.mainImage);
@@ -20,4 +20,4 @@ const Header = (props) => {
   );
 };
 
-export default Header;
+export default Banner;

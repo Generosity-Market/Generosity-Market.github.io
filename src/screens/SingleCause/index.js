@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSingleCause, causeSelected } from '../../actions/actions';
-import Header from '../../components/Header';
+import Banner from '../../components/Banner/Banner';
 import ProgressBar from './components/ProgressBar';
 import TileSection from './components/TileSection';
 import AboutCause from './components/AboutCause';
@@ -41,7 +41,7 @@ class SingleCause extends Component {
       <div className="SingleCause">
 
         {cause ?
-        <Header
+        <Banner
          heading={cause.name}
          BGimage={cause.backgroundImage}
          mainImage={cause.mainImage}

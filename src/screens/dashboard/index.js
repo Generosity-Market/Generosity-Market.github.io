@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getUserData, getCauseList, causeSelected } from '../../actions/actions';
-import Header from '../../components/Header';
+import Banner from '../../components/Banner/Banner';
 import UserDetails from './components/UserDetails/';
 import UserCauses from './components/UserCauses';
 import Receipts from './components/Receipts';
@@ -33,7 +33,7 @@ class Dashboard extends Component {
     return(
       <div className="Dashboard">
 
-        {user ? <Header
+        {user ? <Banner
           heading={`${this.getFirstName(user.name)}s Dashboard`}
           BGimage={user.backgroundImage}
           mainImage={user.mainImage}
