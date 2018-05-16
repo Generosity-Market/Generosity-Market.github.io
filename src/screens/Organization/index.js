@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Header from '../../components/Header';
+import Banner from '../../components/Banner/Banner';
 import OrgDetails from './components/OrgDetails/OrgDetails';
 import OrgCauses from './components/OrgCauses/OrgCauses';
 import LinkButton from '../../components/LinkButton';
@@ -22,30 +22,27 @@ class Organization extends Component {
     return(
       <div className="Organization">
 
-        {organization ? <Header
+        {organization ? <Banner
           heading={organization.name}
           BGimage={organization.backgroundImage}
           mainImage={organization.mainImage}
-          roundImage={organization.preferences.roundImage}
-        /> : '' }
+          roundImage={organization.preferences.roundImage} />
+        : '' }
 
         <OrgCauses
           orgId= {organization.id}
           causes={this.props.causes}
-          causeSelected={this.props.causeSelected}
-        />
+          causeSelected={this.props.causeSelected} />
 
         <OrgDetails
           heading={organization.heading}
           mission={organization.mission}
-          email={organization.email}
-        />
+          email={organization.email} />
 
         <LinkButton
           href={organization.siteUrl}
           classname={'org-link'}
-          linkText={`Visit ${organization.short_name}`}
-        />
+          linkText={`Visit ${organization.short_name}`} />
 
       </div>
     );

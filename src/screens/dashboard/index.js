@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getUserData, getCauseList, causeSelected } from '../../actions/actions';
-import Header from '../../components/Header';
+import Banner from '../../components/Banner/Banner';
 import UserDetails from './components/UserDetails/';
 import UserCauses from './components/UserCauses';
 import Receipts from './components/Receipts';
@@ -33,22 +33,23 @@ class Dashboard extends Component {
     return(
       <div className="Dashboard">
 
-        {user ? <Header
-          heading={`${this.getFirstName(user.name)}\'s Dashboard`}
-          BGimage={user.backgroundImage} mainImage={user.mainImage}
-        /> : '' }
+        {user ? <Banner
+          heading={`${this.getFirstName(user.name)}s Dashboard`}
+          BGimage={user.backgroundImage}
+          mainImage={user.mainImage}
+          roundImage={user.preferences.roundImage}/>
+        : '' }
 
         {user ? <UserDetails
           name={user.name}
           phone={user.phone}
           address={user.address}
-          editProfile={this.state.editProfile}
-        /> : '' }
+          editProfile={this.state.editProfile}/>
+        : '' }
 
         <UserCauses
           causes={this.props.causes}
-          causeSelected={this.props.causeSelected}
-        />
+          causeSelected={this.props.causeSelected}/>
 
         <Receipts />
 

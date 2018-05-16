@@ -10,5 +10,8 @@
   },
   "phone": "(334) 444-4444",
   "backgroundImage": "jessica-lewis-512219.jpg",
-  "mainImage": "profile2.jpg"
+  "mainImage": "profile2.jpg",
+  "preferences": {
+      "roundImage": true
+  }
 }
