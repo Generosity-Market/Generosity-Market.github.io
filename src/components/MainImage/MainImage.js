@@ -1,14 +1,11 @@
 import React from 'react';
 import './MainImage.css';
 
-const MainImage = (props) => {
-  const { imageURL, roundImage } = props;
-  let imageStyle = {
-    borderRadius: roundImage ? '50%' : '10%',
-    backgroundImage: imageURL ? `url(${imageURL})` : ''
-  }
-
-  return <div className="MainImage" style={imageStyle}></div>
-};
+const MainImage = (props) =>
+  <div className="MainImage"
+    style={{
+      borderRadius: props.roundImage ? '50%' : '10%',
+      backgroundImage: props.imageURL ? `url(${props.imageURL})` : ''}}>
+  </div>
 
 export default MainImage;
