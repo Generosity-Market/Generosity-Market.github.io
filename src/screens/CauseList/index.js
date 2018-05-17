@@ -4,6 +4,7 @@ import { getCauseList, causeSelected } from '../../actions/actions';
 // import Loader from '../../components/Loader';
 import CauseTile from '../../components/CauseTile/CauseTile';
 import Slider from '../../components/Slider/Slider';
+import Heading from '../../components/Heading/Heading';
 import './causelist.css';
 
 class CauseList extends Component {
@@ -26,7 +27,7 @@ class CauseList extends Component {
 
     return(
       <div className="CauseList" style={{paddingTop: '4.5rem'}}>
-        <h3></h3>
+        <Heading text={'Featured'} />
         <Slider>
           {causeArray}
         </Slider>
