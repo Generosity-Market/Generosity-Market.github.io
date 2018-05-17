@@ -1,6 +1,6 @@
 .CauseTile {
-  padding: 0.5rem;
   flex: 0 0 33%;
+  padding: 0.5rem;
 }
 
 .CauseTile a {
@@ -10,26 +10,27 @@
 .CauseTile .wrapper {
   background-size: cover;
   background-position: center;
-  border: var(--border);
+  /* border: var(--border); */
   border-radius: var(--border-radius);
+  box-shadow: var(--mini-box-shadow);
   height: 6rem;
   position: relative;
 }
 
 .CauseTile a h4 {
   color: var(--dark-gray);
-  margin: 0.5rem 0;
   font-size: 0.75rem;
+  margin: 0.5rem 0;
 }
 
 .CauseTile .progress {
   background-color: var(--light-green);
   border-radius: var(--border-radius);
   border-top-left-radius: 0px;
-  height: 26%;
-  position: absolute;
-  overflow: visible;
   bottom: 0;
+  height: 26%;
+  overflow: visible;
+  position: absolute;
 }
 
 .CauseTile a h5 {
@@ -49,6 +50,6 @@
 .CauseTile .wrapper img {
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
-  width: 100%;
   height: 60%;
+  width: 100%;
 }

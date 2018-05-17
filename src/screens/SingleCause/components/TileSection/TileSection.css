@@ -10,9 +10,9 @@
 }
 
 .tile-wrapper {
-  margin: 2rem 0;
   display: flex;
   flex-wrap: nowrap;
+  margin: 2rem 0;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;

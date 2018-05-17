@@ -5,3 +5,8 @@
   padding-bottom: 0.75rem;
   width: 92%;
 }
+
+.UserCauses .CauseTile h4 {
+  border: none;
+  width: 100%;
+}

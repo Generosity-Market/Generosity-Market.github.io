@@ -17,12 +17,23 @@ var(--white-85)        --> rgba(255,255,255,0.85)
   padding-bottom: 3rem;
 }
 
+.Organization .Wrapper {
+  background-color: var(--white);
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  margin-top: -4.5rem;
+  padding-top: 4rem;
+  z-index: 1;
+}
+
 .Organization .LinkButton {
-  width: 85%;
   margin: 0 auto;
+  width: 85%;
 }
 
 .Organization .org-link {
   background-color: var(--dark-green);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
   color: var(--white);
 }
