@@ -39,6 +39,6 @@
 }
 
 .Tile.isPurchased p {
-  background-color: rgba(255,255,255,0.5);
-  color: var(--dark-green);
+  background-color: rgba(255,255,255,0.6);
+  color: var(--blackish);
 }
