@@ -40,25 +40,27 @@ class Dashboard extends Component {
           roundImage={user.preferences.roundImage}/>
         : '' }
 
-        {user ? <UserDetails
-          name={user.name}
-          phone={user.phone}
-          address={user.address}
-          editProfile={this.state.editProfile}/>
-        : '' }
+        <div className="Wrapper">
+        
+          {user ? <UserDetails
+            name={user.name}
+            phone={user.phone}
+            address={user.address}
+            editProfile={this.state.editProfile}/>
+          : '' }
 
-        <UserCauses
-          causes={this.props.causes}
-          causeSelected={this.props.causeSelected}/>
+          <UserCauses
+            causes={this.props.causes}
+            causeSelected={this.props.causeSelected}/>
 
-        <Receipts />
+          <Receipts />
 
-        <LinkButton
-          href={'/causes/new'}
-          classname={'create-cause'}
-          linkText={'Create a cause'}
-        />
+          <LinkButton
+            href={'/causes/new'}
+            classname={'create-cause'}
+            linkText={'Create a cause'}/>
 
+        </div>
       </div>
     );
   }

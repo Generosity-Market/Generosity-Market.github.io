@@ -29,21 +29,24 @@ class Organization extends Component {
           roundImage={organization.preferences.roundImage} />
         : '' }
 
-        <OrgCauses
-          orgId= {organization.id}
-          causes={this.props.causes}
-          causeSelected={this.props.causeSelected} />
+        <div className="Wrapper">
 
-        <OrgDetails
-          heading={organization.heading}
-          mission={organization.mission}
-          email={organization.email} />
+          <OrgCauses
+            orgId= {organization.id}
+            causes={this.props.causes}
+            causeSelected={this.props.causeSelected} />
 
-        <LinkButton
-          href={organization.siteUrl}
-          classname={'org-link'}
-          linkText={`Visit ${organization.short_name}`} />
+          <OrgDetails
+            heading={organization.heading}
+            mission={organization.mission}
+            email={organization.email} />
 
+          <LinkButton
+            href={organization.siteUrl}
+            classname={'org-link'}
+            linkText={`Visit ${organization.short_name}`} />
+
+        </div>
       </div>
     );
   }

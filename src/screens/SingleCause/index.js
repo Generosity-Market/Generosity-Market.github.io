@@ -48,40 +48,43 @@ class SingleCause extends Component {
          roundImage={cause.preferences.roundImage}/>
         : '' }
 
-        <ProgressBar
-          percentRaised={Math.floor(Math.random() * 100)}
-          goal={cause.amount}/>
+        <div className="wrapper">
 
-        <TileSection
-          goal={cause.amount}
-          tileIcon={cause.icon}/>
+          <ProgressBar
+            percentRaised={Math.floor(Math.random() * 100)}
+            goal={cause.amount}/>
 
-        <LinkButton
-          href="/checkout"
-          linkText="Donate"
-          classname="donate-link"/>
+          <TileSection
+            goal={cause.amount}
+            tileIcon={cause.icon}/>
 
-        <div className="share-link" onClick={() => this.sharePage()}>
-          <i className="fas fa-share-alt"></i>
-          Or Share This Page
+          <LinkButton
+            href="/checkout"
+            linkText="Donate"
+            classname="donate-link"/>
+
+          <div className="share-link" onClick={() => this.sharePage()}>
+            <i className="fas fa-share-alt"></i>
+            Or Share This Page
+          </div>
+
+          <AboutCause
+           title={cause.name}
+           aboutText={cause.description}
+           usageText={cause.purpose}/>
+
+          {cause ?
+          <DonorComments
+            donorData={cause.comments}/>
+          : '' }
+
+          <ActionButton
+            actionText="Share this page"
+            classname="share-page"
+            action={this.sharePage}
+            icon={"fas fa-share-alt"}/>
+
         </div>
-
-        <AboutCause
-         title={cause.name}
-         aboutText={cause.description}
-         usageText={cause.purpose}/>
-
-        {cause ?
-        <DonorComments
-          donorData={cause.comments}/>
-        : '' }
-
-        <ActionButton
-          actionText="Share this page"
-          classname="share-page"
-          action={this.sharePage}
-          icon={"fas fa-share-alt"}/>
-
       </div>
     );
   }
