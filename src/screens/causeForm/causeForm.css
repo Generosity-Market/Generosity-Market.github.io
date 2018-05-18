@@ -1,3 +1,14 @@
 .CauseForm {
 
 }
+
+.publish-cause {
+  background-color: var(--bright-green);
+  border-radius: var(--border-radius);
+  box-shadow: var(--mini-box-shadow);
+  color: var(--white);
+  letter-spacing: 0.15rem;
+  margin: 3rem auto !important;
+  padding: 0.5rem 0;
+  width: 80% !important;
+}
