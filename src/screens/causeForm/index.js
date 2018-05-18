@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CauseInputs from './components/CauseInputs';
 import IconSelector from './components/IconSelector';
 import ImageUploader from './components/ImageUploader';
-// import LinkButton from '../../components/LinkButton';
+// import ActionButton from '../../components/ActionButton';
 import Heading from '../../components/Heading/Heading';
 import './causeForm.css';
 
@@ -11,7 +11,14 @@ class CauseForm extends Component {
     super(props)
 
     this.state = {
-      icon: null
+      icon: null,
+      name: '',
+      type: '',
+      organization_name: '',
+      tax_id: '',
+      goal: '',
+      description: '',
+      purpose: ''
     };
 
     this.handleSelectIcon = this.handleSelectIcon.bind(this);
@@ -21,7 +28,9 @@ class CauseForm extends Component {
     return(
       <div className="CauseForm">
 
-        <CauseInputs />
+        <CauseInputs
+          state={this.state}
+          handleUpdateState={this.handleUpdateState}/>
 
         <Heading text={'Select Your Fundraising Icon'} />
         <IconSelector handleSelect={this.handleSelectIcon}/>
@@ -30,12 +39,20 @@ class CauseForm extends Component {
         <ImageUploader />
 
         {/* Button for submitting the Cause */}
+
       </div>
     );
   }
 
   handleSelectIcon(name) {
     this.setState({ icon: name });
+  }
+
+
+  handleUpdateState = (field) => {
+    return (event) => {
+      this.setState({[field]: event.target.value})
+    }
   }
 };
 
