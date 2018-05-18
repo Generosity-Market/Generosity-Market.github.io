@@ -3,6 +3,7 @@ import CauseInputs from './components/CauseInputs';
 import IconSelector from './components/IconSelector';
 import ImageUploader from './components/ImageUploader';
 // import LinkButton from '../../components/LinkButton';
+import Heading from '../../components/Heading/Heading';
 import './causeForm.css';
 
 class CauseForm extends Component {
@@ -21,9 +22,11 @@ class CauseForm extends Component {
       <div className="CauseForm">
 
         <CauseInputs />
-        
+
+        <Heading text={'Select Your Fundraising Icon'} />
         <IconSelector handleSelect={this.handleSelectIcon}/>
 
+        <Heading text={'Select Your Cause Profile & Cover Images'} />
         <ImageUploader />
 
         {/* Button for submitting the Cause */}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
 import './UserDetails.css';
 
 class UserDetails extends Component {
@@ -8,9 +9,9 @@ class UserDetails extends Component {
       <div className="profile-details UserDetails">
 
         <div className="photo-upload">
-          <i className="far fa-image"></i>
+          <FontAwesome classname={"far fa-image"} />
           <div>
-            <i className="fas fa-plus"></i>
+            <FontAwesome classname={"fas fa-plus"} />
             <p>Profile</p>
           </div>
         </div>
@@ -23,9 +24,9 @@ class UserDetails extends Component {
           {this.props.address.city}, {this.props.address.state} {this.props.address.zipcode}</p>
 
           <p><span>Phone: </span>{this.props.phone}</p>
-          
+
           <div className="edit-button">
-            <i className="fas fa-plus"></i> <p>edit profile</p>
+            <FontAwesome classname={"fas fa-plus"} /> <p>edit profile</p>
           </div>
         </div>
 

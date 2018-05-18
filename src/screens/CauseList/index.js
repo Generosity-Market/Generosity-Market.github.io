@@ -32,10 +32,12 @@ class CauseList extends Component {
           {causeArray}
         </Slider>
 
+        <Heading text={'Nearly Funded'} />
         <Slider>
           {causeArray}
         </Slider>
 
+        <Heading text={'Recently Added'} />
         <Slider>
           {causeArray}
         </Slider>

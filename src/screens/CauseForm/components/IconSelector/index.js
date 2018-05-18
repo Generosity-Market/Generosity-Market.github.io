@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
 import './IconSelector.css';
 
 
@@ -17,10 +18,9 @@ class IconSelector extends Component {
   render() {
     return (
       <div className="IconSelector">
-        <h1>Select Your Fundraising Icon</h1>
         <div className="selector">
           <div className="button left" onClick={this.decreaseViewIndex}>
-            <i className="fas fa-2x fa-chevron-left" />
+            <FontAwesome classname={"fas fa-2x fa-chevron-left"} />
           </div>
           <div className="slider">
             <div
@@ -31,7 +31,7 @@ class IconSelector extends Component {
             </div>
           </div>
           <div className="button right" onClick={this.increaseViewIndex}>
-            <i className="fas fa-2x fa-chevron-right" />
+            <FontAwesome classname={"fas fa-2x fa-chevron-right"} />
           </div>
         </div>
       </div>
@@ -45,10 +45,10 @@ class IconSelector extends Component {
         <div className={"icon-tile" + (match ? " selected" : "")} key={i} onClick={this.selectIcon.bind(this, icon)}>
           {match ? (
             <div className="overlay">
-              <i className="far fa-lg fa-check-circle"/>
+              <FontAwesome classname={"far fa-lg fa-check-circle"} />
             </div>
           ) : null}
-          <img src={this.returnIconUrl(icon)}/>
+          <img src={this.returnIconUrl(icon)} alt={icon}/>
         </div>
       );
     });

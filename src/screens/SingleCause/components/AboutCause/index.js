@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Heading from '../../../../components/Heading/Heading';
 import './AboutCause.css';
 
 class AboutCause extends Component {
@@ -7,12 +8,12 @@ class AboutCause extends Component {
     return(
       <div className="AboutCause">
         <div className="about-text">
-          <h3>About the {this.props.title} Cause</h3>
+          <Heading text={`About the ${this.props.title} Cause`}/>
           <p>{this.props.aboutText}</p>
         </div>
 
         <div className="usage-text">
-          <h3>How your gift will be used</h3>
+          <Heading text={`How your gift will be used`}/>
           <p>{this.props.usageText}</p>
         </div>
       </div>

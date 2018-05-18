@@ -1,22 +1,16 @@
 .DonorComments {
-  padding: 1rem;
-}
-
-.DonorComments h3 {
-  border-bottom: 1px solid var(--light-gray);
-  color: var(--bright-green);
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 
 .comment-card {
   align-items: center;
-  border: 1px solid var(--light-gray);
-  border-radius: 5px;
+  border: var(--border);
+  border-radius: var(--border-radius);
   display: flex;
-  height: 115px;
+  height: 7rem;
   justify-content: space-around;
-  margin: 0.5rem 0;
+  margin: 0.5rem auto;
+  width: 92%;
 }
 
 .comment-card div {
@@ -36,11 +30,11 @@
   border-radius: 50%;
   color: var(--white);
   display: flex;
-  font-size: 10px;
-  height: 30px;
+  font-size: 0.6rem;
+  height: 1.6rem;
   justify-content: center;
   position: absolute;
   top: 0;
   right: 0;
-  width: 30px;
+  width: 1.6rem;
 }

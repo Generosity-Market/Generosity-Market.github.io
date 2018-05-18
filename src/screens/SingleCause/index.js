@@ -8,6 +8,7 @@ import AboutCause from './components/AboutCause';
 import DonorComments from './components/DonorComments';
 import ActionButton from '../../components/ActionButton';
 import LinkButton from '../../components/LinkButton';
+import FontAwesome from '../../components/FontAwesome/FontAwesome';
 import Utils from '../../utilities/utilities';
 import './SingleCause.css';
 
@@ -21,9 +22,7 @@ class SingleCause extends Component {
   //   };
   // };
 
-  sharePage = () => {
-    alert("Shared");
-  }
+  sharePage = () => alert("Shared");
 
   componentDidMount() {
     Utils.scrollTo('topnav');
@@ -64,7 +63,7 @@ class SingleCause extends Component {
             classname="donate-link"/>
 
           <div className="share-link" onClick={() => this.sharePage()}>
-            <i className="fas fa-share-alt"></i>
+            <FontAwesome classname={"fas fa-share-alt"} />
             Or Share This Page
           </div>
 

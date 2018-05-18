@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Heading from '../../../../components/Heading/Heading';
 import './Receipts.css';
 
 class Receipts extends Component {
@@ -7,8 +8,7 @@ class Receipts extends Component {
   render() {
     return(
       <div className="Receipts">
-      
-        <h4>Donations & Receipts</h4>
+        <Heading text={'Donations & Receipts'}/>
 
         <div className="slider">
           <div className="receipt">

@@ -6,7 +6,7 @@ export const SET_DATA         = "SET_DATA",
              SET_USER         = "SET_USER",
              SET_ORGANIZATION = "SET_ORGANIZATION";
 
-const makeActionCreator = function(actionType) {
+const makeActionCreator = (actionType) => {
     return function(payload) {
         return {type: actionType, payload: payload}
     }
@@ -15,7 +15,7 @@ const makeActionCreator = function(actionType) {
 export const setData   = makeActionCreator(SET_DATA),
         causeSelected  = makeActionCreator(CAUSE_SELECTED),
              setUser   = makeActionCreator(SET_USER),
-             setOrg = makeActionCreator(SET_ORGANIZATION);
+             setOrg    = makeActionCreator(SET_ORGANIZATION);
 
 
 // calling the api for the entire gamelist

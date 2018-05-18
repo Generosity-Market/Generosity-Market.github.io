@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
+import Heading from '../../../../components/Heading/Heading';
 import './DonorComments.css';
 
 class DonorComments extends Component {
 
-  getDonorImage = (imageURL) => {
-    return require(`../../../../Assets/Photography/Mobile/${imageURL}`)
-  }
+  getDonorImage = imageURL => require(`../../../../Assets/Photography/Mobile/${imageURL}`);
 
   render() {
 
     let donorComments = this.props.donorData.map((donor, index) => {
-
       return (
              <div key={index} className="comment-card">
                 <div style={{flexBasis: '10%'}}>
@@ -27,8 +25,7 @@ class DonorComments extends Component {
 
     return(
       <div className="DonorComments">
-        <h3>Donor Comments</h3>
-
+        <Heading text={'Donor Comments'} />
         {donorComments}
       </div>
     );
