@@ -17,7 +17,6 @@ class IconSelector extends Component {
   render() {
     return (
       <div className="IconSelector">
-        <h1>Select Your Fundraising Icon</h1>
         <div className="selector">
           <div className="button left" onClick={this.decreaseViewIndex}>
             <i className="fas fa-2x fa-chevron-left" />

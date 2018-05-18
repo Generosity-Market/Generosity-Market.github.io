@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CauseTile from '../../../../components/CauseTile/CauseTile';
 import Slider from '../../../../components/Slider/Slider';
+import Heading from '../../../../components/Heading/Heading';
 import './UserCauses.css';
 
 class UserCauses extends Component {
@@ -15,7 +16,7 @@ class UserCauses extends Component {
 
     return(
       <div className="UserCauses">
-        <h4>Your Causes</h4>
+        <Heading text={'Your Causes'} />
         <Slider>
           {userCauses}
         </Slider>

@@ -41,7 +41,7 @@ class Dashboard extends Component {
         : '' }
 
         <div className="Wrapper">
-        
+
           {user ? <UserDetails
             name={user.name}
             phone={user.phone}
@@ -53,12 +53,12 @@ class Dashboard extends Component {
             causes={this.props.causes}
             causeSelected={this.props.causeSelected}/>
 
-          <Receipts />
-
           <LinkButton
             href={'/causes/new'}
             classname={'create-cause'}
             linkText={'Create a cause'}/>
+
+          <Receipts />
 
         </div>
       </div>

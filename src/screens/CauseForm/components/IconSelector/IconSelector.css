@@ -1,14 +1,6 @@
 .IconSelector {
-    margin: 0 auto;
+    margin: 0 auto 3rem;
     width: 80%;
-}
-
-h1 {
-    border-bottom: var(--border);
-    color: var(--bright-green);
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
 }
 
 .selector {

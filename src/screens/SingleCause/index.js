@@ -21,9 +21,7 @@ class SingleCause extends Component {
   //   };
   // };
 
-  sharePage = () => {
-    alert("Shared");
-  }
+  sharePage = () => alert("Shared");
 
   componentDidMount() {
     Utils.scrollTo('topnav');

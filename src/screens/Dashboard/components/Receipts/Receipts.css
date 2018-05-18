@@ -1,9 +1,5 @@
-.Receipts h4 {
-  color: var(--bright-green);
-  border-bottom: 1px solid var(--light-gray);
-  padding-bottom: 1rem;
-  width: 92%;
-  margin: 1.5rem auto;
+.Receipts {
+  padding-bottom: 3rem;
 }
 
 .Receipts .slider {

@@ -2,13 +2,6 @@
   padding: 1rem;
 }
 
-.DonorComments h3 {
-  border-bottom: 1px solid var(--light-gray);
-  color: var(--bright-green);
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-}
-
 .comment-card {
   align-items: center;
   border: 1px solid var(--light-gray);

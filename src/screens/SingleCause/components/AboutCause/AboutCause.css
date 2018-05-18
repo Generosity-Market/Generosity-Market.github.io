@@ -7,13 +7,6 @@
   margin-bottom: 2rem;
 }
 
-.AboutCause h3 {
-  border-bottom: 1px solid var(--light-gray);
-  color: var(--bright-green);
-  padding-bottom: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
 .AboutCause p {
   color: var(--text-gray);
   line-height: 1.3rem;
