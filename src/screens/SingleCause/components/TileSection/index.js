@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
 import Tile from '../Tile';
 import './TileSection.css';
 
@@ -78,7 +79,7 @@ class TileSection extends Component {
         <h2>Select Amount</h2>
 
         <div className="direction-arrows left">
-          <i className="fas fa-2x fa-chevron-left" />
+          <FontAwesome classname={"fas fa-2x fa-chevron-left"} />
         </div>
 
         <div className="tile-wrapper">
@@ -86,7 +87,7 @@ class TileSection extends Component {
         </div>
 
         <div className="direction-arrows right">
-          <i className="fas fa-2x fa-chevron-right" />
+          <FontAwesome classname={"fas fa-2x fa-chevron-right"} />
         </div>
       </div>
     );

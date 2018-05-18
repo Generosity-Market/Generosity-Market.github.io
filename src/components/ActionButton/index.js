@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FontAwesome from '../../components/FontAwesome/FontAwesome';
 import './ActionButton.css';
 
 class ActionButton extends Component {
@@ -25,7 +26,7 @@ class ActionButton extends Component {
     return(
       <div className="ActionButton" style={buttonWrap}>
         <div onClick={this.props.action} className={this.props.classname} style={buttonStyles}>
-        {this.props.icon ? <i className={this.props.icon}></i> : ''}
+        {this.props.icon ? <FontAwesome classname={this.props.icon} /> : ''}
           {this.props.actionText}
         </div>
       </div>

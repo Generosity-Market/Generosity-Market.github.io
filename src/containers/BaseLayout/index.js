@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import navLinks from './linksData.js';
+import FontAwesome from '../../components/FontAwesome/FontAwesome';
 import './baselayout.css';
 
 class BaseLayout extends Component {
@@ -29,7 +30,7 @@ class BaseLayout extends Component {
         <div className='topnav' id='topnav'>
           <div className='links'>
             <Link to="/causes">
-              <i className="fas fa-home"></i>
+              <FontAwesome classname={"fas fa-home"} />
             </Link>
           </div>
           <div className="menuLogo links">
@@ -37,7 +38,7 @@ class BaseLayout extends Component {
           </div>
           <div className='links'>
             <div onClick={() => this.setState({showMenu: true})}>
-              <i className="fas fa-bars"></i>
+              <FontAwesome classname={"fas fa-bars"} />
             </div>
           </div>
         </div>
@@ -50,16 +51,14 @@ class BaseLayout extends Component {
           {navLinks.map((link, index) => {
             return(
               <div key={index} className='navLinks' onClick={() => this.handleNavigation(link.endpoint)}>
-                <i className={link.icon} style={{color: link.color}}></i>
+                <FontAwesome classname={link.icon} style={{color: link.color}} />
                 {link.name}
               </div>
             );
           })}
 
-
-
           <div className='closeMenu' onClick={() => this.setState({showMenu: false})}>
-            <i className="fas fa-times"></i>
+            <FontAwesome classname={"fas fa-times"} />
           </div>
         </nav>
 
