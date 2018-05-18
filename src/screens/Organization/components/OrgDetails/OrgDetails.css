@@ -1,6 +1,6 @@
 .OrgDetails {
   margin: 2rem auto;
-  width: 93%;
+  /* width: 93%; */
 }
 
 .OrgDetails div {
@@ -11,11 +11,13 @@
   color: var(--text-gray);
   line-height: 1.3rem;
   letter-spacing: 1px;
+  padding: 0 0.65rem;
 }
 
 .OrgDetails a {
   color: var(--dark-green);
-  font-size: 19px;
+  font-size: 1.2rem;
   display: block;
   margin-top: 1.5rem;
+  padding: 0 0.65rem;
 }

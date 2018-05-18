@@ -1,6 +1,5 @@
 .AboutCause {
   margin: 2rem auto 0rem;
-  width: 93%;
 }
 
 .AboutCause div {
@@ -11,4 +10,5 @@
   color: var(--text-gray);
   line-height: 1.3rem;
   letter-spacing: 1px;
+  padding: 0 0.65rem;
 }
