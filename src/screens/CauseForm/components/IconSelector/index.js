@@ -47,7 +47,7 @@ class IconSelector extends Component {
               <i className="far fa-lg fa-check-circle"/>
             </div>
           ) : null}
-          <img src={this.returnIconUrl(icon)}/>
+          <img src={this.returnIconUrl(icon)} alt={icon}/>
         </div>
       );
     });
