@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import CauseInputs from './components/CauseInputs';
 import IconSelector from './components/IconSelector';
-// import ImageUploader from './components/ImageUploader';
 import ImageUploader from './components/ImageUploader/ImageUploader';
 import ActionButton from '../../components/ActionButton';
 import Heading from '../../components/Heading/Heading';
@@ -10,7 +9,6 @@ import './causeForm.css';
 class CauseForm extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
       icon: null,
       name: '',
@@ -28,7 +26,6 @@ class CauseForm extends Component {
   }
 
   render() {
-    console.log(this.state);
     return(
       <div className="CauseForm">
 
@@ -41,7 +38,8 @@ class CauseForm extends Component {
 
         <Heading text={'Select Your Cause Profile & Cover Images'} />
         <ImageUploader
-          handleImageChange={this._handleImageChange}
+          handleImageChange={this.handleImageChange}
+          name={this.state.name}
           profileURL={this.state.profileURL}
           coverURL={this.state.coverURL}/>
 
@@ -58,14 +56,13 @@ class CauseForm extends Component {
     this.setState({ icon: name });
   }
 
-
   handleUpdateState = (field) => {
     return (event) => {
       this.setState({[field]: event.target.value})
     }
   }
 
-  _handleImageChange = (e, field, url) => {
+  handleImageChange = (e, field, url) => {
     e.preventDefault();
     let reader = new FileReader();
     let file = e.target.files[0];

@@ -1,48 +1,64 @@
 import React, { Component } from 'react';
+import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
+// import Banner from '../../../../components/Banner/Banner';
+import './ImageUploader.css';
 
 export default class ImageUpload extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      profile_image: '',
-      imagePreviewUrl: ''
-    };
+
+  createFileInput = (input) => {
+    return (
+      <label className={input.labelClass}>
+        <FontAwesome classname={'fas fa-plus'} />
+        <input className={input.inputClass}
+          type="file"
+          onChange={(e)=>this.props.handleImageChange(e, input.image_type, input.argument)} />
+      </label>
+    );
+  }
+
+  checkURL = (URL, faClass) => {
+    console.log(faClass);
+    if (URL) {
+      return (<div style={{backgroundImage: `url(${URL})`}}></div>);
+    } else {
+      return (<FontAwesome classname={faClass}/>);
+    }
   }
 
   render() {
-    let { profileURL, coverURL } = this.props;
-    let $profilePreview = null;
-    let $coverPreview = null;
-    if (profileURL) {
-      $profilePreview = (<img src={profileURL} alt=""/>);
-    } else {
-      $profilePreview = '';
+    // TODO have a delete button to remove the selected image and go back to default FontAwesome icon.
+    const coverInput = {
+      labelClass: 'coverLabel',
+      inputClass: 'coverInput',
+      image_type: 'cover_image',
+      argument: 'coverURL',
+      text: 'Add Cover',
     }
-
-    if (coverURL) {
-      $coverPreview = (<img src={coverURL} alt=""/>);
-    } else {
-      $coverPreview = '';
-    }
-    console.log($profilePreview);
+    const profileInput = {
+      labelClass: 'profileLabel',
+      inputClass: 'profileInput',
+      image_type: 'profile_image',
+      argument: 'profileURL',
+      text: 'Add Profile'
+    };
+    let { profileURL, coverURL, name } = this.props;
+    let $profilePreview = this.checkURL(profileURL, 'fas fa-user-circle');
+    let $coverPreview = this.checkURL(coverURL, 'fas fa-image');
 
     return (
-      <div className="previewComponent">
+      <div className="ImageUploader previewComponent">
+        <h3>Banner preview</h3>
 
-        <input className="profileInput"
-          type="file"
-          onChange={(e)=>this.props.handleImageChange(e, 'profile_image', 'profileURL')} />
-
-        <div className="profilePreview">
-          {$profilePreview}
-        </div>
-
-        <input className="coverInput"
-          type="file"
-          onChange={(e)=>this.props.handleImageChange(e, 'cover_image', 'coverURL')} />
-
-        <div className="coverPreview">
-          {$coverPreview}
+        <div className="Banner">
+          <div className="coverPreview">
+            <h2 className="banner-heading">{name}</h2>
+            {this.createFileInput(coverInput)}
+            {$coverPreview}
+          </div>
+          <div className="profilePreview">
+          {this.createFileInput(profileInput)}
+            {$profilePreview}
+          </div>
         </div>
 
       </div>
