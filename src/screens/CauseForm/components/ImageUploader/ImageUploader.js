@@ -17,7 +17,6 @@ export default class ImageUpload extends Component {
   }
 
   checkURL = (URL, faClass) => {
-    console.log(faClass);
     if (URL) {
       return (<div style={{backgroundImage: `url(${URL})`}}></div>);
     } else {
@@ -27,6 +26,7 @@ export default class ImageUpload extends Component {
 
   render() {
     // TODO have a delete button to remove the selected image and go back to default FontAwesome icon.
+    // TODO when there is no uploaded icon use the plus font icon. If there is an uploaded pic use the pencil icon.
     const coverInput = {
       labelClass: 'coverLabel',
       inputClass: 'coverInput',
@@ -42,12 +42,11 @@ export default class ImageUpload extends Component {
       text: 'Add Profile'
     };
     let { profileURL, coverURL, name } = this.props;
-    let $profilePreview = this.checkURL(profileURL, 'fas fa-user-circle');
+    let $profilePreview = this.checkURL(profileURL, 'fas fa-image');
     let $coverPreview = this.checkURL(coverURL, 'fas fa-image');
 
     return (
       <div className="ImageUploader previewComponent">
-        <h3>Banner preview</h3>
 
         <div className="Banner">
           <div className="coverPreview">
@@ -56,7 +55,7 @@ export default class ImageUpload extends Component {
             {$coverPreview}
           </div>
           <div className="profilePreview">
-          {this.createFileInput(profileInput)}
+            {this.createFileInput(profileInput)}
             {$profilePreview}
           </div>
         </div>

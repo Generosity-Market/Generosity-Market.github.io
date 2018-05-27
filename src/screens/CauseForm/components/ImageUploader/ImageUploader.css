@@ -6,63 +6,32 @@
   text-align: center;
 }
 
-.ImageUploader h3 {
-  color: var(--text-gray);
-  flex-basis: 100%;
-  margin: 1rem 0 2rem;
-}
-
 .previewComponent label {
-  font-size: 20px;
+  align-items: center;
   background-color: var(--bright-green);
   border-radius: 50%;
   color: var(--white);
   display: flex;
+  font-size: 18px;
+  height: 2rem;
   justify-content: center;
-  align-items: center;
-  width: 1.85rem;
-  height: 1.85rem;
+  width: 2rem;
   position: absolute;
   z-index: 1;
 }
 
-.previewComponent .fa-image, .previewComponent .fa-user-circle {
+.previewComponent .fa-image {
   color: var(--light-gray);
   font-size: 3rem;
 }
 
-.coverInput, .profileInput {
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  width: 0.1px;
-  z-index: -1;
-}
-
-.profilePreview {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-.profilePreview div, .profilePreview .fa-user-circle{
-  background-color: var(--white);
-  border: 2px solid var(--bright-green);
-  border-radius: 10%;
-  box-shadow: 0.2rem 0.3rem 2.5rem rgba(0,0,0,0.5);
-  background-size: cover;
-  background-position: center;
-  height: 6.5rem;
+.profilePreview, .coverPreview {
   position: relative;
-  top: -50px;
-  width: 6.5rem;
 }
 
-.profilePreview .fa-user-circle, .coverPreview .fa-image {
-  align-items: center;
-  display: flex;
-  justify-content: center;
+.coverLabel {
+  right: 3%;
+  bottom: 5%;
 }
 
 .coverPreview div, .coverPreview .fa-image {
@@ -81,4 +50,42 @@
   right: 0;
   top: 50%;
   text-shadow: 0.2rem 0.2rem 0.5rem rgba(0,0,0,1);
+}
+
+.profilePreview {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.profileLabel {
+  right: 35%;
+}
+
+.profilePreview div, .profilePreview .fa-image{
+  background-color: var(--white);
+  border: 2px solid var(--bright-green);
+  border-radius: 10%;
+  box-shadow: 0.2rem 0.3rem 2.5rem rgba(0,0,0,0.5);
+  background-size: cover;
+  background-position: center;
+  height: 6.5rem;
+  position: relative;
+  top: -50px;
+  width: 6.5rem;
+}
+
+.profilePreview .fa-image, .coverPreview .fa-image {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.coverInput, .profileInput {
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 0.1px;
+  z-index: -1;
 }
