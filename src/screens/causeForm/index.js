@@ -1,41 +1,85 @@
 import React, { Component } from 'react';
 import CauseInputs from './components/CauseInputs';
 import IconSelector from './components/IconSelector';
-import ImageUploader from './components/ImageUploader';
-// import LinkButton from '../../components/LinkButton';
+import ImageUploader from './components/ImageUploader/ImageUploader';
+import ActionButton from '../../components/ActionButton';
 import Heading from '../../components/Heading/Heading';
 import './causeForm.css';
 
 class CauseForm extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
-      icon: null
+      icon: null,
+      name: '',
+      type: '',
+      organization_name: '',
+      tax_id: '',
+      goal: '',
+      description: '',
+      purpose: '',
+      profile_image: '',
+      profileURL: '',
+      cover_image: '',
+      coverURL: ''
     };
-
-    this.handleSelectIcon = this.handleSelectIcon.bind(this);
   }
 
   render() {
     return(
       <div className="CauseForm">
 
-        <CauseInputs />
+        <CauseInputs
+          state={this.state}
+          handleUpdateState={this.handleUpdateState}/>
 
         <Heading text={'Select Your Fundraising Icon'} />
         <IconSelector handleSelect={this.handleSelectIcon}/>
 
         <Heading text={'Select Your Cause Profile & Cover Images'} />
-        <ImageUploader />
+        <ImageUploader
+          handleImageChange={this.handleImageChange}
+          name={this.state.name}
+          profileURL={this.state.profileURL}
+          coverURL={this.state.coverURL}/>
 
-        {/* Button for submitting the Cause */}
+        <ActionButton
+          actionText={'publish cause page'}
+          classname={'publish-cause'}
+          action={() => this.handlePublish()}/>
+
       </div>
     );
   }
 
-  handleSelectIcon(name) {
+  handleSelectIcon = (name) => {
     this.setState({ icon: name });
+  }
+
+  handleUpdateState = (field) => {
+    return (event) => {
+      this.setState({[field]: event.target.value})
+    }
+  }
+
+  handleImageChange = (e, field, url) => {
+    e.preventDefault();
+    let reader = new FileReader();
+    let file = e.target.files[0];
+
+    reader.onloadend = () => {
+      this.setState({
+        [field]: file,
+        [url]: reader.result
+      });
+    }
+
+    reader.readAsDataURL(file);
+  }
+
+  handlePublish = () => {
+    // TODO: do something with -> this.state.file
+    console.log('handle uploading-', this.state);
   }
 };
 

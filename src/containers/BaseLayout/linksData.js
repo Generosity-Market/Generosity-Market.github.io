@@ -10,7 +10,7 @@ const navLinks =
 }, {
   name: 'Organizations', icon: 'fab fa-leanpub', endpoint: '/organizations', color: 'var(--medium-green)'
 }, {
-  name: 'Organization 0', icon: 'fas fa-building', endpoint: '/organizations/0', color: 'var(--medium-green)'
+  name: 'Canopy Life Example Org', icon: 'fas fa-building', endpoint: '/organizations/0', color: 'var(--medium-green)'
 }, {
   name: 'Checkout', icon: 'fas fa-shopping-cart', endpoint: '/checkout', color: 'var(--medium-green)'
 }];

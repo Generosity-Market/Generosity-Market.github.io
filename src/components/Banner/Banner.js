@@ -1,23 +1,24 @@
 import React from 'react';
 import MainImage from '../MainImage/MainImage';
+import FontAwesome from '../FontAwesome/FontAwesome';
+import Utils from '../../utilities/utilities';
 import './Banner.css';
 
-const Banner = (props) => {
-  const getImageURL = image => require(`../../Assets/Photography/Mobile/${image}`);
-  let imageURL = getImageURL(props.BGimage);
-  let mainImageURL = getImageURL(props.mainImage);
-
-  return(
+const Banner = (props) =>
     <div className="Header">
-      <div className="hero-image" style={{backgroundImage: `url(${imageURL})`}}>
-        <h2>{props.heading}</h2>
+
+      <div className="hero-image"
+           style={{
+             backgroundImage: props.BGimage && `url(${Utils.getImageURL(props.BGimage)})`
+           }}>
+        <h2>{props.heading && props.heading}</h2>
+        {!props.BGimage && <FontAwesome classname="far fa-image"/>}
       </div>
 
       <MainImage
-        imageURL={mainImageURL}
+        mainImage={props.mainImage && props.mainImage}
         roundImage={props.roundImage} />
+
     </div>
-  );
-};
 
 export default Banner;

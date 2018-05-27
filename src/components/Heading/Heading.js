@@ -3,9 +3,9 @@ import React from 'react';
 const Styles = {
   borderBottom: 'var(--border)',
   color: 'var(--bright-green)',
-  margin: '0 auto 1rem',
+  margin: '1rem auto',
   paddingBottom: '0.5rem',
-  width: '95%'
+  width: '92%'
 }
 
 const Heading = props =>
