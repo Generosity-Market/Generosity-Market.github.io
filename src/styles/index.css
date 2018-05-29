@@ -1,6 +1,10 @@
-/* project colors and thier css variables ( declared below )
-var(--danger)          --> rgba(255, 40, 40, 1)      or   #ff2828
-var(--danger-65)       --> rgba(255, 40, 40, 0.65)
+/* project styles and thier css variables ( declared below )
+
+var(--danger)          --> rgba(255,40,40,1)      or  #ff2828
+var(--danger-65)       --> rgba(255,40,40,0.65)
+
+var(--medium-blue)     --> rgba(71,141,255,1)    or   #478dff
+var(--medium-blue-85)  --> rgba(71,141,255,0.85)
 
 var(--dark-green)      --> rgba(0,140,73,1)      or   #008C49
 var(--dark-green-85)   --> rgba(0,140,73,0.85)
@@ -25,13 +29,15 @@ var(--light-gray)      --> rgba(221,221,221,1)   or   #ddd
 var(--white)           --> rgba(255,255,255,1)   or   #fff
 var(--white-85)        --> rgba(255,255,255,0.85)
 
-var(--border)          --> border:        1px solid var(--light-gray)
-var(--border-radius)   --> border-radius: 5px
+var(--border)          --> 1px solid var(--light-gray)
+var(--border-radius)   --> 5px
 */
 
 :root {
-  --danger:     #ff2828;
-  --danger-65:  rgba(255, 40, 40, 0.65);
+  --danger:            #ff2828;
+  --danger-65:         rgba(255, 40, 40, 0.65);
+  --medium-blue:       #478dff;
+  --medium-blue-85:    rgba(71,141,255,0.85);
   --dark-green:        #008C49;
   --dark-green-85:     rgba(0,140,73,0.85);
   --bright-green:      #3ABF49;
@@ -48,8 +54,8 @@ var(--border-radius)   --> border-radius: 5px
   --light-gray:        #ddd;
   --white:             rgba(255,255,255,1);
   --white-85:          rgba(255,255,255,0.85);
-  --main-font:         'Raleway', 'Futura', 'Century Gothic', sans-serif;
 
+  --main-font:         'Raleway', 'Futura', 'Century Gothic', sans-serif;
   --border:            1px solid var(--light-gray);
   --border-radius:     5px;
   --box-shadow:        0.2rem 0.2rem 1.5rem rgba(0,0,0,0.5);
