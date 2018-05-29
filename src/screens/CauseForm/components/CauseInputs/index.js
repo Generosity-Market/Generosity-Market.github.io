@@ -5,22 +5,26 @@ import './CauseInputs.css';
 class CauseInputs extends Component {
 
   getSelectOptions = (options, index) => {
-    return <select key={index} name='type' size={1}>
-             <option value="">- Type of Cause -</option>
-             {options.map((option,index) => {
-               return(
-                 <option key={index} value={option}>{option}</option>
-               );
-             })}
-           </select>
+    return (
+      <select key={index} name='type' size={1}>
+        <option value="">- Type of Cause -</option>
+        {options.map((option,index) => {
+          return(
+            <option key={index} value={option}>{option}</option>
+          );
+        })}
+      </select>
+         );
   }
 
   getTextArea = (input, index) => {
-    return <textarea key={index} name={input.name}
-              placeholder={input.placeholder}
-              onChange={this.props.handleUpdateState(input.name)}
-              value={this.props.state[input.name]}>
-            </textarea>
+    return (
+      <textarea key={index} name={input.name}
+        placeholder={input.placeholder}
+        onChange={this.props.handleUpdateState(input.name)}
+        value={this.props.state[input.name]}>
+      </textarea>
+         );
   };
 
   getInput = (input, index) => {
