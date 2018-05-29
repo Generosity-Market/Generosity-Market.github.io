@@ -1,23 +1,28 @@
-.ImageUploader {
+.ImageUploader,
+.profilePreview,
+.profilePreview .fa-image,
+.coverPreview .fa-image,
+.previewComponent .btns {
+  align-items: center;
   display: flex;
+  justify-content: center;
+}
+
+.ImageUploader {
   flex-flow: row wrap;
   margin-bottom: 3rem;
-  justify-content: space-around;
   text-align: center;
 }
 
-.previewComponent label {
-  align-items: center;
+.previewComponent .btns {
   background-color: var(--bright-green);
   border-radius: 50%;
+  border: none;
   color: var(--white);
-  display: flex;
   font-size: 18px;
-  height: 2rem;
-  justify-content: center;
-  width: 2rem;
+  height: 2.5rem;
+  width: 2.5rem;
   position: absolute;
-  z-index: 1;
 }
 
 .previewComponent .fa-image {
@@ -25,13 +30,29 @@
   font-size: 3rem;
 }
 
-.profilePreview, .coverPreview {
+.profilePreview,
+.coverPreview,
+.profilePreview div,
+.profilePreview .fa-image {
   position: relative;
 }
 
 .coverLabel {
   right: 3%;
   bottom: 5%;
+}
+
+.coverPreview p {
+  color: var(--text-gray);
+  position: absolute;
+  text-align: center;
+  top: 30%;
+  width: 100%;
+}
+
+.coverPreview .delete_cover {
+  right: 3%;
+  bottom: 25%;
 }
 
 .coverPreview div, .coverPreview .fa-image {
@@ -52,58 +73,75 @@
   text-shadow: 0.2rem 0.2rem 0.5rem rgba(0,0,0,1);
 }
 
-.profilePreview {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-.profileLabel {
-  right: 35%;
-}
-
-.profilePreview div, .profilePreview .fa-image{
+.profilePreview div, .profilePreview .fa-image {
   background-color: var(--white);
+  background-size: cover;
+  background-position: center;
   border: 2px solid var(--bright-green);
   border-radius: 10%;
   box-shadow: 0.2rem 0.3rem 2.5rem rgba(0,0,0,0.5);
-  background-size: cover;
-  background-position: center;
   height: 6.5rem;
-  position: relative;
   top: -50px;
   width: 6.5rem;
+  z-index: 1;
+  transition: border-radius 0.2s ease-in-out;
 }
 
-.profilePreview .fa-image, .coverPreview .fa-image {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-.profilePreview .delete_profile,
-.coverPreview .delete_cover {
-  background-color: var(--danger);
+.profilePreview div.circle, .profilePreview .fa-image.circle {
   border-radius: 50%;
-  border: none;
-  color: var(--white);
+  transition: border-radius 0.2s ease-in-out;
+}
+
+.delete_profile.btns,
+.delete_cover.btns {
+  background-color: var(--danger);
+  box-shadow: none;
   font-size: 24px;
-  position: absolute;
-  width: 2rem;
-  height: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.profilePreview .delete_profile {
-  left: 35%;
+/* TODO consolidate as much of these transition effects as possible */
+.change_profile_shape.btns {
+  background-color: var(--medium-blue);
+  box-shadow: none;
+  top: -10%;
+  right: 45%;
+  transition: right 0.5s ease 0.7s, top 0.5s ease 0.7s;
+  z-index: 0;
+}
+
+.change_profile_shape.btns.active {
+  right: 32%;
+  top: 65%;
+  transition: right 0.5s ease 0.7s, top 0.5s ease 0.7s;
+}
+
+.delete_profile.btns {
+  left: 45%;
+  top: -10%;
+  transition: left 0.5s ease 0.7s, top 0.5s ease 0.7s;
+  z-index: 0;
+}
+
+.delete_profile.btns.active {
+  left: 32%;
+  top: 65%;
+  transition: left 0.5s ease 0.7s, top 0.5s ease 0.7s;
+}
+
+.profileLabel.btns {
   top: 35%;
+  z-index: 2;
+  transition: top 0.3s ease-in-out 0.7s;
 }
 
-.coverPreview .delete_cover {
-  right: 3%;
-  bottom: 25%;
+.profileLabel.btns.active {
+  top: 65%;
+  transition: top 0.3s ease-in-out 0.7s;
+}
+
+.change_profile_shape i {
+  font-size: 20px;
+  bottom: 0;
 }
 
 .coverInput, .profileInput {

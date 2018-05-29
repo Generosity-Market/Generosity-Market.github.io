@@ -32,23 +32,24 @@ class CauseForm extends Component {
 
         <CauseInputs
           state={this.state}
-          handleUpdateState={this.handleUpdateState}/>
+          handleUpdateState={this.handleUpdateState} />
 
         <Heading text={'Select Your Fundraising Icon'} />
-        <IconSelector handleSelect={this.handleSelectIcon}/>
+        <IconSelector handleSelect={this.handleSelectIcon} />
 
         <Heading text={'Select Your Cause Profile & Cover Images'} />
         <ImageUploader
           handleImageChange={this.handleImageChange}
+          handleUpdateState={this.handleUpdateState}
           name={this.state.name}
           profileURL={this.state.profileURL}
           coverURL={this.state.coverURL}
-          roundImage={this.state.roundImage}/>
+          roundImage={this.state.roundImage} />
 
         <ActionButton
           actionText={'publish cause page'}
           classname={'publish-cause'}
-          action={() => this.handlePublish()}/>
+          action={() => this.handlePublish()} />
 
       </div>
     );
@@ -60,8 +61,16 @@ class CauseForm extends Component {
 
   handleUpdateState = (field) => {
     return (event) => {
-      this.setState({[field]: event.target.value})
-    }
+      if (field === 'roundImage') {
+        this.setState({roundImage: !this.state.roundImage})
+      } else if (event.target.value === 'true') {
+        this.setState({[field]: true})
+      } else if (event.target.value === 'false') {
+        this.setState({[field]: false})
+      } else {
+        this.setState({[field]: event.target.value})
+      }
+    };
   };
 
   handleImageChange = (e, field, url) => {
