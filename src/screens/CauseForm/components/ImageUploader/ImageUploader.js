@@ -5,13 +5,15 @@ import './ImageUploader.css';
 
 export default class ImageUpload extends Component {
 
-  createFileInput = (input) => {
+  createFileInput = (input, URL) => {
+    let iconClass = URL ? 'fas fa-pencil-alt' : 'fas fa-plus';
     return (
       <label className={input.labelClass}>
-        <FontAwesome classname={'fas fa-plus'} />
+        <FontAwesome classname={iconClass} />
         <input className={input.inputClass}
           type="file"
-          onChange={(e)=>this.props.handleImageChange(e, input.image_type, input.argument)} />
+          onChange={(e)=>this.props.handleImageChange(e, input.image_type, input.argument)}
+          onClick={(event)=> {event.target.value = null}} />
       </label>
     );
   }
@@ -25,8 +27,6 @@ export default class ImageUpload extends Component {
   }
 
   render() {
-    // TODO have a delete button to remove the selected image and go back to default FontAwesome icon.
-    // TODO when there is no uploaded icon use the plus font icon. If there is an uploaded pic use the pencil icon.
     const coverInput = {
       labelClass: 'coverLabel',
       inputClass: 'coverInput',
@@ -47,19 +47,28 @@ export default class ImageUpload extends Component {
 
     return (
       <div className="ImageUploader previewComponent">
-
         <div className="Banner">
+
           <div className="coverPreview">
             <h2 className="banner-heading">{name}</h2>
-            {this.createFileInput(coverInput)}
+            {this.createFileInput(coverInput, coverURL)}
             {$coverPreview}
+            {coverURL &&
+              <div className="delete_cover"  onClick={(e)=>this.props.handleImageChange(e, 'cover_image', 'coverURL')}>
+                <FontAwesome classname={'fas fa-times'} />
+              </div>}
           </div>
-          <div className="profilePreview">
-            {this.createFileInput(profileInput)}
-            {$profilePreview}
-          </div>
-        </div>
 
+          <div className="profilePreview">
+            {this.createFileInput(profileInput, profileURL)}
+            {$profilePreview}
+            {profileURL &&
+              <div className="delete_profile" onClick={(e)=>this.props.handleImageChange(e, 'profile_image', 'profileURL')}>
+                <FontAwesome classname={'fas fa-times'}/>
+              </div>}
+          </div>
+
+        </div>
       </div>
     )
   }

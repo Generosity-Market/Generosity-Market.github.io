@@ -21,7 +21,8 @@ class CauseForm extends Component {
       profile_image: '',
       profileURL: '',
       cover_image: '',
-      coverURL: ''
+      coverURL: '',
+      roundImage: true
     };
   }
 
@@ -41,7 +42,8 @@ class CauseForm extends Component {
           handleImageChange={this.handleImageChange}
           name={this.state.name}
           profileURL={this.state.profileURL}
-          coverURL={this.state.coverURL}/>
+          coverURL={this.state.coverURL}
+          roundImage={this.state.roundImage}/>
 
         <ActionButton
           actionText={'publish cause page'}
@@ -60,22 +62,27 @@ class CauseForm extends Component {
     return (event) => {
       this.setState({[field]: event.target.value})
     }
-  }
+  };
 
   handleImageChange = (e, field, url) => {
     e.preventDefault();
-    let reader = new FileReader();
-    let file = e.target.files[0];
-
-    reader.onloadend = () => {
+    if (e.target.files) {
+      let reader = new FileReader();
+      let file = e.target.files[0];
+      reader.onloadend = () => {
+        this.setState({
+          [field]: file,
+          [url]: reader.result
+        });
+      }
+      reader.readAsDataURL(file);
+    } else {
       this.setState({
-        [field]: file,
-        [url]: reader.result
+        [field]: '',
+        [url]: ''
       });
     }
-
-    reader.readAsDataURL(file);
-  }
+  };
 
   handlePublish = () => {
     // TODO: do something with -> this.state.file

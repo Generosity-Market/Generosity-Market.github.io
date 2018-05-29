@@ -81,6 +81,31 @@
   justify-content: center;
 }
 
+.profilePreview .delete_profile,
+.coverPreview .delete_cover {
+  background-color: var(--danger);
+  border-radius: 50%;
+  border: none;
+  color: var(--white);
+  font-size: 24px;
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profilePreview .delete_profile {
+  left: 35%;
+  top: 35%;
+}
+
+.coverPreview .delete_cover {
+  right: 3%;
+  bottom: 25%;
+}
+
 .coverInput, .profileInput {
   height: 0.1px;
   opacity: 0;
