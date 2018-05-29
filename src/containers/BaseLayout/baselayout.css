@@ -50,7 +50,7 @@ var(--white-85)        --> rgba(255,255,255,0.85)
   position: fixed;
   transition: left 0.4s ease-in-out;
   width: 92.25vw;
-  z-index: 2;
+  z-index: 5;
 }
 
 .navLinks {
