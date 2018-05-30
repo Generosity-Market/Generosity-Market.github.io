@@ -22,7 +22,8 @@ class CauseForm extends Component {
       profileURL: '',
       cover_image: '',
       coverURL: '',
-      roundImage: true
+      roundImage: true,
+      whiteText: true
     };
   }
 
@@ -44,7 +45,8 @@ class CauseForm extends Component {
           name={this.state.name}
           profileURL={this.state.profileURL}
           coverURL={this.state.coverURL}
-          roundImage={this.state.roundImage} />
+          roundImage={this.state.roundImage}
+          whiteText={this.state.whiteText} />
 
         <ActionButton
           actionText={'publish cause page'}
@@ -61,12 +63,8 @@ class CauseForm extends Component {
 
   handleUpdateState = (field) => {
     return (event) => {
-      if (field === 'roundImage') {
-        this.setState({roundImage: !this.state.roundImage})
-      } else if (event.target.value === 'true') {
-        this.setState({[field]: true})
-      } else if (event.target.value === 'false') {
-        this.setState({[field]: false})
+      if ((field === 'roundImage') || (field === 'whiteText')) {
+        this.setState({ [field]: !this.state[field] })
       } else {
         this.setState({[field]: event.target.value})
       }

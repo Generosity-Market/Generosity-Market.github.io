@@ -53,6 +53,10 @@
   width: 100%;
 }
 
+/******************************************
+   Featured CauseTile components styling
+******************************************/
+
 .CauseTile.featured {
   flex: 0 0 90%;
   margin: 0 0.2rem;
@@ -74,4 +78,13 @@
 .CauseTile.featured a h4 {
   font-size: 1.35rem;
   margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.CauseTile.featured img {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 1rem;
 }

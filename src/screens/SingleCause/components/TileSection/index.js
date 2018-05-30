@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
-import Tile from '../Tile';
+import Tile from '../Tile/Tile';
 import './TileSection.css';
 
 class TileSection extends Component {

@@ -1,4 +1,4 @@
-// add any reusable utility functions
+// Reusable utility functions.
 const Utils = {
   scrollTo: (element) => {
     window.scroll({
@@ -13,7 +13,8 @@ const Utils = {
     } else {
       return require(`../Assets/Photography/Mobile/${image}`);
     }
-  }
+  },
+  getIconURL: icon => require(`../Assets/icons/PNG/${icon}`)
 };
 
 export default Utils;
