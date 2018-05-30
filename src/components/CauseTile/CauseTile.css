@@ -10,7 +10,6 @@
 .CauseTile .wrapper {
   background-size: cover;
   background-position: center;
-  /* border: var(--border); */
   border-radius: var(--border-radius);
   box-shadow: var(--mini-box-shadow);
   height: 6rem;
@@ -52,4 +51,27 @@
   border-top-right-radius: var(--border-radius);
   height: 60%;
   width: 100%;
+}
+
+.CauseTile.featured {
+  flex: 0 0 90%;
+  margin: 0 0.2rem;
+}
+
+.CauseTile.featured .wrapper {
+  height: 25vh;
+}
+
+.CauseTile.featured .progress {
+  height: 18%;
+}
+
+.CauseTile.featured a h5 {
+  font-size: 1.25rem;
+  height: 13.5%;
+}
+
+.CauseTile.featured a h4 {
+  font-size: 1.35rem;
+  margin-top: 1rem;
 }

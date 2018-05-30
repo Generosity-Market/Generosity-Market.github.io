@@ -8,7 +8,6 @@ const Utils = {
     });
   },
   getImageURL: (image) => {
-    console.log(image);
     if (image.includes('base64')) {
       return `url(${image})`;
     } else {

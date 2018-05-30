@@ -1,16 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getCauseList, causeSelected } from '../../actions/actions';
-// import Loader from '../../components/Loader';
 import CauseTile from '../../components/CauseTile/CauseTile';
 import Slider from '../../components/Slider/Slider';
 import Heading from '../../components/Heading/Heading';
+// import Loader from '../../components/Loader';
 import './causelist.css';
 
+// TODO will need to update this to add the loader component
 class CauseList extends Component {
   // constructor(props) {
   //   super(props)
   // }
+
+  isFeatured = (isFeatured) => {
+    return this.props.causeList.map(cause => {
+      return(
+        <CauseTile key={cause.id}
+          cause={cause}
+          isFeatured={isFeatured}
+          raised={Math.floor(Math.random() * 100)}
+          causeSelected={this.props.causeSelected} />
+      );
+    });
+  }
 
   componentDidMount() {
     if (this.props.causeList.length === 0) {
@@ -19,27 +32,21 @@ class CauseList extends Component {
   };
 
   render() {
-    let causeArray = this.props.causeList.map((cause, index) => {
-      return(
-        <CauseTile key={index} raised={Math.floor(Math.random() * 100)} cause={cause} causeSelected={this.props.causeSelected} />
-      );
-    });
-
     return(
-      <div className="CauseList" style={{paddingTop: '4.5rem'}}>
+      <div className="CauseList">
         <Heading text={'Featured'} />
         <Slider>
-          {causeArray}
+          {this.isFeatured(true)}
         </Slider>
 
         <Heading text={'Nearly Funded'} />
         <Slider>
-          {causeArray}
+          {this.isFeatured(false)}
         </Slider>
 
         <Heading text={'Recently Added'} />
         <Slider>
-          {causeArray}
+          {this.isFeatured(false)}
         </Slider>
       </div>
     );

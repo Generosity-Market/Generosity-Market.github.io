@@ -30,7 +30,7 @@ class TileSection extends Component {
       indexStart = (i * 18 - 18 );
       indexEnd = i * 18;
     }
-    let filteredData = tiles.filter((obj, index) => {
+    let filteredData = tiles.filter((obj,index) => {
       if ((index >= indexStart) && (index < indexEnd)) {
         return index;
       }

@@ -20,7 +20,7 @@
 
 .share-link {
   color: var(--text-gray);
-  margin-top: 1rem;
+  margin: 2.5rem 0;
   text-align: center;
   text-decoration: underline;
 }

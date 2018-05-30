@@ -4,9 +4,9 @@ import './CauseTile.css';
 
 const CauseTile = (props) => {
   const imgURL = url => require(`../../Assets/Photography/Mobile/${url}`);
-  const { cause, raised } = props;
+  const { cause, raised, isFeatured } = props;
   return(
-    <div className="CauseTile"
+    <div className={isFeatured ? "CauseTile featured" : "CauseTile"}
          onClick={() => props.causeSelected(cause)}>
       <Link to={`/cause/${cause.id}`}>
         <div className="wrapper" style={{backgroundImage: `url(${imgURL(cause.mainImage)})`}}>

@@ -12,7 +12,7 @@
       "roundImage": false
   },
   "Causes": [
-    { "cause_id": 0 },
-    { "cause_id": 1 }
+      { "cause_id": 0 },
+      { "cause_id": 1 }
   ]
 }
