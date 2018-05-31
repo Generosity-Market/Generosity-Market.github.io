@@ -31,14 +31,6 @@ class CauseForm extends Component {
     return(
       <div className="CauseForm">
 
-        <CauseInputs
-          state={this.state}
-          handleUpdateState={this.handleUpdateState} />
-
-        <Heading text={'Select Your Fundraising Icon'} />
-        <IconSelector handleSelect={this.handleSelectIcon} />
-
-        <Heading text={'Select Your Cause Profile & Cover Images'} />
         <ImageUploader
           handleImageChange={this.handleImageChange}
           handleUpdateState={this.handleUpdateState}
@@ -47,6 +39,14 @@ class CauseForm extends Component {
           coverURL={this.state.coverURL}
           roundImage={this.state.roundImage}
           whiteText={this.state.whiteText} />
+        <Heading text={'Select Your Cause Profile & Cover Images'} />
+
+        <CauseInputs
+          state={this.state}
+          handleUpdateState={this.handleUpdateState} />
+
+        <Heading text={'Select Your Fundraising Icon'} />
+        <IconSelector handleSelect={this.handleSelectIcon} />
 
         <ActionButton
           actionText={'publish cause page'}

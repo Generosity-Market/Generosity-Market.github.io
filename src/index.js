@@ -19,7 +19,7 @@ import App from './containers/App';
 import Splash from './containers/Splash';
 import Dashboard from './screens/Dashboard';
 import CauseList from './screens/CauseList';
-import CauseForm from './screens/CauseForm';
+import CauseForm from './screens/CauseForm/CauseForm';
 import Organization from './screens/Organization';
 import SingleCause from './screens/SingleCause';
 import Checkout from './screens/Checkout';
