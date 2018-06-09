@@ -39,13 +39,12 @@ class SingleCause extends Component {
     return(
       <div className="SingleCause">
 
-        {cause ?
+        {cause &&
         <Banner
          heading={cause.name}
          BGimage={cause.backgroundImage}
          mainImage={cause.mainImage}
-         roundImage={cause.preferences.roundImage}/>
-        : '' }
+         roundImage={cause.Preferences[0].roundImage}/> }
 
         <div className="wrapper">
 
@@ -72,10 +71,10 @@ class SingleCause extends Component {
            aboutText={cause.description}
            usageText={cause.purpose}/>
 
-          {cause ?
+          {/*cause.Donations.length ?
           <DonorComments
-            donorData={cause.comments}/>
-          : '' }
+            donorData={cause.Donations.Comments}/>
+          : '' */}
 
           <ActionButton
             actionText="Share this page"
