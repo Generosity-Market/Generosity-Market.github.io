@@ -20,9 +20,9 @@ import Splash from './containers/Splash';
 import Dashboard from './screens/Dashboard';
 import CauseList from './screens/CauseList';
 import CauseForm from './screens/CauseForm/CauseForm';
-import Organization from './screens/Organization';
-import SingleCause from './screens/SingleCause';
-import Checkout from './screens/Checkout';
+import Organization from './screens/Organization/Organization';
+import SingleCause from './screens/SingleCause/SingleCause';
+import Checkout from './screens/Checkout/Checkout';
 
 
 // creating the redux store with middleware
