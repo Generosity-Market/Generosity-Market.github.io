@@ -20,9 +20,11 @@
 
 .share-link {
   color: var(--text-gray);
-  margin: 2.5rem 0;
+  margin: 2rem auto;
+  padding: 0.5rem 0rem;
   text-align: center;
   text-decoration: underline;
+  width: 50%;
 }
 
 .share-link i {
