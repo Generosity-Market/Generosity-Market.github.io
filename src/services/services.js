@@ -1,5 +1,5 @@
 // NOTE add any services and api calls here. Don't expose api keys here. Use .env files for that purpose
-const api = endpoint => 'http://localhost:3000/api/' + endpoint;
+const api = endpoint => 'http://localhost:3000/api' + endpoint;
 
 const fetchData = (URL, args) =>
   fetch(api(URL))
