@@ -35,6 +35,7 @@ class SingleCause extends Component {
       const id = this.props.match.params.id;
       this.props.getSingleCause(id);
     };
+    console.log("Cause::: ", cause);
 
     return(
       <div className="SingleCause">
@@ -71,10 +72,10 @@ class SingleCause extends Component {
            aboutText={cause.description}
            usageText={cause.purpose}/>
 
-          {/*cause.Donations.length ?
+          {cause.Donations &&
+           cause.Donations.length > 0 &&
           <DonorComments
-            donorData={cause.Donations.Comments}/>
-          : '' */}
+            donorData={cause.Donations.Comments}/> }
 
           <ActionButton
             actionText="Share this page"
