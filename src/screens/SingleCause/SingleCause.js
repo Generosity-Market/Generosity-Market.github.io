@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSingleCause, causeSelected } from '../../actions/actions';
 import Banner from '../../components/Banner/Banner';
-import ProgressBar from './components/ProgressBar';
+import ProgressBar from './components/ProgressBar/ProgressBar';
 import TileSection from './components/TileSection/TileSection';
-import AboutCause from './components/AboutCause';
-import DonorComments from './components/DonorComments';
+import AboutCause from './components/AboutCause/AboutCause';
+import DonorComments from './components/DonorComments/DonorComments';
 import ActionButton from '../../components/ActionButton';
 import LinkButton from '../../components/LinkButton/LinkButton';
 import FontAwesome from '../../components/FontAwesome/FontAwesome';
@@ -35,17 +35,16 @@ class SingleCause extends Component {
       const id = this.props.match.params.id;
       this.props.getSingleCause(id);
     };
-    console.log("Cause::: ", cause);
 
     return(
       <div className="SingleCause">
 
         {cause &&
         <Banner
-         heading={cause.name}
-         BGimage={cause.backgroundImage}
-         mainImage={cause.mainImage}
-         roundImage={cause.Preferences[0].roundImage}/> }
+          heading={cause.name}
+          BGimage={cause.backgroundImage}
+          mainImage={cause.mainImage}
+          roundImage={cause.Preferences[0].roundImage}/> }
 
         <div className="wrapper">
 
@@ -68,9 +67,9 @@ class SingleCause extends Component {
           </div>
 
           <AboutCause
-           title={cause.name}
-           aboutText={cause.description}
-           usageText={cause.purpose}/>
+            title={cause.name}
+            aboutText={cause.description}
+            usageText={cause.purpose}/>
 
           {cause.Donations &&
            cause.Donations.length > 0 &&

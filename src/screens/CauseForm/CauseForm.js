@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import CauseInputs from './components/CauseInputs';
-import IconSelector from './components/IconSelector';
+import CauseInputs from './components/CauseInputs/CauseInputs';
+import IconSelector from './components/IconSelector/IconSelector';
 import ImageUploader from './components/ImageUploader/ImageUploader';
 import ActionButton from '../../components/ActionButton';
 import Heading from '../../components/Heading/Heading';
