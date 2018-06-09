@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getSingleCause, causeSelected } from '../../actions/actions';
 import Banner from '../../components/Banner/Banner';
 import ProgressBar from './components/ProgressBar';
-import TileSection from './components/TileSection';
+import TileSection from './components/TileSection/TileSection';
 import AboutCause from './components/AboutCause';
 import DonorComments from './components/DonorComments';
 import ActionButton from '../../components/ActionButton';

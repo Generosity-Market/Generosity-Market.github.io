@@ -4,6 +4,46 @@ import Tile from '../Tile/Tile';
 import './TileSection.css';
 
 class TileSection extends Component {
+  render() {
+    const tiles = this.calculateTiles();
+    return(
+      <div className="TileSection">
+        <h2>Select Amount</h2>
+
+        <div className="direction-arrows left">
+          <FontAwesome classname={"fas fa-2x fa-chevron-left"} />
+        </div>
+
+        <div className="tile-wrapper">
+          {this.createBlocks(tiles)}
+        </div>
+
+        <div className="direction-arrows right">
+          <FontAwesome classname={"fas fa-2x fa-chevron-right"} />
+        </div>
+      </div>
+    );
+  }
+
+  calculateTiles = () => {
+    let tileArray = [],
+        tileNumber = 1,
+        amount = this.props.goal;
+        let randomNumber = Math.floor(Math.random() * 37);
+
+    while (amount > 0) {
+      if (tileNumber % randomNumber === 1) {
+        tileArray.push({tileNumber: tileNumber, isPurchased: true});
+        amount = amount - tileNumber;
+        tileNumber++;
+      } else {
+        tileArray.push({tileNumber: tileNumber, isPurchased: false});
+        amount = amount - tileNumber;
+        tileNumber++;
+      }
+    };
+    return tileArray;
+  };
 
   createBlocks = (tiles) => {
     let blocks = [],
@@ -43,26 +83,6 @@ class TileSection extends Component {
     return this.mapTiles(filteredData);
   }
 
-  calculateTiles = () => {
-    let tileArray = [],
-        tileNumber = 1,
-        amount = this.props.goal;
-        let rando = Math.floor(Math.random() * 37);
-
-    while (amount > 0) {
-      if (tileNumber % rando === 1) {
-        tileArray.push({tileNumber: tileNumber, isPurchased: true});
-        amount = amount - tileNumber;
-        tileNumber++;
-      } else {
-        tileArray.push({tileNumber: tileNumber, isPurchased: false});
-        amount = amount - tileNumber;
-        tileNumber++;
-      }
-    };
-    return tileArray;
-  };
-
   mapTiles = (tiles) => {
     return tiles.map((tile, index) => {
       return(
@@ -71,27 +91,6 @@ class TileSection extends Component {
     });
   };
 
-  render() {
-    const tiles = this.calculateTiles();
-
-    return(
-      <div className="TileSection">
-        <h2>Select Amount</h2>
-
-        <div className="direction-arrows left">
-          <FontAwesome classname={"fas fa-2x fa-chevron-left"} />
-        </div>
-
-        <div className="tile-wrapper">
-          {this.createBlocks(tiles)}
-        </div>
-
-        <div className="direction-arrows right">
-          <FontAwesome classname={"fas fa-2x fa-chevron-right"} />
-        </div>
-      </div>
-    );
-  }
 };
 
 export default TileSection;
