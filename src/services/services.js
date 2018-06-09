@@ -8,10 +8,10 @@ const fetchData = (URL, args) =>
   .catch(err => console.log("Error: ", err))
 
 const Services = {
-  fetchCauseList:   () => fetchData('causes.json'),
-  fetchSingleCause: () => fetchData('causes.json'),
-  fetchUserData:    () => fetchData('user.json'),
-  fetchOrgData:     () => fetchData('organization.json')
+  fetchCauseList:   () => fetchData('/causes'),
+  fetchSingleCause: () => fetchData('/causes'),
+  fetchUserData:    () => fetchData('/user/1'),
+  fetchOrgData:     () => fetchData(`/organizations/2`)
 }
 
 export default Services;
