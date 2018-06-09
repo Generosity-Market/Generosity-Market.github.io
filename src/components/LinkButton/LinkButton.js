@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 export default class LinkButton extends Component {
-
   isExternalLink = (href) => href.includes('https://');
-  // NOTE takes two props 'href' and the 'linkText'
   render() {
     const { href, classname, linkText } = this.props;
     let externalLink;
@@ -16,7 +14,7 @@ export default class LinkButton extends Component {
       <div className="LinkButton">
         { externalLink ?
         <a href={href} className={classname} target="_blank" style={linkStyles}>{linkText}</a> :
-        <Link to={href || '#'} className={classname} style={linkStyles}>{linkText}</Link> }  
+        <Link to={href || '#'} className={classname} style={linkStyles}>{linkText}</Link> }
       </div>
     );
   }
@@ -32,4 +30,4 @@ const linkStyles = {
     textTransform:  'uppercase',
     textDecoration: 'none',
     textAlign:      'center'
-}
+};
