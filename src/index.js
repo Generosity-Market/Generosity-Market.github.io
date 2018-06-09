@@ -17,7 +17,7 @@ import reducers from './reducers/reducer';
 import BaseLayout from './containers/BaseLayout';
 import App from './containers/App';
 import Splash from './containers/Splash';
-import Dashboard from './screens/Dashboard';
+import Dashboard from './screens/Dashboard/Dashboard';
 import CauseList from './screens/CauseList';
 import CauseForm from './screens/CauseForm/CauseForm';
 import Organization from './screens/Organization/Organization';

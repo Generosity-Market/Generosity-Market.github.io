@@ -8,9 +8,9 @@ class UserCauses extends Component {
 
   render() {
     let userCauses =
-    this.props.causes.map((cause, index) => {
+    this.props.causes.map(cause => {
       return(
-        <CauseTile key={index} raised={36} cause={cause} causeSelected={this.props.causeSelected} />
+        <CauseTile key={cause.id} raised={36} cause={cause} causeSelected={this.props.causeSelected} />
       );
     });
 

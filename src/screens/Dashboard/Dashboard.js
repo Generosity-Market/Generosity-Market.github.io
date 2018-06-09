@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getUserData, getCauseList, causeSelected } from '../../actions/actions';
 import Banner from '../../components/Banner/Banner';
-import UserDetails from './components/UserDetails/';
-import UserCauses from './components/UserCauses';
-import Receipts from './components/Receipts';
+import UserDetails from './components/UserDetails/UserDetails';
+import UserCauses from './components/UserCauses/UserCauses';
+import Receipts from './components/Receipts/Receipts';
 import LinkButton from '../../components/LinkButton/LinkButton';
 import './dashboard.css';
 
@@ -14,44 +14,39 @@ class Dashboard extends Component {
     this.state = {
       editProfile: false
     }
-  }
-
-  getFirstName = (name) => {
-    let index = name.indexOf(" ");
-    let firstName = name.substring(0, index);
-    return firstName;
-  }
+  };
 
   render() {
     const { user } = this.props;
     if (!user) {
       const id = this.props.match.params.id;
       this.props.getUserData(id);
-      this.props.getCauseList();
     };
+    console.log(user);
 
     return(
       <div className="Dashboard">
 
-        {user ? <Banner
+        {user &&
+        <Banner
           heading={`${this.getFirstName(user.name)}s Dashboard`}
           BGimage={user.backgroundImage}
           mainImage={user.mainImage}
-          roundImage={user.preferences.roundImage}/>
-        : '' }
+          roundImage={user.Preferences.roundImage}/> }
 
         <div className="Wrapper">
 
-          {user ? <UserDetails
+          {user &&
+          <UserDetails
             name={user.name}
             phone={user.phone}
-            address={user.address}
-            editProfile={this.state.editProfile}/>
-          : '' }
+            address={this.returnAddressInfo(user)}
+            editProfile={this.state.editProfile}/> }
 
+          {user &&
           <UserCauses
-            causes={this.props.causes}
-            causeSelected={this.props.causeSelected}/>
+            causes={user.Causes}
+            causeSelected={this.props.causeSelected}/> }
 
           <LinkButton
             href={'/causes/new'}
@@ -64,10 +59,26 @@ class Dashboard extends Component {
       </div>
     );
   }
+
+  getFirstName = (name) => {
+    let index = name.indexOf(" ");
+    let firstName = name.substring(0, index);
+    return firstName || name;
+  };
+
+  returnAddressInfo = (user) => {
+    return {
+      street: user.street,
+      city: user.city,
+      state: user.state,
+      zipcode: user.zicode
+    };
+  };
+
 };
 
 const mapStateToProps = (state) => {
-  return { user: state.user, causes: state.causeList }
+  return { user: state.user }
 };
 
 const mapDispatchToProps = { getUserData, getCauseList, causeSelected };
