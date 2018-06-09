@@ -1,7 +1,7 @@
 .CauseInputs {
   display: flex;
   flex-direction: column;
-  padding-top: 4rem;
+  /* padding-top: 4rem; */
 }
 
 .CauseInputs input, .CauseInputs textarea, .CauseInputs select {

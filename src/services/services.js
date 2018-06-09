@@ -1,5 +1,5 @@
 // NOTE add any services and api calls here. Don't expose api keys here. Use .env files for that purpose
-const api = endpoint => 'http://localhost:3000/api/' + endpoint;
+const api = endpoint => 'http://localhost:3000/api' + endpoint;
 
 const fetchData = (URL, args) =>
   fetch(api(URL))
@@ -8,10 +8,10 @@ const fetchData = (URL, args) =>
   .catch(err => console.log("Error: ", err))
 
 const Services = {
-  fetchCauseList:   () => fetchData('causes.json'),
-  fetchSingleCause: () => fetchData('causes.json'),
-  fetchUserData:    () => fetchData('user.json'),
-  fetchOrgData:     () => fetchData('organization.json')
+  fetchCauseList:   () => fetchData('/causes'),
+  fetchSingleCause: () => fetchData('/causes'),
+  fetchUserData:    () => fetchData('/user/1'),
+  fetchOrgData:     () => fetchData(`/organizations/2`)
 }
 
 export default Services;

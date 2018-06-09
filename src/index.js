@@ -17,12 +17,12 @@ import reducers from './reducers/reducer';
 import BaseLayout from './containers/BaseLayout';
 import App from './containers/App';
 import Splash from './containers/Splash';
-import Dashboard from './screens/Dashboard';
+import Dashboard from './screens/Dashboard/Dashboard';
 import CauseList from './screens/CauseList';
-import CauseForm from './screens/CauseForm';
-import Organization from './screens/Organization';
-import SingleCause from './screens/SingleCause';
-import Checkout from './screens/Checkout';
+import CauseForm from './screens/CauseForm/CauseForm';
+import Organization from './screens/Organization/Organization';
+import SingleCause from './screens/SingleCause/SingleCause';
+import Checkout from './screens/Checkout/Checkout';
 
 
 // creating the redux store with middleware

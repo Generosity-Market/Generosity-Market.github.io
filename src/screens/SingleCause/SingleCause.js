@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { getSingleCause, causeSelected } from '../../actions/actions';
 import Banner from '../../components/Banner/Banner';
 import ProgressBar from './components/ProgressBar';
-import TileSection from './components/TileSection';
+import TileSection from './components/TileSection/TileSection';
 import AboutCause from './components/AboutCause';
 import DonorComments from './components/DonorComments';
 import ActionButton from '../../components/ActionButton';
-import LinkButton from '../../components/LinkButton';
+import LinkButton from '../../components/LinkButton/LinkButton';
 import FontAwesome from '../../components/FontAwesome/FontAwesome';
 import Utils from '../../utilities/utilities';
 import './SingleCause.css';
@@ -35,17 +35,17 @@ class SingleCause extends Component {
       const id = this.props.match.params.id;
       this.props.getSingleCause(id);
     };
+    console.log("Cause::: ", cause);
 
     return(
       <div className="SingleCause">
 
-        {cause ?
+        {cause &&
         <Banner
          heading={cause.name}
          BGimage={cause.backgroundImage}
          mainImage={cause.mainImage}
-         roundImage={cause.preferences.roundImage}/>
-        : '' }
+         roundImage={cause.Preferences[0].roundImage}/> }
 
         <div className="wrapper">
 
@@ -72,10 +72,10 @@ class SingleCause extends Component {
            aboutText={cause.description}
            usageText={cause.purpose}/>
 
-          {cause ?
+          {cause.Donations &&
+           cause.Donations.length > 0 &&
           <DonorComments
-            donorData={cause.comments}/>
-          : '' }
+            donorData={cause.Donations.Comments}/> }
 
           <ActionButton
             actionText="Share this page"

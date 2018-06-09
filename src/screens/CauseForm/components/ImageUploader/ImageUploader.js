@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
+import MiniButton from '../../../../components/MiniButton/MiniButton';
 import { coverInput, profileInput } from './inputInfo.js';
 import './ImageUploader.css';
 
@@ -20,24 +21,24 @@ export default class ImageUpload extends Component {
             {!coverURL && <p>Add Cover Photo</p>}
             {$coverPreview}
             {coverURL &&
-              <div className="delete_cover btns"  onClick={(e) => handleImageChange(e, 'cover_image', 'coverURL')}>
+              <MiniButton classname="delete_cover"  onClick={(e) => handleImageChange(e, 'cover_image', 'coverURL')}>
                 <FontAwesome classname={'fas fa-times'} />
-              </div>}
+              </MiniButton>}
           </div>
 
           <div className="profilePreview">
             {this.createFileInput(profileInput, profileURL)}
             {$profilePreview}
 
-            <div className={profileURL ? "change_profile_shape btns active" : "change_profile_shape btns"}
+            <MiniButton classname={profileURL ? "change_profile_shape active" : "change_profile_shape"}
               onClick={handleUpdateState('roundImage')}>
               <FontAwesome classname={roundImage ? 'fas fa-square' : 'fas fa-circle'} />
-            </div>
+            </MiniButton>
 
-            <div className={profileURL ? "delete_profile btns active" : "delete_profile btns"}
+            <MiniButton classname={profileURL ? "delete_profile active" : "delete_profile"}
               onClick={(e) => handleImageChange(e, 'profile_image', 'profileURL')}>
               <FontAwesome classname={'fas fa-times'}/>
-            </div>
+            </MiniButton>
 
           </div>
 
@@ -66,4 +67,5 @@ export default class ImageUpload extends Component {
       return <FontAwesome classname={`${faClass} ${roundImage ? 'circle' : ''}`}/>;
     }
   }
+  
 };

@@ -6,7 +6,9 @@ class CauseInputs extends Component {
 
   getSelectOptions = (options, index) => {
     return (
-      <select key={index} name='type' size={1}>
+      <select key={index} name='type' size={1}
+        onChange={this.props.handleUpdateState('type')}
+        value={this.props.state.type}>
         <option value="">- Type of Cause -</option>
         {options.map((option,index) => {
           return(

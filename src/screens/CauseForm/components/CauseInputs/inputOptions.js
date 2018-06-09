@@ -9,11 +9,11 @@ const inputOptions = [
   }, {
     type: 'text',
     name: 'organization_name',
-    placeholder: "Non Profit / Organization's Name",
+    placeholder: "Non Profit / Organization's Name  (If applicable)",
   }, {
     type: 'text',
     name: 'tax_id',
-    placeholder: 'Tax ID',
+    placeholder: 'Tax ID  (If Non Profit / Organization)',
   }, {
     type: 'number',
     name: 'goal',

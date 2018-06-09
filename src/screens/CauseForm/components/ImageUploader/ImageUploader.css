@@ -18,11 +18,17 @@
   background-color: var(--bright-green);
   border-radius: 50%;
   border: none;
-  color: var(--white);
+  /* box-shadow: 0.2rem 0.2rem 2.5rem rgba(0,0,0,0.25) !important; */
+  color: var(--white) !important;
   font-size: 18px;
   height: 2.5rem;
   width: 2.5rem;
   position: absolute;
+  transition: right 0.5s ease 0.7s, left 0.5s ease 0.7s, top 0.5s ease 0.7s;
+}
+
+.previewComponent .btns.active {
+  transition: right 0.5s ease 0.7s, left 0.5s ease 0.7s, top 0.5s ease 0.7s;
 }
 
 .previewComponent .fa-image {
@@ -99,44 +105,39 @@
   font-size: 24px;
 }
 
-/* TODO consolidate as much of these transition effects as possible */
 .change_profile_shape.btns {
-  background-color: var(--medium-blue);
+  /* background-color: var(--medium-blue); */
+  background-color: var(--dark-green);
+  /* background-color: var(--light-green); */
   box-shadow: none;
   top: -10%;
   right: 45%;
-  transition: right 0.5s ease 0.7s, top 0.5s ease 0.7s;
   z-index: 0;
 }
 
 .change_profile_shape.btns.active {
   right: 32%;
   top: 65%;
-  transition: right 0.5s ease 0.7s, top 0.5s ease 0.7s;
 }
 
 .delete_profile.btns {
   left: 45%;
   top: -10%;
-  transition: left 0.5s ease 0.7s, top 0.5s ease 0.7s;
   z-index: 0;
 }
 
 .delete_profile.btns.active {
   left: 32%;
   top: 65%;
-  transition: left 0.5s ease 0.7s, top 0.5s ease 0.7s;
 }
 
 .profileLabel.btns {
   top: 35%;
   z-index: 2;
-  transition: top 0.3s ease-in-out 0.7s;
 }
 
 .profileLabel.btns.active {
   top: 65%;
-  transition: top 0.3s ease-in-out 0.7s;
 }
 
 .change_profile_shape i {

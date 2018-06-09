@@ -3,38 +3,35 @@ import { connect } from 'react-redux';
 import Banner from '../../components/Banner/Banner';
 import OrgDetails from './components/OrgDetails/OrgDetails';
 import OrgCauses from './components/OrgCauses/OrgCauses';
-import LinkButton from '../../components/LinkButton';
+import LinkButton from '../../components/LinkButton/LinkButton';
 import { getOrgData, getCauseList, causeSelected } from '../../actions/actions';
 import './organization.css';
 
 class Organization extends Component {
 
   componentDidMount() {
-    if (this.props.causes.length === 0) {
-      this.props.getCauseList();
-    }
     this.props.getOrgData();
   }
 
   render() {
     const { organization } = this.props;
-
+    console.log("ORG: ", organization);
     return(
       <div className="Organization">
 
-        {organization ? <Banner
+      {organization &&
+        <Banner
           heading={organization.name}
           BGimage={organization.backgroundImage}
           mainImage={organization.mainImage}
-          roundImage={organization.preferences.roundImage} />
-        : '' }
+          roundImage={organization.Preferences[0].roundImage} /> }
 
         <div className="Wrapper">
 
+        {organization &&
           <OrgCauses
-            orgId= {organization.id}
-            causes={this.props.causes}
-            causeSelected={this.props.causeSelected} />
+            causes={organization.Causes}
+            causeSelected={this.props.causeSelected} />}
 
           <OrgDetails
             heading={organization.heading}
@@ -42,7 +39,7 @@ class Organization extends Component {
             email={organization.email} />
 
           <LinkButton
-            href={organization.siteUrl}
+            href={organization.site_url}
             classname={'org-link'}
             linkText={`Visit ${organization.short_name}`} />
 
@@ -54,8 +51,7 @@ class Organization extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    organization: state.selectedOrg,
-    causes: state.causeList
+    organization: state.selectedOrg
   };
 };
 

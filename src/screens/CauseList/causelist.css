@@ -1,4 +1,4 @@
-/* dashboard colors and thier css variables
+/* CauseList colors and thier css variables
 
 var(--black-30)        --> rgba(0,0,0,0.3)
 var(--black-20)        --> rgba(0,0,0,0.2)
@@ -13,5 +13,6 @@ var(--white-85)        --> rgba(255,255,255,0.85)
 */
 
 .CauseList {
-  height: 100vh;
+  min-height: 100vh;
+  padding-top: 4.5rem;
 }
