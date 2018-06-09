@@ -5,7 +5,7 @@ import Banner from '../../components/Banner/Banner';
 import UserDetails from './components/UserDetails/';
 import UserCauses from './components/UserCauses';
 import Receipts from './components/Receipts';
-import LinkButton from '../../components/LinkButton';
+import LinkButton from '../../components/LinkButton/LinkButton';
 import './dashboard.css';
 
 class Dashboard extends Component {

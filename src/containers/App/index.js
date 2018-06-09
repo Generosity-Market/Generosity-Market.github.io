@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LinkButton from '../../components/LinkButton';
+import LinkButton from '../../components/LinkButton/LinkButton';
 import ActionButton from '../../components/ActionButton';
 import './App.css';
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Banner from '../../components/Banner/Banner';
 import OrgDetails from './components/OrgDetails/OrgDetails';
 import OrgCauses from './components/OrgCauses/OrgCauses';
-import LinkButton from '../../components/LinkButton';
+import LinkButton from '../../components/LinkButton/LinkButton';
 import { getOrgData, getCauseList, causeSelected } from '../../actions/actions';
 import './organization.css';
 

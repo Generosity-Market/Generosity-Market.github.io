@@ -7,7 +7,7 @@ import TileSection from './components/TileSection';
 import AboutCause from './components/AboutCause';
 import DonorComments from './components/DonorComments';
 import ActionButton from '../../components/ActionButton';
-import LinkButton from '../../components/LinkButton';
+import LinkButton from '../../components/LinkButton/LinkButton';
 import FontAwesome from '../../components/FontAwesome/FontAwesome';
 import Utils from '../../utilities/utilities';
 import './SingleCause.css';

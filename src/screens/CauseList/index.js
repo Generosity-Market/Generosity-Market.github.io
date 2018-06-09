@@ -9,10 +9,6 @@ import './causelist.css';
 
 // TODO will need to update this to add the loader component
 class CauseList extends Component {
-  // constructor(props) {
-  //   super(props)
-  // }
-
   isFeatured = (isFeatured) => {
     return this.props.causeList.map(cause => {
       return(
