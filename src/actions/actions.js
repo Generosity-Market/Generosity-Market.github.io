@@ -1,57 +1,35 @@
 // import Cookies from 'js-cookie';
 import Services from '../services/services';
 
+// destructuring the Services functions
+const { fetchCauseList, fetchSingleCause, fetchUserData, fetchOrgData } = Services;
+
 export const SET_DATA         = "SET_DATA",
              CAUSE_SELECTED   = "CAUSE_SELECTED",
              SET_USER         = "SET_USER",
              SET_ORGANIZATION = "SET_ORGANIZATION";
 
 const makeActionCreator = (actionType) => {
-    return function(payload) {
-        return {type: actionType, payload: payload}
-    }
+    return (payload) => {
+        return { type: actionType, payload: payload };
+    };
 };
 
-export const setData   = makeActionCreator(SET_DATA),
-        causeSelected  = makeActionCreator(CAUSE_SELECTED),
-             setUser   = makeActionCreator(SET_USER),
-             setOrg    = makeActionCreator(SET_ORGANIZATION);
-
-
-// calling the api for the entire gamelist
-export const getCauseList = () => {
-  return(dispatch, getState) => {
-    return Services.fetchCauseList()
-           .then(causes => {
-             dispatch(setData(causes))
-           })
-  }
+const makeFetchCreator = (fetchType, action, args) => {
+  return (dispatch, getState) => fetchType(args).then(data => dispatch( action(data) ) );
 };
 
-export const getSingleCause = (id) => {
-  return(dispatch, getState) => {
-    return Services.fetchSingleCause()
-           .then(list => {
-             let cause = list.filter(index => index.id === Number(id));
-             dispatch(causeSelected(cause[0]))
-           })
-  }
-};
+export const setData        = makeActionCreator(SET_DATA),
+             causeSelected  = makeActionCreator(CAUSE_SELECTED),
+             setUser        = makeActionCreator(SET_USER),
+             setOrg         = makeActionCreator(SET_ORGANIZATION);
 
-export const getUserData = () => {
-  return(dispatch, getState) => {
-    return Services.fetchUserData()
-           .then(user => {
-             dispatch(setUser(user))
-           })
-  }
-}
 
-export const getOrgData = () => {
-  return(dispatch, getState) => {
-    return Services.fetchOrgData()
-           .then(org => {
-             dispatch(setOrg(org))
-           })
-  }
-}
+// calling the api for the entire causelist
+export const getCauseList = () => makeFetchCreator(fetchCauseList, setData, null);
+// getting a single cause by the id passed
+export const getSingleCause = (id) => makeFetchCreator(fetchSingleCause, causeSelected, id);
+// getting the logged in users information
+export const getUserData = () => makeFetchCreator(fetchUserData, setUser, null);
+// getting the selected organizations information
+export const getOrgData = () => makeFetchCreator(fetchOrgData, setOrg, null);
