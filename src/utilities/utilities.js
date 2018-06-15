@@ -14,7 +14,8 @@ const Utils = {
       return require(`../Assets/Photography/Mobile/${image}`);
     }
   },
-  getIconURL: icon => require(`../Assets/icons/PNG/${icon}`)
+  getIconURL: icon => require(`../Assets/icons/PNG/${icon}`),
+  sharePage: () => alert("Shared")
 };
 
 export default Utils;
