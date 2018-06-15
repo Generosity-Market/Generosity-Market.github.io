@@ -51,7 +51,7 @@ const reducer = (state = initialState, action) => {
     case REMOVE_FROM_CART:
       return update(state, {
         cart: {
-          $set: [action.payload]
+          $set: action.payload
         }
       });
     case CLEAR_CART:

@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { clearCart } from '../../../../actions/actions';
 import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
 import Tile from '../Tile/Tile';
 import './TileSection.css';
 
 class TileSection extends Component {
+
   render() {
     const tiles = this.calculateTiles();
+    const { cart } = this.props;
+    console.log("Cart: ", cart);
+
     return(
       <div className="TileSection">
         <h2>Select Amount</h2>
@@ -29,18 +35,11 @@ class TileSection extends Component {
     let tileArray = [],
         tileNumber = 1,
         amount = this.props.goal;
-        let randomNumber = Math.floor(Math.random() * 37);
 
     while (amount > 0) {
-      if (tileNumber % randomNumber === 1) {
-        tileArray.push({tileNumber: tileNumber, isPurchased: true});
-        amount = amount - tileNumber;
-        tileNumber++;
-      } else {
         tileArray.push({tileNumber: tileNumber, isPurchased: false});
         amount = amount - tileNumber;
         tileNumber++;
-      }
     };
     return tileArray;
   };
@@ -86,11 +85,22 @@ class TileSection extends Component {
   mapTiles = (tiles) => {
     return tiles.map((tile, index) => {
       return(
-        <Tile key={index} amount={tile.tileNumber} tileIcon={this.props.tileIcon} isPurchased={tile.isPurchased}/>
+        <Tile key={index}
+            cause={this.props.cause}
+            amount={tile.tileNumber}
+            tileIcon={this.props.tileIcon}
+            isPurchased={tile.isPurchased} />
       );
     });
   };
 
 };
 
-export default TileSection;
+const mapStateToProps = (state) => {
+  return { cart: state.cart }
+};
+
+const mapDispatchToProps = { clearCart };
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(TileSection);
