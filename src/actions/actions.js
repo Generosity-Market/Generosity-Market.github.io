@@ -7,7 +7,10 @@ const { fetchCauseList, fetchSingleCause, fetchUserData, fetchOrgData } = Servic
 export const SET_DATA         = "SET_DATA",
              CAUSE_SELECTED   = "CAUSE_SELECTED",
              SET_USER         = "SET_USER",
-             SET_ORGANIZATION = "SET_ORGANIZATION";
+             SET_ORGANIZATION = "SET_ORGANIZATION",
+             ADD_TO_CART      = "ADD_TO_CART",
+             REMOVE_FROM_CART = "REMOVE_FROM_CART",
+             CLEAR_CART       = "CLEAR_CART";
 
 const makeActionCreator = (actionType) => {
     return (payload) => {
@@ -22,7 +25,10 @@ const makeFetchCreator = (fetchType, action, args) => {
 export const setData        = makeActionCreator(SET_DATA),
              causeSelected  = makeActionCreator(CAUSE_SELECTED),
              setUser        = makeActionCreator(SET_USER),
-             setOrg         = makeActionCreator(SET_ORGANIZATION);
+             setOrg         = makeActionCreator(SET_ORGANIZATION),
+             addToCart      = makeActionCreator(ADD_TO_CART),
+             removeFromCart = makeActionCreator(REMOVE_FROM_CART),
+             clearCart      = makeActionCreator(CLEAR_CART);
 
 
 // calling the api for the entire causelist
