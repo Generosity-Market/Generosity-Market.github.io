@@ -1,0 +1,11 @@
+.Checkout {
+  padding-top: 4.5rem;
+}
+
+.Checkout h3 {
+  color: var(--dark-green);
+  font-size: 1.7rem;
+  margin: 1rem 0; 
+  text-align: center;
+  text-transform: uppercase;
+}

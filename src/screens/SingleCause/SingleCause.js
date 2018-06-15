@@ -22,19 +22,18 @@ class SingleCause extends Component {
   //   };
   // };
 
-  sharePage = () => alert("Shared");
-
   componentDidMount() {
     Utils.scrollTo('topnav');
+
+    // fetch the current cause if undefined (Usually on refreshing the screen)
+    if (!this.props.cause) {
+      const id = this.props.match.params.id;
+      this.props.getSingleCause(id);
+    };
   };
 
   render() {
     let { cause } = this.props;
-    // fetch the current cause if undefined (Usually on refreshing the screen)
-    if (!cause) {
-      const id = this.props.match.params.id;
-      this.props.getSingleCause(id);
-    };
 
     return(
       <div className="SingleCause">
@@ -53,6 +52,7 @@ class SingleCause extends Component {
             goal={cause.amount}/>
 
           <TileSection
+            cause={cause.name}
             goal={cause.amount}
             tileIcon={cause.icon}/>
 
@@ -79,7 +79,7 @@ class SingleCause extends Component {
           <ActionButton
             actionText="Share this page"
             classname="share-page"
-            action={this.sharePage}
+            action={Utils.sharePage}
             icon={"fas fa-share-alt"}/>
 
         </div>
@@ -89,7 +89,7 @@ class SingleCause extends Component {
 };
 
 const mapStateToProps = (state) => {
-  return { cause: state.selectedCause }
+  return { cause: state.selectedCause, cart: state.cart }
 };
 
 const mapDispatchToProps = { causeSelected, getSingleCause };
