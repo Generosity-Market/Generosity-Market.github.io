@@ -9,8 +9,7 @@ class TileSection extends Component {
 
   render() {
     const tiles = this.calculateTiles();
-    const { cart } = this.props;
-    console.log("Cart: ", cart);
+    // const { cart } = this.props;
 
     return(
       <div className="TileSection">
@@ -87,6 +86,7 @@ class TileSection extends Component {
       return(
         <Tile key={index}
             cause={this.props.cause}
+            mainImage={this.props.mainImage}
             amount={tile.tileNumber}
             tileIcon={this.props.tileIcon}
             isPurchased={tile.isPurchased} />

@@ -53,6 +53,7 @@ class SingleCause extends Component {
 
           <TileSection
             cause={cause.name}
+            mainImage={cause.mainImage}
             goal={cause.amount}
             tileIcon={cause.icon}/>
 
