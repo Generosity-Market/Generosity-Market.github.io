@@ -62,7 +62,7 @@ class SingleCause extends Component {
             linkText="Donate"
             classname="donate-link"/>
 
-          <div className="share-link" onClick={() => this.sharePage()}>
+          <div className="share-link" onClick={() => Utils.sharePage()}>
             <FontAwesome classname={"fas fa-share-alt"} />
             Or Share This Page
           </div>
