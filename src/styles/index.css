@@ -55,11 +55,20 @@ var(--border-radius)   --> 5px
   --white:             rgba(255,255,255,1);
   --white-85:          rgba(255,255,255,0.85);
 
-  --main-font:         'Raleway', 'Futura', 'Century Gothic', sans-serif;
+  --main-font:         'Futura', 'Roboto', 'Century Gothic', sans-serif;
   --border:            1px solid var(--light-gray);
   --border-radius:     5px;
   --box-shadow:        0.2rem 0.2rem 1.5rem rgba(0,0,0,0.5);
   --mini-box-shadow:   0.2rem 0.2rem 1rem rgba(0,0,0,0.5);
+}
+
+@font-face {
+  font-family: 'Futura';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local('Futura'),
+    url('./fonts/futura-book-font.ttf') format('ttf');
 }
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
