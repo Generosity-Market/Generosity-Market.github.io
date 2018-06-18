@@ -14,9 +14,9 @@ import reducers from './reducers/reducer';
 // import Cookies from 'js-cookie';
 
 // component imports
-import BaseLayout from './containers/BaseLayout';
+import BaseLayout from './containers/BaseLayout/BaseLayout';
 import App from './containers/App';
-import Splash from './containers/Splash';
+import Splash from './screens/Splash/Splash';
 import Dashboard from './screens/Dashboard/Dashboard';
 import CauseList from './screens/CauseList/CauseList';
 import CauseForm from './screens/CauseForm/CauseForm';

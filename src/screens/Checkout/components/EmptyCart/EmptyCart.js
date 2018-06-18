@@ -31,7 +31,7 @@ class EmptyCart extends Component {
     return (
       <div className="EmptyCart">
         <h3>Your basket is currently empty</h3>
-        <h4>Fill it by supporting your favorite causes</h4>
+        <h4>Fill it by supporting some great causes</h4>
 
         <div className="to-consider">
           <h3>Here are a few to consider</h3>
