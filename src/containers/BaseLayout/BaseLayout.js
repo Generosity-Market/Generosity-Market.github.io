@@ -10,17 +10,17 @@ class BaseLayout extends Component {
     super(props)
     this.state = {
       showMenu: false
-    }
-  }
+    };
+  };
 
   navToggle = () => {
-    this.setState({ showMenu: !this.state.showMenu })
-  }
+    this.setState({ showMenu: !this.state.showMenu });
+  };
 
   handleNavigation = (endpoint) => {
     this.props.history.replace(endpoint);
     setTimeout(() => this.navToggle(endpoint), 200);
-  }
+  };
 
   render() {
 
@@ -48,14 +48,14 @@ class BaseLayout extends Component {
             <img src={require('../../Assets/Logo/PNG/Artboard-1Generosity-Logo.png')} alt="Generosity Market top menu logo"/>
           </div>
 
-          {navLinks.map((link, index) => {
+          { navLinks.map((link, index) => {
             return(
               <div key={index} className='navLinks' onClick={() => this.handleNavigation(link.endpoint)}>
                 <FontAwesome classname={link.icon} style={{color: link.color}} />
                 {link.name}
               </div>
             );
-          })}
+          }) }
 
           <div className='closeMenu' onClick={() => this.setState({showMenu: false})}>
             <FontAwesome classname={"fas fa-times"} />
@@ -66,7 +66,7 @@ class BaseLayout extends Component {
 
       </div>
     )
-  }
+  };
 };
 
 export default withRouter(BaseLayout);

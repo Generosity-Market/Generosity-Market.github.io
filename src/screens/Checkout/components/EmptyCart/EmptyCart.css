@@ -1,0 +1,28 @@
+.EmptyCart {
+  margin-top: 1rem;
+}
+
+.EmptyCart h3 {
+  color: var(--blackish);
+  font-size: 1.4rem;
+  margin-left: 1rem;
+}
+
+.EmptyCart h4 {
+  color: var(--text-gray);
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin: 0.5rem 0rem 0rem 1.2rem;
+}
+
+.EmptyCart .LinkButton {
+  background-color: var(--bright-green);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin: 2rem auto;
+  width: 90%;
+}
+
+.EmptyCart a {
+  color: var(--white);
+}

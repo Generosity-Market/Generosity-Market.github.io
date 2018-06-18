@@ -12,8 +12,8 @@ class Tile extends Component {
     };
   };
 
-  addTileToCart = (amount, cause, tileIcon) => {
-    this.props.addToCart({ amount, cause, tileIcon });
+  addTileToCart = (amount, cause, tileIcon, mainImage) => {
+    this.props.addToCart({ amount, cause, tileIcon, mainImage });
     this.setState({ isSelected: true });
   };
 
@@ -33,13 +33,13 @@ class Tile extends Component {
   };
 
   render() {
-    const { cause, cart, amount, isPurchased, tileIcon, removeFromCart } = this.props;
+    const { cause, amount, mainImage, isPurchased, tileIcon } = this.props;
     const { isSelected } = this.state;
 
     return(
       <div className={isPurchased ? 'Tile isPurchased' : "Tile"}
            onClick={isSelected ? () => this.removeTileFromCart(amount) :
-             () => this.addTileToCart(amount, cause, tileIcon)}>
+             () => this.addTileToCart(amount, cause, tileIcon, mainImage)}>
 
         <p className={isSelected ? 'tile-amount isSelected' : 'tile-amount'}>${amount}</p>
 
