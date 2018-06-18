@@ -4,7 +4,7 @@ import { getCauseList, causeSelected } from '../../actions/actions';
 import CauseTile from '../../components/CauseTile/CauseTile';
 import Slider from '../../components/Slider/Slider';
 import Heading from '../../components/Heading/Heading';
-// import Loader from '../../components/Loader';
+// import Loader from '../../components/Loader/Loader';
 import './causelist.css';
 
 // TODO will need to update this to add the loader component
