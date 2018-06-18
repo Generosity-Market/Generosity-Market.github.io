@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import navLinks from './linksData.js';
 import TopMenu from './components/TopMenu/TopMenu';
-import NavLink from './components/NavLink/NavLink';
-import FontAwesome from '../../components/FontAwesome/FontAwesome';
+import SlideMenu from './components/SlideMenu/SlideMenu';
 import './baselayout.css';
 
 class BaseLayout extends Component {
@@ -28,26 +27,14 @@ class BaseLayout extends Component {
     return(
       <div className="BaseLayout">
 
-        <TopMenu openMenu={this.navToggle} />
+        <TopMenu
+          openMenu={this.navToggle} />
 
-        <nav style={this.state.showMenu ? {left: '0%'} : {left: '-100%'}}>
-          <div className="menuLogo navLinks">
-            <img src={require('../../Assets/Logo/PNG/Artboard-1Generosity-Logo.png')} alt="Generosity Market top menu logo"/>
-          </div>
-
-          { navLinks.map( (link, index) =>
-              <NavLink key={index}
-                icon={link.icon}
-                name={link.name}
-                color={link.color}
-                endpoint={link.endpoint}
-                handleNavigation={this.handleNavigation} />
-          ) }
-
-          <div className='closeMenu' onClick={() => this.setState({showMenu: false})}>
-            <FontAwesome classname={"fas fa-times"} />
-          </div>
-        </nav>
+        <SlideMenu
+          navLinks={navLinks}
+          closeMenu={this.navToggle}
+          showMenu={this.state.showMenu}
+          handleNavigation={this.handleNavigation} />
 
         {this.props.children}
 
