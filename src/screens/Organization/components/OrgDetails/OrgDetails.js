@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Heading from '../../../../components/Heading/Heading';
+import TextSection from '../../../../components/TextSection/TextSection';
 import './OrgDetails.css';
 
 export default class OrgDetails extends Component {
@@ -9,15 +10,13 @@ export default class OrgDetails extends Component {
     return(
       <div className="OrgDetails">
 
-        <div className="our-motto">
-          <Heading text={'Our Motto'} />
-          <p>{heading}</p>
-        </div>
+        <TextSection
+          heading={'Our Motto'}
+          text={heading} />
 
-        <div className="our-mission">
-          <Heading text={'Our Mission'} />
-          <p>{mission}</p>
-        </div>
+        <TextSection
+          heading={'Our Mission'}
+          text={mission} />
 
         <div className="contact-us">
           <Heading text={'For More Info'} />

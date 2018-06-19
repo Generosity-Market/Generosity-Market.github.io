@@ -3,17 +3,6 @@
   /* width: 93%; */
 }
 
-.OrgDetails div {
-  margin-bottom: 2rem;
-}
-
-.OrgDetails p {
-  color: var(--text-gray);
-  line-height: 1.3rem;
-  letter-spacing: 1px;
-  padding: 0 0.65rem;
-}
-
 .OrgDetails a {
   color: var(--dark-green);
   font-size: 1.2rem;
