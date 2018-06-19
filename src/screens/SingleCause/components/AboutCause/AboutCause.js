@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Heading from '../../../../components/Heading/Heading';
+import TextSection from '../../../../components/TextSection/TextSection';
 import './AboutCause.css';
 
 class AboutCause extends Component {
@@ -7,15 +7,15 @@ class AboutCause extends Component {
   render() {
     return(
       <div className="AboutCause">
-        <div className="about-text">
-          <Heading text={`About the ${this.props.title} Cause`}/>
-          <p>{this.props.aboutText}</p>
-        </div>
 
-        <div className="usage-text">
-          <Heading text={`How your gift will be used`}/>
-          <p>{this.props.usageText}</p>
-        </div>
+        <TextSection
+          heading={`About the ${this.props.title} Cause`}
+          text={this.props.aboutText} />
+
+        <TextSection
+          heading={`How your gift will be used`}
+          text={this.props.usageText} />
+
       </div>
     );
   }

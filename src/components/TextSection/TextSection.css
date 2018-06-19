@@ -1,0 +1,11 @@
+.TextSection {
+  margin-bottom: 2rem;
+}
+
+.TextSection p {
+  color: var(--text-gray);
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  /* letter-spacing: 0.5px; */
+  padding: 0 1rem;
+}
