@@ -15,7 +15,16 @@ const Utils = {
     }
   },
   getIconURL: icon => require(`../Assets/icons/PNG/${icon}`),
-  sharePage: () => alert("Shared")
+  sharePage: () => alert("Shared"),
+  removeIndexFromArray: (indexToRemove, array) => {
+    return [ ...array.slice( 0, indexToRemove) , ...array.slice(indexToRemove + 1, array.length) ];
+  },
+  getTotal: (array, property) => {
+    let initialValue = 0;
+    return array.reduce(function (accumulator, currentValue) {
+        return accumulator + currentValue[property];
+    }, initialValue);
+  },
 };
 
 export default Utils;
