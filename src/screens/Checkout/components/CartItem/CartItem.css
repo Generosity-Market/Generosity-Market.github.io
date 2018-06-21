@@ -1,0 +1,42 @@
+.CartItem {
+  /* background-color: rgba(0,0,0,0.03); */
+  background-color: rgba(75,183,77,0.1);
+  border: var(--border);
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: space-between;
+  width: 88%;
+  margin: 0.3rem auto;
+  padding: 1rem;
+  position: relative;
+}
+
+.CartItem .MainImage {
+  border: none;
+  box-shadow: none;
+  height: 5.5rem;
+  width: 5.5rem;
+  margin: 0;
+  position: static;
+}
+
+.CartItem .itemInfo {
+  color: var(--bright-green);
+  display: flex;
+  flex-direction: column;
+  flex-basis: 65%;
+}
+
+.itemInfo p {
+  color: var(--blackish);
+  font-size: 1.2rem;
+  margin: 0.5rem 0rem;
+}
+
+.CartItem .clear {
+  color: var(--light-gray);
+  font-size: 24px;
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+}

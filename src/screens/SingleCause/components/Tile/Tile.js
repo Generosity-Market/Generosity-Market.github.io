@@ -17,9 +17,20 @@ class Tile extends Component {
     this.setState({ isSelected: true });
   };
 
-  removeTileFromCart = (amount) => {
-    let updatedCart = this.props.cart.filter(index => index.amount !== amount);
+  removeTileFromCart = () => {
+    const { cart, amount, cause } = this.props;
+    let indexToRemove;
+
+    for (var i = 0; i < cart.length; i++) {
+      if ((cart[i].amount === amount) && (cart[i].cause === cause)) {
+        indexToRemove = i;
+      }
+    };
+
+    let updatedCart = Utils.removeIndexFromArray(indexToRemove, cart);
+
     this.props.removeFromCart(updatedCart);
+
     this.setState({ isSelected: false});
   };
 
@@ -38,7 +49,7 @@ class Tile extends Component {
 
     return(
       <div className={isPurchased ? 'Tile isPurchased' : "Tile"}
-           onClick={isSelected ? () => this.removeTileFromCart(amount) :
+           onClick={isSelected ? () => this.removeTileFromCart() :
              () => this.addTileToCart(amount, cause, tileIcon, mainImage)}>
 
         <p className={isSelected ? 'tile-amount isSelected' : 'tile-amount'}>${amount}</p>
