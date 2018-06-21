@@ -1,0 +1,41 @@
+.CartFooter {
+  align-items: center;
+  background-color: var(--white);
+  bottom: 0;
+  border: var(--border);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0rem;
+  position: fixed;
+  width: 100%;
+  left: 0;
+}
+
+.CartFooter .total-container {
+  margin-left: 1.5rem;
+}
+
+.total-container h4 {
+  color: var(--text-gray);
+  font-size: 1rem;
+}
+
+.CartFooter .total {
+  color: var(--medium-green);
+  font-size: 1.3rem;
+  font-weight: 100;
+}
+
+.CartFooter .placeholder-btn {
+  background-color: var(--medium-green);
+  border-radius: var(--border-radius);
+  color: var(--white);
+  font-size: 1.3rem;
+  margin-right: 1.5rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.placeholder-btn.disabled {
+  background-color: var(--light-gray);
+  pointer-events: none;
+}

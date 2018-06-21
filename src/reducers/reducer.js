@@ -47,7 +47,6 @@ const reducer = (state = initialState, action) => {
           $push: [action.payload]
         }
       });
-    // TODO need some logic here to remove an item
     case REMOVE_FROM_CART:
       return update(state, {
         cart: {
