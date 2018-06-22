@@ -39,3 +39,7 @@
   background-color: var(--light-gray);
   pointer-events: none;
 }
+
+.CartFooter .fa-credit-card {
+  margin-left: 0.75rem;
+}

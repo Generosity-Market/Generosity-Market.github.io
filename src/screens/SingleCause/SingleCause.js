@@ -33,7 +33,7 @@ class SingleCause extends Component {
   };
 
   render() {
-    let { cause } = this.props;
+    const { cause } = this.props;
 
     return(
       <div className="SingleCause">
@@ -51,11 +51,7 @@ class SingleCause extends Component {
             percentRaised={Math.floor(Math.random() * 100)}
             goal={cause.amount}/>
 
-          <TileSection
-            cause={cause.name}
-            mainImage={cause.mainImage}
-            goal={cause.amount}
-            tileIcon={cause.icon}/>
+          <TileSection {...cause}/>
 
           <LinkButton
             href="/checkout"

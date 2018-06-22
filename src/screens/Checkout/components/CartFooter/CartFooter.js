@@ -1,5 +1,6 @@
 import React from 'react';
 // import ActionButton from '../../../../components/ActionButton';
+import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
 import './CartFooter.css';
 
 const CartFooter = (props) => {
@@ -13,6 +14,7 @@ const CartFooter = (props) => {
 
       <div className={props.total === 0 ? "placeholder-btn disabled": "placeholder-btn"}>
         Checkout
+        <FontAwesome classname={'far fa-credit-card'} />
       </div>
 
       {/* <ActionButton /> */}

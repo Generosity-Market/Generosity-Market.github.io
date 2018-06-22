@@ -25,7 +25,6 @@ class Checkout extends Component {
   // };
 
   render() {
-    // console.log("Checkout Props::.. ", this.props);
     const { cart, user, removeFromCart, clearCart } = this.props;
 
     let cartItems = cart.map(item => {
@@ -34,6 +33,7 @@ class Checkout extends Component {
           amount={item.amount}
           cart={cart}
           cause={item.cause}
+          type={item.type}
           tileIcon={item.tileIcon}
           mainImage={item.mainImage}
           removeFromCart={removeFromCart} />
@@ -43,11 +43,8 @@ class Checkout extends Component {
     return(
       <div className="Checkout">
 
-          {!cart.length > 0 &&
-            <EmptyCart /> }
-
-          {cart.length > 0 &&
-            cartItems }
+          {!cart.length > 0 ?
+            <EmptyCart /> : <div className="cart-container"> {cartItems} </div> }
 
           <CartFooter total={ Utils.getTotal(cart, 'amount') } />
 
