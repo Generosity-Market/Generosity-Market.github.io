@@ -1,18 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import FontAwesome from '../../components/FontAwesome/FontAwesome';
 import './ActionButton.css';
 
-class ActionButton extends Component {
-  render() {
+const ActionButton = (props) => {
     return(
       <div className="ActionButton" style={buttonWrap}>
-        <div onClick={this.props.action} className={this.props.classname} style={buttonStyles}>
-        {this.props.icon ? <FontAwesome classname={this.props.icon} /> : ''}
-          {this.props.actionText}
+
+        <div onClick={props.action} className={props.classname} style={buttonStyles}>
+
+          {props.icon &&
+          <FontAwesome classname={props.icon}/>}
+
+          {props.actionText}
         </div>
+
       </div>
     );
-  }
 }
 
 const buttonStyles = {

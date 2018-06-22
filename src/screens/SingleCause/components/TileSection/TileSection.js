@@ -10,7 +10,6 @@ class TileSection extends Component {
   render() {
     const tiles = this.calculateTiles();
     // const { cart } = this.props;
-
     return(
       <div className="TileSection">
         <h2>Select Amount</h2>
@@ -33,7 +32,7 @@ class TileSection extends Component {
   calculateTiles = () => {
     let tileArray = [],
         tileNumber = 1,
-        amount = this.props.goal;
+        amount = this.props.amount;
 
     while (amount > 0) {
         tileArray.push({tileNumber: tileNumber, isPurchased: false});
@@ -82,13 +81,18 @@ class TileSection extends Component {
   }
 
   mapTiles = (tiles) => {
+    const { name, mainImage, icon, type, orgID, userID, featured } = this.props
     return tiles.map((tile, index) => {
       return(
         <Tile key={index}
-            cause={this.props.cause}
-            mainImage={this.props.mainImage}
+            cause={name}
+            mainImage={mainImage}
             amount={tile.tileNumber}
-            tileIcon={this.props.tileIcon}
+            type={type}
+            orgID={orgID}
+            userID={userID}
+            featured={featured}
+            tileIcon={icon}
             isPurchased={tile.isPurchased} />
       );
     });
