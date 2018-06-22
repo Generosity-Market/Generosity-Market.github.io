@@ -43,11 +43,8 @@ class Checkout extends Component {
     return(
       <div className="Checkout">
 
-          {!cart.length > 0 &&
-            <EmptyCart /> }
-
-          {cart.length > 0 &&
-            cartItems }
+          {!cart.length > 0 ?
+            <EmptyCart /> : <div className="cart-container"> {cartItems} </div> }
 
           <CartFooter total={ Utils.getTotal(cart, 'amount') } />
 

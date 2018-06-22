@@ -32,7 +32,7 @@ class CartItem extends Component {
         </div>
 
         <div className="clear" onClick={() => this.removeItemFromCart()}>
-          <FontAwesome classname={'fas fa-times'} />
+          <FontAwesome classname={'far fa-times-circle'} />
         </div>
       </div>
     );

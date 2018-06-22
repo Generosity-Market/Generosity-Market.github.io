@@ -2,6 +2,10 @@
   padding: 4.5rem 0rem 5rem;
 }
 
+.cart-container {
+  min-height: 80vh;
+}
+
 .Checkout h3 {
   /* color: var(--dark-green);
   font-size: 1.7rem;
