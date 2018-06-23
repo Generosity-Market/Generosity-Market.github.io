@@ -29,6 +29,7 @@
 .CartFooter .placeholder-btn {
   background-color: var(--medium-green);
   border-radius: var(--border-radius);
+  box-shadow: var(--mini-box-shadow);
   color: var(--white);
   font-size: 1.3rem;
   margin-right: 1.5rem;
@@ -37,6 +38,7 @@
 
 .placeholder-btn.disabled {
   background-color: var(--light-gray);
+  box-shadow: none;
   pointer-events: none;
 }
 

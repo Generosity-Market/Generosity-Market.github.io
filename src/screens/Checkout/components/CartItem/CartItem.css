@@ -1,12 +1,12 @@
 .CartItem {
   /* background-color: rgba(0,0,0,0.03); */
-  background-color: rgba(75,183,77,0.1);
-  border: var(--border);
-  border-radius: var(--border-radius);
+  /* background-color: var(--medium-green-10); */
+  /* border: var(--border); */
+  /* border-radius: var(--border-radius); */
   display: flex;
   justify-content: space-between;
   width: 88%;
-  margin: 0.3rem auto;
+  margin: 0.5rem auto;
   padding: 1rem;
   position: relative;
 }
@@ -30,7 +30,8 @@
 
 .itemInfo h4 {
   color: var(--black-30);
-  font-style: italic;
+  /* font-style: italic; */
+  letter-spacing: 1px;
 }
 
 .itemInfo p {
@@ -41,13 +42,13 @@
 
 .CartItem .clear {
   align-items: center;
-  color: var(--light-gray);
-  color: var(--danger-65);
+  color: var(--danger-35);
+  /* color: var(--black-30); */
   display: flex;
   font-size: 1.4rem;
   position: absolute;
   right: 0.5rem;
-  bottom: 0.5rem;
+  top: 1.2rem;
   opacity: 0.9;
 }
 
