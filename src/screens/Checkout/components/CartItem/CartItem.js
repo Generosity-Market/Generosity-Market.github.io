@@ -20,7 +20,7 @@ class CartItem extends Component {
   };
 
   render() {
-    const { amount, cause, type, tileIcon, mainImage } = this.props;
+    const { amount, cause, type, mainImage } = this.props;
 
     return(
       <div className="CartItem">
@@ -33,7 +33,6 @@ class CartItem extends Component {
         </div>
 
         <div className="clear" onClick={() => this.removeItemFromCart()}>
-          <p>remove</p>
           <FontAwesome classname={'far fa-times-circle'} />
         </div>
       </div>

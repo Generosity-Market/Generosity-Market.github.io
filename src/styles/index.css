@@ -2,6 +2,7 @@
 
 var(--danger)          --> rgba(255,40,40,1)      or  #ff2828
 var(--danger-65)       --> rgba(255,40,40,0.65)
+var(--danger-35)       --> rgba(255,40,40,0.35)
 
 var(--medium-blue)     --> rgba(71,141,255,1)    or   #478dff
 var(--medium-blue-85)  --> rgba(71,141,255,0.85)
@@ -13,6 +14,7 @@ var(--bright-green)    --> rgba(58,191,73,1)     or   #3ABF49
 var(--bright-green-85) --> rgba(58,191,73,0.85)
 
 var(--medium-green)    --> rgba(75,183,77,1)     or   #4BB74D
+var(--medium-green-10) --> rgba(75,183,77,0.1)
 
 var(--light-green)     --> rgba( 172,209,71,1)   or   #ACD147
 var(--light-green-85)  --> rgba( 172,209,71,0.85)
@@ -36,6 +38,7 @@ var(--border-radius)   --> 5px
 :root {
   --danger:            #ff2828;
   --danger-65:         rgba(255, 40, 40, 0.65);
+  --danger-35:         rgba(255, 40, 40, 0.35);
   --medium-blue:       #478dff;
   --medium-blue-85:    rgba(71,141,255,0.85);
   --dark-green:        #008C49;
@@ -43,6 +46,7 @@ var(--border-radius)   --> 5px
   --bright-green:      #3ABF49;
   --bright-green-85:   rgba(58,191,73,0.85);
   --medium-green:      #4bb74d;
+  --medium-green-10:   rgba(75,183,77,0.1);
   --light-green:       #acd147;
   --light-green-85:    rgba( 172,209,71,0.85);
   --blackish:          #1e301b;

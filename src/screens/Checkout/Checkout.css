@@ -1,15 +1,3 @@
 .Checkout {
-  padding: 4rem 0rem 5rem;
-}
-
-.cart-container {
-  min-height: 80vh;
-}
-
-.Checkout h3 {
-  /* color: var(--dark-green);
-  font-size: 1.7rem;
-  margin: 1rem 0;
-  text-align: center; */
-  /* text-transform: uppercase; */
+  padding: 0rem 0rem 5rem;
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { removeFromCart, clearCart } from '../../actions/actions';
 import EmptyCart from './components/EmptyCart/EmptyCart';
-import CartItem from './components/CartItem/CartItem';
+import Cart from './components/Cart/Cart';
 import CartFooter from './components/CartFooter/CartFooter';
 import Utils from '../../utilities/utilities';
 import './Checkout.css';
@@ -25,28 +25,15 @@ class Checkout extends Component {
   // };
 
   render() {
-    const { cart, user, removeFromCart, clearCart } = this.props;
-
-    let cartItems = cart.map(item => {
-      return(
-        <CartItem key={item.cause + item.amount}
-          amount={item.amount}
-          cart={cart}
-          cause={item.cause}
-          type={item.type}
-          tileIcon={item.tileIcon}
-          mainImage={item.mainImage}
-          removeFromCart={removeFromCart} />
-      );
-    });
-
+    const { cart, user } = this.props;
+    
     return(
       <div className="Checkout">
 
           {!cart.length > 0 ?
-            <EmptyCart /> : <div className="cart-container"> {cartItems} </div> }
+          <EmptyCart /> : <Cart {...this.props} /> }
 
-          <CartFooter total={ Utils.getTotal(cart, 'amount') } />
+          <CartFooter total={Utils.getTotal(cart, 'amount')} />
 
       </div>
     );
