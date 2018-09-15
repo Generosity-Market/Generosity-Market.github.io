@@ -1,18 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import FontAwesome from '../../components/FontAwesome/FontAwesome';
 import './ActionButton.css';
 
 const ActionButton = (props) => {
+    const { action, classname, icon, actionText } = props;
+
     return(
       <div className="ActionButton" style={buttonWrap}>
 
-        <div onClick={props.action} className={props.classname} style={buttonStyles}>
+      <div onClick={action} className={classname} style={buttonStyles}>
 
-          {props.icon &&
-          <FontAwesome classname={props.icon}/>}
+        { icon &&
+        <FontAwesome classname={icon}/> }
 
-          {props.actionText}
-        </div>
+        {actionText}
+      </div>
 
       </div>
     );
@@ -35,6 +38,32 @@ const buttonWrap = {
   // borderRadius:     '5px',
   // width:            '85%',
   // margin:           '0 auto 3rem'
+}
+
+ActionButton.propTypes = {
+  /**
+   * The classname to apply to the root node
+   */
+  classname: PropTypes.string.isRequired,
+  /**
+   * The text to render at the root nodes
+   */
+  actionText: PropTypes.string.isRequired,
+  /**
+   * The Handler for action button click
+   */
+  action: PropTypes.func.isRequired,
+  /**
+   * The name of the Font Awesome icon to pass to the FontAwesome component
+   */
+  icon: PropTypes.string,
+}
+
+ActionButton.defaultProps = {
+  action: () => {},
+  actionText: '',
+  classname: '',
+  icon: null,
 }
 
 export default ActionButton;

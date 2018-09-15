@@ -5,7 +5,7 @@ import './CauseTile.css';
 
 const CauseTile = (props) => {
   const { cause, raised, isFeatured } = props;
-
+  // console.log(props);
   return(
     <div className={isFeatured ? "CauseTile featured" : "CauseTile"}
          onClick={() => props.causeSelected(cause)}>

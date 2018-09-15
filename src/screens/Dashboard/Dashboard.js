@@ -22,7 +22,7 @@ class Dashboard extends Component {
       const id = this.props.match.params.id;
       this.props.getUserData(id);
     };
-    console.log(user);
+    // console.log(user);
 
     return(
       <div className="Dashboard">
