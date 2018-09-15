@@ -7,6 +7,9 @@ import Heading from '../../components/Heading/Heading';
 // import Loader from '../../components/Loader/Loader';
 import './causelist.css';
 
+// NOTE just for testing purposes for now
+// import Swiper from '../../components/Swiper/Swiper';
+
 // TODO will need to update this to add the loader component
 class CauseList extends Component {
   isFeatured = (isFeatured) => {
@@ -30,6 +33,8 @@ class CauseList extends Component {
   render() {
     return(
       <div className="CauseList">
+        {/* <Swiper /> */}
+
         <Heading text={'Featured'} />
         <Slider>
           {this.isFeatured(true)}

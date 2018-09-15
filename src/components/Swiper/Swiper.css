@@ -1,0 +1,20 @@
+.Test {
+  display: flex;
+  position: relative;
+  flex-wrap: nowrap;
+  margin: 1rem auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  text-align: center;
+}
+
+.Test div {
+  flex: 0 0 90%;
+  height: 5rem;
+  border: var(--border);
+  background-color: lightgray;
+  width: 90vw;
+  margin: 1rem 5vw;
+  border-radius: var(--border-radius);
+}
