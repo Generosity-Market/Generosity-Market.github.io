@@ -15,7 +15,7 @@ class Organization extends Component {
 
   render() {
     const { organization } = this.props;
-    console.log("ORG: ", organization);
+    // console.log("ORG: ", organization);
     return(
       <div className="Organization">
 

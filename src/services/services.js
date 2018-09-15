@@ -19,7 +19,7 @@ const fetchNonProfitStatus = (URL, taxID) => {
 // NOTE if working locally w/o live api, change the url to the ones listed beside each action.
 const Services = {
     fetchCauseList:         () => fetchData('/causes'),          // 'causes.json'
-    fetchSingleCause:       (id) => fetchData(`/causes/${id}`),          // 'causes.json'
+    fetchSingleCause:       (id) => fetchData(`/causes/${id}`),  // 'causes.json'
     fetchUserData:          () => fetchData('/user/1'),          // 'user.json'
     fetchOrgData:           () => fetchData(`/organizations/2`), // 'organization.json'
     verifyNonProfitStatus:  (taxID) => fetchNonProfitStatus(searchURL, taxID)
