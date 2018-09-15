@@ -9,12 +9,11 @@ import reducers from '../../reducers/reducer';
 let store = createStore(reducers);
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>
-    , div );
+    const div = document.createElement('div');
+    ReactDOM.render(
+        <Provider store={store}>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        </Provider>, div);
 });

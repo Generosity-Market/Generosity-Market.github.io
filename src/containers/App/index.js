@@ -30,7 +30,7 @@ class App extends Component {
   }
 
   render() {
-    console.log("Form state::: ",this.state);
+    // console.log("Form state::: ",this.state);
     return (
       <div className="App">
 
