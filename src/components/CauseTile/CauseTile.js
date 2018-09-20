@@ -12,7 +12,7 @@ const CauseTile = (props) => {
       <Link to={`/cause/${cause.id}`}>
 
         <div className="wrapper"
-             style={{backgroundImage: `url(${Utils.getImageURL(cause.mainImage)})`}}>
+             style={{backgroundImage: `url(${cause.mainImage})`}}>
           <div className="progress" style={{width: `${raised}%`}}></div>
           <h5>{raised}% of ${cause.amount}</h5>
         </div>

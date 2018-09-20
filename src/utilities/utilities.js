@@ -17,7 +17,7 @@ const Utils = {
         }
     },
 
-    getIconURL: icon => require(`../Assets/icons/PNG/${icon}`),
+    getIconURL: (icon) => `https://s3.amazonaws.com/generosity-market-cause-images/causeIcons/${icon}.png`,
 
     sharePage: () => alert("Shared"),
 

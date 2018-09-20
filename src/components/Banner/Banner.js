@@ -9,7 +9,7 @@ const Banner = (props) =>
 
       <div className="hero-image"
            style={{
-             backgroundImage: props.BGimage && `url(${Utils.getImageURL(props.BGimage)})`
+             backgroundImage: props.BGimage && `url(${props.BGimage})`
            }}>
         <h2>{props.heading && props.heading}</h2>
         {!props.BGimage && <FontAwesome classname="far fa-image"/>}

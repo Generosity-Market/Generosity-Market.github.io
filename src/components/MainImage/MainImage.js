@@ -7,7 +7,7 @@ const MainImage = (props) =>
   <div className="MainImage"
     style={{
       borderRadius: props.roundImage ? '50%' : '10%',
-      backgroundImage: props.mainImage && `url(${Utils.getImageURL(props.mainImage)})`
+      backgroundImage: props.mainImage && `url(${props.mainImage})`
   }}>
     {!props.mainImage && <FontAwesome classname="far fa-image"/>}
   </div>;
