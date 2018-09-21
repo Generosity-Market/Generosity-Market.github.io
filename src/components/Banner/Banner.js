@@ -1,7 +1,6 @@
 import React from 'react';
 import MainImage from '../MainImage/MainImage';
 import FontAwesome from '../FontAwesome/FontAwesome';
-import Utils from '../../utilities/utilities';
 import './Banner.css';
 
 const Banner = (props) =>

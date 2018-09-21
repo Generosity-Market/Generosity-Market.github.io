@@ -9,15 +9,7 @@ const Utils = {
         });
     },
 
-    getImageURL: (image) => {
-        if (image.includes('base64')) {
-            return `url(${image})`;
-        } else {
-            return require(`../Assets/Photography/Mobile/${image}`);
-        }
-    },
-
-    getIconURL: (icon) => `https://s3.amazonaws.com/generosity-market-cause-images/causeIcons/${icon}.png`,
+    getIconURL: (icon) => require(`../Assets/icons/PNG/${icon}.png`),
 
     sharePage: () => alert("Shared"),
 

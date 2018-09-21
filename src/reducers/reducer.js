@@ -1,4 +1,13 @@
-import { SET_USER, SET_DATA, CAUSE_SELECTED, SET_ORGANIZATION, ADD_TO_CART, REMOVE_FROM_CART, CLEAR_CART, ADD_CAUSE } from '../actions/actions';
+import {
+  SET_USER,
+  SET_DATA,
+  CAUSE_SELECTED,
+  SET_ORGANIZATION,
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
+  CLEAR_CART,
+  ADD_CAUSE
+} from '../actions/actions';
 
 import update from 'immutability-helper';
 // import Cookies from 'js-cookie';
