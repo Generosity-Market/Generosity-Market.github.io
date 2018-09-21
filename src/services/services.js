@@ -11,7 +11,10 @@ const fetchData = (URL, args) =>
 const postData = (URL, args) =>
     fetch(api(URL), { method: "POST", body: args })
     .then(response => response.json())
-    .then(data => data)
+    .then(data => {
+      console.log("Service Data: ", data)
+      return data;
+    })
     .catch(err => console.log("Error: ", err));
 
 const fetchNonProfitStatus = (URL, taxID) => {

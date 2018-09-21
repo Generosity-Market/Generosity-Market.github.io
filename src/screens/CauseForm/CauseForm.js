@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addCause } from '../../actions/actions';
 import CauseInputs from './components/CauseInputs/CauseInputs';
 import IconSelector from './components/IconSelector/IconSelector';
 import ImageUploader from './components/ImageUploader/ImageUploader';
@@ -116,6 +118,7 @@ class CauseForm extends Component {
       // TODO the response we should call a redux action that adds the cause to the array of causes
       // TODO then maybe redirect to that cause page
       console.log("Response: ", res);
+      this.props.addCause(res.Cause);
     }).catch(err => {
       // handle your error
       console.log("Error: ", err);
@@ -124,4 +127,10 @@ class CauseForm extends Component {
 
 };
 
-export default CauseForm;
+const mapStateToProps = (state) => {
+  return {};
+};
+
+const mapDispatchToProps = { addCause };
+
+export default connect(mapStateToProps, mapDispatchToProps)(CauseForm);
