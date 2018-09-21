@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
 import LinkButton from '../../components/LinkButton/LinkButton';
-import { destroyCookie, getCauseList, getUserData } from '../../actions/actions';
+import {
+  // destroyCookie,
+  getCauseList,
+  getUserData
+} from '../../actions/actions';
 import './Splash.css';
 
 class Splash extends Component {
@@ -25,9 +29,21 @@ class Splash extends Component {
         </div>
 
         <div className='links'>
-          <LinkButton classname={'create-cause'} linkText={'Create a cause'} href={'/causes/new'}/>
-          <LinkButton classname={'find-cause'} linkText={'Find a cause'} href={'/causes'}/>
-          <LinkButton classname={'sign-in'} linkText={'Sign in'} href={'/login'}/>
+          <LinkButton
+            classname={'create-cause'}
+            linkText={'Create a cause'}
+            href={'/causes/new'}
+          />
+          <LinkButton
+            classname={'find-cause'}
+            linkText={'Find a cause'}
+            href={'/causes'}
+          />
+          <LinkButton
+            classname={'sign-in'}
+            linkText={'Sign in'}
+            href={'/login'}
+          />
         </div>
 
         <a href='/login' className='sign-up'>Not a member? Sign up here</a>

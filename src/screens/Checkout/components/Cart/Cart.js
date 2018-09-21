@@ -6,6 +6,7 @@ import './Cart.css';
 const Cart = (props) => {
 
     const { cart, user, removeFromCart, clearCart } = props;
+    console.log("Cart User: ", user);
 
     const cartItems = cart.map(item => {
       return(

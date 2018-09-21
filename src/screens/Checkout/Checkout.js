@@ -26,7 +26,8 @@ class Checkout extends Component {
 
   render() {
     const { cart, user } = this.props;
-    
+    console.log("User: ", user);
+
     return(
       <div className="Checkout">
 

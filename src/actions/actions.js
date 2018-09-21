@@ -2,9 +2,16 @@
 import Services from '../services/services';
 
 // destructuring the Services functions
-const { fetchCauseList, fetchSingleCause, fetchUserData, fetchOrgData } = Services;
+const {
+  fetchCauseList,
+  fetchSingleCause,
+  fetchUserData,
+  fetchOrgData,
+  submitFormData
+} = Services;
 
 export const SET_DATA         = "SET_DATA",
+             ADD_CAUSE        = "ADD_CAUSE",
              CAUSE_SELECTED   = "CAUSE_SELECTED",
              SET_USER         = "SET_USER",
              SET_ORGANIZATION = "SET_ORGANIZATION",
@@ -23,6 +30,7 @@ const makeFetchCreator = (fetchType, action, args) => {
 };
 
 export const setData        = makeActionCreator(SET_DATA),
+             addCause       = makeActionCreator(ADD_CAUSE),
              causeSelected  = makeActionCreator(CAUSE_SELECTED),
              setUser        = makeActionCreator(SET_USER),
              setOrg         = makeActionCreator(SET_ORGANIZATION),
@@ -39,3 +47,5 @@ export const getSingleCause = (id) => makeFetchCreator(fetchSingleCause, causeSe
 export const getUserData = () => makeFetchCreator(fetchUserData, setUser, null);
 // getting the selected organizations information
 export const getOrgData = () => makeFetchCreator(fetchOrgData, setOrg, null);
+
+export const submitCauseForm = (args) => makeFetchCreator(submitFormData, addCause, args);

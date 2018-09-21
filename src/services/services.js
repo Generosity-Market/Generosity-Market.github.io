@@ -8,6 +8,15 @@ const fetchData = (URL, args) =>
     .then(data => data)
     .catch(err => console.log("Error: ", err));
 
+const postData = (URL, args) =>
+    fetch(api(URL), { method: "POST", body: args })
+    .then(response => response.json())
+    .then(data => {
+      console.log("Service Data: ", data)
+      return data;
+    })
+    .catch(err => console.log("Error: ", err));
+
 const fetchNonProfitStatus = (URL, taxID) => {
     const fetchURL = `${URL}${taxID}.json`;
     fetch(fetchURL)
@@ -22,7 +31,9 @@ const Services = {
     fetchSingleCause:       (id) => fetchData(`/causes/${id}`),  // 'causes.json'
     fetchUserData:          () => fetchData('/user/1'),          // 'user.json'
     fetchOrgData:           () => fetchData(`/organizations/2`), // 'organization.json'
-    verifyNonProfitStatus:  (taxID) => fetchNonProfitStatus(searchURL, taxID)
+    verifyNonProfitStatus:  (taxID) => fetchNonProfitStatus(searchURL, taxID),
+    submitFormData:         (data) => postData('/causes/new', data),
+    // submitFormData:         (data) => postData('/causes/new', {method: "POST", data: data}),
 };
 
 export default Services;
