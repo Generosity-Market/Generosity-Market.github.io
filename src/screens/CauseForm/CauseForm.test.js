@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { createStore, applyMiddleware, compose } from 'redux';
+import reduxThunk from 'redux-thunk';
+import reducers from '../../reducers/reducer';
+
 // Enzyme imports
 import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -10,7 +14,14 @@ import CauseForm from './CauseForm.js';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const testElement = <CauseForm />;
+let store = createStore(
+  reducers,
+  compose(
+      applyMiddleware(reduxThunk)
+  )
+);
+
+const testElement = <CauseForm store={store} />;
 
 describe('<CauseForm />', () => {
 

@@ -12,7 +12,7 @@ const CartFooter = (props) => {
         <h3 className='total'>${props.total}</h3>
       </div>
 
-      <div className={props.total === 0 ? "placeholder-btn disabled": "placeholder-btn"}>
+      <div className={props.total === 0 ? 'placeholder-btn disabled': 'placeholder-btn'}>
         Checkout
         <FontAwesome classname={'far fa-credit-card'} />
       </div>

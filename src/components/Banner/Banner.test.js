@@ -11,10 +11,8 @@ import Banner from './Banner.js';
 Enzyme.configure({ adapter: new Adapter() });
 
 const defaultProps = {
-    // action: ()=>{},
-    // actionText: 'submit',
-    // classname: 'submit',
-    // icon: '',
+  BGimage: 'to be decided...',
+  mainImage: 'dilly dilly',
 };
 
 const testElement = <Banner {...defaultProps} />;
@@ -23,6 +21,6 @@ describe('<Banner />', () => {
 
   it('renders without crashing', () => {
       const div = document.createElement('div');
-      ReactDOM.render(<Banner />, div);
+      ReactDOM.render(testElement, div);
   });
 });

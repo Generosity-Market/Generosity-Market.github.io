@@ -30,6 +30,7 @@
   background-color: var(--medium-green);
   border-radius: var(--border-radius);
   box-shadow: var(--mini-box-shadow);
+  box-shadow: 5px 5px 30px 0px var(--medium-green);
   color: var(--white);
   font-size: 1.3rem;
   margin-right: 1.5rem;

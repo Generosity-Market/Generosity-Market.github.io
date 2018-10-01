@@ -25,7 +25,7 @@ let store = createStore(
 );
 
 const defaultProps = {
-  tileIcon: 'Africa.png',
+  tileIcon: 'Africa',
 };
 
 const testElement =
