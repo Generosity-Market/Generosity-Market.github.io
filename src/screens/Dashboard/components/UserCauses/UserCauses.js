@@ -4,13 +4,18 @@ import Slider from '../../../../components/Slider/Slider';
 import Heading from '../../../../components/Heading/Heading';
 import './UserCauses.css';
 
+// Import HOC to see if component is in viewport
+import handleViewport from 'react-in-viewport';
+
+const CauseTileWithLazyLoad = handleViewport(CauseTile);
+
 class UserCauses extends Component {
 
   render() {
     let userCauses =
     this.props.causes.map(cause => {
       return(
-        <CauseTile key={cause.id} raised={36} cause={cause} causeSelected={this.props.causeSelected} />
+        <CauseTileWithLazyLoad key={cause.id} raised={36} cause={cause} causeSelected={this.props.causeSelected} />
       );
     });
 

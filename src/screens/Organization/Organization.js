@@ -31,28 +31,26 @@ class Organization extends Component {
       short_name,
     } = organization;
 
-    console.log("ORG: ", organization.Preferences);
-
     return(
       <div className="Organization">
 
-      {organization &&
-        <Banner
-          heading={name}
-          BGimage={Utils.getImageURL(backgroundImage)}
-          mainImage={Utils.getImageURL(mainImage)}
-          roundImage={Preferences[0] ? Preferences[0].roundImage : false} 
-        /> 
-      }
+        {organization &&
+          <Banner
+            heading={name}
+            BGimage={Utils.getImageURL(backgroundImage)}
+            mainImage={Utils.getImageURL(mainImage)}
+            roundImage={Preferences[0] ? Preferences[0].roundImage : false} 
+          /> 
+        }
 
         <div className="Wrapper">
 
-        {organization &&
-          <OrgCauses
-            causes={Causes}
-            causeSelected={causeSelected} 
-          />
-        }
+          {organization &&
+            <OrgCauses
+              causes={Causes}
+              causeSelected={causeSelected} 
+            />
+          }
 
           <OrgDetails
             heading={heading}
