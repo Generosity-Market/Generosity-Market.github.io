@@ -7,17 +7,20 @@ import './Banner.css';
 const Banner = (props) =>
     <div className="Header">
 
-      <div className="hero-image"
-           style={{
-             backgroundImage: props.BGimage && `url(${props.BGimage})`
-           }}>
+      <div 
+        className="hero-image"
+        style={{
+          backgroundImage: props.BGimage && `url(${props.BGimage})`
+        }}
+      >
         <h2>{props.heading && props.heading}</h2>
-        {!props.BGimage && <FontAwesome classname="far fa-image"/>}
+        { !props.BGimage && <FontAwesome classname="far fa-image"/> }
       </div>
 
       <MainImage
         mainImage={props.mainImage && props.mainImage}
-        roundImage={props.roundImage} />
+        roundImage={props.roundImage} 
+      />
 
     </div>;
 

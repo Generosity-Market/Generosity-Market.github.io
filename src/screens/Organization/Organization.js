@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { getOrgData, getCauseList, causeSelected } from '../../actions/actions';
+import Utils from '../../utilities/utilities';
+import './organization.css';
+
+// Component imports
 import Banner from '../../components/Banner/Banner';
 import OrgDetails from './components/OrgDetails/OrgDetails';
 import OrgCauses from './components/OrgCauses/OrgCauses';
 import LinkButton from '../../components/LinkButton/LinkButton';
-import { getOrgData, getCauseList, causeSelected } from '../../actions/actions';
-import './organization.css';
 
 class Organization extends Component {
 
@@ -14,34 +17,54 @@ class Organization extends Component {
   }
 
   render() {
-    const { organization } = this.props;
-    // console.log("ORG: ", organization);
+    const { organization, causeSelected } = this.props;
+    const { 
+      name,
+      backgroundImage,
+      mainImage,
+      Preferences,
+      Causes,
+      heading,
+      mission,
+      email,
+      site_url,
+      short_name,
+    } = organization;
+
+    console.log("ORG: ", organization.Preferences);
+
     return(
       <div className="Organization">
 
       {organization &&
         <Banner
-          heading={organization.name}
-          BGimage={organization.backgroundImage}
-          mainImage={organization.mainImage}
-          roundImage={organization.Preferences[0].roundImage} /> }
+          heading={name}
+          BGimage={Utils.getImageURL(backgroundImage)}
+          mainImage={Utils.getImageURL(mainImage)}
+          roundImage={Preferences[0] ? Preferences[0].roundImage : false} 
+        /> 
+      }
 
         <div className="Wrapper">
 
         {organization &&
           <OrgCauses
-            causes={organization.Causes}
-            causeSelected={this.props.causeSelected} />}
+            causes={Causes}
+            causeSelected={causeSelected} 
+          />
+        }
 
           <OrgDetails
-            heading={organization.heading}
-            mission={organization.mission}
-            email={organization.email} />
+            heading={heading}
+            mission={mission}
+            email={email} 
+          />
 
           <LinkButton
-            href={organization.site_url}
+            href={site_url}
             classname={'org-link'}
-            linkText={`Visit ${organization.short_name}`} />
+            linkText={`Visit ${short_name}`} 
+          />
 
         </div>
       </div>

@@ -9,7 +9,7 @@ export default class OrgCauses extends Component {
     const { causes } = this.props;
     return(
       <div className="OrgCauses">
-        <h3>Get involved</h3>
+        {causes.length > 0 && <h3>Get involved</h3>}
         <Slider>
           {causes.map((cause, index) =>
               <CauseTile key={index} raised={58} cause={cause} index={index} causeSelected={this.props.causeSelected} /> ) }
