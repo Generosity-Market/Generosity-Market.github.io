@@ -1,3 +1,5 @@
+import Utils from '../utilities/utilities';
+
 // NOTE add any services and api calls here. Don't expose api keys here. Use env files instead
 const api = endpoint => 'http://localhost:3000/api' + endpoint;
 const searchURL = `https://projects.propublica.org/nonprofits/api/v2/organizations/`;
@@ -42,6 +44,10 @@ const Services = {
     verifyNonProfitStatus:  (taxID) => fetchNonProfitStatus(searchURL, taxID),
     submitFormData:         (data) => postData('/causes/new', data),
     // submitFormData:         (data) => postData('/causes/new', {method: "POST", data: data}),
+    getLazyImagePlaceholder: () => {
+        const imageIds = ['1011', '1012', '900', '768', '701', '612', '539', '328', '216', '165']
+        return `https://picsum.photos/200/300?image=${imageIds[Utils.getRandomNumber(imageIds.length)]}&blur`;
+    }
 };
 
 export default Services;

@@ -1,25 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getCauseList, causeSelected } from '../../actions/actions';
+import './causelist.css';
+
+// Import HOC to see if component is in viewport
+import handleViewport from 'react-in-viewport';
+
+// Component imports
 import CauseTile from '../../components/CauseTile/CauseTile';
 import Slider from '../../components/Slider/Slider';
 import Heading from '../../components/Heading/Heading';
 // import Loader from '../../components/Loader/Loader';
-import './causelist.css';
 
-// NOTE just for testing purposes for now
-// import Swiper from '../../components/Swiper/Swiper';
+const CauseTileWithLazyLoad = handleViewport(CauseTile);
 
 // TODO will need to update this to add the loader component
 class CauseList extends Component {
   isFeatured = (isFeatured) => {
     return this.props.causeList.map(cause => {
       return(
-        <CauseTile key={cause.id}
+        <CauseTileWithLazyLoad 
+          key={cause.id}
           cause={cause}
           isFeatured={isFeatured}
           raised={Math.floor(Math.random() * 100)}
-          causeSelected={this.props.causeSelected} />
+          causeSelected={this.props.causeSelected} 
+        />
       );
     });
   }
