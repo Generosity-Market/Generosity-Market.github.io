@@ -26,7 +26,7 @@ class Checkout extends Component {
 
   render() {
     const { cart, user } = this.props;
-    console.log("User: ", user);
+    // console.log("User: ", user);
 
     return(
       <div className="Checkout">
@@ -34,7 +34,7 @@ class Checkout extends Component {
           {!cart.length > 0 ?
           <EmptyCart /> : <Cart {...this.props} /> }
 
-          <CartFooter total={Utils.getTotal(cart, 'amount')} />
+          <CartFooter total={Utils.getTotal(cart, 'amount')} {...this.props} />
 
       </div>
     );
