@@ -8,7 +8,7 @@ const searchURL = `https://projects.propublica.org/nonprofits/api/v2/organizatio
 // if (process.env.NODE_ENV == 'development') {
 //     console.log('browser');
 // } else if (process.env.NODE_ENV == 'test') {
-//     console.log('jest');
+//     console.log('test');
 // }
 const isTestingEnvironment = process.env.NODE_ENV === 'test';
 
