@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
-import navLinks from './linksData.js';
+import './baselayout.css';
+
+// Link data imports
+import navLinks from '../../constants/linksData';
+// import bottomNavLinks from '../../constants/BottomNavLinks';
+
+// Component imports
 import TopMenu from './components/TopMenu/TopMenu';
 import SlideMenu from './components/SlideMenu/SlideMenu';
-import './baselayout.css';
+// import BottomMenu from './components/BottomMenu/BottomMenu';
 
 class BaseLayout extends Component {
   constructor(props) {
@@ -19,7 +25,7 @@ class BaseLayout extends Component {
 
   handleNavigation = (endpoint) => {
     this.props.history.replace(endpoint);
-    setTimeout(() => this.navToggle(endpoint), 200);
+    setTimeout(() => this.navToggle(), 200);
   };
 
   render() {
@@ -28,15 +34,22 @@ class BaseLayout extends Component {
       <div className="BaseLayout">
 
         <TopMenu
-          openMenu={this.navToggle} />
+          openMenu={this.navToggle} 
+        />
 
         <SlideMenu
           navLinks={navLinks}
           closeMenu={this.navToggle}
           showMenu={this.state.showMenu}
-          handleNavigation={this.handleNavigation} />
+          handleNavigation={this.handleNavigation} 
+        />
 
         {this.props.children}
+
+        {/*<BottomMenu
+          navLinks={bottomNavLinks}
+          handleNavigation={this.handleNavigation}
+        />*/}
 
       </div>
     )
