@@ -1,0 +1,64 @@
+.CheckoutForm {
+    align-items: center;
+    background: linear-gradient(var(--light-green), var(--dark-green));
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    box-shadow: 0 0 25px 5px var(--black-20);
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    width: 100vw;
+    height: 50vh;
+    padding-bottom: 3rem;
+    z-index: 1;
+    transform: skewY(-5deg);
+    transition: all 0.5s ease;
+}
+
+.CheckoutForm .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    transform: skewY(5deg);
+}
+
+.CheckoutForm .fa-times-circle {
+    font-size: 2rem;
+    position: absolute;
+    right: 0.5rem;
+    top: 0rem;
+}
+
+.CheckoutForm .stripe-field {
+    border-bottom: 1px solid var(--light-green);
+    margin: 0 auto;
+    padding-bottom: 0.5rem;
+    width: 85%;
+}
+
+.CheckoutForm .card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 85%;
+}
+
+.card-info .stripe-field {
+    flex-basis: 28%;
+}
+
+.CheckoutForm .ActionButton {
+    align-items: center;
+    background: linear-gradient(170deg, var(--light-green), var(--bright-green));
+    border-radius: 1.5rem;
+    color: var(--blackish);
+    display: flex;
+    height: 2.75rem;
+    justify-content: center;
+    margin: 0 auto;
+    width: 80%;
+}

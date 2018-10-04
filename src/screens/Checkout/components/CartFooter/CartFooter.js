@@ -1,10 +1,9 @@
 import React from 'react';
 import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
-import StripeWrapper from '../../../../containers/StripeWrapper/StripeWrapper';
 import './CartFooter.css';
 
-const CartFooter = ({total, cart, ...rest}) => {
-  // console.log(rest);
+const CartFooter = ({ total, cart, toggleCheckoutForm, ...rest}) => {
+
   return(
     <div className="CartFooter">
 
@@ -13,18 +12,13 @@ const CartFooter = ({total, cart, ...rest}) => {
         <h3 className='total'>${total}</h3>
       </div>
 
-      <StripeWrapper
-        amount={total}
-        name={cart && cart[0] && cart[0].cause}
-        image={'../../../../Assets/Logo/JPG/Artboard 1 copy 2Generosity - Logo.jpg'}
-        description={``}
-        disabled={total === 0}
+      <div 
+        className={total === 0 ? 'placeholder-btn disabled' : 'placeholder-btn'}
+        onClick={toggleCheckoutForm}
       >
-        <div className={total === 0 ? 'placeholder-btn disabled' : 'placeholder-btn'}>
-          Checkout
-          <FontAwesome classname={'far fa-credit-card'} />
-        </div>
-      </StripeWrapper>
+        Checkout
+        <FontAwesome classname={'far fa-credit-card'} />
+      </div>
 
     </div>
   );
