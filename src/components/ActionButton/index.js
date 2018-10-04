@@ -3,20 +3,16 @@ import PropTypes from 'prop-types'
 import FontAwesome from '../../components/FontAwesome/FontAwesome'
 import './ActionButton.css'
 
-const ActionButton = (props) => {
-	const { action, classname, icon, actionText } = props
+const ActionButton = ({action, classname, icon, actionText}) => {
 
     return(
 		<div className="ActionButton" style={buttonWrap}>
-
 			<div onClick={action} className={classname} style={buttonStyles}>
-
 				{ icon &&
-        <FontAwesome classname={icon}/> }
+        		<FontAwesome classname={icon}/> }
 
 				{actionText}
 			</div>
-
 		</div>
 	)
 }
@@ -42,20 +38,20 @@ const buttonWrap = {
 
 ActionButton.propTypes = {
 	/**
-   * The classname to apply to the root node
-   */
+    * The classname to apply to the root node
+    */
 	classname: PropTypes.string.isRequired,
 	/**
-   * The text to render at the root nodes
-   */
+    * The text to render at the root nodes
+    */
 	actionText: PropTypes.string.isRequired,
 	/**
-   * The Handler for action button click
-   */
+    * The Handler for action button click
+    */
 	action: PropTypes.func.isRequired,
 	/**
-   * The name of the Font Awesome icon to pass to the FontAwesome component
-   */
+    * The name of the Font Awesome icon to pass to the FontAwesome component
+    */
 	icon: PropTypes.string,
 }
 
@@ -66,4 +62,4 @@ ActionButton.defaultProps = {
 	icon: null,
 }
 
-export default ActionButton
+export default ActionButton;

@@ -47,6 +47,7 @@ var(--border-radius)   --> 5px
   --bright-green-85:   rgba(58,191,73,0.85);
   --medium-green:      #4bb74d;
   --medium-green-10:   rgba(75,183,77,0.1);
+  --medium-green-85:   rgba(75,183,77,0.85);
   --light-green:       #acd147;
   --light-green-85:    rgba( 172,209,71,0.85);
   --blackish:          #1e301b;
