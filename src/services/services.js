@@ -5,11 +5,6 @@ const api = endpoint => 'http://localhost:3000/api' + endpoint;
 const searchURL = `https://projects.propublica.org/nonprofits/api/v2/organizations/`;
 
 // NOTE use this to suppress console.logs in testing...
-// if (process.env.NODE_ENV == 'development') {
-//     console.log('browser');
-// } else if (process.env.NODE_ENV == 'test') {
-//     console.log('test');
-// }
 const isTestingEnvironment = process.env.NODE_ENV === 'test';
 
 const fetchData = (URL, args) =>
@@ -18,13 +13,16 @@ const fetchData = (URL, args) =>
     .then(data => data)
     .catch(err => !isTestingEnvironment && console.log("Error: ", err));
 
-const postData = (URL, args) =>
+const postFormData = (URL, args) =>
     fetch(api(URL), { method: "POST", body: args })
     .then(response => response.json())
-    .then(data => {
-        console.log("Service Data: ", data)
-        return data;
-    })
+    .then(data => data)
+    .catch(err => !isTestingEnvironment && console.log("Error: ", err));
+
+const postJSONData = (URL, args) =>
+    fetch(api(URL), { method: "POST", ...args })
+    .then(response => response.json())
+    .then(data => data)
     .catch(err => !isTestingEnvironment && console.log("Error: ", err));
 
 const fetchNonProfitStatus = (URL, taxID) => {
@@ -35,19 +33,19 @@ const fetchNonProfitStatus = (URL, taxID) => {
     .catch(err => console.log('Error: ', err));
 };
 
-// NOTE if working locally w/o live api, change the url to the ones listed beside each action.
 const Services = {
-    fetchCauseList:         () => fetchData('/causes'),          // 'causes.json'
-    fetchSingleCause:       (id) => fetchData(`/causes/${id}`),  // 'causes.json'
-    fetchUserData:          () => fetchData('/user/1'),          // 'user.json'
-    fetchOrgData:           () => fetchData(`/organizations/2`), // 'organization.json'
+    fetchCauseList:         () => fetchData('/causes'),
+    fetchSingleCause:       (id) => fetchData(`/causes/${id}`),
+    fetchUserData:          () => fetchData('/user/1'),
+    fetchOrgData:           () => fetchData(`/organizations/2`),
     verifyNonProfitStatus:  (taxID) => fetchNonProfitStatus(searchURL, taxID),
-    submitFormData:         (data) => postData('/causes/new', data),
+    submitFormData:         (data) => postFormData('/causes/new', data),
+    submitPayment:          (options) => postJSONData('/charge/new', options),
     // submitFormData:         (data) => postData('/causes/new', {method: "POST", data: data}),
     getLazyImagePlaceholder: () => {
         const imageIds = ['1011', '1012', '900', '768', '701', '612', '539', '328', '216', '165']
         return `https://picsum.photos/200/300?image=${imageIds[Utils.getRandomNumber(imageIds.length)]}&blur`;
-    }
+    },
 };
 
 export default Services;

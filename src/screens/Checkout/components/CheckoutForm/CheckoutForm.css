@@ -1,6 +1,6 @@
 .CheckoutForm {
     align-items: center;
-    background: linear-gradient(var(--light-green), var(--dark-green));
+    /* background: linear-gradient(var(--light-green), var(--dark-green)); */
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
     box-shadow: 0 0 25px 5px var(--black-20);
@@ -13,6 +13,8 @@
     z-index: 1;
     transform: skewY(-5deg);
     transition: all 0.5s ease;
+
+    background-color: var(--white);
 }
 
 .CheckoutForm .card {
@@ -23,20 +25,32 @@
     position: relative;
     width: 100%;
     transform: skewY(5deg);
+    transition: all 0.3s ease;
+}
+
+.CheckoutForm .card p {
+    color: var(--blackish);
+    margin-top: 1.5rem;
+    text-align: center;
 }
 
 .CheckoutForm .fa-times-circle {
-    font-size: 2rem;
+    color: var(--white);
+    font-size: 1.5rem;
     position: absolute;
     right: 0.5rem;
     top: 0rem;
+
+    color: var(--dark-gray);
 }
 
 .CheckoutForm .stripe-field {
-    border-bottom: 1px solid var(--light-green);
+    border-bottom: 1px solid var(--white);
     margin: 0 auto;
     padding-bottom: 0.5rem;
     width: 85%;
+
+    border-bottom: 2px solid var(--bright-green);
 }
 
 .CheckoutForm .card-info {
@@ -53,12 +67,25 @@
 
 .CheckoutForm .ActionButton {
     align-items: center;
-    background: linear-gradient(170deg, var(--light-green), var(--bright-green));
+    background: linear-gradient(170deg, var(--light-green), var(--dark-green));
     border-radius: 1.5rem;
+    box-shadow: var(--box-shadow) var(--medium-green-85);
     color: var(--blackish);
     display: flex;
     height: 2.75rem;
     justify-content: center;
     margin: 0 auto;
     width: 80%;
+    transition: all 0.3s ease;
+    
+    /* background-color: var(--white); */
+    /* color: var(--white); */
+}
+
+.CheckoutForm .ActionButton.success {
+    background: linear-gradient(var(--bright-green), var(--bright-green));
+}
+
+.CheckoutForm .ActionButton.failed {
+    background: linear-gradient(var(--danger), var(--danger));
 }

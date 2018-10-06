@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { CardNumberElement, CardExpiryElement, CardCVCElement, PostalCodeElement, injectStripe } from 'react-stripe-elements';
 import './CheckoutForm.css';
+import stripeServices from '../../../../services/stripe';
+// import Services from '../../../../services/services';
 import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
 import ActionButton from '../../../../components/ActionButton';
 
@@ -8,42 +10,77 @@ class CheckoutForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            complete: false,
             loading: false,
+            status: ''
         }
         this.submit = this.submit.bind(this);
     };
 
-    async submit(event) {
-        const { stripe, total } = this.props;
-        this.setState({ loading: true });
-        // User clicked submit
-        // TODO abstract this into a service...
-        let { token } = await stripe.createToken({ name: "Name" });
-        console.log(token);
-        let response = await fetch("/charge", {
+    componentDidMount() {
+        fetch('http://localhost:3000/api/charge/new', {
             method: "POST",
-            headers: { "Content-Type": "text/plain" },
-            body: token.id,
-            amount: total,
-        });
+            body: JSON.stringify({name: "Joe", email: "Joe@joe.joe"}),
+            headers: {
+                "Content-Type": "application/json"
+            },
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+    }
+
+    handleButtonText = () => {
+        const { loading, status } = this.state;
+        if (loading) return "loading...";
+        if (status === 'complete') return "√ purchase complete";
+        if (status === 'failed') return "failed";
+        return `Donate $${ this.props.total }`;
+    }
+
+    submit(event) {
+        const { stripe, total, submitDonation } = this.props;
+        this.setState({ loading: true, status: '' });
+
+        // TODO abstract this into a service...
+        stripeServices.createToken(stripe)
+        .then(token => {
+            // TODO if token is undefined that means something wasnt filled in. We need to display an erroe message here...
+            if (!token) {
+                this.setState({loading: false, status: 'failed' })
+                return;
+            }
+
+            submitDonation({
+                body: JSON.stringify({...token, amount: total * 100}),
+                headers: {
+                    "Content-Type": "application/json"
+                },
+            })
+            .then(data => {
+                console.log("Data: ", data);
+                // NOTE for now testing button text
+                this.setState({ loading: false, status: 'success' })
+                return data;
+            })
+
+
+        }).then(response => response);
+
+
 
         // TODO Do something with the response...
         // if (response.ok) console.log("Purchase Complete!");
-        if (response.ok) this.setState({ complete: true, loading: false });
+        // if (response.ok) this.setState({ complete: true, loading: false, failed: false });
     };
 
     render() {
-        const { toggleCheckoutForm, showForm, total } = this.props;
-        // console.log(this.props);
-
-        if (this.state.complete) return <h1>Purchase Complete</h1>;
+        const { toggleCheckoutForm, showForm, total, cart } = this.props;
 
         return (
-            <div className="CheckoutForm" style={showForm ? {bottom: '-5%'} : {bottom: '-100%'}}>
+            <div className="CheckoutForm" style={showForm && total > 0  ? {bottom: '-5%'} : {bottom: '-100%'}}>
                 <div className="card">
                     <FontAwesome onClick={toggleCheckoutForm} classname='far fa-times-circle'/>
                     <p>Would you like to complete the purchase?</p>
+
                     <div className="stripe-field">
                         <CardNumberElement style={stripeStyles} />
                     </div>
@@ -60,7 +97,10 @@ class CheckoutForm extends Component {
                         </div>
                     </div>
 
-                    <ActionButton action={this.submit} actionText={`Donate $${total}`}/>
+                    <ActionButton  
+                        action={this.submit}
+                        actionText={this.handleButtonText()}
+                    />
                 </div>
             </div>
         )
@@ -69,11 +109,11 @@ class CheckoutForm extends Component {
 
 const stripeStyles = {
     base: {
-        color: '#1e301b',
+        color: '#707070',
         fontSize: '18px',
         fontSmoothing: 'antialiased',
         '::placeholder': {
-            color: '#606060',
+            color: '#AAA',
         },
     },
     invalid: {
