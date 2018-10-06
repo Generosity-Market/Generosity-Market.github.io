@@ -11,22 +11,11 @@ class CheckoutForm extends Component {
         super(props);
         this.state = {
             loading: false,
-            status: ''
+            status: '',
+            email: '',
         }
         this.submit = this.submit.bind(this);
     };
-
-    componentDidMount() {
-        fetch('http://localhost:3000/api/charge/new', {
-            method: "POST",
-            body: JSON.stringify({name: "Joe", email: "Joe@joe.joe"}),
-            headers: {
-                "Content-Type": "application/json"
-            },
-        })
-        .then(response => response.json())
-        .then(data => console.log(data))
-    }
 
     handleButtonText = () => {
         const { loading, status } = this.state;
@@ -36,8 +25,12 @@ class CheckoutForm extends Component {
         return `Donate $${ this.props.total }`;
     }
 
+    handleStateChange = (event) => {
+        this.setState({ email: event.target.value })
+    }
+
     submit(event) {
-        const { stripe, total, submitDonation } = this.props;
+        const { stripe, total, cart, submitDonation } = this.props;
         this.setState({ loading: true, status: '' });
 
         // TODO abstract this into a service...
@@ -50,7 +43,7 @@ class CheckoutForm extends Component {
             }
 
             submitDonation({
-                body: JSON.stringify({...token, amount: total * 100}),
+                body: JSON.stringify({...token, amount: total * 100, cart}),
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -80,6 +73,10 @@ class CheckoutForm extends Component {
                 <div className="card">
                     <FontAwesome onClick={toggleCheckoutForm} classname='far fa-times-circle'/>
                     <p>Would you like to complete the purchase?</p>
+
+                    <div className="stripe-field email">
+                        <input type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleStateChange} />
+                    </div>
 
                     <div className="stripe-field">
                         <CardNumberElement style={stripeStyles} />

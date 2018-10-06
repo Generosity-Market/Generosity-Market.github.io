@@ -84,3 +84,7 @@ body, * {
   padding: 0;
   font-family: var(--main-font);
 }
+
+*:focus {
+    outline: none;
+}

@@ -8,7 +8,7 @@
     justify-content: center;
     position: fixed;
     width: 100vw;
-    height: 50vh;
+    height: 52vh;
     padding-bottom: 3rem;
     z-index: 1;
     transform: skewY(-5deg);
@@ -51,6 +51,17 @@
     width: 85%;
 
     border-bottom: 2px solid var(--bright-green);
+}
+
+.stripe-field input[type="email"] {
+    color: var(--text-gray);
+    font-size: 1.2rem;
+    width: 98%;
+    height: 2rem;
+}
+
+.stripe-field input[type="email"]::placeholder {
+    color: #AAA;
 }
 
 .CheckoutForm .card-info {
