@@ -1,10 +1,31 @@
 import React, { Component } from 'react';
-import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
-import MiniButton from '../../../../components/MiniButton/MiniButton';
+import FontAwesome from '../FontAwesome/FontAwesome';
+import MiniButton from '../MiniButton/MiniButton';
 import { coverInput, profileInput } from './inputInfo.js';
 import './ImageUploader.css';
 
 export default class ImageUpload extends Component {
+  
+  createFileInput = (input, URL) => {
+    let iconClass = URL ? 'fas fa-pencil-alt btns' : 'fas fa-plus btns';
+    return (
+      <label className={URL ? `${input.labelClass} active` : input.labelClass}>
+        <FontAwesome classname={iconClass} />
+        <input className={input.inputClass}
+          type="file"
+          onChange={(e) => this.props.handleImageChange(e, input.image_type, input.argument)}
+          onClick={(event) => { event.target.value = null }} />
+      </label>
+    );
+  }
+
+  checkURL = (URL, faClass, roundImage) => {
+    if (URL) {
+      return <div className={roundImage ? 'circle' : ''} style={{ backgroundImage: `url(${URL})` }}></div>;
+    } else {
+      return <FontAwesome classname={`${faClass} ${roundImage ? 'circle' : ''}`} />;
+    }
+  }
 
   render() {
     const { profileURL, coverURL, name, roundImage, handleImageChange, handleUpdateState } = this.props;
@@ -45,27 +66,6 @@ export default class ImageUpload extends Component {
         </div>
       </div>
     )
-  }
-
-  createFileInput = (input, URL) => {
-    let iconClass = URL ? 'fas fa-pencil-alt btns' : 'fas fa-plus btns';
-    return (
-      <label className={URL ? `${input.labelClass} active` : input.labelClass}>
-        <FontAwesome classname={iconClass} />
-        <input className={input.inputClass}
-          type="file"
-          onChange={(e)=>this.props.handleImageChange(e, input.image_type, input.argument)}
-          onClick={(event)=> {event.target.value = null}} />
-      </label>
-    );
-  }
-
-  checkURL = (URL, faClass, roundImage) => {
-    if (URL) {
-      return <div className={roundImage ? 'circle' : ''} style={{backgroundImage: `url(${URL})`}}></div>;
-    } else {
-      return <FontAwesome classname={`${faClass} ${roundImage ? 'circle' : ''}`}/>;
-    }
   }
   
 };

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { addCause } from '../../actions/actions';
 import CauseInputs from './components/CauseInputs/CauseInputs';
 import IconSelector from './components/IconSelector/IconSelector';
-import ImageUploader from './components/ImageUploader/ImageUploader';
+import ImageUploader from '../../components/ImageUploader/ImageUploader';
 import ActionButton from '../../components/ActionButton';
 import Heading from '../../components/Heading/Heading';
 import Services from '../../services/services';

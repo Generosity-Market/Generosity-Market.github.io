@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import './NewOrgForm.css';
 
 import ActionButton from '../../components/ActionButton';
-// TODO need to extract the image uploader from the cause form page
-// import ImageUploader from './components/ImageUploader/ImageUploader';
+import ImageUploader from '../../components/ImageUploader/ImageUploader';
 import OrgInputs from './components/OrgInputs/OrgInputs';
 import Heading from '../../components/Heading/Heading';
 import Services from '../../services/services';
@@ -21,10 +20,10 @@ class NewOrgForm extends Component {
       mission: '',
       email: '',
       site_url: '',
-      main_image: '',
-      mainImageURL: '',
-      background_image: '',
-      backgroundURL: '',
+      profile_image: '',
+      profileURL: '',
+      cover_image: '',
+      coverURL: '',
       roundImage: true,
       whiteText: true
     };
@@ -81,7 +80,7 @@ class NewOrgForm extends Component {
         // handle your response
         // TODO cause some feedback on the screen that shows the user that an action is happening
         // TODO the response we should call a redux action that adds the cause to the array of causes
-        // TODO then maybe redirect to that cause page
+        // TODO then redirect to that organization page
         console.log("Response: ", res);
         // TODO do something with the response...
         // this.props.addCause(res.Cause);
@@ -92,35 +91,33 @@ class NewOrgForm extends Component {
   };
 
   render() {
+
     return (
       <div className="NewOrgForm">
 
-        {/* 
-          <ImageUploader
-            handleImageChange={this.handleImageChange}
-            handleUpdateState={this.handleUpdateState}
-            name={this.state.name}
-            profileURL={this.state.mainImageURL}
-            coverURL={this.state.backgroundURL}
-            roundImage={this.state.roundImage}
-            whiteText={this.state.whiteText}
-          /> 
-        */}
-        <Heading text={'Select Your Cause Profile & Cover Images'} />
+        <ImageUploader
+          handleImageChange={this.handleImageChange}
+          handleUpdateState={this.handleUpdateState}
+          name={this.state.name}
+          profileURL={this.state.profileURL}
+          coverURL={this.state.coverURL}
+          roundImage={this.state.roundImage}
+          whiteText={this.state.whiteText}
+        /> 
 
+        <Heading text={'Select Your Cause Profile & Cover Images'} />
 
         <OrgInputs
           state={this.state}
           handleUpdateState={this.handleUpdateState}
         /> 
 
-          <ActionButton
-            actionText={'create organization'}
-            classname={'create-org'}
-            action={this.handleSubmit}
-          /> 
+        <ActionButton
+          actionText={'create organization'}
+          classname={'create-org'}
+          action={this.handleSubmit}
+        /> 
 
-        
       </div>
     )
   }
