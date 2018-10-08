@@ -29,7 +29,7 @@ export default class ImageUpload extends Component {
 
   render() {
     const { profileURL, coverURL, name, roundImage, handleImageChange, handleUpdateState } = this.props;
-    let $profilePreview = this.checkURL(profileURL, 'fas fa-image', roundImage);
+    let $profilePreview = this.checkURL(profileURL, 'fas fa-camera', roundImage);
     let $coverPreview = this.checkURL(coverURL, 'fas fa-image');
 
     return (

@@ -1,6 +1,6 @@
 .ImageUploader,
 .profilePreview,
-.profilePreview .fa-image,
+.profilePreview .fa-camera,
 .coverPreview .fa-image,
 .previewComponent .btns {
   align-items: center;
@@ -31,7 +31,8 @@
   transition: right 0.5s ease 0.7s, left 0.5s ease 0.7s, top 0.5s ease 0.7s;
 }
 
-.previewComponent .fa-image {
+.previewComponent .fa-image,
+.previewComponent .fa-camera {
   color: var(--light-gray);
   font-size: 3rem;
 }
@@ -39,7 +40,8 @@
 .profilePreview,
 .coverPreview,
 .profilePreview div,
-.profilePreview .fa-image {
+.profilePreview .fa-image,
+.profilePreview .fa-camera {
   position: relative;
 }
 
@@ -79,7 +81,7 @@
   text-shadow: 0.2rem 0.2rem 0.5rem rgba(0,0,0,1);
 }
 
-.profilePreview div, .profilePreview .fa-image {
+.profilePreview div, .profilePreview .fa-camera {
   background-color: var(--white);
   background-size: cover;
   background-position: center;
@@ -93,7 +95,7 @@
   transition: border-radius 0.2s ease-in-out;
 }
 
-.profilePreview div.circle, .profilePreview .fa-image.circle {
+.profilePreview div.circle, .profilePreview .fa-camera.circle {
   border-radius: 50%;
   transition: border-radius 0.2s ease-in-out;
 }

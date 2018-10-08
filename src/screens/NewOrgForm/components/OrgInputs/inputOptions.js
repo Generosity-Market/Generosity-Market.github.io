@@ -14,11 +14,11 @@ const inputOptions = [
     }, {
         type: 'text',
         name: 'heading',
-        placeholder: 'Company Motto',
+        placeholder: 'Your Motto',
     }, {
         type: 'textarea',
         name: 'mission',
-        placeholder: 'Organization\'s Mission',
+        placeholder: 'Your Mission',
     }, {
         type: 'text',
         name: 'email',
