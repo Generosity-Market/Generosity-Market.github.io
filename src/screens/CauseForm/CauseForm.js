@@ -109,7 +109,7 @@ class CauseForm extends Component {
     formData.append('state', JSON.stringify(this.state));
 
 
-    Services.submitFormData(formData, {
+    Services.submitCauseForm(formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }

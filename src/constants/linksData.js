@@ -8,7 +8,9 @@ const navLinks =
 }, {
   name: 'Dashboard', icon: 'fas fa-tachometer-alt', endpoint: '/users/1/dashboard', color: 'var(--medium-green)'
 }, {
-  name: 'Organizations', icon: 'fab fa-leanpub', endpoint: '/organizations', color: 'var(--medium-green)'
+  name: 'Organizations', icon: 'fas fa-lightbulb', endpoint: '/organizations', color: 'var(--medium-green)'
+}, {
+  name: 'Add Organization', icon: 'fab fa-leanpub', endpoint: '/organizations/new', color: 'var(--medium-green)'
 }, {
   name: 'Canopy Life Example Org', icon: 'fas fa-building', endpoint: '/organizations/2', color: 'var(--medium-green)'
 }, {

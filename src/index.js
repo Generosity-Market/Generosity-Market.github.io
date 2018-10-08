@@ -21,6 +21,7 @@ import Dashboard from './screens/Dashboard/Dashboard';
 import CauseList from './screens/CauseList/CauseList';
 import CauseForm from './screens/CauseForm/CauseForm';
 import Organization from './screens/Organization/Organization';
+import NewOrgForm from './screens/NewOrgForm/NewOrgForm';
 import SingleCause from './screens/SingleCause/SingleCause';
 import Checkout from './screens/Checkout/Checkout';
 
@@ -44,14 +45,15 @@ ReactDOM.render(
   <BrowserRouter>
     <BaseLayout>
       <Switch>
-        <Route  exact path='/login' component={App} />
-        <Route  exact path='/users/:id/dashboard' component={Dashboard} />
-        <Route  exact path='/checkout' component={Checkout} />
-        <Route  exact path='/cause/:id' component={SingleCause} />
-        <Route  exact path='/causes/new' component={CauseForm} />
-        <Route  exact path='/causes' component={CauseList} />
-        <Route  exact path='/organizations/:id' component={Organization} />
-        <Route  exact path='/' component={Splash} />
+        <Route exact path='/login' component={App} />
+        <Route exact path='/users/:id/dashboard' component={Dashboard} />
+        <Route exact path='/checkout' component={Checkout} />
+        <Route exact path='/cause/:id' component={SingleCause} />
+        <Route exact path='/causes/new' component={CauseForm} />
+        <Route exact path='/causes' component={CauseList} />
+        <Route exact path='/organizations/new' component={NewOrgForm} />
+        <Route exact path='/organizations/:id' component={Organization} />
+        <Route exact path='/' component={Splash} />
       </Switch>
     </BaseLayout>
   </BrowserRouter>

@@ -16,7 +16,7 @@ class CauseInputs extends Component {
           );
         })}
       </select>
-         );
+    );
   }
 
   getTextArea = (input, index) => {
@@ -26,14 +26,20 @@ class CauseInputs extends Component {
         onChange={this.props.handleUpdateState(input.name)}
         value={this.props.state[input.name]}>
       </textarea>
-         );
+    );
   };
 
   getInput = (input, index) => {
-    return <input key={index} type={input.type} name={input.name}
-             placeholder={input.placeholder}
-             onChange={this.props.handleUpdateState(input.name)}
-             value={this.props.state[input.name]}/>
+    return (
+      <input 
+        key={index} 
+        type={input.type} 
+        name={input.name}
+        placeholder={input.placeholder}
+        onChange={this.props.handleUpdateState(input.name)}
+        value={this.props.state[input.name]}
+      />
+    )
   }
 
   render() {

@@ -1,0 +1,23 @@
+.OrgInputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.OrgInputs input, 
+.OrgInputs textarea {
+    border: var(--border);
+    border-radius: var(--border-radius);
+    font-size: 18px;
+    margin: 0.75rem auto;
+    padding: 0.75rem;
+    width: 89%;
+}
+
+.OrgInputs textarea {
+    height: 5rem;
+}
+
+.OrgInputs input::placeholder, 
+.OrgInputs textarea::placeholder {
+    font-size: 1rem;
+}

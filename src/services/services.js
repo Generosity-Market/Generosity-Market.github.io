@@ -5,6 +5,7 @@ const api = endpoint => 'http://localhost:3000/api' + endpoint;
 const searchURL = `https://projects.propublica.org/nonprofits/api/v2/organizations/`;
 
 // NOTE use this to suppress console.logs in testing...
+// TODO but for real we should do better error handling anywayz...
 const isTestingEnvironment = process.env.NODE_ENV === 'test';
 
 const fetchData = (URL, args) =>
@@ -39,7 +40,8 @@ const Services = {
     fetchUserData:          () => fetchData('/user/1'),
     fetchOrgData:           () => fetchData(`/organizations/2`),
     verifyNonProfitStatus:  (taxID) => fetchNonProfitStatus(searchURL, taxID),
-    submitFormData:         (data) => postFormData('/causes/new', data),
+    submitCauseForm:        (data) => postFormData('/causes/new', data),
+    submitOrgForm:          (data) => postFormData('/organizations/new', data), 
     submitPayment:          (options) => postJSONData('/charge/new', options),
     // submitFormData:         (data) => postData('/causes/new', {method: "POST", data: data}),
     getLazyImagePlaceholder: () => {

@@ -51,7 +51,9 @@ class CheckoutForm extends Component {
             .then(data => {
                 console.log("Data: ", data);
                 // NOTE for now testing button text
-                this.setState({ loading: false, status: 'success' })
+                if  (data.outcome.type === 'authorized') {
+                    this.setState({ loading: false, status: 'success' })
+                }
                 return data;
             })
 
