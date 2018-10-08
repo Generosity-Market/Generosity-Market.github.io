@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { removeFromCart, clearCart } from '../../actions/actions';
+import { removeFromCart, clearCart, submitDonation } from '../../actions/actions';
 import EmptyCart from './components/EmptyCart/EmptyCart';
 import Cart from './components/Cart/Cart';
 import CartFooter from './components/CartFooter/CartFooter';
@@ -33,7 +33,6 @@ class Checkout extends Component {
 
   render() {
     const { cart, user } = this.props;
-    // console.log("User: ", user);
 
     return(
       <StripeProvider apiKey="pk_test_qojWn3GnI7Cr16kIvzOjMYiA">
@@ -53,6 +52,7 @@ class Checkout extends Component {
               toggleCheckoutForm={() => this.toggleCheckoutForm()}
               showForm={this.state.showForm}
               total={Utils.getTotal(cart, 'amount')}
+              submitDonation={submitDonation}
               {...this.props}
             />
           </Elements>
@@ -67,7 +67,7 @@ const mapStateToProps = (state) => {
   return { user: state.user, cart: state.cart }
 };
 
-const mapDispatchToProps = { clearCart, removeFromCart };
+const mapDispatchToProps = { clearCart, removeFromCart, submitDonation };
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout);

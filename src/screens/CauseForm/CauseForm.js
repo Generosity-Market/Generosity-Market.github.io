@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { addCause } from '../../actions/actions';
 import CauseInputs from './components/CauseInputs/CauseInputs';
 import IconSelector from './components/IconSelector/IconSelector';
-import ImageUploader from './components/ImageUploader/ImageUploader';
+import ImageUploader from '../../components/ImageUploader/ImageUploader';
 import ActionButton from '../../components/ActionButton';
 import Heading from '../../components/Heading/Heading';
 import Services from '../../services/services';
@@ -41,12 +41,14 @@ class CauseForm extends Component {
           profileURL={this.state.profileURL}
           coverURL={this.state.coverURL}
           roundImage={this.state.roundImage}
-          whiteText={this.state.whiteText} />
+          whiteText={this.state.whiteText}
+        />
         <Heading text={'Select Your Cause Profile & Cover Images'} />
 
         <CauseInputs
           state={this.state}
-          handleUpdateState={this.handleUpdateState} />
+          handleUpdateState={this.handleUpdateState}
+        />
 
         <Heading text={'Select Your Fundraising Icon'} />
         <IconSelector handleSelect={this.handleSelectIcon} />
@@ -54,7 +56,8 @@ class CauseForm extends Component {
         <ActionButton
           actionText={'publish cause page'}
           classname={'publish-cause'}
-          action={this.handlePublish} />
+          action={this.handlePublish}
+        />
 
       </div>
     );
@@ -95,7 +98,6 @@ class CauseForm extends Component {
   };
 
   handlePublish = () => {
-    // TODO: do something with -> this.state.file
     console.log('handle uploading-', this.state);
     delete this.state.profileURL;
     delete this.state.coverURL;
@@ -107,7 +109,7 @@ class CauseForm extends Component {
     formData.append('state', JSON.stringify(this.state));
 
 
-    Services.submitFormData(formData, {
+    Services.submitCauseForm(formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }

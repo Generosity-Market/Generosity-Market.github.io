@@ -4,7 +4,9 @@
   /* padding-top: 4rem; */
 }
 
-.CauseInputs input, .CauseInputs textarea, .CauseInputs select {
+.CauseInputs input, 
+.CauseInputs textarea, 
+.CauseInputs select {
   border: var(--border);
   border-radius: var(--border-radius);
   font-size: 18px;

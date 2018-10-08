@@ -7,7 +7,8 @@ const {
   fetchSingleCause,
   fetchUserData,
   fetchOrgData,
-  submitFormData
+  submitFormData,
+  submitPayment,
 } = Services;
 
 export const SET_DATA         = "SET_DATA",
@@ -29,14 +30,14 @@ const makeFetchCreator = (fetchType, action, args) => {
   return (dispatch, getState) => fetchType(args).then(data => dispatch( action(data) ) );
 };
 
-export const setData        = makeActionCreator(SET_DATA),
-             addCause       = makeActionCreator(ADD_CAUSE),
-             causeSelected  = makeActionCreator(CAUSE_SELECTED),
-             setUser        = makeActionCreator(SET_USER),
-             setOrg         = makeActionCreator(SET_ORGANIZATION),
-             addToCart      = makeActionCreator(ADD_TO_CART),
-             removeFromCart = makeActionCreator(REMOVE_FROM_CART),
-             clearCart      = makeActionCreator(CLEAR_CART);
+export const setData        = makeActionCreator(SET_DATA);
+export const addCause       = makeActionCreator(ADD_CAUSE);
+export const causeSelected  = makeActionCreator(CAUSE_SELECTED);
+export const setUser        = makeActionCreator(SET_USER);
+export const setOrg         = makeActionCreator(SET_ORGANIZATION);
+export const addToCart      = makeActionCreator(ADD_TO_CART);
+export const removeFromCart = makeActionCreator(REMOVE_FROM_CART);
+export const clearCart      = makeActionCreator(CLEAR_CART);
 
 
 // calling the api for the entire causelist
@@ -47,5 +48,7 @@ export const getSingleCause = (id) => makeFetchCreator(fetchSingleCause, causeSe
 export const getUserData = () => makeFetchCreator(fetchUserData, setUser, null);
 // getting the selected organizations information
 export const getOrgData = () => makeFetchCreator(fetchOrgData, setOrg, null);
-
+// publishing the cause page if succcessful
 export const submitCauseForm = (args) => makeFetchCreator(submitFormData, addCause, args);
+// submitting a payment for total donation
+export const submitDonation = (args) => makeFetchCreator(submitPayment, null, args);

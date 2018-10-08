@@ -1,3 +1,14 @@
+
+const stripeServices = {
+    createToken: (stripe) => {
+        // TODO name should be replaced with the users name
+        return stripe.createToken({ name: "Name" }).then(data => data);
+    },
+
+};
+
+export default stripeServices;
+
 // // NOTE This file has not been verified to work, will need to build the microservice to test.
 // // TODO needs to be imported into cart footer for functionality to be tested
 
