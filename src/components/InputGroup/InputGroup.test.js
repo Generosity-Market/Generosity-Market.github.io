@@ -6,7 +6,7 @@ import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 // Component import
-import CauseInputs from './CauseInputs.js';
+import InputGroup from './InputGroup';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -30,9 +30,9 @@ const defaultProps = {
   },
 };
 
-const testElement = <CauseInputs {...defaultProps} />;
+const testElement = <InputGroup {...defaultProps} />;
 
-describe('<CauseInputs />', () => {
+describe('<InputGroup />', () => {
 
   it('renders without crashing', () => {
       const div = document.createElement('div');

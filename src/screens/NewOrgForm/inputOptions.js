@@ -1,16 +1,8 @@
 const inputOptions = [
     {
         type: 'text',
-        name: 'name',
-        placeholder: 'Name of Organization',
-    }, {
-        type: 'text',
         name: 'short_name',
         placeholder: 'Display Name',
-    }, {
-        type: 'text',
-        name: 'tax_id',
-        placeholder: 'Tax ID  (If Available)',
     }, {
         type: 'text',
         name: 'heading',
