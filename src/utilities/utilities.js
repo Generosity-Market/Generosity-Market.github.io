@@ -36,6 +36,8 @@ const Utils = {
 
     isMobile: () => /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
 
+    isTestingEnvironment: () => process.env.NODE_ENV === 'test',
+
 };
 
 export default Utils;
