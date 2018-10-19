@@ -36,14 +36,14 @@ class CheckoutForm extends Component {
         // TODO abstract this into a service...
         stripeServices.createToken(stripe)
         .then(token => {
-            // TODO if token is undefined that means something wasnt filled in. We need to display an erroe message here...
+            // TODO if token is undefined that means something wasnt filled in. We need to display an error message here...
             if (!token) {
                 this.setState({loading: false, status: 'failed' })
                 return;
             }
 
             submitDonation({
-                body: JSON.stringify({...token, amount: total * 100, cart}),
+                body: JSON.stringify({...token, amount: total * 100, cart, email: this.state.email}),
                 headers: {
                     "Content-Type": "application/json"
                 },

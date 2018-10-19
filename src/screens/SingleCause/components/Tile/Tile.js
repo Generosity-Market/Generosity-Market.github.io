@@ -12,8 +12,8 @@ class Tile extends Component {
     };
   };
 
-  addTileToCart = (amount, cause, tileIcon, mainImage, orgID, userID, featured, type) => {
-    this.props.addToCart({ amount, cause, tileIcon, mainImage, orgID, userID, featured, type });
+  addTileToCart = (args) => {
+    this.props.addToCart({ ...args });
     this.setState({ isSelected: true });
   };
 
@@ -44,15 +44,17 @@ class Tile extends Component {
   };
 
   render() {
-    const { cause, amount, mainImage, isPurchased, tileIcon, orgID, userID, featured, type } = this.props;
+    const { isPurchased,  tileIcon, ...rest } = this.props;
     const { isSelected } = this.state;
 
     return(
-      <div className={isPurchased ? 'Tile isPurchased' : "Tile"}
-           onClick={isSelected ? () => this.removeTileFromCart() :
-             () => this.addTileToCart(amount, cause, tileIcon, mainImage, orgID, userID, featured, type)}>
+      <div 
+        className={isPurchased ? 'Tile isPurchased' : "Tile"}
+        onClick={isSelected ? () => this.removeTileFromCart() :
+        () => this.addTileToCart( {tileIcon, ...rest} )}
+      >
 
-        <p className={isSelected ? 'tile-amount isSelected' : 'tile-amount'}>${amount}</p>
+        <p className={isSelected ? 'tile-amount isSelected' : 'tile-amount'}>${rest.amount}</p>
 
         <img src={ Utils.getIconURL(tileIcon) } alt='Tile Icon'/>
 
