@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import inputOptions from './inputOptions.js';
-import './OrgInputs.css';
+import './InputGroup.css';
 
-class OrgInputs extends Component {
+class InputGroup extends Component {
 
     getSelectOptions = (options, index) => {
         return (
@@ -43,8 +42,10 @@ class OrgInputs extends Component {
     }
 
     render() {
-        let inputs = inputOptions.map((input, index) => {
-            if (input.type === 'textarea') {
+        let inputs = this.props.inputOptions.map((input, index) => {
+            if (input.type === 'select') {
+                return this.getSelectOptions(this.props.selectOptions, index);
+            } else if (input.type === 'textarea') {
                 return this.getTextArea(input, index);
             } else {
                 return this.getInput(input, index);
@@ -52,11 +53,11 @@ class OrgInputs extends Component {
         });
 
         return (
-            <div className="OrgInputs">
+            <div className="InputGroup">
                 {inputs}
             </div>
         );
     }
 }
 
-export default OrgInputs;
+export default InputGroup;

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addCause } from '../../actions/actions';
-import CauseInputs from './components/CauseInputs/CauseInputs';
+import InputGroup from '../../components/InputGroup/InputGroup';
 import IconSelector from './components/IconSelector/IconSelector';
 import ImageUploader from '../../components/ImageUploader/ImageUploader';
 import ActionButton from '../../components/ActionButton';
 import Heading from '../../components/Heading/Heading';
 import Services from '../../services/services';
+import inputOptions from './inputOptions';
 import './causeForm.css';
 
 class CauseForm extends Component {
@@ -31,6 +32,7 @@ class CauseForm extends Component {
   }
 
   render() {
+    const selectOptions = ['Trip', 'Mission', 'Adoption', 'Camp', 'Community Project'];
     return(
       <div className="CauseForm">
 
@@ -45,9 +47,11 @@ class CauseForm extends Component {
         />
         <Heading text={'Select Your Cause Profile & Cover Images'} />
 
-        <CauseInputs
+        <InputGroup
           state={this.state}
           handleUpdateState={this.handleUpdateState}
+          inputOptions={inputOptions}
+          selectOptions={selectOptions}
         />
 
         <Heading text={'Select Your Fundraising Icon'} />

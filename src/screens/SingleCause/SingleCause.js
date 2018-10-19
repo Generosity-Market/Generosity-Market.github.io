@@ -43,20 +43,23 @@ class SingleCause extends Component {
           heading={cause.name}
           BGimage={cause.backgroundImage}
           mainImage={cause.mainImage}
-          roundImage={cause.Preferences[0].roundImage}/> }
+          roundImage={cause.Preferences ? cause.Preferences[0].roundImage : {} }
+        /> }
 
         <div className="wrapper">
 
           <ProgressBar
             percentRaised={Math.floor(Math.random() * 100)}
-            goal={cause.amount}/>
+            goal={cause.amount}
+          />
 
           <TileSection {...cause}/>
 
           <LinkButton
             href="/checkout"
             linkText="Donate"
-            classname="donate-link"/>
+            classname="donate-link"
+          />
 
           <div className="share-link" onClick={() => Utils.sharePage()}>
             <FontAwesome classname={"fas fa-share-alt"} />
@@ -66,18 +69,21 @@ class SingleCause extends Component {
           <AboutCause
             title={cause.name}
             aboutText={cause.description}
-            usageText={cause.purpose}/>
+            usageText={cause.purpose}
+          />
 
           {cause.Donations &&
-           cause.Donations.length > 0 &&
+          cause.Donations.length > 0 &&
           <DonorComments
-            donorData={cause.Donations.Comments}/> }
+            donorData={cause.Donations.Comments}
+          /> }
 
           <ActionButton
             actionText="Share this page"
             classname="share-page"
             action={Utils.sharePage}
-            icon={"fas fa-share-alt"}/>
+            icon={"fas fa-share-alt"}
+          />
 
         </div>
       </div>

@@ -7,9 +7,76 @@ import './TileSection.css';
 
 class TileSection extends Component {
 
+  calculateTiles = () => {
+    let tileArray = [],
+      tileNumber = 1,
+      amount = this.props.amount;
+
+    while (amount > 0) {
+      tileArray.push({ tileNumber: tileNumber, isPurchased: false });
+      amount = amount - tileNumber;
+      tileNumber++;
+    };
+    return tileArray;
+  };
+
+  createBlocks = (tiles) => {
+    let blocks = [],
+      totalBlocks = Math.ceil(tiles.length / 18);
+
+    for (var i = 0; i < totalBlocks; i++) {
+      blocks.push(
+        <div key={i} className={`block${i} row`}>{this.addBlockContent(tiles, i + 1, totalBlocks)}</div>
+      );
+    }
+    return blocks;
+  }
+
+  addBlockContent = (tiles, i, totalBlocks) => {
+    let indexStart;
+    let indexEnd;
+    if (i === 1) {
+      indexStart = 0;
+      indexEnd = 18
+    } else if (i === totalBlocks) {
+      indexStart = (i * 18 - 18);
+      indexEnd = tiles.length;
+    } else {
+      indexStart = (i * 18 - 18);
+      indexEnd = i * 18;
+    }
+    let filteredData = tiles.filter((obj, index) => {
+      if ((index >= indexStart) && (index < indexEnd)) {
+        return index;
+      }
+    });
+
+    if (indexStart === 0) {
+      filteredData.unshift(tiles[0]);
+    }
+
+    return this.mapTiles(filteredData);
+  }
+
+  mapTiles = (tiles) => {
+    const { id, name, icon, ...rest } = this.props;
+    return tiles.map((tile, index) => {
+      return (
+        <Tile 
+          {...rest}
+          key={index}
+          causeID={id}
+          cause={name}
+          amount={tile.tileNumber}
+          tileIcon={icon}
+          isPurchased={tile.isPurchased}
+        />
+      );
+    });
+  };
+
   render() {
     const tiles = this.calculateTiles();
-    // const { cart } = this.props;
     return(
       <div className="TileSection">
         <h2>Select Amount</h2>
@@ -28,75 +95,6 @@ class TileSection extends Component {
       </div>
     );
   }
-
-  calculateTiles = () => {
-    let tileArray = [],
-        tileNumber = 1,
-        amount = this.props.amount;
-
-    while (amount > 0) {
-        tileArray.push({tileNumber: tileNumber, isPurchased: false});
-        amount = amount - tileNumber;
-        tileNumber++;
-    };
-    return tileArray;
-  };
-
-  createBlocks = (tiles) => {
-    let blocks = [],
-        totalBlocks = Math.ceil(tiles.length / 18);
-
-    for (var i = 0; i < totalBlocks; i++) {
-        blocks.push(
-          <div key={i} className={`block${i} row`}>{this.addBlockContent(tiles, i + 1, totalBlocks)}</div>
-        );
-    }
-    return blocks;
-  }
-
-  addBlockContent = (tiles, i, totalBlocks) => {
-    let indexStart;
-    let indexEnd;
-    if (i === 1) {
-      indexStart = 0;
-      indexEnd = 18
-    } else if (i === totalBlocks) {
-      indexStart = (i * 18 - 18 );
-      indexEnd = tiles.length;
-    } else {
-      indexStart = (i * 18 - 18 );
-      indexEnd = i * 18;
-    }
-    let filteredData = tiles.filter((obj,index) => {
-      if ((index >= indexStart) && (index < indexEnd)) {
-        return index;
-      }
-    });
-
-    if (indexStart === 0) {
-        filteredData.unshift(tiles[0]);
-    }
-
-    return this.mapTiles(filteredData);
-  }
-
-  mapTiles = (tiles) => {
-    const { name, mainImage, icon, type, orgID, userID, featured } = this.props
-    return tiles.map((tile, index) => {
-      return(
-        <Tile key={index}
-            cause={name}
-            mainImage={mainImage}
-            amount={tile.tileNumber}
-            type={type}
-            orgID={orgID}
-            userID={userID}
-            featured={featured}
-            tileIcon={icon}
-            isPurchased={tile.isPurchased} />
-      );
-    });
-  };
 
 };
 

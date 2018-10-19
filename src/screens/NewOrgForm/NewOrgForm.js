@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 // import { addCause } from '../../actions/actions';
+import inputOptions from './inputOptions.js';
 import './NewOrgForm.css';
 
 import ActionButton from '../../components/ActionButton';
 import ImageUploader from '../../components/ImageUploader/ImageUploader';
-import OrgInputs from './components/OrgInputs/OrgInputs';
+import InputGroup from '../../components/InputGroup/InputGroup';
 import Heading from '../../components/Heading/Heading';
 import Services from '../../services/services';
+import VerificationInputGroup from './components/VerificationInputGroup/VerificationInputGroup.js';
 
 class NewOrgForm extends Component {
   constructor(props) {
@@ -25,7 +27,8 @@ class NewOrgForm extends Component {
       cover_image: '',
       coverURL: '',
       roundImage: true,
-      whiteText: true
+      whiteText: true,
+      verifiedNonProfit: false,
     };
   }
 
@@ -105,12 +108,18 @@ class NewOrgForm extends Component {
           whiteText={this.state.whiteText}
         /> 
 
-        <Heading text={'Select Your Cause Profile & Cover Images'} />
+        <Heading text={'Select Your Organization\'s Profile & Cover Images'} />
 
-        <OrgInputs
+        <InputGroup
           state={this.state}
           handleUpdateState={this.handleUpdateState}
+          inputOptions={inputOptions}
         /> 
+
+        <VerificationInputGroup
+          state={this.state}
+          handleUpdateState={this.handleUpdateState}
+        />
 
         <ActionButton
           actionText={'create organization'}
