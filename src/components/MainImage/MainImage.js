@@ -6,9 +6,13 @@ const MainImage = (props) =>
   <div className="MainImage"
     style={{
       borderRadius: props.roundImage ? '50%' : '10%',
-      backgroundImage: props.mainImage && `url(${props.mainImage})`
+      backgroundImage: props.mainImage && `url(${props.mainImage})`,
+      backgroundColor: props.BGimage ? '' : 'var(--white)',
+      display: props.mainImage ? 'block' : 'flex',
+      alignContent: 'center',
+      justifyContent: 'center',
   }}>
-    {!props.mainImage && <FontAwesome classname="far fa-image"/>}
+    {!props.mainImage && <FontAwesome classname="fas fa-camera"/>}
   </div>;
 
 export default MainImage;

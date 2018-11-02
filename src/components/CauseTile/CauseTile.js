@@ -8,6 +8,13 @@ import './CauseTile.css';
 const CauseTile = ({ cause, raised, isFeatured, causeSelected, inViewport, innerRef }) => {
 
   const imageURL = (inViewport ? cause.mainImage : Services.getLazyImagePlaceholder());
+  const calculateBarWidth = (percentRaised) => {
+    if (percentRaised > 5) {
+      return percentRaised - 5;
+    } else {
+      return 1;
+    }
+  };
 
   return(
     <div 
@@ -21,8 +28,8 @@ const CauseTile = ({ cause, raised, isFeatured, causeSelected, inViewport, inner
           className="wrapper"
           style={{backgroundImage: `url(${imageURL})`}}
         >
-          <div className="progress" style={{width: `${raised}%`}}></div>
-          <h5>{raised}% of ${cause.amount}</h5>
+          <div className="progress" style={{ width: `${calculateBarWidth(raised / cause.amount * 100).toFixed(2)}%`}}></div>
+          <h5>${raised || 0} of ${cause.amount}</h5>
         </div>
 
         <h4>
@@ -44,7 +51,7 @@ CauseTile.propTypes = {
 	/**
    * An integer that represents the total funding raised
    */
-	raised: PropTypes.number.isRequired,
+	raised: PropTypes.number,
 	/**
    * Boolean that tells if this is a featured cause
    */

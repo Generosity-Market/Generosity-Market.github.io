@@ -10,11 +10,12 @@ const Banner = (props) =>
       <div 
         className="hero-image"
         style={{
-          backgroundImage: props.BGimage && `url(${props.BGimage})`
+          backgroundImage: props.BGimage && `url(${props.BGimage})`,
+          backgroundColor: props.BGimage ? '' : 'var(--black-10)',
         }}
       >
         <h2>{props.heading && props.heading}</h2>
-        { !props.BGimage && <FontAwesome classname="far fa-image"/> }
+      {/* !props.BGimage && <FontAwesome classname="far fa-image"/> */}
       </div>
 
       <MainImage

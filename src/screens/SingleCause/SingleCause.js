@@ -38,18 +38,17 @@ class SingleCause extends Component {
     return(
       <div className="SingleCause">
 
-        {cause &&
         <Banner
           heading={cause.name}
           BGimage={cause.backgroundImage}
           mainImage={cause.mainImage}
           roundImage={cause.Preferences ? cause.Preferences[0].roundImage : {} }
-        /> }
+        />
 
         <div className="wrapper">
 
           <ProgressBar
-            percentRaised={Math.floor(Math.random() * 100)}
+            totalRaised={cause.totalRaised}
             goal={cause.amount}
           />
 
@@ -75,7 +74,7 @@ class SingleCause extends Component {
           {cause.Donations &&
           cause.Donations.length > 0 &&
           <DonorComments
-            donorData={cause.Donations.Comments}
+            donations={cause.Donations}
           /> }
 
           <ActionButton
