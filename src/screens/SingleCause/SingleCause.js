@@ -38,13 +38,12 @@ class SingleCause extends Component {
     return(
       <div className="SingleCause">
 
-        {cause &&
         <Banner
           heading={cause.name}
           BGimage={cause.backgroundImage}
           mainImage={cause.mainImage}
           roundImage={cause.Preferences ? cause.Preferences[0].roundImage : {} }
-        /> }
+        />
 
         <div className="wrapper">
 

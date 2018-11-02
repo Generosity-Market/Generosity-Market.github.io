@@ -12,3 +12,9 @@
   top: -1rem;
   width: 6.5rem;
 }
+
+.MainImage .fa-camera {
+  align-self: center;
+  color: var(--text-gray);
+  font-size: 2.75rem;
+}

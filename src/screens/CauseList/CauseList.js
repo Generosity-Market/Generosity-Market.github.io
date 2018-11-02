@@ -24,7 +24,7 @@ class CauseList extends Component {
           key={cause.id}
           cause={cause}
           isFeatured={isFeatured}
-          raised={cause.totalRaised}
+          raised={Number(cause.totalRaised)}
           causeSelected={this.props.causeSelected} 
         />
       );

@@ -12,7 +12,7 @@ class ProgressBar extends Component {
   }
 
   render() {
-    const { goal = 0, totalRaised = 0 } = this.props;
+    const { goal, totalRaised } = this.props;
     const percentRaised = (totalRaised / goal * 100).toFixed(0);
     let barStyle = { width: `${this.calculateBarWidth(percentRaised)}%` };
   
@@ -20,7 +20,7 @@ class ProgressBar extends Component {
     return(
       <div className="ProgressBar">
           <div className='percent-bar' style={barStyle}>
-          <h3>{percentRaised >= 100 ? 'Goal Accomplished!!' : `Raised  $${totalRaised} of $${goal} (${percentRaised}%)`} </h3>
+          <h3>{percentRaised >= 100 ? 'Goal Accomplished!!' : `Raised  $${totalRaised || 0} of $${goal || 0} (${percentRaised}%)`} </h3>
           </div>
       </div>
     );
