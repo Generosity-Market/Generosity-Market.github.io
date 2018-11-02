@@ -51,7 +51,7 @@ CauseTile.propTypes = {
 	/**
    * An integer that represents the total funding raised
    */
-	raised: PropTypes.number.isRequired,
+	raised: PropTypes.number,
 	/**
    * Boolean that tells if this is a featured cause
    */

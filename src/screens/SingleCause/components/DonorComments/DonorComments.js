@@ -8,7 +8,7 @@ class DonorComments extends Component {
 
   render() {
     let donorComments = this.props.donations.map((donation, index) => {
-      return donation.Comments.length && (
+      return donation.Comments.length > 0 && (
         <div key={index} className="comment-card">
           <div style={{flexBasis: '10%'}}>
             {donation.imageURL ? <img src={this.getDonorImage(donation.imageURL)} alt='Donor'/> : ''}
@@ -22,7 +22,8 @@ class DonorComments extends Component {
       );
     });
 
-    return(
+    // returns this component if there is at least one comment. Returns null if not.
+    return !donorComments.every(index => index === false) && (
       <div className="DonorComments">
         <Heading text={'Donor Comments'} />
         {donorComments}
