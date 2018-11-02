@@ -49,7 +49,7 @@ class SingleCause extends Component {
         <div className="wrapper">
 
           <ProgressBar
-            percentRaised={Math.floor(Math.random() * 100)}
+            totalRaised={cause.totalRaised}
             goal={cause.amount}
           />
 
@@ -75,7 +75,7 @@ class SingleCause extends Component {
           {cause.Donations &&
           cause.Donations.length > 0 &&
           <DonorComments
-            donorData={cause.Donations.Comments}
+            donations={cause.Donations}
           /> }
 
           <ActionButton

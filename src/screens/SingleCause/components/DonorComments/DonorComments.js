@@ -7,20 +7,19 @@ class DonorComments extends Component {
   getDonorImage = imageURL => require(`../../../../Assets/Photography/Mobile/${imageURL}`);
 
   render() {
-
-    let donorComments = this.props.donorData.map((donor, index) => {
-      return (
-             <div key={index} className="comment-card">
-                <div style={{flexBasis: '10%'}}>
-                  {donor.imageURL ? <img src={this.getDonorImage(donor.imageURL)} alt='Donor'/> : ''}
-                  <p className='donor-amount'>${donor.amount}</p>
-                </div>
-                <div style={{flexBasis: '65%'}}>
-                  <p style={{color: 'var(--text-gray)'}}>{donor.comment}</p>
-                  <p style={{color: 'var(--bright-green)', marginTop: '0.35rem'}}>- {donor.name}</p>
-                </div>
-             </div>
-           );
+    let donorComments = this.props.donations.map((donation, index) => {
+      return donation.Comments.length && (
+        <div key={index} className="comment-card">
+          <div style={{flexBasis: '10%'}}>
+            {donation.imageURL ? <img src={this.getDonorImage(donation.imageURL)} alt='Donor'/> : ''}
+            <p className='donor-amount'>${donation.amount}</p>
+          </div>
+          <div style={{flexBasis: '65%'}}>
+            <p style={{color: 'var(--text-gray)'}}>{donation.comment}</p>
+            <p style={{color: 'var(--bright-green)', marginTop: '0.35rem'}}>- {donation.name}</p>
+          </div>
+        </div>
+      );
     });
 
     return(

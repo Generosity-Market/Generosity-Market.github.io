@@ -3,21 +3,24 @@ import './ProgressBar.css';
 
 class ProgressBar extends Component {
 
-  calculateBarWidth = () => {
-    if (this.props.percentRaised > 5) {
-      return this.props.percentRaised - 5;
+  calculateBarWidth = (percentRaised) => {
+    if (percentRaised > 5) {
+      return percentRaised - 5;
     } else {
       return 1;
     }
   }
 
   render() {
-    let barStyle = { width: `${this.calculateBarWidth()}%` };
+    const { goal = 0, totalRaised = 0 } = this.props;
+    const percentRaised = (totalRaised / goal * 100).toFixed(0);
+    let barStyle = { width: `${this.calculateBarWidth(percentRaised)}%` };
+  
 
     return(
       <div className="ProgressBar">
           <div className='percent-bar' style={barStyle}>
-            <h3>{this.props.percentRaised >= 100 ? 'Goal Accomplished!!' : `Raised  ${this.props.percentRaised}%`} of ${this.props.goal}</h3>
+          <h3>{percentRaised >= 100 ? 'Goal Accomplished!!' : `Raised  $${totalRaised} of $${goal} (${percentRaised}%)`} </h3>
           </div>
       </div>
     );

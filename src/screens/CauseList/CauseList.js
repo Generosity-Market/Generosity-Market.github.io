@@ -16,6 +16,7 @@ const CauseTileWithLazyLoad = handleViewport(CauseTile);
 
 // TODO will need to update this to add the loader component
 class CauseList extends Component {
+
   isFeatured = (isFeatured) => {
     return this.props.causeList.map(cause => {
       return(
@@ -23,12 +24,12 @@ class CauseList extends Component {
           key={cause.id}
           cause={cause}
           isFeatured={isFeatured}
-          raised={Math.floor(Math.random() * 100)}
+          raised={cause.totalRaised}
           causeSelected={this.props.causeSelected} 
         />
       );
     });
-  }
+  };
 
   componentDidMount() {
     if (this.props.causeList.length === 0) {
@@ -37,6 +38,7 @@ class CauseList extends Component {
   };
 
   render() {
+    // console.log("Cause List: ", this.props.causeList);
     return(
       <div className="CauseList">
         {/* <Swiper /> */}
