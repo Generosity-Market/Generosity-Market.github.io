@@ -7,13 +7,18 @@ import './TileSection.css';
 
 class TileSection extends Component {
 
+  isTilePurchased = (tileNumber) => {
+    let isFound = this.props.Donations.some(donation => donation['amount'] === tileNumber);
+    return isFound;
+  };
+
   calculateTiles = () => {
     let tileArray = [],
       tileNumber = 1,
       amount = this.props.amount;
 
     while (amount > 0) {
-      tileArray.push({ tileNumber: tileNumber, isPurchased: false });
+      tileArray.push({ tileNumber: tileNumber, isPurchased: this.isTilePurchased(tileNumber) });
       amount = amount - tileNumber;
       tileNumber++;
     };
@@ -30,7 +35,7 @@ class TileSection extends Component {
       );
     }
     return blocks;
-  }
+  };
 
   addBlockContent = (tiles, i, totalBlocks) => {
     let indexStart;
@@ -56,7 +61,7 @@ class TileSection extends Component {
     }
 
     return this.mapTiles(filteredData);
-  }
+  };
 
   mapTiles = (tiles) => {
     const { id, name, icon, ...rest } = this.props;
