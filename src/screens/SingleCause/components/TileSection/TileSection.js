@@ -8,8 +8,7 @@ import './TileSection.css';
 class TileSection extends Component {
 
   isTilePurchased = (tileNumber) => {
-    let isFound = this.props.Donations.some(donation => donation['amount'] === tileNumber);
-    return isFound;
+    return this.props.purchasedTiles.includes(tileNumber);
   };
 
   calculateTiles = () => {

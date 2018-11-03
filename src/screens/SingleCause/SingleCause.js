@@ -34,6 +34,11 @@ class SingleCause extends Component {
 
   render() {
     const { cause } = this.props;
+    let purchasedTiles;
+
+    if (cause.Donations) {
+      purchasedTiles = Object.keys(cause.Donations).map(index => cause.Donations[index].amount);
+    }
 
     return(
       <div className="SingleCause">
@@ -52,7 +57,7 @@ class SingleCause extends Component {
             goal={cause.amount}
           />
 
-          <TileSection {...cause}/>
+          <TileSection {...cause} purchasedTiles={purchasedTiles} />
 
           <LinkButton
             href="/checkout"
