@@ -34,7 +34,7 @@ StripeWrapper.propTypes = {
     */
     amount: PropTypes.number.isRequired,
 	/**
-    * 
+    * Stripe Token to be sent to server for processing
     */
     token: PropTypes.string.isRequired,
 	/**
