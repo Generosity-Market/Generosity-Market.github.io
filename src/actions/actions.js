@@ -18,7 +18,8 @@ export const SET_DATA         = "SET_DATA",
              SET_ORGANIZATION = "SET_ORGANIZATION",
              ADD_TO_CART      = "ADD_TO_CART",
              REMOVE_FROM_CART = "REMOVE_FROM_CART",
-             CLEAR_CART       = "CLEAR_CART";
+             CLEAR_CART       = "CLEAR_CART",
+             UPDATE_DONATIONS = "UPDATE_DONATIONS";
 
 const makeActionCreator = (actionType) => {
     return (payload) => {
@@ -30,15 +31,29 @@ const makeFetchCreator = (fetchType, action, args) => {
   return (dispatch, getState) => fetchType(args).then(data => dispatch( action(data) ) );
 };
 
-export const setData        = makeActionCreator(SET_DATA);
-export const addCause       = makeActionCreator(ADD_CAUSE);
-export const causeSelected  = makeActionCreator(CAUSE_SELECTED);
-export const setUser        = makeActionCreator(SET_USER);
-export const setOrg         = makeActionCreator(SET_ORGANIZATION);
-export const addToCart      = makeActionCreator(ADD_TO_CART);
-export const removeFromCart = makeActionCreator(REMOVE_FROM_CART);
-export const clearCart      = makeActionCreator(CLEAR_CART);
+export const setData         = makeActionCreator(SET_DATA);
+export const addCause        = makeActionCreator(ADD_CAUSE);
+export const causeSelected   = makeActionCreator(CAUSE_SELECTED);
+export const setUser         = makeActionCreator(SET_USER);
+export const setOrg          = makeActionCreator(SET_ORGANIZATION);
+export const addToCart       = makeActionCreator(ADD_TO_CART);
+export const removeFromCart  = makeActionCreator(REMOVE_FROM_CART);
+export const clearCart       = makeActionCreator(CLEAR_CART);
+export const setDonations = makeActionCreator(UPDATE_DONATIONS);
 
+export const updateDonations = (data) => {
+  return (dispatch) => {
+    const { charge, status, response: donations } = data;
+    if (data.status === "Success") {
+      dispatch(setDonations(donations));
+      // NOTE then clear the cart? Or wait for navigating away from "Thank You" component...
+      // dispatch(clearCart())
+      return { status: charge.outcome.type };
+    } else {
+      return { status };
+    }
+  }
+};
 
 // calling the api for the entire causelist
 export const getCauseList = () => makeFetchCreator(fetchCauseList, setData, null);
@@ -56,4 +71,5 @@ export const getOrgData = () => makeFetchCreator(fetchOrgData, setOrg, null);
 export const submitCauseForm = (args) => makeFetchCreator(submitFormData, addCause, args);
 
 // submitting a payment for total donation
-export const submitDonation = (args) => makeFetchCreator(submitPayment, null, args);
+// TODO need another step to handle the dispatch;
+export const submitDonation = (args) => makeFetchCreator(submitPayment, updateDonations, args);

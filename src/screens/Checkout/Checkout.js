@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { removeFromCart, clearCart, submitDonation } from '../../actions/actions';
-import EmptyCart from './components/EmptyCart/EmptyCart';
-import Cart from './components/Cart/Cart';
-import CartFooter from './components/CartFooter/CartFooter';
+import { Elements, StripeProvider } from 'react-stripe-elements';
 import Utils from '../../utilities/utilities';
 import './Checkout.css';
 
-import { Elements, StripeProvider } from 'react-stripe-elements';
+// Components
+import Cart from './components/Cart/Cart';
+import CartFooter from './components/CartFooter/CartFooter';
+import EmptyCart from './components/EmptyCart/EmptyCart';
 import CheckoutForm from './components/CheckoutForm/CheckoutForm';
 
 class Checkout extends Component {
@@ -24,6 +25,8 @@ class Checkout extends Component {
       // public_comment: '',
       // private_comment: '',
       showForm: false,
+      // Get this from .env for production. Do not commit the live key!!!
+      apiKey: "pk_test_qojWn3GnI7Cr16kIvzOjMYiA",
     };
   };
 
@@ -35,20 +38,20 @@ class Checkout extends Component {
     const { cart, user } = this.props;
 
     return(
-      <StripeProvider apiKey="pk_test_qojWn3GnI7Cr16kIvzOjMYiA">
+      <StripeProvider apiKey={this.state.apiKey}>
         <div className="Checkout">
 
           {!cart.length > 0 ?
           <EmptyCart /> : <Cart {...this.props} /> }
 
-          <CartFooter 
+          <CartFooter
             total={Utils.getTotal(cart, 'amount')}
             toggleCheckoutForm={() => this.toggleCheckoutForm()} 
             {...this.props} 
           />
 
           <Elements>
-            <CheckoutForm 
+            <CheckoutForm
               toggleCheckoutForm={() => this.toggleCheckoutForm()}
               showForm={this.state.showForm}
               total={Utils.getTotal(cart, 'amount')}
@@ -58,7 +61,7 @@ class Checkout extends Component {
           </Elements>
 
         </div>
-      </StripeProvider >
+      </StripeProvider>
     );
   }
 };

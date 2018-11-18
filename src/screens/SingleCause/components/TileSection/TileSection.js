@@ -7,13 +7,20 @@ import './TileSection.css';
 
 class TileSection extends Component {
 
+  isTilePurchased = (tileNumber) => {
+    return this.props.purchasedTiles.includes(tileNumber);
+  };
+
   calculateTiles = () => {
-    let tileArray = [],
-      tileNumber = 1,
-      amount = this.props.amount;
+    let tileArray = [];
+    let tileNumber = 1;
+    let amount = this.props.amount;
 
     while (amount > 0) {
-      tileArray.push({ tileNumber: tileNumber, isPurchased: false });
+      tileArray.push({
+        tileNumber: tileNumber, 
+        isPurchased: this.isTilePurchased(tileNumber),
+      });
       amount = amount - tileNumber;
       tileNumber++;
     };
@@ -21,8 +28,8 @@ class TileSection extends Component {
   };
 
   createBlocks = (tiles) => {
-    let blocks = [],
-      totalBlocks = Math.ceil(tiles.length / 18);
+    let blocks = [];
+    let totalBlocks = Math.ceil(tiles.length / 18);
 
     for (var i = 0; i < totalBlocks; i++) {
       blocks.push(
@@ -30,7 +37,7 @@ class TileSection extends Component {
       );
     }
     return blocks;
-  }
+  };
 
   addBlockContent = (tiles, i, totalBlocks) => {
     let indexStart;
@@ -56,7 +63,7 @@ class TileSection extends Component {
     }
 
     return this.mapTiles(filteredData);
-  }
+  };
 
   mapTiles = (tiles) => {
     const { id, name, icon, ...rest } = this.props;

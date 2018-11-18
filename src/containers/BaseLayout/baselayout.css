@@ -60,7 +60,7 @@ var(--white-85)        --> rgba(255,255,255,0.85)
 .navLinks {
   color: var(--blackish);
   font-size: 1.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2.25rem;
   text-shadow: 5px 3px 15px rgba(0,0,0,0.3);
 }
 

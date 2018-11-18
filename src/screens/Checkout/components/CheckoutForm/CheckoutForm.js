@@ -48,27 +48,26 @@ class CheckoutForm extends Component {
                     "Content-Type": "application/json"
                 },
             })
-            .then(data => {
-                console.log("Data: ", data);
-                // NOTE for now testing button text
-                if  (data.outcome.type === 'authorized') {
-                    this.setState({ loading: false, status: 'success' })
+            .then(response => {
+                if  (response.status === 'authorized') {
+                    // Update the button text
+                    this.setState({ loading: false, status: 'complete' });
+                    // Remove the checkout form from the screen
+                    setTimeout(() => this.props.toggleCheckoutForm(), 500);
+                    // Navigate to the "Thank You" page
+                    setTimeout(() => this.props.history.push('/thankyou'), 600);
+                } else if (response.status === 'failed') {
+                    this.setState({ loading: false, status: 'failed' })
                 }
-                return data;
-            })
+                return response;
+            });
 
-
-        }).then(response => response);
-
-
-
-        // TODO Do something with the response...
-        // if (response.ok) console.log("Purchase Complete!");
-        // if (response.ok) this.setState({ complete: true, loading: false, failed: false });
+        })
     };
 
     render() {
         const { toggleCheckoutForm, showForm, total, cart } = this.props;
+        console.log(this.props);
 
         return (
             <div className="CheckoutForm" style={showForm && total > 0  ? {bottom: '-5%'} : {bottom: '-100%'}}>

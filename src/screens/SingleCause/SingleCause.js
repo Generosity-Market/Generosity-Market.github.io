@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSingleCause, causeSelected } from '../../actions/actions';
+import Utils from '../../utilities/utilities';
+import './SingleCause.css';
+
+// Components
 import Banner from '../../components/Banner/Banner';
 import ProgressBar from './components/ProgressBar/ProgressBar';
 import TileSection from './components/TileSection/TileSection';
@@ -9,18 +13,8 @@ import DonorComments from './components/DonorComments/DonorComments';
 import ActionButton from '../../components/ActionButton';
 import LinkButton from '../../components/LinkButton/LinkButton';
 import FontAwesome from '../../components/FontAwesome/FontAwesome';
-import Utils from '../../utilities/utilities';
-import './SingleCause.css';
 
 class SingleCause extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     amountRaised: 0,
-  //     cart: [],
-  //     cartTotal: 0
-  //   };
-  // };
 
   componentDidMount() {
     Utils.scrollTo('topnav');
@@ -34,6 +28,11 @@ class SingleCause extends Component {
 
   render() {
     const { cause } = this.props;
+    let purchasedTiles;
+
+    if (cause.Donations) {
+      purchasedTiles = Object.keys(cause.Donations).map(index => cause.Donations[index].amount);
+    }
 
     return(
       <div className="SingleCause">
@@ -52,7 +51,7 @@ class SingleCause extends Component {
             goal={cause.amount}
           />
 
-          <TileSection {...cause}/>
+          <TileSection {...cause} purchasedTiles={purchasedTiles} />
 
           <LinkButton
             href="/checkout"
@@ -71,11 +70,11 @@ class SingleCause extends Component {
             usageText={cause.purpose}
           />
 
-          {cause.Donations &&
-          cause.Donations.length > 0 &&
-          <DonorComments
-            donations={cause.Donations}
-          /> }
+          {cause.Donations && cause.Donations.length > 0 &&
+            <DonorComments
+              donations={cause.Donations}
+            /> 
+          }
 
           <ActionButton
             actionText="Share this page"
