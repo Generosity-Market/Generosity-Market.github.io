@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import Loadable from 'react-loadable';
 // TODO import 'Redirect' from RRD when redux/auth/api is implemented
-import { Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 // Lazy importing each route
 // TODO create legit Loadable states for each screen
@@ -62,7 +62,7 @@ const Error404 = Loadable({
 
 const Routes = () => {
     return (
-        <Fragment>
+        <Switch>
             <Route exact path='/login' component={App} />
             <Route exact path='/users/:id/dashboard' component={Dashboard} />
             <Route exact path='/checkout' component={Checkout} />
@@ -74,7 +74,7 @@ const Routes = () => {
             <Route exact path='/organizations/:id' component={Organization} />
             <Route exact path='/' component={Splash} />
             <Route component={Error404} />
-        </Fragment>
+        </Switch>
     )
 };
 
