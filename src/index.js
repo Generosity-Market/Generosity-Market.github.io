@@ -10,7 +10,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk from 'redux-thunk';
 import reducers from './reducers/reducer';
-// import { TransitionGroup, CSSTransition } from "react-transition-group";
 // import Cookies from 'js-cookie';
 
 // Components and Routes
