@@ -35,7 +35,10 @@ class Checkout extends Component {
   };
 
   render() {
-    const { cart, user } = this.props;
+    const { 
+      cart, 
+      // user 
+    } = this.props;
 
     return(
       <StripeProvider apiKey={this.state.apiKey}>

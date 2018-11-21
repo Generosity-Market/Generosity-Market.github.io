@@ -71,7 +71,7 @@ class CheckoutForm extends Component {
     };
 
     render() {
-        const { toggleCheckoutForm, showForm, total, cart } = this.props;
+        const { toggleCheckoutForm, showForm, total } = this.props;
         console.log(this.props);
 
         return (
