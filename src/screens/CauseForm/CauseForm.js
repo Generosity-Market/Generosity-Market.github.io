@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addCause } from '../../actions/actions';
+import Services from '../../services/services';
+import './causeForm.css';
+import inputOptions from './inputOptions';
+
+// Component imports
 import InputGroup from '../../components/InputGroup/InputGroup';
 import IconSelector from './components/IconSelector/IconSelector';
 import ImageUploader from '../../components/ImageUploader/ImageUploader';
 import ActionButton from '../../components/ActionButton';
 import Heading from '../../components/Heading/Heading';
-import Services from '../../services/services';
-import inputOptions from './inputOptions';
-import './causeForm.css';
 
 class CauseForm extends Component {
   constructor(props) {
@@ -27,8 +29,23 @@ class CauseForm extends Component {
       cover_image: '',
       coverURL: '',
       roundImage: true,
-      whiteText: true
+      whiteText: true,
+
+      status: '',
     };
+  }
+
+  handleButtonText = () => {
+    switch (this.state.status) {
+      case 'loading':
+        return 'Sending...';
+      case 'success':
+        return '√ Published';
+      case 'failed':
+        return 'Failed - Retry';
+      default:
+        return 'Publish your cause'
+    }
   }
 
   render() {
@@ -58,7 +75,7 @@ class CauseForm extends Component {
         <IconSelector handleSelect={this.handleSelectIcon} />
 
         <ActionButton
-          actionText={'publish cause page'}
+          actionText={this.handleButtonText()}
           classname={'publish-cause'}
           action={this.handlePublish}
         />
@@ -81,11 +98,11 @@ class CauseForm extends Component {
     };
   };
 
-  handleImageChange = (e, field, url) => {
-    e.preventDefault();
-    if (e.target.files) {
+  handleImageChange = (event, field, url) => {
+    event.preventDefault();
+    if (event.target.files) {
       let reader = new FileReader();
-      let file = e.target.files[0];
+      let file = event.target.files[0];
       reader.onloadend = (data) => {
         this.setState({
           [field]: file,
@@ -102,7 +119,8 @@ class CauseForm extends Component {
   };
 
   handlePublish = () => {
-    console.log('handle uploading-', this.state);
+    // console.log('handle uploading-', this.state);
+    this.setState({ status: 'loading' });
     delete this.state.profileURL;
     delete this.state.coverURL;
 
@@ -112,19 +130,22 @@ class CauseForm extends Component {
     formData.append('bucket', 'cause');
     formData.append('state', JSON.stringify(this.state));
 
-
     Services.submitCauseForm(formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
     })
     .then(res => {
-      // handle your response
-      // TODO cause some feedback on the screen that shows the user that an action is happening
-      // TODO the response we should call a redux action that adds the cause to the array of causes
-      // TODO then maybe redirect to that cause page
+      // TODO look for the response to see if errors come here....
       console.log("Response: ", res);
+      if (res.errors) {
+        // return // handle error...
+      }
+      
+      this.setState({ status: 'success' });
       this.props.addCause(res.Cause);
+      // BUG FIX -> Navigating to previously created page instead of the newly created one...
+      setTimeout(() => this.props.history.push(`/cause/${res.Cause.id}`), 1000);
     }).catch(err => {
       // handle your error
       console.log("Error: ", err);
