@@ -33,7 +33,6 @@ const reducer = (state = initialState, action) => {
                 }
             });
         case ADD_CAUSE:
-            // console.log("Action payload: ",action.payload)
             return update(state, {
                 causeList: {
                     $push: [action.payload]

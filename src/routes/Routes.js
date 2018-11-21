@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Loadable from 'react-loadable';
 // TODO import 'Redirect' from RRD when redux/auth/api is implemented
 import { Switch, Route, withRouter } from 'react-router-dom';
@@ -9,57 +9,57 @@ import './Routes.css';
 // TODO create legit loading states for each screen
 const Splash = Loadable({
     loader: () => import('../screens/Splash/Splash'),
-    loading: () => <div></div>,
+    loading: () => <div className="Splash"></div>,
 })
 
 const Dashboard = Loadable({
     loader: () => import('../screens/Dashboard/Dashboard'),
-    loading: () => <div></div>,
+    loading: () => <div className="Dashboard"></div>,
 })
 
 const CauseList = Loadable({
     loader: () => import('../screens/CauseList/CauseList'),
-    loading: () => <div></div>,
+    loading: () => <div className="CauseList"></div>,
 })
 
 const SingleCause = Loadable({
     loader: () => import('../screens/SingleCause/SingleCause'),
-    loading: () => <div></div>,
+    loading: () => <div className="SingleCause"></div>,
 })
 
 const Checkout = Loadable({
     loader: () => import('../screens/Checkout/Checkout'),
-    loading: () => <div></div>,
+    loading: () => <div className="Checkout"></div>,
 })
 
 const ThankYou = Loadable({
     loader: () => import('../screens/ThankYou/ThankYou'),
-    loading: () => <div></div>,
+    loading: () => <div className="ThankYou"></div>,
 })
 
 const Organization = Loadable({
     loader: () => import('../screens/Organization/Organization'),
-    loading: () => <div></div>,
+    loading: () => <div className="Organization"></div>,
 })
 
 const NewOrgForm = Loadable({
     loader: () => import('../screens/NewOrgForm/NewOrgForm'),
-    loading: () => <div></div>,
+    loading: () => <div className="NewOrgForm"></div>,
 })
 
 const CauseForm = Loadable({
     loader: () => import('../screens/CauseForm/CauseForm'),
-    loading: () => <div></div>,
+    loading: () => <div className="CauseForm"></div>,
 })
 
 const App = Loadable({
     loader: () => import('../containers/App'),
-    loading: () => <div></div>,
+    loading: () => <div className="App"></div>,
 })
 
 const Error404 = Loadable({
     loader: () => import('../screens/Error404/Error404'),
-    loading: () => <div></div>,
+    loading: () => <div className="Error404"></div>,
 })
 
 const Routes = ({location}) => {

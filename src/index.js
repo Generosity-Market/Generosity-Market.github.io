@@ -16,7 +16,6 @@ import reducers from './reducers/reducer';
 import BaseLayout from './containers/BaseLayout/BaseLayout';
 import Routes from './routes/Routes';
 
-
 // creating the redux store with middleware
 const store = createStore(
     reducers,
