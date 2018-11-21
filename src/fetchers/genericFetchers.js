@@ -2,6 +2,7 @@ import Utils from '../utilities/utilities';
 
 // NOTE add any services and api calls here. Don't expose api keys here. Use env files instead
 const api = endpoint => 'http://localhost:3000/api' + endpoint;
+// const api = endpoint => 'https://gen-mar-poc.herokuapp.com/api' + endpoint;
 
 export const fetchJSONData = (URL, args) =>
     fetch(api(URL))

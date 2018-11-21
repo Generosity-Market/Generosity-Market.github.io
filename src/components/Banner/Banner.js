@@ -1,26 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MainImage from '../MainImage/MainImage';
-import FontAwesome from '../FontAwesome/FontAwesome';
+// import FontAwesome from '../FontAwesome/FontAwesome';
 import './Banner.css';
 
-const Banner = (props) =>
+const Banner = ({
+  BGimage, 
+  heading, 
+  mainImage, 
+  roundImage 
+}) =>
     <div className="Header">
 
       <div 
         className="hero-image"
         style={{
-          backgroundImage: props.BGimage && `url(${props.BGimage})`,
-          backgroundColor: props.BGimage ? '' : 'var(--black-10)',
+          backgroundImage: BGimage && `url(${BGimage})`,
+          backgroundColor: BGimage ? '' : 'var(--black-10)',
         }}
       >
-        <h2>{props.heading && props.heading}</h2>
+        <h2>{heading && heading}</h2>
       {/* !props.BGimage && <FontAwesome classname="far fa-image"/> */}
       </div>
 
       <MainImage
-        mainImage={props.mainImage && props.mainImage}
-        roundImage={props.roundImage} 
+        mainImage={mainImage && mainImage}
+        roundImage={roundImage} 
       />
 
     </div>;
