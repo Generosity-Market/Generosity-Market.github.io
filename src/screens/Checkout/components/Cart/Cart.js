@@ -3,10 +3,13 @@ import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
 import CartItem from '../CartItem/CartItem';
 import './Cart.css';
 
-const Cart = (props) => {
-
-    const { cart, user, removeFromCart, clearCart } = props;
-    // console.log("Cart User: ", user);
+const Cart = ({
+    cart,
+    clearCart, 
+    removeFromCart,
+    // user,
+}) => {
+  // console.log("Cart User: ", user);
 
     const cartItems = cart.map(item => {
       return(
@@ -16,7 +19,6 @@ const Cart = (props) => {
           removeFromCart={removeFromCart} />
       );
     });
-
 
     return(
       <div className="cart-container">

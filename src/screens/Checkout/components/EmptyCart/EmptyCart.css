@@ -73,4 +73,5 @@
 
 .EmptyCart a {
   color: var(--white);
+  letter-spacing: 3px;
 }

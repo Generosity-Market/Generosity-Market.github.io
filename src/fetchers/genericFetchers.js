@@ -3,9 +3,6 @@ import Utils from '../utilities/utilities';
 // NOTE add any services and api calls here. Don't expose api keys here. Use env files instead
 const api = endpoint => 'http://localhost:3000/api' + endpoint;
 
-// NOTE use this to suppress console.logs in testing...
-// TODO but for real we should do better error handling anywayz...
-
 export const fetchJSONData = (URL, args) =>
     fetch(api(URL))
         .then(response => response.json())

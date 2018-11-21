@@ -43,7 +43,7 @@ class App extends Component {
             <ActionButton action={this.handleSubmit} classname='log-in-button' actionText='Log In'/>
             <ActionButton action={this.handleSubmit} classname='sign-up-button' actionText='Sign up'/>
           </div>
-          <a href="" className="forgot-password">Forgot your password? Reset It Here</a>
+          <a href="/causes" className="forgot-password">Forgot your password? Reset It Here</a>
         </div>
 
         <h3>OR</h3>

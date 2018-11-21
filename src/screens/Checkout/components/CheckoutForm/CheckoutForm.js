@@ -43,7 +43,12 @@ class CheckoutForm extends Component {
             }
 
             submitDonation({
-                body: JSON.stringify({...token, amount: total * 100, cart, email: this.state.email}),
+                body: JSON.stringify({
+                    ...token, 
+                    cart, 
+                    amount: total * 100, 
+                    email: this.state.email
+                }),
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -66,7 +71,7 @@ class CheckoutForm extends Component {
     };
 
     render() {
-        const { toggleCheckoutForm, showForm, total, cart } = this.props;
+        const { toggleCheckoutForm, showForm, total } = this.props;
         console.log(this.props);
 
         return (
