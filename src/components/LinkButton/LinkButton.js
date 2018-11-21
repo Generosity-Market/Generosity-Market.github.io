@@ -13,7 +13,7 @@ export default class LinkButton extends Component {
     return (
       <div className="LinkButton">
         { externalLink ?
-        <a href={href} className={classname} target="_blank" style={linkStyles}>{linkText}</a> :
+          <a href={href} className={classname} target="_blank" rel="noopener noreferrer" style={linkStyles}>{linkText}</a> :
         <Link to={href || '#'} className={classname} style={linkStyles}>{linkText}</Link> }
       </div>
     );

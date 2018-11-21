@@ -39,13 +39,19 @@ export const setOrg          = makeActionCreator(SET_ORGANIZATION);
 export const addToCart       = makeActionCreator(ADD_TO_CART);
 export const removeFromCart  = makeActionCreator(REMOVE_FROM_CART);
 export const clearCart       = makeActionCreator(CLEAR_CART);
-export const setDonations = makeActionCreator(UPDATE_DONATIONS);
+export const setDonations    = makeActionCreator(UPDATE_DONATIONS);
 
 export const updateDonations = (data) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
     const { charge, status, response: donations } = data;
+
     if (data.status === "Success") {
-      dispatch(setDonations(donations));
+      const { causeList } = getState();
+
+      donations.forEach(donation => {
+        let causeIndex = causeList.map(cause => cause.id).indexOf(donation.causeID);
+        dispatch(setDonations({causeIndex, donation}));
+      })
       // NOTE then clear the cart? Or wait for navigating away from "Thank You" component...
       // dispatch(clearCart())
       return { status: charge.outcome.type };
