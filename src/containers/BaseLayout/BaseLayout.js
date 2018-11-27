@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
+import { connect } from 'react-redux';
+import { getCauseList } from '../../actions/actions';
 import './baselayout.css';
 
 // Link data imports
@@ -18,6 +20,12 @@ class BaseLayout extends Component {
       showMenu: false
     };
   };
+
+  componentDidMount() {
+    if (!this.props.causeList.length) {
+      this.props.getCauseList();
+    };
+  }
 
   navToggle = () => {
     this.setState({ showMenu: !this.state.showMenu });
@@ -56,4 +64,10 @@ class BaseLayout extends Component {
   };
 };
 
-export default withRouter(BaseLayout);
+const mapStateToProps = (state) => {
+  return { causeList: state.causeList };
+};
+
+const mapDispatchToProps = { getCauseList };
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BaseLayout));

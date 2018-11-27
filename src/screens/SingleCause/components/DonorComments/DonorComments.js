@@ -7,16 +7,20 @@ class DonorComments extends Component {
   getDonorImage = imageURL => require(`../../../../Assets/Photography/Mobile/${imageURL}`);
 
   render() {
-    let donorComments = this.props.donations.map((donation, index) => {
-      return donation.Comments.length > 0 && (
+    const { donations } = this.props;
+
+    let donorComments = donations.map((donation, index) => {
+      const { Comments, imageURL, amount, comment, name } = donation;
+      
+      return Comments && Comments.length > 0 && (
         <div key={index} className="comment-card">
           <div style={{flexBasis: '10%'}}>
-            {donation.imageURL ? <img src={this.getDonorImage(donation.imageURL)} alt='Donor'/> : ''}
-            <p className='donor-amount'>${donation.amount}</p>
+            {imageURL ? <img src={this.getDonorImage(imageURL)} alt='Donor'/> : ''}
+            <p className='donor-amount'>${amount}</p>
           </div>
           <div style={{flexBasis: '65%'}}>
-            <p style={{color: 'var(--text-gray)'}}>{donation.comment}</p>
-            <p style={{color: 'var(--bright-green)', marginTop: '0.35rem'}}>- {donation.name}</p>
+            <p style={{color: 'var(--text-gray)'}}>{comment}</p>
+            <p style={{color: 'var(--bright-green)', marginTop: '0.35rem'}}>- {name}</p>
           </div>
         </div>
       );
