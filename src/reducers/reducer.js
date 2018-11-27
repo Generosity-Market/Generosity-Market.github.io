@@ -8,6 +8,7 @@ import {
     CLEAR_CART,
     ADD_CAUSE,
     UPDATE_DONATIONS,
+    UPDATE_TOTAL,
 } from '../actions/actions';
 import update from 'immutability-helper';
 // import Cookies from 'js-cookie';
@@ -81,6 +82,16 @@ const reducer = (state = initialState, action) => {
                     [payload.causeIndex]: {
                         Donations: {
                             $push: [payload.donation]
+                        }
+                    }
+                }
+            });
+        case UPDATE_TOTAL:
+            return update(state, {
+                causeList: {
+                    [payload.causeIndex]: {
+                        totalRaised: {
+                            $set: Number(state.causeList[payload.causeIndex].totalRaised) + Number(payload.amount)
                         }
                     }
                 }

@@ -19,7 +19,8 @@ export const SET_DATA         = "SET_DATA",
              ADD_TO_CART      = "ADD_TO_CART",
              REMOVE_FROM_CART = "REMOVE_FROM_CART",
              CLEAR_CART       = "CLEAR_CART",
-             UPDATE_DONATIONS = "UPDATE_DONATIONS";
+             UPDATE_DONATIONS = "UPDATE_DONATIONS",
+             UPDATE_TOTAL     = "UPDATE_TOTAL";
 
 const makeActionCreator = (actionType) => {
     return (payload) => {
@@ -40,6 +41,7 @@ export const addToCart       = makeActionCreator(ADD_TO_CART);
 export const removeFromCart  = makeActionCreator(REMOVE_FROM_CART);
 export const clearCart       = makeActionCreator(CLEAR_CART);
 export const setDonations    = makeActionCreator(UPDATE_DONATIONS);
+export const updateTotal     = makeActionCreator(UPDATE_TOTAL);
 
 export const updateDonations = (data) => {
   return (dispatch, getState) => {
@@ -51,6 +53,7 @@ export const updateDonations = (data) => {
       donations.forEach(donation => {
         let causeIndex = causeList.map(cause => cause.id).indexOf(donation.causeID);
         dispatch(setDonations({causeIndex, donation}));
+        dispatch(updateTotal({causeIndex, amount: donation.amount}))
       })
       // NOTE then clear the cart? Or wait for navigating away from "Thank You" component...
       // dispatch(clearCart())
@@ -77,5 +80,4 @@ export const getOrgData = () => makeFetchCreator(fetchOrgData, setOrg, null);
 export const submitCauseForm = (args) => makeFetchCreator(submitFormData, addCause, args);
 
 // submitting a payment for total donation
-// TODO need another step to handle the dispatch;
 export const submitDonation = (args) => makeFetchCreator(submitPayment, updateDonations, args);
