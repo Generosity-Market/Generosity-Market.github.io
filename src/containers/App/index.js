@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { register, login, } from '../../actions/actions';
+import './App.css';
+
+
 import LinkButton from '../../components/LinkButton/LinkButton';
 import ActionButton from '../../components/ActionButton';
-import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -55,4 +59,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {};
+};
+
+const mapDispatchToProps = { register, login };
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
