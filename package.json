@@ -2,6 +2,7 @@
   "name": "generosity-market",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Generosity-Market.github.io/Generosity-Market.github.io",
   "dependencies": {
     "immutability-helper": "^2.6.6",
     "js-cookie": "^2.2.0",
@@ -23,11 +24,14 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom --verbose=true",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
+    "gh-pages": "^2.0.1",
     "jest": "^23.6.0",
     "redux-test-utils": "^0.2.2"
   },
