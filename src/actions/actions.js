@@ -1,7 +1,7 @@
 // import Cookies from 'js-cookie';
 import Services from '../services/services';
 
-// destructuring the Services functions
+// Destructuring the Services functions
 const {
   fetchCauseList,
   fetchSingleCause,
@@ -11,16 +11,16 @@ const {
   submitPayment,
 } = Services;
 
-export const SET_DATA         = "SET_DATA",
-             ADD_CAUSE        = "ADD_CAUSE",
-             CAUSE_SELECTED   = "CAUSE_SELECTED",
-             SET_USER         = "SET_USER",
-             SET_ORGANIZATION = "SET_ORGANIZATION",
-             ADD_TO_CART      = "ADD_TO_CART",
-             REMOVE_FROM_CART = "REMOVE_FROM_CART",
-             CLEAR_CART       = "CLEAR_CART",
-             UPDATE_DONATIONS = "UPDATE_DONATIONS",
-             UPDATE_TOTAL     = "UPDATE_TOTAL";
+export const SET_DATA         = "SET_DATA";
+export const ADD_CAUSE        = "ADD_CAUSE";
+export const CAUSE_SELECTED   = "CAUSE_SELECTED";
+export const SET_USER         = "SET_USER";
+export const SET_ORGANIZATION = "SET_ORGANIZATION";
+export const ADD_TO_CART      = "ADD_TO_CART";
+export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
+export const CLEAR_CART       = "CLEAR_CART";
+export const UPDATE_DONATIONS = "UPDATE_DONATIONS";
+export const UPDATE_TOTAL     = "UPDATE_TOTAL";
 
 const makeActionCreator = (actionType) => {
     return (payload) => {
@@ -42,6 +42,49 @@ export const removeFromCart  = makeActionCreator(REMOVE_FROM_CART);
 export const clearCart       = makeActionCreator(CLEAR_CART);
 export const setDonations    = makeActionCreator(UPDATE_DONATIONS);
 export const updateTotal     = makeActionCreator(UPDATE_TOTAL);
+
+// TODO For 'register' and 'login', can we use a fetchCreator instead of the below logic?
+export const register = (fields) => {
+  // return (dispatch, getState) => {
+  //   return services.register(fields)
+  //     .then(data => {
+  //       if (data.error) {
+  //         dispatch(setAlert({ type: 'error', message: data.error }));
+  //         return data;
+  //       } else {
+  //         dispatch(setAlert({ type: 'success', message: fields.username + ' successfully registered' }))
+  //         dispatch(login({ email: fields.email, password: fields.password, username: fields.username }))
+  //         return data;
+  //       }
+  //     });
+  // };
+};
+
+export const login = (fields) => {
+  // return (dispatch) => {
+  //   return services.login(fields)
+  //     .then(data => {
+  //       if (!data.user) {
+  //         dispatch(setAlert({ type: 'error', message: data.errors }));
+  //         return data;
+  //       } else {
+  //         dispatch(setAlert({ type: null, message: null }))
+  //         dispatch(setToken(data['auth_token']));
+  //         dispatch(setUser({
+  //           email: data.user.email,
+  //           username: data.user.username,
+  //           userId: data.user.id
+  //         }))
+  //         // dispatch(getGamePage(data['auth_token']));
+  //         Cookies.set('token', data['auth_token'], { expires: 90 });
+  //         Cookies.set('email', data.user['email'], { expires: 90 });
+  //         Cookies.set('name', data.user['username'], { expires: 90 });
+  //         Cookies.set('userId', data.user['id'], { expires: 90 });
+  //         return data;
+  //       }
+  //     });
+  // };
+};
 
 export const updateDonations = (data) => {
   return (dispatch, getState) => {

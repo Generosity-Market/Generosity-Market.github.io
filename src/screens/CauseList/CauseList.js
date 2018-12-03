@@ -3,33 +3,18 @@ import { connect } from 'react-redux';
 import { getCauseList, causeSelected } from '../../actions/actions';
 import './causelist.css';
 
-// Import HOC to see if component is in viewport
-import handleViewport from 'react-in-viewport';
+import SliderSection from './components/SliderSection/SliderSection';
 
-// Component imports
-import CauseTile from '../../components/CauseTile/CauseTile';
-import Slider from '../../components/Slider/Slider';
-import Heading from '../../components/Heading/Heading';
-// import Loader from '../../components/Loader/Loader';
-
-const CauseTileWithLazyLoad = handleViewport(CauseTile);
+const returnEmpty = (getCauseList) => {
+  return (
+    <div className="emptyCauses">
+      <h2>There are no causes here my young padawan...</h2>
+    </div>
+  );
+}
 
 // TODO will need to update this to add the loader component
 class CauseList extends Component {
-
-  isFeatured = (isFeatured) => {
-    return this.props.causeList.map(cause => {
-      return(
-        <CauseTileWithLazyLoad 
-          key={cause.id}
-          cause={cause}
-          isFeatured={isFeatured}
-          raised={Number(cause.totalRaised)}
-          causeSelected={this.props.causeSelected} 
-        />
-      );
-    });
-  };
 
   componentDidMount() {
     if (this.props.causeList.length === 0) {
@@ -38,27 +23,35 @@ class CauseList extends Component {
   };
 
   render() {
-    // console.log("Cause List: ", this.props.causeList);
-    return(
+    const { causeList, causeSelected } = this.props;
+
+    // TODO handle loading and state of no causes to show...
+    // TODO empty array could be cause by an error, give button to reload list if empty
+    return causeList && causeList.length ? (
       <div className="CauseList">
-        {/* <Swiper /> */}
+        <SliderSection
+          headingText={'Featured'}
+          causeList={causeList}
+          featured={true}
+          causeSelected={causeSelected}
+        />
 
-        <Heading text={'Featured'} />
-        <Slider>
-          {this.isFeatured(true)}
-        </Slider>
+        <SliderSection
+          headingText={'NearlyFunded'}
+          causeList={causeList}
+          featured={false}
+          causeSelected={causeSelected}
+        />
 
-        <Heading text={'Nearly Funded'} />
-        <Slider>
-          {this.isFeatured(false)}
-        </Slider>
+        <SliderSection
+          headingText={'Recently Added'}
+          causeList={causeList}
+          featured={false}
+          causeSelected={causeSelected}
+        />
 
-        <Heading text={'Recently Added'} />
-        <Slider>
-          {this.isFeatured(false)}
-        </Slider>
       </div>
-    );
+    ) : returnEmpty(this.props.getCauseList);
   }
 };
 
