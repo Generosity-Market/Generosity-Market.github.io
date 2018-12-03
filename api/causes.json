@@ -1,0 +1,136 @@
+[{
+  "id": 0,
+  "orgId": 0,
+  "userId": null,
+  "type": "trip",
+  "name": "Joe visits Canopy",
+  "amount": 3500,
+  "description": "I will be on the ground in Kenya for 10 days this summer in which I'll be visiting the kids at Canopy Life Academy, seeing some of the kid's communities, and ending the trip with a Safari!",
+  "purpose": "This will cover all administration fees (including VISA, park fees), airfare, lodging, and food while in Kenya.",
+  "icon": "Africa.png",
+  "backgroundImage": "andrew-ruiz-348420.jpg",
+  "mainImage": "bill-wegener-285004.jpg",
+  "preferences": {
+      "roundImage": true
+  },
+  "comments": [
+      {
+        "name": "Sally Givesalot",
+        "comment": "Can't wait to hear the stories!!",
+        "imageURL": "profile.jpg",
+        "amount": 100
+      }, {
+        "name": "Bob Surrent",
+        "comment": "This sounds fun!",
+        "imageURL": "profile3.jpg",
+        "amount": 50
+      }, {
+        "name": "Jim Giver",
+        "comment": "Have a great time!",
+        "imageURL": "profile2.jpg",
+        "amount": 25
+      }
+  ]
+},
+{
+  "id": 1,
+  "orgId": 0,
+  "userId": null,
+  "type": "community project",
+  "name": "Nairobi Sewing",
+  "amount": 10000,
+  "description": "We're adding a sewing facility outside of Nairobi, Kenya",
+  "purpose": "We will be purchasing all of the building materials, as well as the production equipment to provide much needed jobs in this community.",
+  "icon": "Globe.png",
+  "backgroundImage": "jens-johnsson-78101.jpg",
+  "mainImage": "madi-robson-113926.jpg",
+  "preferences": {
+      "roundImage": true
+  },
+  "comments": [
+      {
+        "name": "Steve Rogers",
+        "comment": "Now that's a great cause.",
+        "imageURL": "profile2.jpg",
+        "amount": 56
+      }, {
+        "name": "Barry Allen",
+        "comment": "This sounds amazing!",
+        "imageURL": "profile3.jpg",
+        "amount": 112
+      }, {
+        "name": "Diana Prince",
+        "comment": "So sweet.",
+        "imageURL": "profile.jpg",
+        "amount": 39
+      }
+  ]
+},
+{
+  "id": 2,
+  "orgId": 0,
+  "userId": null,
+  "type": "adoption",
+  "name": "Team Gordy Expansion",
+  "amount": 40000,
+  "description": "We're adopting!",
+  "purpose": "This will provide for the adoption fees (including all paperwork fees), baby supplies, and food for our munchkin.",
+  "icon": "Diaper.png",
+  "backgroundImage": "valeria-zoncoll-575958.jpg",
+  "mainImage": "tim-bish-171738.jpg",
+  "preferences": {
+      "roundImage": true
+  },
+  "comments": [
+      {
+        "name": "Bruce Banner",
+        "comment": "Great news!",
+        "imageURL": "profile3.jpg",
+        "amount": 97
+      }, {
+        "name": "Joe Whoa",
+        "comment": "Like Whoa!!!",
+        "imageURL": "profile2.jpg",
+        "amount": 283
+      }, {
+        "name": "Gemma Simmons",
+        "comment": "Can't wait to meet the little one",
+        "imageURL": "profile.jpg",
+        "amount": 115
+      }
+  ]
+},
+{
+  "id": 3,
+  "orgId": 0,
+  "userId": null,
+  "type": "camp",
+  "name": "Camp Anawanna",
+  "amount": 1500,
+  "description": "Going to summer camp!",
+  "purpose": "Your gift will help pay for room and board, admin fees, meals, and activities for the duration of the camp",
+  "icon": "Airplane.png",
+  "backgroundImage": "khendi-lee-25583.jpg",
+  "mainImage": "jessica-castro-516921.jpg",
+  "preferences": {
+      "roundImage": true
+  },
+  "comments": [
+      {
+        "name": "Penny Ellis",
+        "comment": "Have fun!",
+        "imageURL": "profile.jpg",
+        "amount": 8
+      }, {
+        "name": "Clark Kent",
+        "comment": "",
+        "imageURL": "profile2.jpg",
+        "amount": 56
+      }, {
+        "name": "Roland Rollins",
+        "comment": "Watch out for the snakes",
+        "imageURL": "profile3.jpg",
+        "amount": 21
+      }
+  ]
+}]

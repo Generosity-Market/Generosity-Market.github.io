@@ -1,0 +1,18 @@
+{
+  "id": 0,
+  "name": "Canopy Life Academy",
+  "short_name": "Canopy Life",
+  "heading": "Cultivating Character, Unleashing Imagination",
+  "mission": "We're a residential school in Kenya that prepares children to create a better future for their communities. We are committed to providing every student with the space, skills, resources, opportunity, and freedom to cultivate their character and unleash their imagination. We do this through: Christ-centered mentoring, quality education, and environments that spark imagination.",
+  "email": "info@canopylife.org",
+  "siteUrl": "https://canopylife.org",
+  "backgroundImage": "Canopy-header-no-logo.jpg",
+  "mainImage": "Canopy-Life-Logo.jpg",
+  "preferences": {
+      "roundImage": false
+  },
+  "Causes": [
+      { "cause_id": 0 },
+      { "cause_id": 1 }
+  ]
+}

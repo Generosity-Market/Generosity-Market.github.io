@@ -1,0 +1,39 @@
+{
+  "short_name": "Generosity Market",
+  "name": "Generosity Market",
+  "icons": [
+    {
+      "src": "favicons/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "favicons/favicon-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "density": "4.0"
+    },
+    {
+      "src": "favicons/favicon-144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "density": "4.0"
+    },
+    {
+      "src": "favicons/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "density": "4.0"
+    },
+    {
+      "src": "favicons/favicon-310.png",
+      "sizes": "310x310",
+      "type": "image/png",
+      "density": "4.0"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#3ABF49",
+  "background_color": "#ffffff"
+}
