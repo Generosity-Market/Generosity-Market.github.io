@@ -2,7 +2,7 @@
   "name": "generosity-market",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Generosity-Market.github.io/Generosity-Market.github.io",
+  "homepage": "https://josephgordy.com/Generosity-Market.github.io",
   "dependencies": {
     "immutability-helper": "^2.6.6",
     "js-cookie": "^2.2.0",
