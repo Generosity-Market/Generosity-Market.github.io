@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
 import MainImage from '../../../../components/MainImage/MainImage';
 import Utils from '../../../../utilities/utilities';

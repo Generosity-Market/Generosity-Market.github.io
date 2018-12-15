@@ -13,10 +13,12 @@ const Cart = ({
 
     const cartItems = cart.map(item => {
       return(
-        <CartItem key={item.cause + item.amount}
+        <CartItem 
+          key={item.cause + item.amount}
           {...item}
           cart={cart}
-          removeFromCart={removeFromCart} />
+          removeFromCart={removeFromCart}
+        />
       );
     });
 

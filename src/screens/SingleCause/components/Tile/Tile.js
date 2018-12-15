@@ -35,9 +35,10 @@ class Tile extends Component {
   };
 
   componentDidMount() {
+    const { cart, amount, cause } = this.props;
     // if this tile is in the cart, we want to select it again open reopening the page
-    this.props.cart.forEach(index => {
-      if( (index.amount === this.props.amount) && (this.props.cause === index.cause) ) {
+    cart.forEach(index => {
+      if( (index.amount === amount) && (cause === index.cause) ) {
         this.setState({ isSelected: true });
       };
     });
