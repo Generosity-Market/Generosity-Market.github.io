@@ -33,6 +33,8 @@ class CauseForm extends Component {
 
       status: '',
     };
+
+    this.selectOptions = ['Trip', 'Mission', 'Adoption', 'Camp', 'Community Project'];
   }
 
   handleButtonText = () => {
@@ -49,7 +51,6 @@ class CauseForm extends Component {
   }
 
   render() {
-    const selectOptions = ['Trip', 'Mission', 'Adoption', 'Camp', 'Community Project'];
     return(
       <div className="CauseForm">
 
@@ -68,7 +69,7 @@ class CauseForm extends Component {
           state={this.state}
           handleUpdateState={this.handleUpdateState}
           inputOptions={inputOptions}
-          selectOptions={selectOptions}
+          selectOptions={this.selectOptions}
         />
 
         <Heading text={'Select Your Fundraising Icon'} />

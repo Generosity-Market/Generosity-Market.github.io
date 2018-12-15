@@ -17,19 +17,22 @@ class Organization extends Component {
   }
 
   render() {
-    const { organization, causeSelected } = this.props;
     const { 
-      name,
-      backgroundImage,
-      mainImage,
-      Preferences,
-      Causes,
-      heading,
-      mission,
-      email,
-      site_url,
-      short_name,
-    } = organization;
+      causeSelected,
+      organization,
+      organization: {
+        name,
+        backgroundImage,
+        mainImage,
+        Preferences,
+        Causes,
+        heading,
+        mission,
+        email,
+        site_url,
+        short_name,
+      }
+    } = this.props;
 
     return(
       <div className="Organization">

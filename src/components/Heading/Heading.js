@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Styles = {
+const styles = {
   borderBottom: 'var(--border)',
   color: 'var(--bright-green)',
   margin: '1rem auto',
@@ -8,7 +8,7 @@ const Styles = {
   width: '92%'
 }
 
-const Heading = props =>
-<h3 className="Heading" style={Styles}>{props.text}</h3>
+const Heading = ({ text }) =>
+<h3 className="Heading" style={styles}>{text}</h3>
 
 export default Heading;

@@ -13,6 +13,14 @@ class CheckoutForm extends Component {
             loading: false,
             status: '',
             email: '',
+            // first_name: '',
+            // last_name: '',
+            // address: {
+            //     street: '',
+            //     city: '',
+            //     state: '',
+            //     zip: '',
+            // },
         }
         this.submit = this.submit.bind(this);
     };

@@ -3,8 +3,13 @@ import PropTypes from 'prop-types'
 import FontAwesome from '../../components/FontAwesome/FontAwesome'
 import './ActionButton.css'
 
-const ActionButton = ({action, classname, icon, actionText}) => {
-
+const ActionButton = ({
+	action,
+	classname,
+	icon,
+	actionText
+}) => {
+	
     return(
 		<div className="ActionButton" style={buttonWrap}>
 			<div onClick={action} className={classname} style={buttonStyles}>

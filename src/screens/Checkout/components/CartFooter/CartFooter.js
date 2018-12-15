@@ -2,7 +2,11 @@ import React from 'react';
 import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
 import './CartFooter.css';
 
-const CartFooter = ({ total, cart, toggleCheckoutForm, ...rest}) => {
+const CartFooter = ({ 
+  total, 
+  // cart, 
+  toggleCheckoutForm 
+}) => {
 
   return(
     <div className="CartFooter">

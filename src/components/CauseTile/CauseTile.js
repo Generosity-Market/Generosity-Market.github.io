@@ -5,12 +5,20 @@ import Utils from '../../utilities/utilities';
 import Services from '../../services/services';
 import './CauseTile.css';
 
-const CauseTile = ({ cause, raised, isFeatured, causeSelected, inViewport, innerRef }) => {
+const CauseTile = ({
+  cause,
+  raised,
+  isFeatured,
+  causeSelected,
+  inViewport,
+  innerRef,
+}) => {
 
   const imageURL = (inViewport ? cause.mainImage : Services.getLazyImagePlaceholder());
+  // TODO update progress bar message when raised 100%
   const calculateBarWidth = (percentRaised) => {
     if (percentRaised > 5) {
-      return percentRaised - 5;
+      return percentRaised - 2;
     } else {
       return 1;
     }

@@ -8,7 +8,7 @@ const Banner = ({
   BGimage, 
   heading, 
   mainImage, 
-  roundImage 
+  roundImage,
 }) =>
     <div className="Header">
 

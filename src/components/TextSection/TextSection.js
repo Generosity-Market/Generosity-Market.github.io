@@ -2,10 +2,10 @@ import React from 'react';
 import Heading from '../Heading/Heading';
 import './TextSection.css';
 
-const TextSection = (props) =>
+const TextSection = ({ heading, text }) =>
 <div className="TextSection">
-  <Heading text={props.heading} />
-  <p>{props.text}</p>
+  <Heading text={heading} />
+  <p>{text}</p>
 </div>
 
 
