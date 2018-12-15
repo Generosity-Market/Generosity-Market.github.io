@@ -14,6 +14,7 @@ const SliderSection = ({
     featured,
     causeList,
     causeSelected,
+    headingText,
 }) => {
 
     const isFeatured = (isFeatured) => {
@@ -32,7 +33,7 @@ const SliderSection = ({
 
     return (
         <Fragment>
-            <Heading text={'Featured'} />
+            <Heading text={headingText} />
             <Slider>
                 {isFeatured(featured)}
             </Slider>
