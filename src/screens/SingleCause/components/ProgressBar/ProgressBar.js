@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import './ProgressBar.css';
 
+
+// TODO convert to functional component if not using state
 class ProgressBar extends Component {
 
   calculateBarWidth = (percentRaised) => {
     if (percentRaised > 5) {
-      return percentRaised - 5;
+      return percentRaised - 7;
     } else {
       return 1;
     }

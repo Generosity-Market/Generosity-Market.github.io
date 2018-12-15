@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './InputGroup.css';
 
+// TODO convert to functional component if not using state
 class InputGroup extends Component {
 
     getSelectOptions = (options, index) => {

@@ -3,6 +3,7 @@ import Heading from '../../../../components/Heading/Heading';
 import TextSection from '../../../../components/TextSection/TextSection';
 import './OrgDetails.css';
 
+// TODO convert to functional component if not using state
 export default class OrgDetails extends Component {
 
   render() {

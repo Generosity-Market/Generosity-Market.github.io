@@ -4,6 +4,7 @@ import MiniButton from '../MiniButton/MiniButton';
 import { coverInput, profileInput } from './inputInfo.js';
 import './ImageUploader.css';
 
+// TODO convert to functional component if not using state
 export default class ImageUpload extends Component {
   
   createFileInput = (input, URL) => {
