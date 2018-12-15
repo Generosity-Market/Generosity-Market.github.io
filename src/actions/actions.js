@@ -119,7 +119,7 @@ export const getUserData = () => makeFetchCreator(fetchUserData, setUser, null);
 // getting the selected organizations information
 export const getOrgData = () => makeFetchCreator(fetchOrgData, setOrg, null);
 
-// publishing the cause page if succcessful
+// publishing the submitted cause page
 export const submitCauseForm = (args) => makeFetchCreator(submitFormData, addCause, args);
 
 // submitting a payment for total donation
