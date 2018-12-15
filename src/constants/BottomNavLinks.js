@@ -12,7 +12,7 @@ const bottomNavLinks = [
         color: 'var(--medium-green)'
     }, 
     {
-        name: 'Dashboard', 
+        name: 'My Dashboard', 
         icon: 'fas fa-user', 
         endpoint: '/users/1/dashboard', 
         color: 'var(--medium-green)'
