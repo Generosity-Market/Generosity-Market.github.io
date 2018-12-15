@@ -27,31 +27,48 @@ class SingleCause extends Component {
   };
 
   render() {
-    const { cause } = this.props;
+    const { 
+      cause,
+      cause: {
+        Donations,
+        name,
+        backgroundImage,
+        mainImage,
+        Preferences,
+        totalRaised,
+        amount,
+        description,
+        purpose,
+      },
+    } = this.props;
+    
     let purchasedTiles;
 
-    if (cause.Donations) {
-      purchasedTiles = Object.keys(cause.Donations).map(index => cause.Donations[index].amount);
+    if (Donations) {
+      purchasedTiles = Object.keys(Donations).map(index => Donations[index].amount);
     }
 
     return(
       <div className="SingleCause">
 
         <Banner
-          heading={cause.name}
-          BGimage={cause.backgroundImage}
-          mainImage={cause.mainImage}
-          roundImage={cause.Preferences ? cause.Preferences[0].roundImage : {} }
+          heading={name}
+          BGimage={backgroundImage}
+          mainImage={mainImage}
+          roundImage={Preferences ? Preferences[0].roundImage : {} }
         />
 
         <div className="wrapper">
 
           <ProgressBar
-            totalRaised={cause.totalRaised}
-            goal={cause.amount}
+            totalRaised={totalRaised}
+            goal={amount}
           />
 
-          <TileSection {...cause} purchasedTiles={purchasedTiles} />
+          <TileSection
+            {...cause}
+            purchasedTiles={purchasedTiles}
+          />
 
           <LinkButton
             href="/checkout"
@@ -65,14 +82,14 @@ class SingleCause extends Component {
           </div>
 
           <AboutCause
-            title={cause.name}
-            aboutText={cause.description}
-            usageText={cause.purpose}
+            title={name}
+            aboutText={description}
+            usageText={purpose}
           />
 
-          {cause.Donations && cause.Donations.length > 0 &&
+          {Donations && Donations.length > 0 &&
             <DonorComments
-              donations={cause.Donations}
+              donations={Donations}
             /> 
           }
 
