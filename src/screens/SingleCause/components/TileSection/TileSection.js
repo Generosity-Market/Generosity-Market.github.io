@@ -5,6 +5,7 @@ import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
 import Tile from '../Tile/Tile';
 import './TileSection.css';
 
+// TODO convert to functional component if not using state
 class TileSection extends Component {
 
   isTilePurchased = (tileNumber) => {

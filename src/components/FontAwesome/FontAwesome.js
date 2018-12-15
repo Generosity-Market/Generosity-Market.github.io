@@ -1,5 +1,6 @@
 import React from 'react';
 
-const FontAwesome = props => <i onClick={props.onClick} className={props.classname} style={props.style}></i>;
+const FontAwesome = ({ onClick, classname, style }) => 
+<i onClick={onClick} className={classname} style={style}></i>;
 
 export default FontAwesome;

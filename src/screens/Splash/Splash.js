@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import LinkButton from '../../components/LinkButton/LinkButton';
 import {
   // destroyCookie,
@@ -46,7 +46,12 @@ class Splash extends Component {
           />
         </div>
 
-        <a href='/login' className='sign-up'>Not a member? Sign up here</a>
+        <Link 
+          to='/login' 
+          className='sign-up'
+        >
+          Not a member? Sign up here
+        </Link>
 
       </div>
     )

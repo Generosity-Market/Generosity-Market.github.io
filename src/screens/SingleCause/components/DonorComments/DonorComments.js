@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Heading from '../../../../components/Heading/Heading';
 import './DonorComments.css';
 
+// TODO convert to functional component if not using state
 class DonorComments extends Component {
 
   getDonorImage = imageURL => require(`../../../../Assets/Photography/Mobile/${imageURL}`);

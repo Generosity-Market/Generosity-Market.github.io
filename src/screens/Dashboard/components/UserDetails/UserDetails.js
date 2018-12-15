@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
 import './UserDetails.css';
 
+// TODO turn this into function component if we aren't using state
 class UserDetails extends Component {
 
   render() {

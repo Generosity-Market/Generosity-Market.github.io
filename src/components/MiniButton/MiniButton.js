@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MiniButton = (props) =>
-  <div className={`${props.classname} btns`} onClick={(e) => props.onClick(e)}>
-    {props.children}
+const MiniButton = ({ classname, onClick, children }) =>
+  <div className={`${classname} btns`} onClick={(e) => onClick(e)}>
+    {children}
   </div>;
 
 MiniButton.propTypes = {

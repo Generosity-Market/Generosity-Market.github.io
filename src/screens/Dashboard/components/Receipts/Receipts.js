@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Heading from '../../../../components/Heading/Heading';
 import './Receipts.css';
 
+// TODO turn this into functional component if we arent using state
 class Receipts extends Component {
 
   // TODO use hardcoded elements until api data is available.

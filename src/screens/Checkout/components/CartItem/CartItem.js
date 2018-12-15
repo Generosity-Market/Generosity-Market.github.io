@@ -4,10 +4,16 @@ import MainImage from '../../../../components/MainImage/MainImage';
 import Utils from '../../../../utilities/utilities';
 import './CartItem.css';
 
-class CartItem extends Component {
+const CartItem = ({
+  amount, 
+  cart, 
+  cause, 
+  mainImage,
+  removeFromCart, 
+  type, 
+}) => {
 
-  removeItemFromCart = () => {
-      const { cart, amount, cause, removeFromCart } = this.props;
+  const removeItemFromCart = () => {
       let indexToRemove;
 
       for (var i = 0; i < cart.length; i++) {
@@ -19,25 +25,21 @@ class CartItem extends Component {
       removeFromCart(updatedCart);
   };
 
-  render() {
-    const { amount, cause, type, mainImage } = this.props;
+  return(
+    <div className="CartItem">
+      <MainImage roundImage={false} mainImage={mainImage}/>
 
-    return(
-      <div className="CartItem">
-        <MainImage roundImage={false} mainImage={mainImage}/>
-
-        <div className="itemInfo">
-          <h3>{cause}</h3>
-          <h4>{type}</h4>
-          <p>${amount}</p>
-        </div>
-
-        <div className="clear" onClick={() => this.removeItemFromCart()}>
-          <FontAwesome classname={'far fa-times-circle'} />
-        </div>
+      <div className="itemInfo">
+        <h3>{cause}</h3>
+        <h4>{type}</h4>
+        <p>${amount}</p>
       </div>
-    );
-  };
+
+      <div className="clear" onClick={() => removeItemFromCart()}>
+        <FontAwesome classname={'far fa-times-circle'} />
+      </div>
+    </div>
+  );
 };
 
 export default CartItem;

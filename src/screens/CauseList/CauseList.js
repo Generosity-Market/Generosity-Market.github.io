@@ -13,7 +13,6 @@ const returnEmpty = (getCauseList) => {
   );
 }
 
-// TODO will need to update this to add the loader component
 class CauseList extends Component {
 
   componentDidMount() {
@@ -37,7 +36,7 @@ class CauseList extends Component {
         />
 
         <SliderSection
-          headingText={'NearlyFunded'}
+          headingText={'Nearly Funded'}
           causeList={causeList}
           featured={false}
           causeSelected={causeSelected}
