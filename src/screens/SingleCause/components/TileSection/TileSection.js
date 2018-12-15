@@ -67,16 +67,16 @@ class TileSection extends Component {
   };
 
   mapTiles = (tiles) => {
-    const { id, name, icon, ...rest } = this.props;
-    return tiles.map((tile, index) => {
+    const { id, name, icon, mainImage } = this.props;
+    return tiles.map(tile => {
       return (
         <Tile 
-          {...rest}
-          key={index}
+          key={name + tile.tileNumber}
           causeID={id}
           cause={name}
           amount={tile.tileNumber}
           tileIcon={icon}
+          mainImage={mainImage}
           isPurchased={tile.isPurchased}
         />
       );
