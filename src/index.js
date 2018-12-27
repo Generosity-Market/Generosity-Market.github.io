@@ -8,9 +8,9 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
-import reduxThunk from 'redux-thunk';
+import thunk from 'redux-thunk';
 import reducers from './reducers/reducer';
-// import Cookies from 'js-cookie';
+import Cookies from 'js-cookie';
 
 // Components and Routes
 import BaseLayout from './containers/BaseLayout/BaseLayout';
@@ -20,15 +20,15 @@ import Routes from './routes/Routes';
 const store = createStore(
     reducers,
     compose(
-        applyMiddleware(reduxThunk)
+        applyMiddleware(thunk)
     )
 );
 
 // checking to see if there are cookies for authentication
-// const loggedIn = () => {
-//   let cookie = Cookies.get('token');
-//     return !!cookie;
-// }
+const loggedIn = () => {
+  let cookie = Cookies.get('token');
+    return !!cookie;
+}
 
 ReactDOM.render(
 <Provider store={store}>

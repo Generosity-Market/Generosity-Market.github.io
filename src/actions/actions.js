@@ -1,4 +1,4 @@
-// import Cookies from 'js-cookie';
+import Cookies from 'js-cookie';
 import Services from '../services/services';
 
 // Destructuring the Services functions
@@ -7,14 +7,20 @@ const {
   fetchSingleCause,
   fetchUserData,
   fetchOrgData,
+  userLogin,
   submitFormData,
   submitPayment,
 } = Services;
+
+// BIG TODO Let's separate actions by type in separate files. 
+// TODO Examples: user, causes, organization, donation, cart, etc...
 
 export const SET_DATA         = "SET_DATA";
 export const ADD_CAUSE        = "ADD_CAUSE";
 export const CAUSE_SELECTED   = "CAUSE_SELECTED";
 export const SET_USER         = "SET_USER";
+export const SET_TOKEN        = "SET_TOKEN";
+export const ADD_ORGANIZATION = "ADD_ORGANIZATION";
 export const SET_ORGANIZATION = "SET_ORGANIZATION";
 export const ADD_TO_CART      = "ADD_TO_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
@@ -36,7 +42,9 @@ export const setData         = makeActionCreator(SET_DATA);
 export const addCause        = makeActionCreator(ADD_CAUSE);
 export const causeSelected   = makeActionCreator(CAUSE_SELECTED);
 export const setUser         = makeActionCreator(SET_USER);
+export const setToken        = makeActionCreator(SET_TOKEN);
 export const setOrg          = makeActionCreator(SET_ORGANIZATION);
+export const addOrg          = makeActionCreator(ADD_ORGANIZATION);
 export const addToCart       = makeActionCreator(ADD_TO_CART);
 export const removeFromCart  = makeActionCreator(REMOVE_FROM_CART);
 export const clearCart       = makeActionCreator(CLEAR_CART);
@@ -45,8 +53,8 @@ export const updateTotal     = makeActionCreator(UPDATE_TOTAL);
 
 // TODO For 'register' and 'login', can we use a fetchCreator instead of the below logic?
 export const register = (fields) => {
-  // return (dispatch, getState) => {
-  //   return services.register(fields)
+  return (dispatch, getState) => {
+  //   return registerUser(fields)
   //     .then(data => {
   //       if (data.error) {
   //         dispatch(setAlert({ type: 'error', message: data.error }));
@@ -57,34 +65,56 @@ export const register = (fields) => {
   //         return data;
   //       }
   //     });
-  // };
+  };
 };
 
-export const login = (fields) => {
-  // return (dispatch) => {
-  //   return services.login(fields)
-  //     .then(data => {
-  //       if (!data.user) {
-  //         dispatch(setAlert({ type: 'error', message: data.errors }));
-  //         return data;
-  //       } else {
-  //         dispatch(setAlert({ type: null, message: null }))
-  //         dispatch(setToken(data['auth_token']));
-  //         dispatch(setUser({
-  //           email: data.user.email,
-  //           username: data.user.username,
-  //           userId: data.user.id
-  //         }))
-  //         // dispatch(getGamePage(data['auth_token']));
-  //         Cookies.set('token', data['auth_token'], { expires: 90 });
-  //         Cookies.set('email', data.user['email'], { expires: 90 });
-  //         Cookies.set('name', data.user['username'], { expires: 90 });
-  //         Cookies.set('userId', data.user['id'], { expires: 90 });
-  //         return data;
-  //       }
-  //     });
-  // };
+export const login = ({ email, password }) => {
+  return (dispatch) => {
+    return userLogin({
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      },
+    })
+      .then(data => {
+        if (!data.user) {
+          // dispatch(setAlert({ type: 'error', message: data.errors }));
+          return "Error";
+        } else {
+          // dispatch(setAlert({ type: null, message: null }))
+          dispatch(setToken(data['auth_token']));
+          dispatch(setUser({ ...data.user }));
+          
+          Cookies.set('token', data['auth_token'], { expires: 90 });
+          Cookies.set('user', {
+            email: data.user['email'],
+            name: data.user['name'],
+            userId: data.user['id'],
+          }, {
+            expires: 90
+          });
+          return data.user;
+        }
+      });
+  };
 };
+
+// TODO finish this action...
+export const loadTokenFromCookie = () => {
+  return (dispatch) => {
+    const token = Cookies.get('token');
+    const user = Cookies.getJSON('user');
+    // TODO instead of doing a dispatch here of cookie data...
+    // TODO lets call the api for the user data and set the user with that
+    if (token) {
+      dispatch(setToken(token));
+      dispatch(setUser(user));
+    }
+  }
+}
 
 export const updateDonations = (data) => {
   return (dispatch, getState) => {
@@ -121,6 +151,9 @@ export const getOrgData = () => makeFetchCreator(fetchOrgData, setOrg, null);
 
 // publishing the submitted cause page
 export const submitCauseForm = (args) => makeFetchCreator(submitFormData, addCause, args);
+
+// submits organization form
+export const submitOrgForm = (args) => makeFetchCreator(submitFormData, )
 
 // submitting a payment for total donation
 export const submitDonation = (args) => makeFetchCreator(submitPayment, updateDonations, args);

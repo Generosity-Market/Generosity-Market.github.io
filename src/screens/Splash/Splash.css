@@ -36,10 +36,16 @@
   text-align: center;
 }
 
-.LinkButton {
+.Splash .LinkButton {
+  border-radius: var(--border-radius);
   font-family: var(--main-font);
   font-weight: 300;
   letter-spacing: 0.2rem;
+}
+
+.Splash .LinkButton a {
+    border-radius: var(--border-radius);
+    box-shadow: var(--black-box-shadow);
 }
 
 .Splash .LinkButton .create-cause {
