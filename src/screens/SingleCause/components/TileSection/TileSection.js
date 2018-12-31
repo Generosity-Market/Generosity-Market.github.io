@@ -57,6 +57,7 @@ class TileSection extends Component {
       if ((index >= indexStart) && (index < indexEnd)) {
         return index;
       }
+      return null;
     });
 
     if (indexStart === 0) {

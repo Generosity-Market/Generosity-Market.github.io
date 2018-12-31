@@ -62,6 +62,8 @@ class NewOrgForm extends Component {
     }
   };
 
+  // TODO reverse this logic...instead of calling the service then dispatching the action.
+  // TODO We call the action and let the action call the service.
   handleSubmit = () => {
     console.log('handle uploading-', this.state);
     delete this.state.mainImageURL;

@@ -11,6 +11,8 @@ const Services = {
 
     fetchOrgData: () => fetchJSONData(`/organizations/2`),
 
+    userLogin: (data) => postJSONData('/login', data),
+
     submitCauseForm: (data) => postFormData('/causes/new', data),
     
     submitOrgForm: (data) => postFormData('/organizations/new', data), 

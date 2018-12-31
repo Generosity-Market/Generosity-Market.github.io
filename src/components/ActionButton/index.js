@@ -13,9 +13,7 @@ const ActionButton = ({
     return(
 		<div className="ActionButton" style={buttonWrap}>
 			<div onClick={action} className={classname} style={buttonStyles}>
-				{ icon &&
-        		<FontAwesome classname={icon}/> }
-
+				{ icon && <FontAwesome classname={icon}/> }
 				{actionText}
 			</div>
 		</div>

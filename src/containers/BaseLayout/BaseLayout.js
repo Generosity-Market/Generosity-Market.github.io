@@ -6,12 +6,12 @@ import './baselayout.css';
 
 // Link data imports
 import navLinks from '../../constants/linksData';
-// import bottomNavLinks from '../../constants/BottomNavLinks';
+import bottomNavLinks from '../../constants/BottomNavLinks';
 
 // Component imports
 import TopMenu from './components/TopMenu/TopMenu';
 import SlideMenu from './components/SlideMenu/SlideMenu';
-// import BottomMenu from './components/BottomMenu/BottomMenu';
+import BottomMenu from './components/BottomMenu/BottomMenu';
 
 class BaseLayout extends Component {
   constructor(props) {
@@ -27,13 +27,13 @@ class BaseLayout extends Component {
     };
   }
 
-  navToggle = () => {
-    this.setState({ showMenu: !this.state.showMenu });
+  navToggle = (endpoint) => {
+    setTimeout(() => this.setState({ showMenu: !this.state.showMenu }), 200);
+    if (endpoint) this.handleNavigation(endpoint);
   };
 
   handleNavigation = (endpoint) => {
     this.props.history.replace(endpoint);
-    setTimeout(() => this.navToggle(), 200);
   };
 
   render() {
@@ -49,15 +49,15 @@ class BaseLayout extends Component {
           navLinks={navLinks}
           closeMenu={this.navToggle}
           showMenu={this.state.showMenu}
-          handleNavigation={this.handleNavigation} 
+          handleNavigation={this.navToggle} 
         />
 
         {this.props.children}
 
-        {/*<BottomMenu
+        <BottomMenu
           navLinks={bottomNavLinks}
           handleNavigation={this.handleNavigation}
-        />*/}
+        />
 
       </div>
     )

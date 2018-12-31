@@ -1,7 +1,12 @@
+import update from 'immutability-helper';
+import initialState from './initialState';
+
 import {
     SET_USER,
+    SET_TOKEN,
     SET_DATA,
     CAUSE_SELECTED,
+    // ADD_ORGANIZATION,
     SET_ORGANIZATION,
     ADD_TO_CART,
     REMOVE_FROM_CART,
@@ -10,20 +15,6 @@ import {
     UPDATE_DONATIONS,
     UPDATE_TOTAL,
 } from '../actions/actions';
-import update from 'immutability-helper';
-// import Cookies from 'js-cookie';
-
-const initialState = {
-    causeList: [],
-    selectedCause: '',
-    user: '',
-    orgList: [],
-    selectedOrg: '',
-    cart: []
-    // token: Cookies.get('token'),
-    // filter: 'all',
-    // alert: { type: null, message: null }
-};
 
 const reducer = (state = initialState, action) => {
     const { type, payload } = action;
@@ -50,6 +41,12 @@ const reducer = (state = initialState, action) => {
             return update(state, {
                 user: {
                     $set: payload
+                }
+            });
+        case SET_TOKEN:
+            return update(state, {
+                token: {
+                    $set: action.payload
                 }
             });
         case SET_ORGANIZATION:
