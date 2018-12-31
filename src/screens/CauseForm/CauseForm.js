@@ -119,17 +119,24 @@ class CauseForm extends Component {
     }
   };
 
+  // TODO reverse this logic...instead of calling the service then dispatching the action.
+  // TODO We call the action and let the action call the service.
   handlePublish = () => {
     // console.log('handle uploading-', this.state);
     this.setState({ status: 'loading' });
     delete this.state.profileURL;
     delete this.state.coverURL;
 
+    const causeData = {
+      ...this.state,
+      userID: this.props.user.id,
+    };
+
     const formData = new FormData();
     formData.append('profileImage', this.state.profile_image);
     formData.append('coverImage', this.state.cover_image);
     formData.append('bucket', 'cause');
-    formData.append('state', JSON.stringify(this.state));
+    formData.append('state', JSON.stringify(causeData));
 
     Services.submitCauseForm(formData, {
       headers: {
@@ -156,7 +163,7 @@ class CauseForm extends Component {
 };
 
 const mapStateToProps = (state) => {
-  return {};
+  return { user: state.user };
 };
 
 const mapDispatchToProps = { addCause };

@@ -20,14 +20,22 @@ class Dashboard extends Component {
   };
 
   render() {
-    const { user } = this.props;
-    if (!user) {
-      const id = this.props.match.params.id;
-      this.props.getUserData(id);
-    };
-    console.log(user);
+    const {
+      user,
+      match: { 
+        params: { 
+          id 
+        }
+      },
+      getUserData,
+      causeSelected,
+    } = this.props;
 
-    return(
+    if (!user) {
+      getUserData(id);
+    };
+
+    return user && (
       <div className="Dashboard">
 
         {/*
@@ -35,31 +43,33 @@ class Dashboard extends Component {
           page we need to remove the getImageURL Utility function 
         */}
 
-        {user &&
+
         <Banner
           heading={`${this.getFirstName(user.name)}s Dashboard`}
           BGimage={Utils.getImageURL(user.backgroundImage)}
           mainImage={Utils.getImageURL(user.mainImage)}
-          roundImage={user.Preferences.roundImage}/> }
+          roundImage={user.Preferences.roundImage}
+        />
 
         <div className="Wrapper">
 
-          {user &&
           <UserDetails
             name={user.name}
             phone={user.phone}
             address={this.returnAddressInfo(user)}
-            editProfile={this.state.editProfile}/> }
+            editProfile={this.state.editProfile}
+          />
 
-          {user &&
           <UserCauses
             causes={user.Causes}
-            causeSelected={this.props.causeSelected}/> }
+            causeSelected={causeSelected}
+          />
 
           <LinkButton
             href={'/causes/new'}
             classname={'create-cause'}
-            linkText={'Create a cause'}/>
+            linkText={'Create a cause'}
+          />
 
           <Receipts />
 

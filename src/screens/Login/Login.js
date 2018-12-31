@@ -28,6 +28,7 @@ class Login extends Component {
     handleSubmit = () => {
         const { login, history } = this.props;
         const { email, password } = this.state;
+        
         console.log(this.state);
         login({ email, password })
             .then(user => {
