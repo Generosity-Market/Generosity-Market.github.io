@@ -87,7 +87,7 @@ export const login = ({ email, password }) => {
           // dispatch(setAlert({ type: null, message: null }))
           dispatch(setToken(data['auth_token']));
           dispatch(setUser({ ...data.user }));
-          
+
           Cookies.set('token', data['auth_token'], { expires: 90 });
           Cookies.set('user', {
             email: data.user['email'],

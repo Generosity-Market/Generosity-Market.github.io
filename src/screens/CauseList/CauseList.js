@@ -9,6 +9,7 @@ const returnEmpty = (getCauseList) => {
   return (
     <div className="emptyCauses">
       <h2>There are no causes here my young padawan...</h2>
+      {/* TODO Add a button to reload the causelist */}
     </div>
   );
 }
@@ -22,7 +23,7 @@ class CauseList extends Component {
   };
 
   render() {
-    const { causeList, causeSelected } = this.props;
+    const { causeList, causeSelected, getCauseList } = this.props;
 
     // TODO handle loading and state of no causes to show...
     // TODO empty array could be cause by an error, give button to reload list if empty
@@ -50,7 +51,7 @@ class CauseList extends Component {
         />
 
       </div>
-    ) : returnEmpty(this.props.getCauseList);
+    ) : returnEmpty(getCauseList);
   }
 };
 
