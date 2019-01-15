@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
 import { getCauseList } from '../../actions/actions';
+import { loadTokenFromCookie } from '../../actions/user';
 import './baselayout.css';
 
 // Link data imports
@@ -22,6 +23,7 @@ class BaseLayout extends Component {
   };
 
   componentDidMount() {
+    this.props.loadTokenFromCookie();
     if (!this.props.causeList.length) {
       this.props.getCauseList();
     };
@@ -68,6 +70,6 @@ const mapStateToProps = (state) => {
   return { causeList: state.causeList };
 };
 
-const mapDispatchToProps = { getCauseList };
+const mapDispatchToProps = { getCauseList, loadTokenFromCookie };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BaseLayout));
