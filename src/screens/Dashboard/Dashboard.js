@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getUserData, getCauseList, causeSelected } from '../../actions/actions';
+import { withRouter } from 'react-router-dom';
 import Utils from '../../utilities/utilities';
 import './dashboard.css';
+
+import { 
+  getCauseList, 
+  causeSelected 
+} from '../../actions/actions';
+
+import { getUserData, loadTokenFromCookie } from '../../actions/user';
 
 // Component imports
 import Banner from '../../components/Banner/Banner';
@@ -19,21 +26,32 @@ class Dashboard extends Component {
     }
   };
 
+  getFirstName = (name) => {
+    let index = name.indexOf(" ");
+    let firstName = name.substring(0, index);
+    return firstName || name;
+  };
+
+  returnAddressInfo = ({ street, city, state, zipcode }) => {
+    return {
+      street,
+      city,
+      state,
+      zipcode
+    };
+  };
+
   render() {
     const {
       user,
-      match: { 
-        params: { 
-          id 
-        }
-      },
+      userData,
+      history,
       getUserData,
       causeSelected,
     } = this.props;
 
-    if (!user) {
-      getUserData(id);
-    };
+    if (!user && userData) getUserData(userData.id);
+    if (!user && !userData) history.push('/');
 
     return user && (
       <div className="Dashboard">
@@ -45,10 +63,9 @@ class Dashboard extends Component {
 
 
         <Banner
-          heading={`${this.getFirstName(user.name)}s Dashboard`}
-          BGimage={Utils.getImageURL(user.backgroundImage)}
-          mainImage={Utils.getImageURL(user.mainImage)}
-          roundImage={user.Preferences.roundImage}
+          BGimage={user.backgroundImage && Utils.getImageURL(user.backgroundImage)}
+          mainImage={user.mainImage && Utils.getImageURL(user.mainImage)}
+          roundImage={user.Preferences[0] ? user.Preferences[0].roundImage : false }
         />
 
         <div className="Wrapper">
@@ -77,28 +94,17 @@ class Dashboard extends Component {
       </div>
     );
   }
-
-  getFirstName = (name) => {
-    let index = name.indexOf(" ");
-    let firstName = name.substring(0, index);
-    return firstName || name;
-  };
-
-  returnAddressInfo = (user) => {
-    return {
-      street: user.street,
-      city: user.city,
-      state: user.state,
-      zipcode: user.zicode
-    };
-  };
-
 };
 
 const mapStateToProps = (state) => {
   return { user: state.user }
 };
 
-const mapDispatchToProps = { getUserData, getCauseList, causeSelected };
+const mapDispatchToProps = {
+  getUserData,
+  getCauseList,
+  causeSelected,
+  loadTokenFromCookie,
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Dashboard));

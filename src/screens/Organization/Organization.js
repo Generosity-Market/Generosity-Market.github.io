@@ -13,7 +13,7 @@ import LinkButton from '../../components/LinkButton/LinkButton';
 class Organization extends Component {
 
   componentDidMount() {
-    this.props.getOrgData();
+    this.props.getOrgData(2); // TODO this id needs to come from the url param...
   }
 
   render() {
@@ -40,9 +40,9 @@ class Organization extends Component {
         {organization &&
           <Banner
             heading={name}
-            BGimage={Utils.getImageURL(backgroundImage)}
-            mainImage={Utils.getImageURL(mainImage)}
-            roundImage={Preferences[0] ? Preferences[0].roundImage : false} 
+            BGimage={backgroundImage && Utils.getImageURL(backgroundImage)}
+            mainImage={mainImage && Utils.getImageURL(mainImage)}
+            roundImage={Preferences[0] ? Preferences[0].roundImage : false}
           /> 
         }
 

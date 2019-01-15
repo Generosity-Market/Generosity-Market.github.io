@@ -6,7 +6,17 @@ import './UserDetails.css';
 class UserDetails extends Component {
 
   render() {
-    const { name, address, phone } = this.props;
+    const {
+      name,
+      address: {
+        street,
+        city,
+        state,
+        zipcode,
+      },
+      phone
+    } = this.props;
+
     return(
       <div className="profile-details UserDetails">
 
@@ -19,13 +29,19 @@ class UserDetails extends Component {
         </div>
 
         <div className="user-details">
-          <p><span>Name: </span>{name}</p>
+          <p>
+            <span>Name: </span>{name}
+          </p>
 
-          <p><span>Address: </span><br/>
-          {address.street},<br/>
-          {address.city}, {address.state} {address.zipcode}</p>
+          <p>
+            <span>Address: </span><br/>
+            {street},<br/>
+            {city}, {state} {zipcode}
+          </p>
 
-          <p><span>Phone: </span>{phone}</p>
+          <p>
+            <span>Phone: </span>{phone}
+          </p>
 
           <div className="edit-button">
             <FontAwesome classname={"fas fa-plus"} /> <p>edit profile</p>
