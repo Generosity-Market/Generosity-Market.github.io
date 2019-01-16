@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-// import { addCause } from '../../actions/actions';
+// import { addCause } from '../../ducks/cause';
 import inputOptions from './inputOptions.js';
 import './NewOrgForm.css';
 

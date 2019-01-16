@@ -1,7 +1,7 @@
 .CartFooter {
   align-items: center;
   background-color: var(--white);
-  bottom: 0;
+  bottom: 5rem;
   border: var(--border);
   display: flex;
   justify-content: space-between;
