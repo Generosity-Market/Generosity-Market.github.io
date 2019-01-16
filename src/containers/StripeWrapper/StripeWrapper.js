@@ -7,7 +7,13 @@ import Utils from '../../utilities/utilities';
 
 // import PAYMENT_SERVER_URL from '../constants/server';
 
-const StripeWrapper = ({ name, description, amount, disabled, children }) => {
+const StripeWrapper = ({
+    name,
+    description,
+    amount,
+    disabled,
+    children
+}) => {
     const CURRENCY = 'USD';
 
     return(

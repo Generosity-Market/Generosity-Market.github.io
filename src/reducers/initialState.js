@@ -1,15 +1,24 @@
 import Cookies from 'js-cookie';
 
 const initialState = {
+    // User related state
+    user: null,
+    token: Cookies.get('token'),
+
+    // Cause related state
     causeList: [],
     selectedCause: '',
-    user: null,
+
+    // Organization related State
     orgList: [],
     selectedOrg: '',
+
+    // Cart related State
     cart: [],
-    token: Cookies.get('token'),
-    filter: 'all',
-    alert: { type: null, message: null }
+    // cartTotal? or just use a function to determine the total?
+
+    // filter: 'all',
+    // alert: { type: null, message: null }
 };
 
 export default initialState;
