@@ -2,7 +2,6 @@ import React, { Suspense } from 'react';
 import Cookies from 'js-cookie';
 import './Routes.css';
 
-// TODO import 'Redirect' from RRD when redux/auth/api is implemented
 import {
     Switch,
     Route,
