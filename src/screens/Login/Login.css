@@ -1,20 +1,31 @@
 .Login {
-  background-image: url('../../Assets/Photography/Mobile/jens-johnsson-78101.jpg');
-  background-size: cover;
-  background-position: center;
+  background-image: url('../../Assets/Photography/Mobile/khendi-lee-25583.jpg');
+  background-size: 300%;
+  background-position: 50%;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 5;
 }
 
 .Login .sign-in {
   display: flex;
   flex-direction: column;
   width: 85%;
-  margin: 0 auto;
+  margin: 0 auto 2rem;
+}
+
+.sign-in .error-message {
+  border-radius: var(--border-radius);
+  color: var(--white);
+  height: 1.25rem;
+  margin-bottom: 0.75rem;
+  padding: 0.2rem 0rem;
 }
 
 .sign-in input {
@@ -46,6 +57,16 @@
   border-radius: var(--border-radius);
   color: var(--white);
   padding: 0.5rem 0;
+}
+
+.sign-up-link,
+.log-in-link {
+  background-color: var(--black-30);
+  border-radius: var(--border-radius);
+  color: var(--white);
+  padding: 0.2rem;
+  text-transform: none !important;
+  max-width: 80% !important;
 }
 
 .forgot-password {

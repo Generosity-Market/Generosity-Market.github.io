@@ -2,19 +2,23 @@ import update from 'immutability-helper';
 import initialState from './initialState';
 
 import {
-    SET_USER,
-    SET_TOKEN,
-    SET_DATA,
-    CAUSE_SELECTED,
-    // ADD_ORGANIZATION,
-    SET_ORGANIZATION,
-    ADD_TO_CART,
-    REMOVE_FROM_CART,
-    CLEAR_CART,
     ADD_CAUSE,
+    ADD_TO_CART,
+    CAUSE_SELECTED,
+    CLEAR_CART,
+    SET_DATA,
+    REMOVE_FROM_CART,
+    SET_ORGANIZATION,
     UPDATE_DONATIONS,
     UPDATE_TOTAL,
 } from '../actions/actions';
+
+import {
+    LOG_OUT,
+    SET_USER,
+    SET_TOKEN,
+    REMOVE_TOKEN,
+} from '../actions/user';
 
 const reducer = (state = initialState, action) => {
     const { type, payload } = action;
@@ -49,6 +53,18 @@ const reducer = (state = initialState, action) => {
                     $set: action.payload
                 }
             });
+        case REMOVE_TOKEN:
+            return update(state, {
+                token: {
+                    $set: null
+                }
+            })
+        case LOG_OUT:
+            return update(state, {
+                user: {
+                    $set: null
+                }
+            })
         case SET_ORGANIZATION:
             return update(state, {
                 selectedOrg: {

@@ -18,8 +18,9 @@ const EmptyCart = (props) =>
 
     <LinkButton
       href="/causes"
-      className="find-cause"
-      linkText="Find a Cause" />
+      classname="find-cause"
+      linkText="Find a Cause"
+    />
 
   </div>;
 

@@ -80,7 +80,7 @@ class CheckoutForm extends Component {
 
     render() {
         const { toggleCheckoutForm, showForm, total } = this.props;
-        console.log(this.props);
+        // console.log(this.props);
 
         return (
             <div className="CheckoutForm" style={showForm && total > 0  ? {bottom: '-5%'} : {bottom: '-100%'}}>

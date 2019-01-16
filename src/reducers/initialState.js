@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 const initialState = {
     causeList: [],
     selectedCause: '',
-    user: '',
+    user: null,
     orgList: [],
     selectedOrg: '',
     cart: [],

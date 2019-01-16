@@ -1,10 +1,10 @@
 const bottomNavLinks = [
-    {
-        name: 'Find Cause', 
-        icon: 'fas fa-search', 
-        endpoint: '/causes', 
-        color: 'var(--medium-green)'
-    }, 
+    // {
+    //     name: 'Find Cause', 
+    //     icon: 'fas fa-search', 
+    //     endpoint: '/causes', 
+    //     color: 'var(--medium-green)'
+    // }, 
     {
         name: 'New Cause', 
         icon: 'fas fa-plus', 

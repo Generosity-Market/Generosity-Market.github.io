@@ -2,22 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import LinkButton from '../../components/LinkButton/LinkButton';
-import {
-  // destroyCookie,
-  getCauseList,
-  getUserData
-} from '../../actions/actions';
+import { getCauseList } from '../../actions/actions';
+import { loadTokenFromCookie } from '../../actions/user';
 import './Splash.css';
 
 class Splash extends Component {
 
-
   componentDidMount() {
-    // if (!this.props.token) {
-    //   this.setState({showLogin: true})
-    // }
-    this.props.getCauseList();
-    this.props.getUserData();
+    const { getCauseList, loadTokenFromCookie } = this.props;
+
+    getCauseList();
+    loadTokenFromCookie();
   };
 
   render() {
@@ -25,7 +20,11 @@ class Splash extends Component {
       <div className='Splash'>
 
         <div className='logo-container'>
-          <img className='Logo' src={require('../../Assets/Logo/PNG/Artboard-1-copy-2Generosity-Logo.png')} alt="Generosity Market Logo"/>
+          <img 
+            className='Logo' 
+            src={require('../../Assets/Logo/PNG/Artboard-1-copy-2Generosity-Logo.png')} 
+            alt="Generosity Market Logo"
+          />
         </div>
 
         <div className='links'>
@@ -43,11 +42,15 @@ class Splash extends Component {
             classname={'sign-in'}
             linkText={'Sign in'}
             href={'/login'}
+            context={'login'}
           />
         </div>
 
-        <Link 
-          to='/login' 
+        <Link
+          to={{ 
+            pathname: '/login', 
+            state: { context: 'register' }
+          }}
           className='sign-up'
         >
           Not a member? Sign up here
@@ -60,8 +63,8 @@ class Splash extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    // token: state.token,
-    // user: state.user
+    token: state.token,
+    user: state.user,
     state: state
   }
 };
@@ -69,7 +72,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
     // destroyCookie,
     getCauseList,
-    getUserData
+    loadTokenFromCookie,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Splash);

@@ -1,0 +1,22 @@
+.Modal {
+    position: absolute;
+    top: 10rem;
+    left: 2.5rem;
+    right: 2.5rem;
+    bottom: 10rem;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--black-30);
+    z-index: 15;
+}

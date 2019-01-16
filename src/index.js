@@ -10,7 +10,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import reducers from './reducers/reducer';
-import Cookies from 'js-cookie';
 
 // Components and Routes
 import BaseLayout from './containers/BaseLayout/BaseLayout';
@@ -24,11 +23,6 @@ const store = createStore(
     )
 );
 
-// checking to see if there are cookies for authentication
-const loggedIn = () => {
-  let cookie = Cookies.get('token');
-    return !!cookie;
-}
 
 ReactDOM.render(
 <Provider store={store}>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSingleCause, causeSelected } from '../../actions/actions';
 import Utils from '../../utilities/utilities';
-import './SingleCause.css';
+import './CauseDetail.css';
 
 // Components
 import Banner from '../../components/Banner/Banner';
@@ -14,7 +14,7 @@ import ActionButton from '../../components/ActionButton';
 import LinkButton from '../../components/LinkButton/LinkButton';
 import FontAwesome from '../../components/FontAwesome/FontAwesome';
 
-class SingleCause extends Component {
+class CauseDetail extends Component {
 
   componentDidMount() {
     Utils.scrollTo('topnav');
@@ -49,7 +49,7 @@ class SingleCause extends Component {
     }
 
     return(
-      <div className="SingleCause">
+      <div className="CauseDetail">
 
         <Banner
           heading={name}
@@ -112,4 +112,4 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = { causeSelected, getSingleCause };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SingleCause);
+export default connect(mapStateToProps, mapDispatchToProps)(CauseDetail);

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import NavLink from '../NavLink/NavLink';
+import NavItem from '../NavItem/NavItem';
+import './BottomMenu.css';
 
 export default class BottomMenu extends Component {
 
@@ -9,7 +10,7 @@ export default class BottomMenu extends Component {
         return (
             <div className="BottomMenu">
                 {navLinks.map((link, index) =>
-                    <NavLink 
+                    <NavItem 
                         key={index}
                         icon={link.icon}
                         name={link.name}
