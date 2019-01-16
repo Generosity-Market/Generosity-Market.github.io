@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
-import { getCauseList } from '../../actions/actions';
-import { loadTokenFromCookie, userLogout } from '../../actions';
+import { getCauseList } from '../../ducks/cause/';
+import { loadTokenFromCookie, userLogout } from '../../ducks/user';
 import './baselayout.css';
 
 // Link data imports
@@ -39,6 +39,7 @@ class BaseLayout extends Component {
   };
 
   render() {
+    // console.warn("Props: ", this.props);
 
     return(
       <div className="BaseLayout">
@@ -68,9 +69,15 @@ class BaseLayout extends Component {
 };
 
 const mapStateToProps = (state) => {
-  return { causeList: state.causeList };
+  console.warn("State: ", state);
+  const { cause } = state;
+  return { causeList: cause.causeList };
 };
 
-const mapDispatchToProps = { getCauseList, loadTokenFromCookie, userLogout };
+const mapDispatchToProps = {
+  getCauseList,
+  loadTokenFromCookie,
+  userLogout
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BaseLayout));

@@ -1,0 +1,2 @@
+export const UPDATE_DONATIONS = "UPDATE_DONATIONS";
+export const UPDATE_TOTAL = "UPDATE_TOTAL";
