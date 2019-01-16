@@ -1,0 +1,30 @@
+.topnav {
+    background-color: var(--black-30);
+    display: flex;
+    height: 57px;
+    justify-content: space-between;
+    position: fixed;
+    width: 100vw;
+    z-index: 1;
+}
+
+.topnav .links {
+    flex-basis: 15%;
+    height: 100%;
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.topnav i {
+    color: var(--white);
+    font-size: 20px;
+}
+
+.topnav .menuLogo.links {
+    flex-basis: 40%;
+    padding-top: 0rem !important;
+}
+
+.topnav .menuLogo img {
+    height: 100%;
+}

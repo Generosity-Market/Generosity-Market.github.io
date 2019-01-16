@@ -1,0 +1,21 @@
+.SlideMenu .menuLogo img {
+    width: 50%;
+    text-align: center;
+}
+
+.SlideMenu .LinksContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.SlideMenu .closeMenu {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+
+.closeMenu i {
+    font-size: 28px;
+    text-shadow: 5px 3px 15px rgba(0,0,0,0.3);
+}
