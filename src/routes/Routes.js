@@ -15,18 +15,20 @@ import {
     CSSTransition,
 } from "react-transition-group";
 
-// Lazy importing each route using React.lazy and React Suspense
-const Splash = React.lazy(() => import('../screens/Splash/Splash'));
-const Dashboard = React.lazy(() => import('../screens/Dashboard/Dashboard'));
-const CauseList = React.lazy(() => import('../screens/CauseList/CauseList'));
-const CauseDetail = React.lazy(() => import('../screens/CauseDetail/CauseDetail'));
-const Checkout = React.lazy(() => import('../screens/Checkout/Checkout'));
-const ThankYou = React.lazy(() => import('../screens/ThankYou/ThankYou'));
-const Organization = React.lazy(() => import('../screens/Organization/Organization'));
-const NewOrgForm = React.lazy(() => import('../screens/NewOrgForm/NewOrgForm'));
-const CauseForm = React.lazy(() => import('../screens/CauseForm/CauseForm'));
-const Login = React.lazy(() => import('../screens/Login/Login'));
-const Error404 = React.lazy(() => import('../screens/Error404/Error404'));
+import {
+    Splash,
+    Dashboard,
+    CauseList,
+    CauseDetail,
+    Checkout,
+    ThankYou,
+    Organization,
+    NewOrgForm,
+    CauseForm,
+    Login,
+    Error404,
+} from './LazyLoadedRoutes';
+
 
 // checking to see if there are cookies for authentication
 const loggedIn = () => {
