@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
 import { getCauseList } from '../../actions/actions';
-import { loadTokenFromCookie } from '../../actions/user';
+import { loadTokenFromCookie, userLogout } from '../../actions';
 import './baselayout.css';
 
 // Link data imports
@@ -51,7 +51,8 @@ class BaseLayout extends Component {
           navLinks={navLinks}
           closeMenu={this.navToggle}
           showMenu={this.state.showMenu}
-          handleNavigation={this.navToggle} 
+          handleNavigation={this.navToggle}
+          logout={this.props.userLogout}
         />
 
         {this.props.children}
@@ -70,6 +71,6 @@ const mapStateToProps = (state) => {
   return { causeList: state.causeList };
 };
 
-const mapDispatchToProps = { getCauseList, loadTokenFromCookie };
+const mapDispatchToProps = { getCauseList, loadTokenFromCookie, userLogout };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BaseLayout));

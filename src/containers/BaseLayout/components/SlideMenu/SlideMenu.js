@@ -1,6 +1,4 @@
 import React from 'react';
-import NavItem from '../NavItem/NavItem';
-import { Link } from 'react-router-dom';
 import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
 import './SlideMenu.css';
 
@@ -9,17 +7,18 @@ const SlideMenu = ({
   navLinks, 
   handleNavigation, 
   closeMenu,
+  logout,
 }) => {
 
   const logoURL = require('../../../../Assets/Logo/PNG/Artboard-1Generosity-Logo.png');
 
-  const renderLink = ({ endpoint, icon, color, name }) => (
+  const renderLink = ({ endpoint, icon, name }) => (
     <div
       key={name + icon}
       className='navLinks'
       onClick={() => handleNavigation(endpoint)}
     >
-      <FontAwesome classname={icon} style={{ color: color }} />
+      <FontAwesome classname={icon} />
       {name}
     </div>
   );
@@ -36,6 +35,12 @@ const SlideMenu = ({
 
       <div className="LinksContainer">
         {navLinks.map(link => renderLink(link))}
+
+        <div className="logout navLinks" onClick={() => { logout(); handleNavigation('/'); }}>
+          <FontAwesome classname={'fas fa-arrow-alt-circle-left'} style={{ color: 'var(--danger-65)'}}/>
+          Log Out
+        </div>
+
       </div>
 
       <div 
