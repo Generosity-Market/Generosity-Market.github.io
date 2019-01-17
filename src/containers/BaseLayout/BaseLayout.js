@@ -39,7 +39,6 @@ class BaseLayout extends Component {
   };
 
   render() {
-    // console.warn("Props: ", this.props);
 
     return(
       <div className="BaseLayout">
@@ -69,7 +68,6 @@ class BaseLayout extends Component {
 };
 
 const mapStateToProps = (state) => {
-  console.warn("State: ", state);
   const { cause } = state;
   return { causeList: cause.causeList };
 };

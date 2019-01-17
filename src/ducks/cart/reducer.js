@@ -1,14 +1,11 @@
 import update from 'immutability-helper';
+import initialState from '../store';
 
 import {
     ADD_TO_CART,
     CLEAR_CART,
     REMOVE_FROM_CART,
 } from './types';
-
-const initialState = {
-    cart: [],
-}
 
 const cartReducer = (state = initialState, action) => {
     const { type, payload } = action;

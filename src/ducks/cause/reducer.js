@@ -1,15 +1,13 @@
 import update from 'immutability-helper';
+import initialState from '../store';
 
 import {
     ADD_CAUSE,
     CAUSE_SELECTED,
     SET_DATA,
+    UPDATE_DONATIONS,
+    UPDATE_TOTAL,
 } from './types';
-
-const initialState = {
-    causeList: [],
-    selectedCause: '',
-}
 
 const causeReducer = (state = initialState, action) => {
     const { type, payload } = action;
@@ -30,6 +28,26 @@ const causeReducer = (state = initialState, action) => {
             return update(state, {
                 selectedCause: {
                     $set: payload
+                }
+            });
+        case UPDATE_DONATIONS:
+            return update(state, {
+                causeList: {
+                    [payload.causeIndex]: {
+                        Donations: {
+                            $push: [payload.donation]
+                        }
+                    }
+                }
+            });
+        case UPDATE_TOTAL:
+            return update(state, {
+                causeList: {
+                    [payload.causeIndex]: {
+                        totalRaised: {
+                            $set: Number(state.causeList[payload.causeIndex].totalRaised) + Number(payload.amount)
+                        }
+                    }
                 }
             });
         default:

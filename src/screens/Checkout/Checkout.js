@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { removeFromCart, clearCart } from '../../ducks/cart';
-import { submitDonation } from '../../ducks/donations';
+import { submitDonation } from '../../ducks/cause';
 import { Elements, StripeProvider } from 'react-stripe-elements';
 import Utils from '../../utilities/utilities';
 import './Checkout.css';

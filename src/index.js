@@ -10,14 +10,16 @@ import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers/reducer';
+import initialState from './ducks/store';
 
 // Components and Routes
 import BaseLayout from './containers/BaseLayout/BaseLayout';
 import Routes from './routes/Routes';
 
-// creating the redux store with middleware
+// Creating the redux store with middleware
 const store = createStore(
     rootReducer,
+    initialState,
     compose(
         applyMiddleware(thunk)
     )

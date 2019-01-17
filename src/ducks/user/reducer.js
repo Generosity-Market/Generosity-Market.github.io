@@ -1,4 +1,5 @@
 import update from 'immutability-helper';
+import initialState from '../store';
 import Cookies from 'js-cookie';
 
 import {
@@ -8,13 +9,9 @@ import {
     SET_TOKEN,
 } from './types';
 
-const initialState = {
-    user: null,
-    token: Cookies.get('token'),
-}
-
 const userReducer = (state = initialState, action) => {
     const { type, payload } = action;
+    console.log("User state: ", state);
     switch(type) {
         case SET_USER:
             return update(state, {
