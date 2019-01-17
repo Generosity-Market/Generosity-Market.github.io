@@ -5,22 +5,24 @@ import './CartFooter.css';
 const CartFooter = ({ 
   total, 
   // cart, 
-  toggleCheckoutForm 
+  toggleCheckoutForm, 
 }) => {
 
-  return(
+  return (
     <div className="CartFooter">
 
-      <div className="total-container">
-        <h4>Total</h4>
-        <h3 className='total'>${total}</h3>
-      </div>
+      {/*
+        <div className="total-container">
+          <h4>Total</h4>
+          <h3 className='total'>${total}</h3>
+        </div>
+      */}
 
       <div 
         className={total === 0 ? 'placeholder-btn disabled' : 'placeholder-btn'}
         onClick={toggleCheckoutForm}
       >
-        Checkout
+        Donate ${total}
         <FontAwesome classname={'far fa-credit-card'} />
       </div>
 

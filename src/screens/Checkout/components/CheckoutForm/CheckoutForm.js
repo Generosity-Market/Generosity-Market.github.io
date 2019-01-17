@@ -28,9 +28,9 @@ class CheckoutForm extends Component {
     handleButtonText = () => {
         const { loading, status } = this.state;
         if (loading) return "loading...";
-        if (status === 'complete') return "√ purchase complete";
+        if (status === 'complete') return "donation complete";
         if (status === 'failed') return "failed";
-        return `Donate $${ this.props.total }`;
+        return `Charge $${ this.props.total }`;
     }
 
     handleStateChange = (event) => {
@@ -68,7 +68,7 @@ class CheckoutForm extends Component {
                     // Remove the checkout form from the screen
                     setTimeout(() => this.props.toggleCheckoutForm(), 500);
                     // Navigate to the "Thank You" page
-                    setTimeout(() => this.props.history.push('/thankyou'), 600);
+                    setTimeout(() => this.props.history.push('/thankyou'), 1000);
                 } else if (response.status === 'failed') {
                     this.setState({ loading: false, status: 'failed' })
                 }
@@ -111,6 +111,7 @@ class CheckoutForm extends Component {
                     <ActionButton  
                         action={this.submit}
                         actionText={this.handleButtonText()}
+                        icon={this.state.status === 'complete' && 'far fa-check-circle'}
                     />
                 </div>
             </div>

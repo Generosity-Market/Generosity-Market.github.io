@@ -48,11 +48,12 @@ class Checkout extends Component {
           {!cart.length > 0 ?
           <EmptyCart /> : <Cart {...this.props} /> }
 
+          {cart.length > 0 &&
           <CartFooter
             total={Utils.getTotal(cart, 'amount')}
-            toggleCheckoutForm={() => this.toggleCheckoutForm()} 
-            {...this.props} 
-          />
+            toggleCheckoutForm={() => this.toggleCheckoutForm()}
+            {...this.props}
+          />}
 
           <Elements>
             <CheckoutForm
