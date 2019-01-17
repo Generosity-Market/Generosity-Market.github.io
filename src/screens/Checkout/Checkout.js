@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { removeFromCart, clearCart, submitDonation } from '../../actions/actions';
+import { removeFromCart, clearCart } from '../../ducks/cart';
+import { submitDonation } from '../../ducks/cause';
 import { Elements, StripeProvider } from 'react-stripe-elements';
 import Utils from '../../utilities/utilities';
 import './Checkout.css';
@@ -70,7 +71,12 @@ class Checkout extends Component {
 };
 
 const mapStateToProps = (state) => {
-  return { user: state.user, cart: state.cart }
+  const {
+    user: { user },
+    cart: { cart },
+  } = state;
+  
+  return { user, cart }
 };
 
 const mapDispatchToProps = { clearCart, removeFromCart, submitDonation };

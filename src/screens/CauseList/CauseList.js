@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getCauseList, causeSelected } from '../../actions/actions';
+import { getCauseList, causeSelected } from '../../ducks/cause';
 import './causelist.css';
 
 import SliderSection from './components/SliderSection/SliderSection';
@@ -56,7 +56,11 @@ class CauseList extends Component {
 };
 
 const mapStateToProps = (state) => {
-  return { causeList: state.causeList }
+  const {
+    cause: { causeList },
+  } = state;
+
+  return { causeList }
 }
 
 const mapDispatchToProps = { getCauseList, causeSelected };

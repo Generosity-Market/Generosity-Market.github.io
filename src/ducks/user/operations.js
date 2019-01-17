@@ -1,23 +1,19 @@
+import {
+    logout,
+    removeToken,
+    setUser,
+    setToken,
+} from './actions';
+
 import Cookies from 'js-cookie';
-import Services from '../services/services';
-import { makeActionCreator } from './makeActionCreator';
-import { makeFetchCreator } from './makeFetchCreator';
+import Services from '../../services/services';
+import { makeFetchCreator } from '../../actions/makeFetchCreator';
 
 const {
     fetchUserData,
     registerUser,
     userLogin,
 } = Services;
-
-export const LOG_OUT = "LOG_OUT";
-export const SET_USER = "SET_USER";
-export const SET_TOKEN = "SET_TOKEN";
-export const REMOVE_TOKEN = "REMOVE_TOKEN";
-
-export const logout = makeActionCreator(LOG_OUT);
-export const removeToken = makeActionCreator(REMOVE_TOKEN);
-export const setUser = makeActionCreator(SET_USER);
-export const setToken = makeActionCreator(SET_TOKEN);
 
 export const register = ({ email, password }) => {
     return (dispatch) => {
@@ -72,8 +68,8 @@ export const login = ({ email, password }) => {
                         name: user['name'],
                         id: user['id'],
                     }, {
-                        expires: 90
-                    });
+                            expires: 90
+                        });
                     return data;
                 }
             });
@@ -86,7 +82,7 @@ export const loadTokenFromCookie = () => {
         const token = await Cookies.get('token');
         const user = await Cookies.getJSON('user');
         if (token && user) {
-            dispatch(setToken(token)); 
+            dispatch(setToken(token));
             getUserData(user.id);
         }
         return user;

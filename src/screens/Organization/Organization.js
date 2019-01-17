@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getOrgData, getCauseList, causeSelected } from '../../actions/actions';
+import { getCauseList, causeSelected } from '../../ducks/cause';
+import { getOrgData } from '../../ducks/organization';
 import Utils from '../../utilities/utilities';
 import './organization.css';
 
@@ -74,8 +75,12 @@ class Organization extends Component {
 };
 
 const mapStateToProps = (state) => {
+  const {
+    organization: { selectedOrg },
+  } = state;
+
   return {
-    organization: state.selectedOrg
+    organization: selectedOrg,
   };
 };
 

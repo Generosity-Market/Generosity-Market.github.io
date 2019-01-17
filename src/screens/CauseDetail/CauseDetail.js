@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getSingleCause, causeSelected } from '../../actions/actions';
+import { getSingleCause, causeSelected } from '../../ducks/cause';
 import Utils from '../../utilities/utilities';
 import './CauseDetail.css';
 
@@ -107,7 +107,15 @@ class CauseDetail extends Component {
 };
 
 const mapStateToProps = (state) => {
-  return { cause: state.selectedCause, cart: state.cart }
+  const {
+    cause: { selectedCause },
+    cart: { cart },
+  } = state;
+
+  return { 
+    cause: selectedCause, 
+    cart ,
+  }
 };
 
 const mapDispatchToProps = { causeSelected, getSingleCause };

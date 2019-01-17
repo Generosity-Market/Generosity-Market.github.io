@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { addCause } from '../../actions/actions';
+import { addCause } from '../../ducks/cause';
 import Services from '../../services/services';
 import './causeForm.css';
 import inputOptions from './inputOptions';
@@ -164,7 +164,11 @@ class CauseForm extends Component {
 };
 
 const mapStateToProps = (state) => {
-  return { user: state.user };
+  const {
+    user: { user },
+  } = state;
+  
+  return { user };
 };
 
 const mapDispatchToProps = { addCause };

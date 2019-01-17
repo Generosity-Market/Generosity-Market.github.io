@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { clearCart } from '../../actions/actions';
+import { clearCart } from '../../ducks/cart';
 import './ThankYou.css';
 
 import LinkButton from '../../components/LinkButton/LinkButton';
@@ -12,7 +12,7 @@ class ThankYou extends Component {
   // }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return(
       <div className='ThankYou'>
         <div className='message'>
@@ -30,7 +30,12 @@ class ThankYou extends Component {
 };
 
 const mapStateToProps = (state) => {
-  return { user: state.user, cart: state.cart }
+  const {
+    user: { user },
+    cart: { cart },
+  } = state;
+
+  return { user, cart }
 };
 
 const mapDispatchToProps = { clearCart };

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { clearCart } from '../../../../actions/actions';
+import { clearCart } from '../../../../ducks/cart';
 import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
 import Tile from '../Tile/Tile';
 import './TileSection.css';
@@ -108,7 +108,11 @@ class TileSection extends Component {
 };
 
 const mapStateToProps = (state) => {
-  return { cart: state.cart }
+  const {
+    cart: { cart },
+  } = state;
+
+  return { cart }
 };
 
 const mapDispatchToProps = { clearCart };

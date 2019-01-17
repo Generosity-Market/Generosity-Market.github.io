@@ -7,9 +7,12 @@ import './dashboard.css';
 import { 
   getCauseList, 
   causeSelected 
-} from '../../actions/actions';
+} from '../../ducks/cause';
 
-import { getUserData, loadTokenFromCookie } from '../../actions/user';
+import {
+  getUserData,
+  loadTokenFromCookie
+} from '../../ducks/user';
 
 // Component imports
 import Banner from '../../components/Banner/Banner';
@@ -97,7 +100,11 @@ class Dashboard extends Component {
 };
 
 const mapStateToProps = (state) => {
-  return { user: state.user }
+  const {
+    user: { user },
+  } = state;
+
+  return { user }
 };
 
 const mapDispatchToProps = {

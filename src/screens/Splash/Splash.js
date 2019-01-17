@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import LinkButton from '../../components/LinkButton/LinkButton';
-import { getCauseList } from '../../actions/actions';
-import { loadTokenFromCookie } from '../../actions/user';
+import { getCauseList } from '../../ducks/cause';
+import { loadTokenFromCookie } from '../../ducks/user';
 import './Splash.css';
 
 class Splash extends Component {
@@ -70,7 +70,6 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-    // destroyCookie,
     getCauseList,
     loadTokenFromCookie,
 };
