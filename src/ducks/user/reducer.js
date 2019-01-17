@@ -1,6 +1,5 @@
 import update from 'immutability-helper';
-import initialState from '../store';
-import Cookies from 'js-cookie';
+import initialState from '../../store/store';
 
 import {
     LOG_OUT,
@@ -11,7 +10,6 @@ import {
 
 const userReducer = (state = initialState, action) => {
     const { type, payload } = action;
-    console.log("User state: ", state);
     switch(type) {
         case SET_USER:
             return update(state, {
