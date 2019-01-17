@@ -14,7 +14,7 @@ export default class BottomMenu extends Component {
                         key={index}
                         icon={link.icon}
                         name={link.name}
-                        color={link.color}
+                        color={'var(--medium-green)'}
                         endpoint={link.endpoint}
                         handleNavigation={handleNavigation} 
                     />
