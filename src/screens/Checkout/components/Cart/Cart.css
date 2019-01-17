@@ -1,8 +1,9 @@
 .cart-container {
   background-color: var(--medium-green);
   background-color: var(--light-green-85);
-  min-height: 80vh;
+  height: 86vh;
   padding-top: 3.5rem;
+  overflow: hidden;
 }
 
 .cart-container .basket {
@@ -21,9 +22,11 @@
   border-top-left-radius: 1.5rem;
   border-top-right-radius: 1.5rem;
   margin-top: -1rem;
-  min-height: 75vh;
+  height: 77%;
   padding-top: 2rem;
+  padding-bottom: 12rem;
   position: relative;
+  overflow: scroll;
 }
 
 .clear-cart {
