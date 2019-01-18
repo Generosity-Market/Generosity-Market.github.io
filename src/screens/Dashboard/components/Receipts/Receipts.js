@@ -2,14 +2,19 @@ import React, { Component } from 'react';
 import Heading from '../../../../components/Heading/Heading';
 import './Receipts.css';
 
-// TODO turn this into functional component if we arent using state
+// TODO turn this into functional component if we arent using state...
 class Receipts extends Component {
+  // constructor(props) {
+  //   super(props)
+
+  // }
 
   // TODO use hardcoded elements until api data is available.
   render() {
+    // console.log("Receipts Props: ", this.props.cause);
     return(
       <div className="Receipts">
-        <Heading text={'Donations & Receipts'}/>
+        <Heading text={'My Receipts'}/>
 
         <div className="slider">
           <div className="receipt">

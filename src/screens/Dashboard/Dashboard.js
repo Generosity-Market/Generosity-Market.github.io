@@ -18,6 +18,7 @@ import {
 import Banner from '../../components/Banner/Banner';
 import UserDetails from './components/UserDetails/UserDetails';
 import UserCauses from './components/UserCauses/UserCauses';
+import DonorInfo from './components/DonorInfo/DonorInfo';
 import Receipts from './components/Receipts/Receipts';
 import LinkButton from '../../components/LinkButton/LinkButton';
 
@@ -25,7 +26,8 @@ class Dashboard extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      editProfile: false
+      editProfile: false,
+      highlightedCause: null,
     }
   };
 
@@ -44,6 +46,30 @@ class Dashboard extends Component {
     };
   };
 
+  selectCauseToHighlight = (causeId) => {
+    const { highlightedCause } = this.state;
+
+    switch(true) {
+      case (highlightedCause === null):
+      case (highlightedCause !== causeId):
+        this.setState({ highlightedCause: causeId });
+        break;
+        // If the cause that is already highlighted is selected, set state to null??
+      case (highlightedCause === causeId):
+        this.setState({ highlightedCause: null });
+        break;
+      default:
+        break;
+    }
+  }
+
+  getHighlightedCause = () => {
+    const { user } = this.props;
+    const { highlightedCause } = this.state;
+
+    return user.Causes.filter(cause => cause.id === highlightedCause)[0];
+  }
+
   render() {
     const {
       user,
@@ -53,15 +79,21 @@ class Dashboard extends Component {
       causeSelected,
     } = this.props;
 
+    const {
+      highlightedCause,
+      editProfile,
+    } = this.state;
+
     if (!user && userData) getUserData(userData.id);
     if (!user && !userData) history.push('/');
+    console.warn("User info: ", user);
 
     return user && (
       <div className="Dashboard">
 
         {/*
-          TODO Once we have a user bucket in Amazon S3 and a create user 
-          page we need to remove the getImageURL Utility function 
+          TODO Once we have a user bucket in Amazon S3 and a create user
+          page we need to remove the getImageURL Utility function
         */}
 
 
@@ -77,18 +109,24 @@ class Dashboard extends Component {
             name={user.name}
             phone={user.phone}
             address={this.returnAddressInfo(user)}
-            editProfile={this.state.editProfile}
+            editProfile={editProfile}
           />
 
           <UserCauses
             causes={user.Causes}
             causeSelected={causeSelected}
+            selectCauseToHighlight={this.selectCauseToHighlight}
+            highlightedCause={highlightedCause}
           />
 
           <LinkButton
             href={'/causes/new'}
             classname={'create-cause'}
             linkText={'Create a cause'}
+          />
+
+          <DonorInfo 
+            cause={{...this.getHighlightedCause()}}
           />
 
           <Receipts />
@@ -104,7 +142,9 @@ const mapStateToProps = (state) => {
     user: { user },
   } = state;
 
-  return { user }
+  return {
+    user,
+  }
 };
 
 const mapDispatchToProps = {
