@@ -65,9 +65,9 @@
 }
 
 .CheckoutForm .card-info {
+    align-items: center;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin: 0 auto;
     width: 85%;
 }
@@ -81,16 +81,13 @@
     background: linear-gradient(170deg, var(--light-green), var(--dark-green));
     border-radius: 1.5rem;
     box-shadow: var(--box-shadow) var(--medium-green-85);
-    /* color: var(--blackish); */
+    color: var(--white);
     display: flex;
     height: 2.75rem;
     justify-content: center;
     margin: 0 auto;
     width: 80%;
     transition: all 0.3s ease;
-    
-    /* background-color: var(--white); */
-    color: var(--white);
 }
 
 .CheckoutForm .ActionButton i {

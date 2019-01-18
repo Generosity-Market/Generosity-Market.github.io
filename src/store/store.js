@@ -16,8 +16,8 @@ const initialState = {
     cart: {
         cart: [],
     },
-    filter: 'all',
-    alert: { type: null, message: null }
+    // filter: 'all',
+    // alert: { type: null, message: null }
 };
 
 export default initialState;

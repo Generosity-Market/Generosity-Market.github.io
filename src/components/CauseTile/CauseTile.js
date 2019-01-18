@@ -12,6 +12,7 @@ const CauseTile = ({
   causeSelected,
   inViewport,
   innerRef,
+  children,
 }) => {
 
   const imageURL = (inViewport ? cause.mainImage : Services.getLazyImagePlaceholder());
@@ -43,10 +44,13 @@ const CauseTile = ({
         <h4>
           {isFeatured &&
           <img src={Utils.getIconURL(cause.icon)} alt={cause.icon}/>}
-          <p>{cause.name}</p>
+          <p>
+            {cause.name}
+          </p>
         </h4>
 
       </Link>
+      {children}
     </div>
   );
 }
