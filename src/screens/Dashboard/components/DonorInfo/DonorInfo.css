@@ -1,0 +1,41 @@
+.DonorInfo {
+    margin: 6rem 0 4rem;
+}
+
+.empty-cause {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.empty-cause span {
+    margin: 0 0.25rem;
+}
+
+.DonorInfo .wrapper {
+    padding: 0 0.5rem;
+}
+
+.DonorInfo .Pill {
+    flex: 0 0 21%;
+    transition: background-color 0.3s;
+}
+
+.DonorInfo .donation-card {
+    align-items: center;
+    border-radius: var(--border-radius);
+    color: var(--text-gray);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.65rem;
+}
+
+.donation-card .Pill {
+    align-items: center;
+    color: var(--text-gray);
+    display: flex;
+    flex: 0 0 10%;
+    justify-content: center;
+}
