@@ -13,7 +13,7 @@ Enzyme.configure({ adapter: new Adapter() });
 const defaultProps = {
     classname: 'submit',
     style: {
-       color: 'white'
+        color: 'white'
     },
 };
 
@@ -21,8 +21,8 @@ const testElement = <TextSection {...defaultProps} />;
 
 describe('<TextSection />', () => {
 
-  it('renders without crashing', () => {
-      const div = document.createElement('div');
-      ReactDOM.render(testElement, div);
-  });
+    it('renders without crashing', () => {
+        const div = document.createElement('div');
+        ReactDOM.render(testElement, div);
+    });
 });

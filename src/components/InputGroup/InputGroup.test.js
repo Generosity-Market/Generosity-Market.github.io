@@ -11,7 +11,7 @@ import InputGroup from './InputGroup';
 Enzyme.configure({ adapter: new Adapter() });
 
 const defaultProps = {
-  handleUpdateState: () => {},
+  handleUpdateState: () => { },
   state: {
     icon: null,
     name: '',
@@ -35,7 +35,7 @@ const testElement = <InputGroup {...defaultProps} />;
 describe('<InputGroup />', () => {
 
   it('renders without crashing', () => {
-      const div = document.createElement('div');
-      ReactDOM.render(testElement, div);
+    const div = document.createElement('div');
+    ReactDOM.render(testElement, div);
   });
 });
