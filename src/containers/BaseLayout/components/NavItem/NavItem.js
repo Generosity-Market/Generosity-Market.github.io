@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'; 
+import { NavLink } from 'react-router-dom';
 import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
 
 const NavItem = ({
@@ -8,7 +8,7 @@ const NavItem = ({
   icon,
   name,
 }) => {
-  
+
   return (
     <NavLink
       exact
@@ -20,7 +20,7 @@ const NavItem = ({
       }}
     >
       <FontAwesome classname={icon} />
-      {name}  
+      {name}
     </NavLink>
   );
 }

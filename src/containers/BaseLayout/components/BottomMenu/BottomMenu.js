@@ -10,13 +10,13 @@ export default class BottomMenu extends Component {
         return (
             <div className="BottomMenu">
                 {navLinks.map((link, index) =>
-                    <NavItem 
+                    <NavItem
                         key={index}
                         icon={link.icon}
                         name={link.name}
                         color={'var(--medium-green)'}
                         endpoint={link.endpoint}
-                        handleNavigation={handleNavigation} 
+                        handleNavigation={handleNavigation}
                     />
                 )}
             </div>

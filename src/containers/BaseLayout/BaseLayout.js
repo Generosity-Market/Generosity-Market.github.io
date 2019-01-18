@@ -40,11 +40,11 @@ class BaseLayout extends Component {
 
   render() {
 
-    return(
+    return (
       <div className="BaseLayout">
 
         <TopMenu
-          openMenu={this.navToggle} 
+          openMenu={this.navToggle}
         />
 
         <SlideMenu
