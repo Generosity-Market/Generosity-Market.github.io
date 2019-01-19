@@ -13,16 +13,16 @@ const Utils = {
         if (image.includes('base64')) {
             return `url(${image})`;
         } else {
-            return require(`../Assets/Photography/Mobile/${image}`);
+            return require(`Assets/Photography/Mobile/${image}`);
         }
     },
 
-    getIconURL: (icon) => require(`../Assets/icons/PNG/${icon}.png`),
+    getIconURL: (icon) => require(`Assets/icons/PNG/${icon}.png`),
 
     sharePage: () => alert("Shared"),
 
     removeIndexFromArray: (indexToRemove, array) => {
-        return [ ...array.slice( 0, indexToRemove) , ...array.slice(indexToRemove + 1, array.length) ];
+        return [...array.slice(0, indexToRemove), ...array.slice(indexToRemove + 1, array.length)];
     },
 
     getTotal: (array, property) => {
@@ -40,7 +40,7 @@ const Utils = {
 
     sortByKey: (array, key) => {
         return array.sort((a, b) => {
-            let x = a[key]; 
+            let x = a[key];
             let y = b[key];
             return ((x < y) ? -1 : ((x > y) ? 1 : 0));
         });

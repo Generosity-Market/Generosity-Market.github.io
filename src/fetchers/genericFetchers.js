@@ -1,4 +1,4 @@
-import Utils from '../utilities/utilities';
+import Utils from 'utilities/utilities';
 
 // NOTE add any services and api calls here. Don't expose api keys here. Use env files instead
 const api = endpoint => 'http://localhost:3000/api' + endpoint;

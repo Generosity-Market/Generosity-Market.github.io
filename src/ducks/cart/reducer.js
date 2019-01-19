@@ -1,5 +1,5 @@
 import update from 'immutability-helper';
-import initialState from '../../store/store';
+import initialState from 'store/store';
 
 import {
     ADD_TO_CART,
@@ -9,7 +9,7 @@ import {
 
 const cartReducer = (state = initialState, action) => {
     const { type, payload } = action;
-    switch(type) {
+    switch (type) {
         case ADD_TO_CART:
             return update(state, {
                 cart: {

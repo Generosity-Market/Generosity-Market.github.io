@@ -1,4 +1,4 @@
-import Utils from '../utilities/utilities';
+import Utils from 'utilities/utilities';
 
 const lazyURL = 'https://picsum.photos/200/300?image='
 

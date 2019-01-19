@@ -1,4 +1,4 @@
-import { makeActionCreator } from '../../actions/makeActionCreator';
+import { makeActionCreator } from 'actions/makeActionCreator';
 import {
     LOG_OUT,
     REMOVE_TOKEN,

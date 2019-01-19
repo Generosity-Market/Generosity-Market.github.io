@@ -1,4 +1,4 @@
-import { makeActionCreator } from '../../actions/makeActionCreator';
+import { makeActionCreator } from 'actions/makeActionCreator';
 
 import {
     ADD_ORGANIZATION,

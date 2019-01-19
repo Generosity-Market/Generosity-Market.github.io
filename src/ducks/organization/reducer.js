@@ -1,5 +1,5 @@
 import update from 'immutability-helper';
-import initialState from '../../store/store';
+import initialState from 'store/store';
 
 import {
     ADD_ORGANIZATION,
@@ -8,7 +8,7 @@ import {
 
 const organizationReducer = (state = initialState, action) => {
     const { type, payload } = action;
-    switch(type) {
+    switch (type) {
         case SET_ORGANIZATION:
             return update(state, {
                 selectedOrg: {

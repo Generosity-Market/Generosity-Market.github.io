@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
-import { getCauseList } from '../../ducks/cause/';
-import { loadTokenFromCookie, userLogout } from '../../ducks/user';
+import { getCauseList } from 'ducks/cause';
+import { loadTokenFromCookie, userLogout } from 'ducks/user';
 import './baselayout.css';
 
 // Link data imports
-import navLinks from '../../constants/linksData';
-import bottomNavLinks from '../../constants/BottomNavLinks';
+import navLinks from 'constants/linksData';
+import bottomNavLinks from 'constants/BottomNavLinks';
 
 // Component imports
 import TopMenu from './components/TopMenu/TopMenu';
