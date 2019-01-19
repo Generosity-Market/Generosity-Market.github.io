@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getCauseList, causeSelected } from '../../ducks/cause';
+import { getCauseList, causeSelected } from 'ducks/cause';
 import './causelist.css';
 
 import SliderSection from './components/SliderSection/SliderSection';
@@ -23,7 +23,11 @@ class CauseList extends Component {
   };
 
   render() {
-    const { causeList, causeSelected, getCauseList } = this.props;
+    const {
+      causeList,
+      causeSelected,
+      getCauseList
+    } = this.props;
 
     // TODO handle loading and state of no causes to show...
     // TODO empty array could be cause by an error, give button to reload list if empty
