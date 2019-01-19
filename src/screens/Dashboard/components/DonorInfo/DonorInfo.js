@@ -103,7 +103,7 @@ export default class DonorInfo extends Component {
                         <div
                             key={getFormattedDate(donation.updatedAt) + donation.amount}
                             className="donation-card"
-                            style={{backgroundColor: `${index % 2 === 0 ? 'transparent' : 'var(--black-10)'}`}}
+                            style={{ backgroundColor: `${index % 2 === 0 ? 'transparent' : 'var(--black-10)'}` }}
                         >
                             <Pill>{`$${donation.amount}`}</Pill>
                             <p>{donation.email}</p>
@@ -133,21 +133,21 @@ export default class DonorInfo extends Component {
 
                 {causeIsEmpty && noCauseSelected()}
 
-                {!causeIsEmpty && 
-                <div className="wrapper">
-                    {this.renderSorts(sort)}
+                {!causeIsEmpty &&
+                    <div className="wrapper">
+                        {this.renderSorts(sort)}
 
-                    <div
-                        className="donation-card"
-                        style={{ backgroundColor: 'var(--black-10)', height: '2rem'}}
-                    >
-                        <p style={{flex: '0 0 25%', color: 'var(--blackish)'}}>Amount</p>
-                        <p style={{flex: '0 0 55%', color: 'var(--blackish)'}}>Email</p>
-                        <p style={{flex: '0 0 20%', color: 'var(--blackish)'}}>Date</p>
-                    </div>
+                        <div
+                            className="donation-card"
+                            style={{ backgroundColor: 'var(--black-10)', height: '2rem' }}
+                        >
+                            <p style={{ flex: '0 0 25%', color: 'var(--blackish)' }}>Amount</p>
+                            <p style={{ flex: '0 0 55%', color: 'var(--blackish)' }}>Email</p>
+                            <p style={{ flex: '0 0 20%', color: 'var(--blackish)' }}>Date</p>
+                        </div>
 
-                    {this.renderDonations(sortedArray)}
-                </div>}
+                        {this.renderDonations(sortedArray)}
+                    </div>}
 
             </div>
         )

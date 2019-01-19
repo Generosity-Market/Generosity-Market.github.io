@@ -10,6 +10,10 @@ const Services = {
 
     fetchUserData: (id) => fetchJSONData(`/user/${id}`),
 
+    fetchUserCauses: (id) => fetchJSONData(`/user/${id}/causes`),
+
+    fetchUserDonations: (id) => fetchJSONData(`/user/${id}/donations`),
+
     fetchOrgData: (id) => fetchJSONData(`/organizations/${id}`),
 
     userLogin: (data) => postJSONData('/login', data),

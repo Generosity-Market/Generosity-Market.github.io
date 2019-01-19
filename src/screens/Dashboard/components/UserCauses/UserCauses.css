@@ -6,3 +6,15 @@
     font-size: 1.5rem;
     transition: color 0.3s ease;
 }
+
+.UserCauses .no-causes {
+    align-items: center;
+    background-color: var(--black-10);
+    border-radius: var(--border-radius);
+    color: var(--text-gray);
+    display: flex;
+    justify-content: center;
+    height: 8rem;
+    width: 90%;
+    margin: 1.25rem auto;
+}
