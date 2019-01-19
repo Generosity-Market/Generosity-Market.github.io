@@ -6,8 +6,8 @@ import {
 } from './actions';
 
 import Cookies from 'js-cookie';
-import Services from '../../services/services';
-import { makeFetchCreator } from '../../actions/makeFetchCreator';
+import Services from 'services/services';
+import { makeFetchCreator } from 'actions/makeFetchCreator';
 
 const {
     fetchUserData,

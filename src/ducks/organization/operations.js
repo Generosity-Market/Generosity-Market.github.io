@@ -3,8 +3,8 @@ import {
     setOrg,
 } from './actions';
 
-import Services from '../../services/services';
-import { makeFetchCreator } from '../../actions/makeFetchCreator';
+import Services from 'services/services';
+import { makeFetchCreator } from 'actions/makeFetchCreator';
 
 const {
     fetchOrgData,

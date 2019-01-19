@@ -1,5 +1,5 @@
 import update from 'immutability-helper';
-import initialState from '../../store/store';
+import initialState from 'store/store';
 
 import {
     LOG_OUT,
@@ -10,7 +10,7 @@ import {
 
 const userReducer = (state = initialState, action) => {
     const { type, payload } = action;
-    switch(type) {
+    switch (type) {
         case SET_USER:
             return update(state, {
                 user: {
