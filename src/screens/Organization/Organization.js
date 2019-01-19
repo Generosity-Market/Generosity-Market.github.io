@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getCauseList, causeSelected } from '../../ducks/cause';
-import { getOrgData } from '../../ducks/organization';
-import Utils from '../../utilities/utilities';
+import { getCauseList, causeSelected } from 'ducks/cause';
+import { getOrgData } from 'ducks/organization';
+import Utils from 'utilities/utilities';
 import './organization.css';
 
-// Component imports
-import Banner from '../../components/Banner/Banner';
+// Shared UI Components
+import Banner from 'components/Banner/Banner';
+import LinkButton from 'components/LinkButton/LinkButton';
+
+// Organization Page UI Components
 import OrgDetails from './components/OrgDetails/OrgDetails';
 import OrgCauses from './components/OrgCauses/OrgCauses';
-import LinkButton from '../../components/LinkButton/LinkButton';
 
 class Organization extends Component {
 
@@ -18,7 +20,7 @@ class Organization extends Component {
   }
 
   render() {
-    const { 
+    const {
       causeSelected,
       organization,
       organization: {
@@ -35,7 +37,7 @@ class Organization extends Component {
       }
     } = this.props;
 
-    return(
+    return (
       <div className="Organization">
 
         {organization &&
@@ -44,7 +46,7 @@ class Organization extends Component {
             BGimage={backgroundImage && Utils.getImageURL(backgroundImage)}
             mainImage={mainImage && Utils.getImageURL(mainImage)}
             roundImage={Preferences[0] ? Preferences[0].roundImage : false}
-          /> 
+          />
         }
 
         <div className="Wrapper">
@@ -52,20 +54,20 @@ class Organization extends Component {
           {organization &&
             <OrgCauses
               causes={Causes}
-              causeSelected={causeSelected} 
+              causeSelected={causeSelected}
             />
           }
 
           <OrgDetails
             heading={heading}
             mission={mission}
-            email={email} 
+            email={email}
           />
 
           <LinkButton
             href={site_url}
             classname={'org-link'}
-            linkText={`Visit ${short_name}`} 
+            linkText={`Visit ${short_name}`}
           />
 
         </div>

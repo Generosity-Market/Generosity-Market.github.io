@@ -1,23 +1,32 @@
 import React, { Component } from 'react';
-import Heading from '../../../../components/Heading/Heading';
-import TextSection from '../../../../components/TextSection/TextSection';
 import './OrgDetails.css';
+
+// Shared UI Components
+import Heading from 'components/Heading/Heading';
+import TextSection from 'components/TextSection/TextSection';
 
 // TODO convert to functional component if not using state
 export default class OrgDetails extends Component {
 
   render() {
-    const { heading, mission, email } = this.props;
-    return(
+    const {
+      heading,
+      mission,
+      email
+    } = this.props;
+
+    return (
       <div className="OrgDetails">
 
         <TextSection
           heading={'Our Motto'}
-          text={heading} />
+          text={heading}
+        />
 
         <TextSection
           heading={'Our Mission'}
-          text={mission} />
+          text={mission}
+        />
 
         <div className="contact-us">
           <Heading text={'For More Info'} />
