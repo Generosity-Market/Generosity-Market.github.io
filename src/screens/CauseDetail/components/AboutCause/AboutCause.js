@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import TextSection from '../../../../components/TextSection/TextSection';
+import TextSection from 'components/TextSection/TextSection';
 import './AboutCause.css';
 
 // TODO convert to functional component if not using state
 class AboutCause extends Component {
 
   render() {
-    return(
+    return (
       <div className="AboutCause">
 
         <TextSection

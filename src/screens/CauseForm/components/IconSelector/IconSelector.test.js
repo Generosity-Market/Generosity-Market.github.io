@@ -11,7 +11,7 @@ import IconSelector from './IconSelector.js';
 Enzyme.configure({ adapter: new Adapter() });
 
 const defaultProps = {
-  handleSelectIcon: () => {},
+  handleSelectIcon: () => { },
 };
 
 const testElement = <IconSelector {...defaultProps} />;
@@ -19,7 +19,7 @@ const testElement = <IconSelector {...defaultProps} />;
 describe('<IconSelector />', () => {
 
   it('renders without crashing', () => {
-      const div = document.createElement('div');
-      ReactDOM.render(testElement, div);
+    const div = document.createElement('div');
+    ReactDOM.render(testElement, div);
   });
 });

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import LinkButton from '../../components/LinkButton/LinkButton';
+import LinkButton from 'components/LinkButton/LinkButton';
 
-const popup = ({}) => {
+const popup = ({ }) => {
 
     return (
         <div>
@@ -11,7 +11,7 @@ const popup = ({}) => {
             <LinkButton
                 href="/causes/new"
             />
-            
+
             <LinkButton
                 href={`/users/${id}/dashboard`}
             />

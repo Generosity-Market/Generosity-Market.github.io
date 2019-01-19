@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-// import { addCause } from '../../ducks/cause';
+// import { addCause } from 'ducks/cause';
+import Services from 'services/services';
 import inputOptions from './inputOptions.js';
 import './NewOrgForm.css';
 
-import ActionButton from '../../components/ActionButton';
-import ImageUploader from '../../components/ImageUploader/ImageUploader';
-import InputGroup from '../../components/InputGroup/InputGroup';
-import Heading from '../../components/Heading/Heading';
-import Services from '../../services/services';
+// Shared UI Components
+import ActionButton from 'components/ActionButton';
+import ImageUploader from 'components/ImageUploader/ImageUploader';
+import InputGroup from 'components/InputGroup/InputGroup';
+import Heading from 'components/Heading/Heading';
+
+// New Orf Form Components
 import VerificationInputGroup from './components/VerificationInputGroup/VerificationInputGroup.js';
 
 class NewOrgForm extends Component {
@@ -108,7 +111,7 @@ class NewOrgForm extends Component {
           coverURL={this.state.coverURL}
           roundImage={this.state.roundImage}
           whiteText={this.state.whiteText}
-        /> 
+        />
 
         <Heading text={'Select Your Organization\'s Profile & Cover Images'} />
 
@@ -116,7 +119,7 @@ class NewOrgForm extends Component {
           state={this.state}
           handleUpdateState={this.handleUpdateState}
           inputOptions={inputOptions}
-        /> 
+        />
 
         <VerificationInputGroup
           state={this.state}
@@ -127,7 +130,7 @@ class NewOrgForm extends Component {
           actionText={'create organization'}
           classname={'create-org'}
           action={this.handleSubmit}
-        /> 
+        />
 
       </div>
     )

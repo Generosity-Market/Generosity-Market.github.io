@@ -2,8 +2,13 @@ import React from 'react';
 import FontAwesome from '../FontAwesome/FontAwesome';
 import './MainImage.css';
 
-const MainImage = ({ roundImage, mainImage, BGimage }) =>
-  <div className="MainImage"
+const MainImage = ({
+  roundImage,
+  mainImage,
+  BGimage
+}) =>
+  <div
+    className="MainImage"
     style={{
       borderRadius: roundImage ? '50%' : '10%',
       backgroundImage: mainImage && `url(${mainImage})`,
@@ -11,8 +16,9 @@ const MainImage = ({ roundImage, mainImage, BGimage }) =>
       display: mainImage ? 'block' : 'flex',
       alignContent: 'center',
       justifyContent: 'center',
-  }}>
-    {!mainImage && <FontAwesome classname="fas fa-camera"/>}
+    }}
+  >
+    {!mainImage && <FontAwesome classname="fas fa-camera" />}
   </div>;
 
 export default MainImage;

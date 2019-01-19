@@ -19,7 +19,7 @@ const testElement = <AboutCause {...defaultProps} />;
 describe('<AboutCause />', () => {
 
   it('renders without crashing', () => {
-      const div = document.createElement('div');
-      ReactDOM.render(testElement, div);
+    const div = document.createElement('div');
+    ReactDOM.render(testElement, div);
   });
 });

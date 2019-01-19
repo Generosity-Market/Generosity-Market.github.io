@@ -5,53 +5,49 @@ import MainImage from '../MainImage/MainImage';
 import './Banner.css';
 
 const Banner = ({
-  BGimage, 
-  heading, 
-  mainImage, 
-  roundImage,
-}) =>
-    <div className="Header">
+    BGimage,
+    heading,
+    mainImage,
+    roundImage
+}) => (
+        <div className='Header'>
+            <div
+                className='hero-image'
+                style={{
+                    backgroundImage: BGimage && `url(${BGimage})`,
+                    backgroundColor: BGimage ? '' : 'var(--black-10)',
+                }}
+            >
+                <h2>{heading && heading}</h2>
+                {/* !props.BGimage && <FontAwesome classname="far fa-image"/> */}
+            </div>
 
-      <div 
-        className="hero-image"
-        style={{
-          backgroundImage: BGimage && `url(${BGimage})`,
-          backgroundColor: BGimage ? '' : 'var(--black-10)',
-        }}
-      >
-        <h2>{heading && heading}</h2>
-      {/* !props.BGimage && <FontAwesome classname="far fa-image"/> */}
-      </div>
-
-      <MainImage
-        mainImage={mainImage && mainImage}
-        roundImage={roundImage} 
-      />
-
-    </div>;
+            <MainImage mainImage={mainImage && mainImage} roundImage={roundImage} />
+        </div>
+    );
 
 Banner.propTypes = {
-	/**
-   * The background image to apply to the hero node
-   */
-	BGimage: PropTypes.string.isRequired,
-	/**
-   * The text to render inside the Banner
-   */
-	heading: PropTypes.string.isRequired,
-	/**
-   * The main/profile image to display in the banner
-   */
-	mainImage: PropTypes.string.isRequired,
-	/**
-   * Determines if the main/profile image is rounded or squircle shape
-   */
-	roundImage: PropTypes.bool,
-}
+    /**
+     * The background image to apply to the hero node
+     */
+    BGimage: PropTypes.string.isRequired,
+    /**
+     * The text to render inside the Banner
+     */
+    heading: PropTypes.string.isRequired,
+    /**
+     * The main/profile image to display in the banner
+     */
+    mainImage: PropTypes.string.isRequired,
+    /**
+     * Determines if the main/profile image is rounded or squircle shape
+     */
+    roundImage: PropTypes.bool,
+};
 
 Banner.defaultProps = {
-	heading: '',
-	roundImage: true,
-}
+    heading: '',
+    roundImage: true,
+};
 
 export default Banner;

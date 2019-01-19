@@ -1,8 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MiniButton = ({ classname, onClick, children }) =>
-  <div className={`${classname} btns`} onClick={(e) => onClick(e)}>
+const MiniButton = ({
+  classname,
+  onClick,
+  children
+}) =>
+  <div
+    className={`${classname} btns`}
+    onClick={(e) => onClick(e)}
+  >
     {children}
   </div>;
 

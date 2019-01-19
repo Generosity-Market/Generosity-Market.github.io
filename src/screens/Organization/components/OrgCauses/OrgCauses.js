@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import CauseTile from '../../../../components/CauseTile/CauseTile';
-import Slider from '../../../../components/Slider/Slider';
 import './OrgCauses.css';
+
+// Shared UI Components
+import CauseTile from 'components/CauseTile/CauseTile';
+import Slider from 'components/Slider/Slider';
 
 // Import HOC to see if component is in viewport
 import handleViewport from 'react-in-viewport';
@@ -13,7 +15,7 @@ export default class OrgCauses extends Component {
 
   render() {
     const { causes } = this.props;
-    return(
+    return (
       <div className="OrgCauses">
         {causes.length > 0 && <h3>Get involved</h3>}
         <Slider>
@@ -24,8 +26,8 @@ export default class OrgCauses extends Component {
               cause={cause}
               index={index}
               causeSelected={this.props.causeSelected}
-            /> )
-          }
+            />
+          )}
         </Slider>
       </div>
     );

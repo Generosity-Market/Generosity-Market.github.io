@@ -21,7 +21,7 @@ class Swiper extends Component {
   }
 
   render() {
-    console.log("Left?? ",this.state.left);
+    console.log("Left?? ", this.state.left);
     return (
       <div className="Test" style={{ left: `${this.state.left}px` }}>
         <Swipe
@@ -54,22 +54,22 @@ class Swiper extends Component {
     );
   }
 
-  _onSwipeEnd()  {
+  _onSwipeEnd() {
     this.setState({ actionText: 'Swipe Ended' })
   }
-  _onSwipeLeftListener()  {
+  _onSwipeLeftListener() {
     this.setState({ actionText: 'Swiped left' })
   }
-  _onSwipeRightListener()  {
+  _onSwipeRightListener() {
     this.setState({ actionText: 'Swiped right' })
   }
-  _onSwipeUpListener()  {
+  _onSwipeUpListener() {
     this.setState({ actionText: 'Swiped Up' })
   }
-  _onSwipeDownListener()  {
+  _onSwipeDownListener() {
     this.setState({ actionText: 'Swiped down' })
   }
-  _onSwipeListener(event)  {
+  _onSwipeListener(event) {
     console.log('Fired');
     console.log("Event: ", event);
     if (event[1] === 0 && this.state.continuousSwipeListener) this.setState({ actionText: `Swipe x: ${event[0]}`, left: event[0] })

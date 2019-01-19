@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import InputGroup from '../../../../components/InputGroup/InputGroup';
+import InputGroup from 'components/InputGroup/InputGroup';
 
 export class VerificationInputGroup extends Component {
-    
+
     render() {
         const inputOptions = [
             {

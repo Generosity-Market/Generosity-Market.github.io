@@ -13,7 +13,7 @@ import navLinks from '../../linksData';
 Enzyme.configure({ adapter: new Adapter() });
 
 const defaultProps = {
-    navLinks: navLinks,
+  navLinks: navLinks,
 };
 
 const testElement =
@@ -24,7 +24,7 @@ const testElement =
 describe('<TopMenu />', () => {
 
   it('renders without crashing', () => {
-      const div = document.createElement('div');
-      ReactDOM.render(testElement, div);
+    const div = document.createElement('div');
+    ReactDOM.render(testElement, div);
   });
 });

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { clearCart } from '../../ducks/cart';
+import { clearCart } from 'ducks/cart';
 import './ThankYou.css';
 
-import LinkButton from '../../components/LinkButton/LinkButton';
+import LinkButton from 'components/LinkButton/LinkButton';
 
 class ThankYou extends Component {
 
@@ -13,13 +13,13 @@ class ThankYou extends Component {
 
   render() {
     // console.log(this.props);
-    return(
+    return (
       <div className='ThankYou'>
         <div className='message'>
           <h1>Thank You</h1>
           <p>for supporting such great causes!</p>
         </div>
-        <LinkButton 
+        <LinkButton
           linkText={'Find a cause'}
           href={'/causes'}
           classname='find-cause'

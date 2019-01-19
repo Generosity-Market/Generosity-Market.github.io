@@ -15,10 +15,10 @@ const Pill = ({
             className={`Pill ${uiContext}`}
             onClick={onClick}
         >
-            {icon && 
+            {icon &&
                 <FontAwesome icon={icon} />
             }
-            
+
             {children}
         </div>
     );
@@ -28,7 +28,7 @@ Pill.propTypes = {
     /**
     * The classname to apply to the root node
     */
-    uiContext: PropTypes.oneOf(['default','success', 'info', 'danger', 'active']),
+    uiContext: PropTypes.oneOf(['default', 'success', 'info', 'danger', 'active']),
 	/**
     * The children (usually text) to render at the root nodes
     */
@@ -44,7 +44,7 @@ Pill.propTypes = {
 }
 
 Pill.defaultProps = {
-    onClick: () => {},
+    onClick: () => { },
     uiContext: 'default',
     children: '',
 }

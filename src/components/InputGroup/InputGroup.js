@@ -6,9 +6,11 @@ class InputGroup extends Component {
 
     getSelectOptions = (options, index) => {
         return (
-            <select key={index} name='type' size={1}
+            <select
+                key={index} name='type' size={1}
                 onChange={this.props.handleUpdateState('type')}
-                value={this.props.state.type}>
+                value={this.props.state.type}
+            >
                 <option value="">- Type of Cause -</option>
                 {options.map((option, index) => {
                     return (
@@ -21,10 +23,13 @@ class InputGroup extends Component {
 
     getTextArea = (input, index) => {
         return (
-            <textarea key={index} name={input.name}
+            <textarea
+                key={index}
+                name={input.name}
                 placeholder={input.placeholder}
                 onChange={this.props.handleUpdateState(input.name)}
-                value={this.props.state[input.name]}>
+                value={this.props.state[input.name]}
+            >
             </textarea>
         );
     };

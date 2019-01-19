@@ -12,13 +12,13 @@ import CauseTile from './CauseTile.js';
 Enzyme.configure({ adapter: new Adapter() });
 
 const defaultProps = {
-    cause: {
-      id: 1,
-      amount: 1000,
-      name: 'Example',
-      icon: '',
-      mainImage: "madi-robson-113926.jpg",
-    },
+  cause: {
+    id: 1,
+    amount: 1000,
+    name: 'Example',
+    icon: '',
+    mainImage: "madi-robson-113926.jpg",
+  },
 };
 
 const testElement =
@@ -29,7 +29,7 @@ const testElement =
 describe('<CauseTile />', () => {
 
   it('renders without crashing', () => {
-      const div = document.createElement('div');
-      ReactDOM.render(testElement, div);
+    const div = document.createElement('div');
+    ReactDOM.render(testElement, div);
   });
 });

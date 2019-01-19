@@ -20,7 +20,7 @@ Enzyme.configure({ adapter: new Adapter() });
 let store = createStore(
   reducers,
   compose(
-      applyMiddleware(reduxThunk)
+    applyMiddleware(reduxThunk)
   )
 );
 
@@ -40,6 +40,6 @@ describe('<SingleCause />', () => {
   });
 
   it('renders without crashing', () => {
-      expect(wrapper.exists()).toBe(true);
+    expect(wrapper.exists()).toBe(true);
   });
 });

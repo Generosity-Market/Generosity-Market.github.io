@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { clearCart } from '../../../../ducks/cart';
-import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
+import { clearCart } from 'ducks/cart';
+import FontAwesome from 'components/FontAwesome/FontAwesome';
 import Tile from '../Tile/Tile';
 import './TileSection.css';
 
@@ -19,7 +19,7 @@ class TileSection extends Component {
 
     while (amount > 0) {
       tileArray.push({
-        tileNumber: tileNumber, 
+        tileNumber: tileNumber,
         isPurchased: this.isTilePurchased(tileNumber),
       });
       amount = amount - tileNumber;
@@ -71,7 +71,7 @@ class TileSection extends Component {
     const { id, name, icon, mainImage } = this.props;
     return tiles.map(tile => {
       return (
-        <Tile 
+        <Tile
           key={name + tile.tileNumber}
           causeID={id}
           cause={name}
@@ -86,7 +86,7 @@ class TileSection extends Component {
 
   render() {
     const tiles = this.calculateTiles();
-    return(
+    return (
       <div className="TileSection">
         <h2>Select Amount</h2>
 

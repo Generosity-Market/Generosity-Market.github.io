@@ -16,7 +16,7 @@ const StripeWrapper = ({
 }) => {
     const CURRENCY = 'USD';
 
-    return(
+    return (
         <StripeCheckout
             name={name}
             description={description}

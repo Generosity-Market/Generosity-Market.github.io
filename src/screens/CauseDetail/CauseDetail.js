@@ -4,15 +4,17 @@ import { getSingleCause, causeSelected } from '../../ducks/cause';
 import Utils from '../../utilities/utilities';
 import './CauseDetail.css';
 
-// Components
-import Banner from '../../components/Banner/Banner';
+// Shared UI Components
+import Banner from 'components/Banner/Banner';
+import ActionButton from 'components/ActionButton';
+import LinkButton from 'components/LinkButton/LinkButton';
+import FontAwesome from 'components/FontAwesome/FontAwesome';
+
+// Cause Detail Components
 import ProgressBar from './components/ProgressBar/ProgressBar';
 import TileSection from './components/TileSection/TileSection';
 import AboutCause from './components/AboutCause/AboutCause';
 import DonorComments from './components/DonorComments/DonorComments';
-import ActionButton from '../../components/ActionButton';
-import LinkButton from '../../components/LinkButton/LinkButton';
-import FontAwesome from '../../components/FontAwesome/FontAwesome';
 
 class CauseDetail extends Component {
 
@@ -27,7 +29,7 @@ class CauseDetail extends Component {
   };
 
   render() {
-    const { 
+    const {
       cause,
       cause: {
         Donations,
@@ -41,21 +43,21 @@ class CauseDetail extends Component {
         purpose,
       },
     } = this.props;
-    
+
     let purchasedTiles;
 
     if (Donations) {
       purchasedTiles = Object.keys(Donations).map(index => Donations[index].amount);
     }
 
-    return(
+    return (
       <div className="CauseDetail">
 
         <Banner
           heading={name}
           BGimage={backgroundImage}
           mainImage={mainImage}
-          roundImage={Preferences ? Preferences[0].roundImage : {} }
+          roundImage={Preferences ? Preferences[0].roundImage : {}}
         />
 
         <div className="wrapper">
@@ -90,7 +92,7 @@ class CauseDetail extends Component {
           {Donations && Donations.length > 0 &&
             <DonorComments
               donations={Donations}
-            /> 
+            />
           }
 
           <ActionButton
@@ -112,9 +114,9 @@ const mapStateToProps = (state) => {
     cart: { cart },
   } = state;
 
-  return { 
-    cause: selectedCause, 
-    cart ,
+  return {
+    cause: selectedCause,
+    cart,
   }
 };
 

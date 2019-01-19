@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 // import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk from 'redux-thunk';
-import reducers from '../../reducers/reducer';
+import reducers from 'reducers/reducer';
 
 // Enzyme imports
 import Enzyme, { mount, shallow } from 'enzyme';
@@ -17,7 +17,7 @@ import CauseList from './CauseList.js';
 let store = createStore(
   reducers,
   compose(
-      applyMiddleware(reduxThunk)
+    applyMiddleware(reduxThunk)
   )
 );
 
@@ -25,14 +25,14 @@ Enzyme.configure({ adapter: new Adapter() });
 
 const testElement =
   // <Provider store={store}>
-    <CauseList store={store}/>;
-  // </Provider>;
+  <CauseList store={store} />;
+// </Provider>;
 
 describe('<CauseList />', () => {
 
   it('renders without crashing', () => {
-      const div = document.createElement('div');
-      ReactDOM.render(testElement, div);
-      ReactDOM.unmountComponentAtNode(div);
+    const div = document.createElement('div');
+    ReactDOM.render(testElement, div);
+    ReactDOM.unmountComponentAtNode(div);
   });
 });

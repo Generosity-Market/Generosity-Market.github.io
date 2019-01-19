@@ -3,10 +3,10 @@ import React, { Fragment } from 'react';
 // Import HOC to see if component is in viewport
 import handleViewport from 'react-in-viewport';
 
-// Component imports
-import CauseTile from '../../../../components/CauseTile/CauseTile';
-import Slider from '../../../../components/Slider/Slider';
-import Heading from '../../../../components/Heading/Heading';
+// Shared UI Component
+import CauseTile from 'components/CauseTile/CauseTile';
+import Slider from 'components/Slider/Slider';
+import Heading from 'components/Heading/Heading';
 
 const CauseTileWithLazyLoad = handleViewport(CauseTile);
 

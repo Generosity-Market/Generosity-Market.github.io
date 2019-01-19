@@ -9,6 +9,6 @@ const styles = {
 }
 
 const Heading = ({ text }) =>
-<h3 className="Heading" style={styles}>{text}</h3>
+  <h3 className="Heading" style={styles}>{text}</h3>
 
 export default Heading;

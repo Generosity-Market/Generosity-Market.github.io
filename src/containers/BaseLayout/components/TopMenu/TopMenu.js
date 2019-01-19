@@ -6,7 +6,7 @@ import './TopMenu.css';
 class TopMenu extends Component {
 
   render() {
-    return(
+    return (
       <div className='topnav TopMenu' id='topnav'>
 
         <div className='links'>
@@ -16,7 +16,7 @@ class TopMenu extends Component {
         </div>
 
         <div className="menuLogo links">
-          <img src={require('../../../../Assets/Logo/PNG/Artboard-1-copy-4Generosity-Logo.png')} alt="Generosity Market top menu logo"/>
+          <img src={require('../../../../Assets/Logo/PNG/Artboard-1-copy-4Generosity-Logo.png')} alt="Generosity Market top menu logo" />
         </div>
 
         <div className='links'>

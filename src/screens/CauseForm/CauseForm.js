@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { addCause } from '../../ducks/cause';
-import Services from '../../services/services';
+import { addCause } from 'ducks/cause';
+import Services from 'services/services';
 import './causeForm.css';
 import inputOptions from './inputOptions';
 
-// Component imports
-import InputGroup from '../../components/InputGroup/InputGroup';
+// Shared UI Component
+import InputGroup from 'components/InputGroup/InputGroup';
+import ImageUploader from 'components/ImageUploader/ImageUploader';
+import ActionButton from 'components/ActionButton';
+import Heading from 'components/Heading/Heading';
+
+// Cause Form Components
 import IconSelector from './components/IconSelector/IconSelector';
-import ImageUploader from '../../components/ImageUploader/ImageUploader';
-import ActionButton from '../../components/ActionButton';
-import Heading from '../../components/Heading/Heading';
 
 class CauseForm extends Component {
   constructor(props) {
@@ -128,7 +130,7 @@ class CauseForm extends Component {
 
   render() {
     // console.log("Cause Form Props: ", this.props);
-    return(
+    return (
       <div className="CauseForm">
 
         <ImageUploader
@@ -167,7 +169,7 @@ const mapStateToProps = (state) => {
   const {
     user: { user },
   } = state;
-  
+
   return { user };
 };
 
