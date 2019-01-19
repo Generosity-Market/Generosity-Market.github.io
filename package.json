@@ -34,6 +34,7 @@
     "enzyme-adapter-react-16": "^1.7.0",
     "gh-pages": "^2.0.1",
     "jest": "^23.6.0",
+    "jest-cli": "^23.6.0",
     "redux-test-utils": "^0.2.2"
   },
   "browserslist": [
