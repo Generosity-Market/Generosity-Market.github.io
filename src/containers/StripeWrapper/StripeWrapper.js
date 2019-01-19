@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import StripeCheckout from 'react-stripe-checkout';
-import STRIPE_PUBLISHABLE from '../../constants/stripe';
-import { onToken } from '../../services/stripe';
-import Utils from '../../utilities/utilities';
+import STRIPE_PUBLISHABLE from 'constants/stripe';
+import { onToken } from 'services/stripe';
+import Utils from 'utilities/utilities';
 
-// import PAYMENT_SERVER_URL from '../constants/server';
+// import PAYMENT_SERVER_URL from 'constants/server';
 
 const StripeWrapper = ({
     name,

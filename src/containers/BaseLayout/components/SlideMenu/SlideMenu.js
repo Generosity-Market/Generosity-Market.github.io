@@ -1,5 +1,5 @@
 import React from 'react';
-import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
+import FontAwesome from 'components/FontAwesome/FontAwesome';
 import './SlideMenu.css';
 
 const SlideMenu = ({
@@ -10,7 +10,7 @@ const SlideMenu = ({
   logout,
 }) => {
 
-  const logoURL = require('../../../../Assets/Logo/PNG/Artboard-1Generosity-Logo.png');
+  const logoURL = require('Assets/Logo/PNG/Artboard-1Generosity-Logo.png');
 
   const renderLink = ({
     endpoint,
