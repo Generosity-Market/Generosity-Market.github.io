@@ -1,6 +1,6 @@
-import { fetchJSONData, postFormData, postJSONData } from '../fetchers/genericFetchers';
-import { fetchNonProfitStatus } from '../fetchers/nonProfitVerificationFetcher';
-import { getLazyImagePlaceholder } from '../fetchers/lazyPlaceholderFetcher';
+import { fetchJSONData, postFormData, postJSONData } from 'fetchers/genericFetchers';
+import { fetchNonProfitStatus } from 'fetchers/nonProfitVerificationFetcher';
+import { getLazyImagePlaceholder } from 'fetchers/lazyPlaceholderFetcher';
 
 // TODO split this into different types of services much like actions...Examples: User, Cause, etc...
 const Services = {
@@ -17,11 +17,11 @@ const Services = {
     registerUser: (data) => postJSONData('/signup', data),
 
     submitCauseForm: (data) => postFormData('/causes/new', data),
-    
-    submitOrgForm: (data) => postFormData('/organizations/new', data), 
-    
+
+    submitOrgForm: (data) => postFormData('/organizations/new', data),
+
     submitPayment: (options) => postJSONData('/charge/new', options),
-    
+
     verifyNonProfitStatus: (taxID) => fetchNonProfitStatus(taxID),
 
     getLazyImagePlaceholder: () => getLazyImagePlaceholder(),
