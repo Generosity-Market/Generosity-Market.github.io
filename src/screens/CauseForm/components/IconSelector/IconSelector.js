@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
+import FontAwesome from 'components/FontAwesome/FontAwesome';
 import './IconSelector.css';
 
 
@@ -25,7 +25,7 @@ class IconSelector extends Component {
           <div className="slider">
             <div
               className="window"
-              style={{ gridTemplateColumns: `repeat(${this.icons.length}, 1fr`}}
+              style={{ gridTemplateColumns: `repeat(${this.icons.length}, 1fr` }}
             >
               {this.renderIconTiles()}
             </div>
@@ -42,20 +42,23 @@ class IconSelector extends Component {
     return this.icons.map((icon, i) => {
       const match = icon === this.state.selected;
       return (
-        <div className={"icon-tile" + (match ? " selected" : "")} key={i} onClick={this.selectIcon.bind(this, icon)}>
+        <div
+          className={"icon-tile" + (match ? " selected" : "")}
+          key={i} onClick={this.selectIcon.bind(this, icon)}
+        >
           {match ? (
             <div className="overlay">
               <FontAwesome classname={"far fa-lg fa-check-circle"} />
             </div>
           ) : null}
-          <img src={this.returnIconUrl(icon)} alt={icon}/>
+          <img src={this.returnIconUrl(icon)} alt={icon} />
         </div>
       );
     });
   }
 
   returnIconUrl(name) {
-    const url = require(`../../../../Assets/icons/PNG/${name}.png`);
+    const url = require(`Assets/icons/PNG/${name}.png`);
     return url;
   }
 
