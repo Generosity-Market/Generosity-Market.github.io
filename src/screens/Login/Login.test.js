@@ -4,7 +4,7 @@ import App from './Login.js';
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import reducers from '../../reducers/reducer';
+import reducers from 'reducers/reducer';
 
 let store = createStore(reducers);
 

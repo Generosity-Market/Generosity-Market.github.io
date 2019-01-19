@@ -4,10 +4,10 @@ import { withRouter } from 'react-router-dom';
 import { register, login } from '../../ducks/user';
 import './Login.css';
 
-
-// import LinkButton from '../../components/LinkButton/LinkButton';
-import ActionButton from '../../components/ActionButton';
-// import Modal from '../../components/Modal/Modal';
+// Shared UI Components
+// import LinkButton from 'components/LinkButton/LinkButton';
+import ActionButton from 'components/ActionButton';
+// import Modal from 'components/Modal/Modal';
 
 class Login extends Component {
     constructor(props) {
@@ -30,7 +30,7 @@ class Login extends Component {
     // handleOpenModal = () => {
     //     this.setState({ modalIsOpen: true });
     // }
-    
+
     // handleCloseModal = () => {
     //     this.setState({ modalIsOpen: false });
     // }
@@ -87,18 +87,18 @@ class Login extends Component {
             }
         } = this.props;
 
-;        return (
+        ; return (
             <div className="Login">
                 <div className="sign-in">
-                    <p 
-                        className="error-message" 
-                        style={{ 
+                    <p
+                        className="error-message"
+                        style={{
                             backgroundColor: `${error ? 'var(--danger)' : 'transparent'}`,
                         }}
                     >
                         {error}
                     </p>
-                    
+
                     <input
                         type="email"
                         name="email"
