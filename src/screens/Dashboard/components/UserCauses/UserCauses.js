@@ -19,7 +19,7 @@ class UserCauses extends Component {
     const {
       causeSelected,
       selectCauseToHighlight,
-      highlightedCause
+      highlightedCause,
     } = this.props;
 
     return causes.map(cause => {
@@ -46,10 +46,10 @@ class UserCauses extends Component {
     });
   }
 
-  renderNoCauses = () => {
+  renderNoCauses = (text) => {
     return (
       <div className="no-causes">
-        Loading your Causes...
+        {text}
       </div>
     );
   }
@@ -57,15 +57,24 @@ class UserCauses extends Component {
   render() {
     const {
       causes,
+      loading,
     } = this.props;
+
+    const hasCauses = (causes && causes.length > 0);
 
     return (
       <div className="UserCauses">
         <Heading text={'Your Causes'} />
-        <Slider>
-          {!causes && this.renderNoCauses()}
-          {causes && causes.length && this.getUserCauses(causes)}
-        </Slider>
+
+
+        {!hasCauses && loading && this.renderNoCauses('Loading Your Causes...')}
+
+        {!hasCauses && !loading && this.renderNoCauses('You currently have no causes...')}
+
+        {hasCauses &&
+          <Slider>
+            {this.getUserCauses(causes)}
+          </Slider>}
       </div>
     );
   }

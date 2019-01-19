@@ -33,7 +33,18 @@ class Dashboard extends Component {
         super(props);
         this.state = {
             editProfile: false,
-            highlightedCause: null
+            highlightedCause: null,
+            loadingCauses: false,
+        };
+    }
+
+    componentDidUpdate(prevProps) {
+        // Typical usage (don't forget to compare props):
+        const previousUserWithoutCauses = (prevProps.user && !prevProps.user.Causes);
+        const userCurrentlyHasCauses = (this.props.user && this.props.user.Causes);
+
+        if (previousUserWithoutCauses && userCurrentlyHasCauses) {
+            this.setState({ loadingCauses: false });
         };
     }
 
@@ -96,6 +107,7 @@ class Dashboard extends Component {
         } = this.props;
 
         if (!Causes) getUserCauses(id);
+        if (!Causes) this.setState({ loadingCauses: true });
     }
 
     render() {
@@ -107,7 +119,11 @@ class Dashboard extends Component {
             causeSelected
         } = this.props;
 
-        const { highlightedCause, editProfile } = this.state;
+        const {
+            highlightedCause,
+            editProfile,
+            loadingCauses,
+        } = this.state;
 
         if (!user && userData) getUserData(userData.id);
         if (!user && !userData) history.push("/");
@@ -143,6 +159,7 @@ class Dashboard extends Component {
                         />
 
                         <InViewportUserCauses
+                            loading={loadingCauses}
                             causes={user.Causes}
                             causeSelected={causeSelected}
                             selectCauseToHighlight={this.selectCauseToHighlight}
@@ -183,17 +200,14 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
+    causeSelected,
     getUserData,
     getUserCauses,
     getUserDonations,
     getCauseList,
-    causeSelected,
-    loadTokenFromCookie
+    loadTokenFromCookie,
 };
 
 export default withRouter(
-    connect(
-        mapStateToProps,
-        mapDispatchToProps
-    )(Dashboard)
+    connect(mapStateToProps, mapDispatchToProps)(Dashboard)
 );
