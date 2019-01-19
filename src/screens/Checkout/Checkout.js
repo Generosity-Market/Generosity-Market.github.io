@@ -38,7 +38,8 @@ class Checkout extends Component {
   render() {
     const { 
       cart, 
-      // user 
+      // user,
+      clearCart,
     } = this.props;
 
     return(
@@ -57,10 +58,11 @@ class Checkout extends Component {
 
           <Elements>
             <CheckoutForm
-              toggleCheckoutForm={() => this.toggleCheckoutForm()}
+              toggleCheckoutForm={this.toggleCheckoutForm}
               showForm={this.state.showForm}
               total={Utils.getTotal(cart, 'amount')}
               submitDonation={submitDonation}
+              clearCart={clearCart}
               {...this.props}
             />
           </Elements>

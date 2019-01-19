@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
-import { CardNumberElement, CardExpiryElement, CardCVCElement, PostalCodeElement, injectStripe } from 'react-stripe-elements';
 import './CheckoutForm.css';
-import stripeServices from '../../../../services/stripe';
-// import Services from '../../../../services/services';
-import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
-import ActionButton from '../../../../components/ActionButton';
+import stripeServices from 'services/stripe';
+// import Services from 'services/services';
+import FontAwesome from 'components/FontAwesome/FontAwesome';
+import ActionButton from 'components/ActionButton';
+
+import {
+    CardNumberElement,
+    CardExpiryElement,
+    CardCVCElement,
+    PostalCodeElement,
+    injectStripe
+} from 'react-stripe-elements';
 
 class CheckoutForm extends Component {
     constructor(props) {
@@ -38,7 +45,14 @@ class CheckoutForm extends Component {
     }
 
     submit(event) {
-        const { stripe, total, cart, submitDonation } = this.props;
+        const {
+            stripe,
+            total,
+            cart,
+            clearCart,
+            submitDonation
+        } = this.props;
+
         this.setState({ loading: true, status: '' });
 
         // TODO abstract this into a service...
@@ -46,7 +60,7 @@ class CheckoutForm extends Component {
         .then(token => {
             // TODO if token is undefined that means something wasnt filled in. We need to display an error message here...
             if (!token) {
-                this.setState({loading: false, status: 'failed' })
+                this.setState({ loading: false, status: 'failed' })
                 return;
             }
 
@@ -69,6 +83,7 @@ class CheckoutForm extends Component {
                     setTimeout(() => this.props.toggleCheckoutForm(), 500);
                     // Navigate to the "Thank You" page
                     setTimeout(() => this.props.history.push('/thankyou'), 1000);
+                    clearCart();
                 } else if (response.status === 'failed') {
                     this.setState({ loading: false, status: 'failed' })
                 }
