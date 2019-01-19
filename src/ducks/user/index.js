@@ -5,6 +5,8 @@ export {
     loadTokenFromCookie,
     userLogout,
     getUserData,
+    getUserCauses,
+    getUserDonations,
 } from './operations';
 
 export {
@@ -12,6 +14,8 @@ export {
     REMOVE_TOKEN,
     SET_USER,
     SET_TOKEN,
+    SET_USER_CAUSES,
+    SET_USER_DONTATIONS,
 } from './types';
 
 export default userReducer;

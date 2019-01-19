@@ -3,6 +3,8 @@ import {
     removeToken,
     setUser,
     setToken,
+    setUserCauses,
+    setUserDonations,
 } from './actions';
 
 import Cookies from 'js-cookie';
@@ -13,6 +15,8 @@ const {
     fetchUserData,
     registerUser,
     userLogin,
+    fetchUserCauses,
+    fetchUserDonations,
 } = Services;
 
 export const register = ({ email, password }) => {
@@ -100,3 +104,9 @@ export const userLogout = () => {
 
 // getting the logged in users information
 export const getUserData = (id) => makeFetchCreator(fetchUserData, setUser, id);
+
+// Getting the logged in users created causes
+export const getUserCauses = (id) => makeFetchCreator(fetchUserCauses, setUserCauses, id);
+
+// Gettings all donations made by the logged in user
+export const getUserDonations = (id) => makeFetchCreator(fetchUserDonations, setUserDonations, id);

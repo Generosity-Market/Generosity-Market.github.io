@@ -6,6 +6,8 @@ import {
     REMOVE_TOKEN,
     SET_USER,
     SET_TOKEN,
+    SET_USER_CAUSES,
+    SET_USER_DONTATIONS,
 } from './types';
 
 const userReducer = (state = initialState, action) => {
@@ -20,7 +22,7 @@ const userReducer = (state = initialState, action) => {
         case SET_TOKEN:
             return update(state, {
                 token: {
-                    $set: action.payload
+                    $set: payload
                 }
             });
         case REMOVE_TOKEN:
@@ -33,6 +35,22 @@ const userReducer = (state = initialState, action) => {
             return update(state, {
                 user: {
                     $set: null
+                }
+            })
+        case SET_USER_CAUSES:
+            return update(state, {
+                user: {
+                    Causes: {
+                        $set: payload
+                    }
+                }
+            })
+        case SET_USER_DONTATIONS:
+            return update(state, {
+                user: {
+                    Donations: {
+                        $set: payload
+                    }
                 }
             })
         default:
