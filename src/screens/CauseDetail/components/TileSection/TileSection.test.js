@@ -20,7 +20,7 @@ Enzyme.configure({ adapter: new Adapter() });
 let store = createStore(
   reducers,
   compose(
-      applyMiddleware(reduxThunk)
+    applyMiddleware(reduxThunk)
   )
 );
 
@@ -36,7 +36,7 @@ const testElement =
 describe('<TileSection />', () => {
 
   it('renders without crashing', () => {
-      const div = document.createElement('div');
-      ReactDOM.render(testElement, div);
+    const div = document.createElement('div');
+    ReactDOM.render(testElement, div);
   });
 });

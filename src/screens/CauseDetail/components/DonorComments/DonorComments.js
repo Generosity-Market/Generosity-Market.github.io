@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
-import Heading from '../../../../components/Heading/Heading';
+import Heading from 'components/Heading/Heading';
 import './DonorComments.css';
 
 // TODO convert to functional component if not using state
 class DonorComments extends Component {
 
-  getDonorImage = imageURL => require(`../../../../Assets/Photography/Mobile/${imageURL}`);
+  getDonorImage = imageURL => require(`Assets/Photography/Mobile/${imageURL}`);
 
   render() {
     const { donations } = this.props;
 
     let donorComments = donations.map((donation, index) => {
       const { Comments, imageURL, amount, comment, name } = donation;
-      
+
       return Comments && Comments.length > 0 && (
         <div key={index} className="comment-card">
-          <div style={{flexBasis: '10%'}}>
-            {imageURL ? <img src={this.getDonorImage(imageURL)} alt='Donor'/> : ''}
+          <div style={{ flexBasis: '10%' }}>
+            {imageURL ? <img src={this.getDonorImage(imageURL)} alt='Donor' /> : ''}
             <p className='donor-amount'>${amount}</p>
           </div>
-          <div style={{flexBasis: '65%'}}>
-            <p style={{color: 'var(--text-gray)'}}>{comment}</p>
-            <p style={{color: 'var(--bright-green)', marginTop: '0.35rem'}}>- {name}</p>
+          <div style={{ flexBasis: '65%' }}>
+            <p style={{ color: 'var(--text-gray)' }}>{comment}</p>
+            <p style={{ color: 'var(--bright-green)', marginTop: '0.35rem' }}>- {name}</p>
           </div>
         </div>
       );
