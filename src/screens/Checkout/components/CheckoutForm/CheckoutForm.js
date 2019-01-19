@@ -13,6 +13,8 @@ import {
     injectStripe
 } from 'react-stripe-elements';
 
+
+// TODO Add in the user's id if logged in, if not create a user and send the returned id...
 class CheckoutForm extends Component {
     constructor(props) {
         super(props);
@@ -37,7 +39,7 @@ class CheckoutForm extends Component {
         if (loading) return "loading...";
         if (status === 'complete') return "donation complete";
         if (status === 'failed') return "failed";
-        return `Charge $${ this.props.total }`;
+        return `Charge $${this.props.total}`;
     }
 
     handleStateChange = (event) => {
@@ -57,40 +59,40 @@ class CheckoutForm extends Component {
 
         // TODO abstract this into a service...
         stripeServices.createToken(stripe)
-        .then(token => {
-            // TODO if token is undefined that means something wasnt filled in. We need to display an error message here...
-            if (!token) {
-                this.setState({ loading: false, status: 'failed' })
-                return;
-            }
-
-            submitDonation({
-                body: JSON.stringify({
-                    ...token, 
-                    cart, 
-                    amount: total * 100, 
-                    email: this.state.email
-                }),
-                headers: {
-                    "Content-Type": "application/json"
-                },
-            })
-            .then(response => {
-                if  (response.status === 'authorized') {
-                    // Update the button text
-                    this.setState({ loading: false, status: 'complete' });
-                    // Remove the checkout form from the screen
-                    setTimeout(() => this.props.toggleCheckoutForm(), 500);
-                    // Navigate to the "Thank You" page
-                    setTimeout(() => this.props.history.push('/thankyou'), 1000);
-                    clearCart();
-                } else if (response.status === 'failed') {
+            .then(token => {
+                // TODO if token is undefined that means something wasnt filled in. We need to display an error message here...
+                if (!token) {
                     this.setState({ loading: false, status: 'failed' })
+                    return;
                 }
-                return response;
-            });
 
-        })
+                submitDonation({
+                    body: JSON.stringify({
+                        ...token,
+                        cart,
+                        amount: total * 100,
+                        email: this.state.email
+                    }),
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                })
+                    .then(response => {
+                        if (response.status === 'authorized') {
+                            // Update the button text
+                            this.setState({ loading: false, status: 'complete' });
+                            // Remove the checkout form from the screen
+                            setTimeout(() => this.props.toggleCheckoutForm(), 500);
+                            // Navigate to the "Thank You" page
+                            setTimeout(() => this.props.history.push('/thankyou'), 1000);
+                            clearCart();
+                        } else if (response.status === 'failed') {
+                            this.setState({ loading: false, status: 'failed' })
+                        }
+                        return response;
+                    });
+
+            })
     };
 
     render() {
@@ -98,9 +100,9 @@ class CheckoutForm extends Component {
         // console.log(this.props);
 
         return (
-            <div className="CheckoutForm" style={showForm && total > 0  ? {bottom: '-5%'} : {bottom: '-100%'}}>
+            <div className="CheckoutForm" style={showForm && total > 0 ? { bottom: '-5%' } : { bottom: '-100%' }}>
                 <div className="card">
-                    <FontAwesome onClick={toggleCheckoutForm} classname='far fa-times-circle'/>
+                    <FontAwesome onClick={toggleCheckoutForm} classname='far fa-times-circle' />
                     <p>Would you like to complete the purchase?</p>
 
                     <div className="stripe-field email">
@@ -113,17 +115,17 @@ class CheckoutForm extends Component {
 
                     <div className="card-info">
                         <div className="stripe-field">
-                            <CardExpiryElement style={stripeStyles}/>
+                            <CardExpiryElement style={stripeStyles} />
                         </div>
                         <div className="stripe-field">
-                            <CardCVCElement style={stripeStyles}/>
+                            <CardCVCElement style={stripeStyles} />
                         </div>
                         <div className="stripe-field">
-                            <PostalCodeElement style={stripeStyles}/>
+                            <PostalCodeElement style={stripeStyles} />
                         </div>
                     </div>
 
-                    <ActionButton  
+                    <ActionButton
                         action={this.submit}
                         actionText={this.handleButtonText()}
                         icon={this.state.status === 'complete' && 'far fa-check-circle'}
