@@ -104,8 +104,6 @@ class Dashboard extends Component {
             userData,
             history,
             getUserData,
-            getUserCauses,
-            getUserDonations,
             causeSelected
         } = this.props;
 
