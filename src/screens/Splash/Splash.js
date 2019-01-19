@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import LinkButton from '../../components/LinkButton/LinkButton';
-import { getCauseList } from '../../ducks/cause';
-import { loadTokenFromCookie } from '../../ducks/user';
+import { getCauseList } from 'ducks/cause';
+import { loadTokenFromCookie } from 'ducks/user';
 import './Splash.css';
+
+// Shared UI Components
+import LinkButton from 'components/LinkButton/LinkButton';
 
 class Splash extends Component {
 
@@ -16,13 +18,13 @@ class Splash extends Component {
   };
 
   render() {
-    return(
+    return (
       <div className='Splash'>
 
         <div className='logo-container'>
-          <img 
-            className='Logo' 
-            src={require('../../Assets/Logo/PNG/Artboard-1-copy-2Generosity-Logo.png')} 
+          <img
+            className='Logo'
+            src={require('../../Assets/Logo/PNG/Artboard-1-copy-2Generosity-Logo.png')}
             alt="Generosity Market Logo"
           />
         </div>
@@ -47,8 +49,8 @@ class Splash extends Component {
         </div>
 
         <Link
-          to={{ 
-            pathname: '/login', 
+          to={{
+            pathname: '/login',
             state: { context: 'register' }
           }}
           className='sign-up'
@@ -70,8 +72,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-    getCauseList,
-    loadTokenFromCookie,
+  getCauseList,
+  loadTokenFromCookie,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Splash);
