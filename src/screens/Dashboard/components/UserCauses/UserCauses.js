@@ -66,15 +66,15 @@ class UserCauses extends Component {
       <div className="UserCauses">
         <Heading text={'Your Causes'} />
 
-
         {!hasCauses && loading && this.renderNoCauses('Loading Your Causes...')}
 
-        {!hasCauses && !loading && this.renderNoCauses('You currently have no causes...')}
+        {!hasCauses && !loading && this.renderNoCauses('You haven\'t created any causes')}
 
         {hasCauses &&
           <Slider>
             {this.getUserCauses(causes)}
-          </Slider>}
+          </Slider>
+        }
       </div>
     );
   }

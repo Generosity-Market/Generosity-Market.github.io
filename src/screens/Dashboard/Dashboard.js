@@ -11,8 +11,8 @@ import {
 } from "ducks/cause";
 
 import {
-    getUserCauses,
-    getUserDonations
+    getUserCreatedCauses,
+    getUserSupportedCauses,
 } from "ducks/user";
 
 // Component imports
@@ -82,30 +82,32 @@ class Dashboard extends Component {
         const { user } = this.props;
         const { highlightedCause } = this.state;
 
-        return user.Causes.filter(cause => cause.id === highlightedCause)[0];
+        return user.CreatedCauses.filter(cause => cause.id === highlightedCause)[0];
     };
 
-    getDonations = (id) => {
+    getReceipts = (id) => {
         const {
-            getUserDonations,
+            getUserSupportedCauses,
             user: {
-                Donations,
+                SupportedCauses,
             },
         } = this.props;
 
-        if (!Donations) getUserDonations(id);
+        if (!SupportedCauses) getUserSupportedCauses(id);
     }
 
     getCauses = (id) => {
         const {
-            getUserCauses,
+            getUserCreatedCauses,
             user: {
-                Causes,
+                CreatedCauses,
             },
         } = this.props;
 
-        if (!Causes) getUserCauses(id);
-        if (!Causes) this.setState({ loadingCauses: true });
+        if (!CreatedCauses) {
+            this.setState({ loadingCauses: true });
+            getUserCreatedCauses(id).then(() => this.setState({ loadingCauses: false }))
+        }
     }
 
     render() {
@@ -156,7 +158,7 @@ class Dashboard extends Component {
 
                         <InViewportUserCauses
                             loading={loadingCauses}
-                            causes={user.Causes}
+                            causes={user.CreatedCauses}
                             causeSelected={causeSelected}
                             selectCauseToHighlight={this.selectCauseToHighlight}
                             highlightedCause={highlightedCause}
@@ -169,14 +171,14 @@ class Dashboard extends Component {
                             linkText={"Create a cause"}
                         />
 
-                        {(user.Causes && !!user.Causes.length) &&
+                        {(user.CreatedCauses && !!user.CreatedCauses.length) &&
                             <DonorInfo
                                 cause={{ ...this.getHighlightedCause() }}
                             />
                         }
 
                         <InViewportReceipts
-                            onEnterViewport={() => this.getDonations(user.id)}
+                            onEnterViewport={() => this.getReceipts(user.id)}
                         />
                     </div>
                 </div>
@@ -197,8 +199,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     causeSelected,
-    getUserCauses,
-    getUserDonations,
+    getUserCreatedCauses,
+    getUserSupportedCauses,
     getCauseList,
 };
 

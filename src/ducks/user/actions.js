@@ -4,13 +4,13 @@ import {
     REMOVE_TOKEN,
     SET_USER,
     SET_TOKEN,
-    SET_USER_CAUSES,
-    SET_USER_DONTATIONS,
+    SET_USER_CREATED_CAUSES,
+    SET_USER_SUPPORTED_CAUSES,
 } from './types';
 
 export const logout = makeActionCreator(LOG_OUT);
 export const removeToken = makeActionCreator(REMOVE_TOKEN);
 export const setUser = makeActionCreator(SET_USER);
 export const setToken = makeActionCreator(SET_TOKEN);
-export const setUserCauses = makeActionCreator(SET_USER_CAUSES);
-export const setUserDonations = makeActionCreator(SET_USER_DONTATIONS);
+export const setUserCreatedCauses = makeActionCreator(SET_USER_CREATED_CAUSES);
+export const setUserSupportedCauses = makeActionCreator(SET_USER_SUPPORTED_CAUSES);
