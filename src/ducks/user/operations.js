@@ -83,13 +83,13 @@ export const login = ({ email, password }) => {
 // TODO finish this action...
 export const loadTokenFromCookie = () => {
     return async (dispatch) => {
-        const token = await Cookies.get('token');
-        const user = await Cookies.getJSON('user');
+        const token = Cookies.get('token');
+        const user = Cookies.getJSON('user');
         if (token && user) {
             dispatch(setToken(token));
-            getUserData(user.id);
+            dispatch(getUserData(user.id));
         }
-        return user;
+        // return user;
     }
 };
 
@@ -102,7 +102,6 @@ export const userLogout = () => {
     }
 }
 
-// getting the logged in users information
 export const getUserData = (id) => makeFetchCreator(fetchUserData, setUser, id);
 
 // Getting the logged in users created causes
