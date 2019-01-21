@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './CheckoutForm.css';
 import stripeServices from 'services/stripe';
-// import Services from 'services/services';
 import FontAwesome from 'components/FontAwesome/FontAwesome';
 import ActionButton from 'components/ActionButton';
 
@@ -34,6 +33,20 @@ class CheckoutForm extends Component {
         this.submit = this.submit.bind(this);
     };
 
+    componentDidMount() {
+        const { user } = this.props;
+        if (user) {
+            console.log()
+            this.setState({ email: user.email })
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        if (!prevProps.user && this.props.user) {
+            this.setState({ email: this.props.user.email });
+        }
+    }
+
     handleButtonText = () => {
         const { loading, status } = this.state;
         if (loading) return "loading...";
@@ -52,12 +65,14 @@ class CheckoutForm extends Component {
             total,
             cart,
             clearCart,
-            submitDonation
+            submitDonation,
+            user,
         } = this.props;
 
         this.setState({ loading: true, status: '' });
+        console.log("Checkout props: ", this.props);
 
-        // TODO abstract this into a service...
+        // TODO abstract this into a service?...
         stripeServices.createToken(stripe)
             .then(token => {
                 // TODO if token is undefined that means something wasnt filled in. We need to display an error message here...
@@ -70,6 +85,7 @@ class CheckoutForm extends Component {
                     body: JSON.stringify({
                         ...token,
                         cart,
+                        userID: user.id,
                         amount: total * 100,
                         email: this.state.email
                     }),
@@ -96,8 +112,11 @@ class CheckoutForm extends Component {
     };
 
     render() {
-        const { toggleCheckoutForm, showForm, total } = this.props;
-        // console.log(this.props);
+        const {
+            showForm,
+            toggleCheckoutForm,
+            total,
+        } = this.props;
 
         return (
             <div className="CheckoutForm" style={showForm && total > 0 ? { bottom: '-5%' } : { bottom: '-100%' }}>

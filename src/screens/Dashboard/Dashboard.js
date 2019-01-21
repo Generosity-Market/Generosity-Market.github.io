@@ -11,8 +11,6 @@ import {
 } from "ducks/cause";
 
 import {
-    getUserData,
-    loadTokenFromCookie,
     getUserCauses,
     getUserDonations
 } from "ducks/user";
@@ -115,8 +113,7 @@ class Dashboard extends Component {
             user,
             userData,
             history,
-            getUserData,
-            causeSelected
+            causeSelected,
         } = this.props;
 
         const {
@@ -125,7 +122,6 @@ class Dashboard extends Component {
             loadingCauses,
         } = this.state;
 
-        if (!user && userData) getUserData(userData.id);
         if (!user && !userData) history.push("/");
         console.warn("User info: ", user);
 
@@ -173,7 +169,7 @@ class Dashboard extends Component {
                             linkText={"Create a cause"}
                         />
 
-                        {user.Causes &&
+                        {(user.Causes && !!user.Causes.length) &&
                             <DonorInfo
                                 cause={{ ...this.getHighlightedCause() }}
                             />
@@ -201,11 +197,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     causeSelected,
-    getUserData,
     getUserCauses,
     getUserDonations,
     getCauseList,
-    loadTokenFromCookie,
 };
 
 export default withRouter(
