@@ -6,8 +6,8 @@ import {
     REMOVE_TOKEN,
     SET_USER,
     SET_TOKEN,
-    SET_USER_CAUSES,
-    SET_USER_DONTATIONS,
+    SET_USER_CREATED_CAUSES,
+    SET_USER_SUPPORTED_CAUSES,
 } from './types';
 
 const userReducer = (state = initialState, action) => {
@@ -37,18 +37,18 @@ const userReducer = (state = initialState, action) => {
                     $set: null
                 }
             })
-        case SET_USER_CAUSES:
+        case SET_USER_CREATED_CAUSES:
             return update(state, {
                 user: {
-                    Causes: {
+                    CreatedCauses: {
                         $set: payload
                     }
                 }
             })
-        case SET_USER_DONTATIONS:
+        case SET_USER_SUPPORTED_CAUSES:
             return update(state, {
                 user: {
-                    Donations: {
+                    SupportedCauses: {
                         $set: payload
                     }
                 }

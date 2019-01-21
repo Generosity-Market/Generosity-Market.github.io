@@ -105,7 +105,8 @@ export default class DonorInfo extends Component {
                             className="donation-card"
                             style={{ backgroundColor: `${index % 2 === 0 ? 'transparent' : 'var(--black-10)'}` }}
                         >
-                            <Pill>{`$${donation.amount}`}</Pill>
+                            {/* <Pill>{`$${donation.amount}`}</Pill> */}
+                            <p>${donation.amount}</p>
                             <p>{donation.email}</p>
                             <p>{getFormattedDate(donation.updatedAt)}</p>
                         </div>
