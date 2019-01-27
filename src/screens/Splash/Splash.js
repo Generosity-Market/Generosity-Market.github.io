@@ -6,7 +6,9 @@ import { loadTokenFromCookie } from 'ducks/user';
 import './Splash.css';
 
 // Shared UI Components
-import LinkButton from 'components/LinkButton/LinkButton';
+import {
+  LinkButton,
+} from 'components';
 
 class Splash extends Component {
 
