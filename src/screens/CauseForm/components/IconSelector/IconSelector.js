@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import FontAwesome from 'components/FontAwesome/FontAwesome';
 import './IconSelector.css';
+
+import {
+  FontAwesome,
+} from 'components';
 
 
 class IconSelector extends Component {

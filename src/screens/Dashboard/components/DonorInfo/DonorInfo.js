@@ -1,11 +1,14 @@
 import React, { Component, Fragment } from 'react';
-import Heading from '../../../../components/Heading/Heading';
-import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
-import Slider from '../../../../components/Slider/Slider';
-import Pill from '../../../../components/Pill/Pill';
+import Utils from 'utilities/utilities';
 import './DonorInfo.css';
 
-import Utils from '../../../../utilities/utilities';
+// Shared UI Components
+import {
+    FontAwesome,
+    Heading,
+    Pill,
+    Slider,
+} from 'components';
 
 const {
     sortByKey,
@@ -21,14 +24,16 @@ const isEmpty = (obj) => {
     return true;
 }
 
+const infoButton = (
+    <span>
+        <FontAwesome classname={'fas fa-info-circle'} />
+    </span>
+);
+
 const noCauseSelected = () => {
     return (
         <div className="empty-cause">
-            No cause selected. Click the
-            <span>
-                <FontAwesome classname={'fas fa-info-circle'} />
-            </span>
-            below a cause to see it's donations.
+            No cause selected. Click the {infoButton} button below a cause to see it's donations.
         </div>
     )
 }

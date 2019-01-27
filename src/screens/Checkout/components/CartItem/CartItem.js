@@ -1,33 +1,37 @@
 import React from 'react';
-import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
-import MainImage from '../../../../components/MainImage/MainImage';
-import Utils from '../../../../utilities/utilities';
+import Utils from 'utilities/utilities';
 import './CartItem.css';
 
+// Shared UI Components
+import {
+  FontAwesome,
+  MainImage,
+} from 'components';
+
 const CartItem = ({
-  amount, 
-  cart, 
-  cause, 
+  amount,
+  cart,
+  cause,
   mainImage,
-  removeFromCart, 
-  type, 
+  removeFromCart,
+  type,
 }) => {
 
   const removeItemFromCart = () => {
-      let indexToRemove;
+    let indexToRemove;
 
-      for (var i = 0; i < cart.length; i++) {
-          if ((cart[i].amount === amount) && (cart[i].cause === cause)) {
-              indexToRemove = i;
-          }
-      };
-      let updatedCart = Utils.removeIndexFromArray(indexToRemove, cart);
-      removeFromCart(updatedCart);
+    for (var i = 0; i < cart.length; i++) {
+      if ((cart[i].amount === amount) && (cart[i].cause === cause)) {
+        indexToRemove = i;
+      }
+    };
+    let updatedCart = Utils.removeIndexFromArray(indexToRemove, cart);
+    removeFromCart(updatedCart);
   };
 
-  return(
+  return (
     <div className="CartItem">
-      <MainImage roundImage={false} mainImage={mainImage}/>
+      <MainImage roundImage={false} mainImage={mainImage} />
 
       <div className="itemInfo">
         <h3>{cause}</h3>

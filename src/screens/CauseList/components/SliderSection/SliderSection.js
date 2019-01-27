@@ -4,9 +4,11 @@ import React, { Fragment } from 'react';
 import handleViewport from 'react-in-viewport';
 
 // Shared UI Component
-import CauseTile from 'components/CauseTile/CauseTile';
-import Slider from 'components/Slider/Slider';
-import Heading from 'components/Heading/Heading';
+import {
+    CauseTile,
+    Heading,
+    Slider,
+} from 'components';
 
 const CauseTileWithLazyLoad = handleViewport(CauseTile);
 

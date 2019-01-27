@@ -7,10 +7,12 @@ import './causeForm.css';
 import inputOptions from './inputOptions';
 
 // Shared UI Component
-import InputGroup from 'components/InputGroup/InputGroup';
-import ImageUploader from 'components/ImageUploader/ImageUploader';
-import ActionButton from 'components/ActionButton';
-import Heading from 'components/Heading/Heading';
+import {
+  ActionButton,
+  Heading,
+  ImageUploader,
+  InputGroup,
+} from 'components';
 
 // Cause Form Components
 import IconSelector from './components/IconSelector/IconSelector';

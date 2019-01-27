@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getCauseList, causeSelected } from 'ducks/cause';
 import './causelist.css';
 
+// CauseList components
 import SliderSection from './components/SliderSection/SliderSection';
 
 const returnEmpty = (getCauseList) => {

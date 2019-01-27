@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
 import './UserDetails.css';
+
+// Shared UI Components
+import {
+  FontAwesome,
+} from 'components';
 
 // TODO turn this into function component if we aren't using state
 class UserDetails extends Component {
@@ -17,7 +21,7 @@ class UserDetails extends Component {
       phone
     } = this.props;
 
-    return(
+    return (
       <div className="profile-details UserDetails">
 
         <div className="photo-upload">
@@ -34,8 +38,8 @@ class UserDetails extends Component {
           </p>
 
           <p>
-            <span>Address: </span><br/>
-            {street},<br/>
+            <span>Address: </span><br />
+            {street},<br />
             {city}, {state} {zipcode}
           </p>
 

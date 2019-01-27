@@ -7,12 +7,13 @@ import './CauseTile.css';
 
 const CauseTile = ({
   cause,
-  raised,
-  isFeatured,
   causeSelected,
-  inViewport,
-  innerRef,
   children,
+  highlightedCause,
+  innerRef,
+  inViewport,
+  isFeatured,
+  raised,
 }) => {
 
   const imageURL = (inViewport ? cause.mainImage : Services.getLazyImagePlaceholder());
@@ -32,6 +33,9 @@ const CauseTile = ({
       className={isFeatured ? "CauseTile featured" : "CauseTile"}
       onClick={() => causeSelected(cause)}
       ref={innerRef}
+      style={{
+        backgroundColor: (highlightedCause === cause.id ? 'var(--light-gray)' : '')
+      }}
     >
       <Link to={`/cause/${cause.id}`}>
 

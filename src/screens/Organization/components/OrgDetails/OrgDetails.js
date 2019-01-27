@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import './OrgDetails.css';
 
 // Shared UI Components
-import Heading from 'components/Heading/Heading';
-import TextSection from 'components/TextSection/TextSection';
+import {
+  Heading,
+  TextSection,
+} from "components";
 
 // TODO convert to functional component if not using state
 export default class OrgDetails extends Component {

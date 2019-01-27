@@ -15,13 +15,17 @@ import {
     getUserSupportedCauses,
 } from "ducks/user";
 
-// Component imports
-import Banner from "../../components/Banner/Banner";
+// Shared UI Components
+import {
+    Banner,
+    LinkButton,
+} from 'components';
+
+// Dashboard Components
 import UserDetails from "./components/UserDetails/UserDetails";
 import UserCauses from "./components/UserCauses/UserCauses";
 import DonorInfo from "./components/DonorInfo/DonorInfo";
 import Receipts from "./components/Receipts/Receipts";
-import LinkButton from "../../components/LinkButton/LinkButton";
 
 const InViewportUserCauses = handleViewport(UserCauses);
 const InViewportReceipts = handleViewport(Receipts);

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { removeFromCart, clearCart } from '../../ducks/cart';
-import { submitDonation } from '../../ducks/cause';
+import { removeFromCart, clearCart } from 'ducks/cart';
+import { submitDonation } from 'ducks/cause';
 import { Elements, StripeProvider } from 'react-stripe-elements';
-import Utils from '../../utilities/utilities';
+import Utils from 'utilities/utilities';
 import './Checkout.css';
 
-// Components
+// Checkout Components
 import Cart from './components/Cart/Cart';
 import CartFooter from './components/CartFooter/CartFooter';
 import EmptyCart from './components/EmptyCart/EmptyCart';
@@ -36,25 +36,25 @@ class Checkout extends Component {
   };
 
   render() {
-    const { 
-      cart, 
+    const {
+      cart,
       // user,
       clearCart,
     } = this.props;
 
-    return(
+    return (
       <StripeProvider apiKey={this.state.apiKey}>
         <div className="Checkout">
 
           {!cart.length > 0 ?
-          <EmptyCart /> : <Cart {...this.props} /> }
+            <EmptyCart /> : <Cart {...this.props} />}
 
           {cart.length > 0 &&
-          <CartFooter
-            total={Utils.getTotal(cart, 'amount')}
-            toggleCheckoutForm={() => this.toggleCheckoutForm()}
-            {...this.props}
-          />}
+            <CartFooter
+              total={Utils.getTotal(cart, 'amount')}
+              toggleCheckoutForm={() => this.toggleCheckoutForm()}
+              {...this.props}
+            />}
 
           <Elements>
             <CheckoutForm
@@ -78,7 +78,7 @@ const mapStateToProps = (state) => {
     user: { user },
     cart: { cart },
   } = state;
-  
+
   return { user, cart }
 };
 

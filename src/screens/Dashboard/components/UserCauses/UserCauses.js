@@ -1,11 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import './UserCauses.css';
 
-// SHared UI Components
-import CauseTile from 'components/CauseTile/CauseTile';
-import Slider from 'components/Slider/Slider';
-import Heading from 'components/Heading/Heading';
-import FontAwesome from 'components/FontAwesome/FontAwesome';
+// Shared UI Components
+import {
+  CauseTile,
+  FontAwesome,
+  Heading,
+  Slider,
+} from 'components';
 
 // Import HOC to see if component is in viewport
 import handleViewport from 'react-in-viewport';
@@ -30,6 +32,7 @@ class UserCauses extends Component {
             raised={Number(cause.totalRaised)}
             cause={cause}
             causeSelected={causeSelected}
+            highlightedCause={highlightedCause}
           >
             <p
               className="see-donors"
@@ -37,7 +40,9 @@ class UserCauses extends Component {
             >
               <FontAwesome
                 classname={'fas fa-info-circle'}
-                style={{ color: `${highlightedCause === cause.id ? 'var(--bright-green)' : 'var(--text-gray)'}` }}
+                style={{
+                  color: `${highlightedCause === cause.id ? 'var(--blackish)' : 'var(--text-gray)'}`,
+                }}
               />
             </p>
           </CauseTileWithLazyLoad>

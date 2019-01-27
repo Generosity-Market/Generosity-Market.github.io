@@ -3,8 +3,12 @@ import { connect } from 'react-redux';
 import { clearCart } from 'ducks/cart';
 import './ThankYou.css';
 
-import LinkButton from 'components/LinkButton/LinkButton';
+// Shared UI Components
+import {
+  LinkButton,
+} from 'components';
 
+// Convert to functional component if not using state
 class ThankYou extends Component {
 
   // componentWillUnmount() {
@@ -31,11 +35,18 @@ class ThankYou extends Component {
 
 const mapStateToProps = (state) => {
   const {
-    user: { user },
-    cart: { cart },
+    user: {
+      user,
+    },
+    cart: {
+      cart,
+    },
   } = state;
 
-  return { user, cart }
+  return {
+    user,
+    cart,
+  }
 };
 
 const mapDispatchToProps = { clearCart };

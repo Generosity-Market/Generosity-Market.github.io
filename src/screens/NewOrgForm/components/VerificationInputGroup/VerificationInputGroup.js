@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import InputGroup from 'components/InputGroup/InputGroup';
 
-export class VerificationInputGroup extends Component {
+// Shared UI Components
+import {
+    InputGroup,
+} from 'components';
+
+// Convert to functional component if not using state
+class VerificationInputGroup extends Component {
 
     render() {
         const inputOptions = [
