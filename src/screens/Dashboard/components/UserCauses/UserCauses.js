@@ -30,6 +30,7 @@ class UserCauses extends Component {
             raised={Number(cause.totalRaised)}
             cause={cause}
             causeSelected={causeSelected}
+            highlightedCause={highlightedCause}
           >
             <p
               className="see-donors"
@@ -37,7 +38,9 @@ class UserCauses extends Component {
             >
               <FontAwesome
                 classname={'fas fa-info-circle'}
-                style={{ color: `${highlightedCause === cause.id ? 'var(--bright-green)' : 'var(--text-gray)'}` }}
+                style={{
+                  color: `${highlightedCause === cause.id ? 'var(--blackish)' : 'var(--text-gray)'}`,
+                }}
               />
             </p>
           </CauseTileWithLazyLoad>

@@ -1,6 +1,8 @@
 .CauseTile {
+  border-radius: var(--border-radius);
   flex: 0 0 33%;
   padding: 0.5rem;
+  transition: all 0.3s ease;
 }
 
 .CauseTile a {

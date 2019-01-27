@@ -21,14 +21,16 @@ const isEmpty = (obj) => {
     return true;
 }
 
+const infoButton = (
+    <span>
+        <FontAwesome classname={'fas fa-info-circle'} />
+    </span>
+);
+
 const noCauseSelected = () => {
     return (
         <div className="empty-cause">
-            No cause selected. Click the
-            <span>
-                <FontAwesome classname={'fas fa-info-circle'} />
-            </span>
-            below a cause to see it's donations.
+            No cause selected. Click the {infoButton} button below a cause to see it's donations.
         </div>
     )
 }
