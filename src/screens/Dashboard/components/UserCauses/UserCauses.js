@@ -1,11 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import './UserCauses.css';
 
-// SHared UI Components
-import CauseTile from 'components/CauseTile/CauseTile';
-import Slider from 'components/Slider/Slider';
-import Heading from 'components/Heading/Heading';
-import FontAwesome from 'components/FontAwesome/FontAwesome';
+// Shared UI Components
+import {
+  CauseTile,
+  FontAwesome,
+  Heading,
+  Slider,
+} from 'components';
 
 // Import HOC to see if component is in viewport
 import handleViewport from 'react-in-viewport';
