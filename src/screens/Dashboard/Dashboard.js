@@ -36,6 +36,20 @@ class Dashboard extends Component {
         };
     }
 
+    componentDidMount() {
+        const {
+            history,
+            match,
+            user,
+            userData,
+        } = this.props;
+
+        const idsDontMatch = (Number(match.params.id) !== Number(userData.id));
+
+        if (!user && !userData) history.push("/");
+        if (idsDontMatch) history.push(`/users/${userData.id}/dashboard`);
+    }
+
     componentDidUpdate(prevProps) {
         // Typical usage (don't forget to compare props):
         const previousUserWithoutCauses = (prevProps.user && !prevProps.user.Causes);
@@ -113,8 +127,6 @@ class Dashboard extends Component {
     render() {
         const {
             user,
-            userData,
-            history,
             causeSelected,
         } = this.props;
 
@@ -123,9 +135,6 @@ class Dashboard extends Component {
             editProfile,
             loadingCauses,
         } = this.state;
-
-        if (!user && !userData) history.push("/");
-        console.warn("User info: ", user);
 
         return (
             user && (
