@@ -6,12 +6,14 @@ import inputOptions from './inputOptions.js';
 import './NewOrgForm.css';
 
 // Shared UI Components
-import ActionButton from 'components/ActionButton';
-import ImageUploader from 'components/ImageUploader/ImageUploader';
-import InputGroup from 'components/InputGroup/InputGroup';
-import Heading from 'components/Heading/Heading';
+import {
+  ActionButton,
+  Heading,
+  ImageUploader,
+  InputGroup,
+} from 'components';
 
-// New Orf Form Components
+// New Organization Form Components
 import VerificationInputGroup from './components/VerificationInputGroup/VerificationInputGroup.js';
 
 class NewOrgForm extends Component {
