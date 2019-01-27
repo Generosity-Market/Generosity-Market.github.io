@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { clearCart } from 'ducks/cart';
-import FontAwesome from 'components/FontAwesome/FontAwesome';
 import Tile from '../Tile/Tile';
 import './TileSection.css';
+
+// Shared UI Components
+import {
+  FontAwesome,
+} from 'components';
 
 // TODO convert to functional component if not using state
 class TileSection extends Component {

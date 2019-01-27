@@ -5,10 +5,12 @@ import Utils from '../../utilities/utilities';
 import './CauseDetail.css';
 
 // Shared UI Components
-import Banner from 'components/Banner/Banner';
-import ActionButton from 'components/ActionButton';
-import LinkButton from 'components/LinkButton/LinkButton';
-import FontAwesome from 'components/FontAwesome/FontAwesome';
+import {
+  ActionButton,
+  Banner,
+  FontAwesome,
+  LinkButton,
+} from 'components';
 
 // Cause Detail Components
 import ProgressBar from './components/ProgressBar/ProgressBar';

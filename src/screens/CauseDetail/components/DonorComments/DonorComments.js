@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import Heading from 'components/Heading/Heading';
 import './DonorComments.css';
+
+// Shared UI Components
+import {
+  Heading,
+} from 'components';
 
 // TODO convert to functional component if not using state
 class DonorComments extends Component {
