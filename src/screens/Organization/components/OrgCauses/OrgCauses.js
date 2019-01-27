@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import './OrgCauses.css';
 
 // Shared UI Components
-import CauseTile from 'components/CauseTile/CauseTile';
-import Slider from 'components/Slider/Slider';
+import {
+  CauseTile,
+  Slider,
+} from 'components';
 
 // Import HOC to see if component is in viewport
 import handleViewport from 'react-in-viewport';

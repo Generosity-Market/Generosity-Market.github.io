@@ -6,8 +6,10 @@ import Utils from 'utilities/utilities';
 import './organization.css';
 
 // Shared UI Components
-import Banner from 'components/Banner/Banner';
-import LinkButton from 'components/LinkButton/LinkButton';
+import {
+  Banner,
+  LinkButton,
+} from 'components';
 
 // Organization Page UI Components
 import OrgDetails from './components/OrgDetails/OrgDetails';
