@@ -164,6 +164,11 @@ const mapStateToProps = (state) => {
     return {};
 };
 
-const mapDispatchToProps = { register, login };
+const mapDispatchToProps = {
+    register,
+    login
+};
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
+export default withRouter(
+    connect(mapStateToProps, mapDispatchToProps)(Login)
+);

@@ -7,18 +7,18 @@ const bottomNavLinks = [
     {
         name: 'New Cause',
         icon: 'fas fa-plus',
-        endpoint: '/causes/new',
-    }, 
+        endpoint: () => `/causes/new`,
+    },
     {
         name: 'My Dashboard',
         icon: 'fas fa-user',
-        endpoint: '/users/1/dashboard',
+        endpoint: (id) => `/users/${id}/dashboard`,
     },
     {
         name: 'Checkout',
         icon: 'fas fa-shopping-cart',
-        endpoint: '/checkout',
-    }, 
+        endpoint: () => `/checkout`,
+    },
 ];
 
 export default bottomNavLinks;

@@ -60,6 +60,7 @@ class BaseLayout extends Component {
         <BottomMenu
           navLinks={bottomNavLinks}
           handleNavigation={this.handleNavigation}
+          user={this.props.user}
         />
 
       </div>
@@ -68,8 +69,19 @@ class BaseLayout extends Component {
 };
 
 const mapStateToProps = (state) => {
-  const { cause } = state;
-  return { causeList: cause.causeList };
+  const {
+    cause: {
+      causeList,
+    },
+    user: {
+      user,
+    },
+  } = state;
+
+  return {
+    causeList,
+    user,
+  };
 };
 
 const mapDispatchToProps = {
