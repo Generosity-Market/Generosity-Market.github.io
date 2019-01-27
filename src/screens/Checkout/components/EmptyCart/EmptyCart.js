@@ -1,13 +1,17 @@
 import React from 'react';
-import LinkButton from '../../../../components/LinkButton/LinkButton';
 import './EmptyCart.css';
 
-const EmptyCart = (props) =>
+// Shared UI Components
+import {
+  LinkButton,
+} from 'components';
+
+const EmptyCart = (props) => (
   <div className="EmptyCart">
 
     <div className="basket-icon">
       <div>
-        <img src={require('../../../../Assets/icons/basket.png')} alt="basket icon" />
+        <img src={require('Assets/icons/basket.png')} alt="basket icon" />
       </div>
     </div>
 
@@ -22,6 +26,7 @@ const EmptyCart = (props) =>
       linkText="Find a Cause"
     />
 
-  </div>;
+  </div>
+);
 
 export default EmptyCart;

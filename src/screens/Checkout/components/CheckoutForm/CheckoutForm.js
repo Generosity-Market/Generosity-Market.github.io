@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
-import './CheckoutForm.css';
 import stripeServices from 'services/stripe';
-import FontAwesome from 'components/FontAwesome/FontAwesome';
-import ActionButton from 'components/ActionButton';
+import './CheckoutForm.css';
 
+// Shared UI Components
+import {
+    ActionButton,
+    FontAwesome,
+} from 'components';
+
+// Stripe UI Components
 import {
     CardNumberElement,
     CardExpiryElement,

@@ -1,11 +1,15 @@
 import React from 'react';
-import FontAwesome from '../../../../components/FontAwesome/FontAwesome';
 import './CartFooter.css';
 
-const CartFooter = ({ 
-  total, 
+// Shared UI Components
+import {
+  FontAwesome,
+} from 'components';
+
+const CartFooter = ({
   // cart, 
-  toggleCheckoutForm, 
+  total,
+  toggleCheckoutForm,
 }) => {
 
   return (
@@ -18,7 +22,7 @@ const CartFooter = ({
         </div>
       */}
 
-      <div 
+      <div
         className={total === 0 ? 'placeholder-btn disabled' : 'placeholder-btn'}
         onClick={toggleCheckoutForm}
       >
