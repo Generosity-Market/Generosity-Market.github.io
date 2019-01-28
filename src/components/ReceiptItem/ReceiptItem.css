@@ -1,0 +1,25 @@
+.ReceiptItem {
+    display: flex;
+    width: 90%;
+    margin: 1.5rem auto;
+}
+
+.ReceiptItem img {
+    border-radius: 50%;
+    height: 5rem;
+    width: 5rem;
+    margin-right: 1rem;
+}
+
+.ReceiptItem .Info {
+    max-width: 80%;
+}
+
+.ReceiptItem .Info a {
+    color: var(--blackish);
+    text-decoration: none;
+}
+
+.ReceiptItem .Slider p {
+    flex: 0 0 5%; 
+}
