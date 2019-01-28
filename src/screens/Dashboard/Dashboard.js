@@ -140,62 +140,61 @@ class Dashboard extends Component {
             loadingCauses,
         } = this.state;
 
-        return (
-            user && (
-                <div className='Dashboard'>
-                    {/* TODO Once we have a user bucket in Amazon S3 and a create user
+        return user && (
+            <div className='Dashboard'>
+                {/* TODO Once we have a user bucket in Amazon S3 and a create user
                         page we need to remove the getImageURL Utility function */}
 
-                    <Banner
-                        BGimage={
-                            user.backgroundImage &&
-                            Utils.getImageURL(user.backgroundImage)
-                        }
-                        mainImage={
-                            user.mainImage && Utils.getImageURL(user.mainImage)
-                        }
-                        roundImage={
-                            user.Preferences[0]
-                                ? !!user.Preferences[0].roundImage
-                                : false
-                        }
+                <Banner
+                    BGimage={
+                        user.backgroundImage &&
+                        Utils.getImageURL(user.backgroundImage)
+                    }
+                    mainImage={
+                        user.mainImage && Utils.getImageURL(user.mainImage)
+                    }
+                    roundImage={
+                        user.Preferences[0]
+                            ? !!user.Preferences[0].roundImage
+                            : false
+                    }
+                />
+
+                <div className='Wrapper'>
+                    <UserDetails
+                        name={user.name}
+                        phone={user.phone}
+                        address={this.returnAddressInfo(user)}
+                        editProfile={editProfile}
                     />
 
-                    <div className='Wrapper'>
-                        <UserDetails
-                            name={user.name}
-                            phone={user.phone}
-                            address={this.returnAddressInfo(user)}
-                            editProfile={editProfile}
-                        />
+                    <InViewportUserCauses
+                        loading={loadingCauses}
+                        causes={user.CreatedCauses}
+                        causeSelected={causeSelected}
+                        selectCauseToHighlight={this.selectCauseToHighlight}
+                        highlightedCause={highlightedCause}
+                        onEnterViewport={() => this.getCauses(user.id)}
+                    />
 
-                        <InViewportUserCauses
-                            loading={loadingCauses}
-                            causes={user.CreatedCauses}
-                            causeSelected={causeSelected}
-                            selectCauseToHighlight={this.selectCauseToHighlight}
-                            highlightedCause={highlightedCause}
-                            onEnterViewport={() => this.getCauses(user.id)}
-                        />
+                    <LinkButton
+                        href={"/causes/new"}
+                        classname={"create-cause"}
+                        linkText={"Create a cause"}
+                    />
 
-                        <LinkButton
-                            href={"/causes/new"}
-                            classname={"create-cause"}
-                            linkText={"Create a cause"}
+                    {(user.CreatedCauses && !!user.CreatedCauses.length) &&
+                        <DonorInfo
+                            cause={{ ...this.getHighlightedCause() }}
                         />
+                    }
 
-                        {(user.CreatedCauses && !!user.CreatedCauses.length) &&
-                            <DonorInfo
-                                cause={{ ...this.getHighlightedCause() }}
-                            />
-                        }
-
-                        <InViewportReceipts
-                            onEnterViewport={() => this.getReceipts(user.id)}
-                        />
-                    </div>
+                    <InViewportReceipts
+                        supportedCauses={user.SupportedCauses}
+                        onEnterViewport={() => this.getReceipts(user.id)}
+                    />
                 </div>
-            )
+            </div>
         );
     }
 }

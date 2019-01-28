@@ -36,7 +36,7 @@ Pill.propTypes = {
 	/**
     * The Handler for action button click
     */
-    onClick: PropTypes.func.isRequired,
+    onClick: PropTypes.func,
 	/**
     * The name of the Font Awesome icon to pass to the FontAwesome component
     */

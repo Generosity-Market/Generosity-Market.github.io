@@ -22,7 +22,7 @@ const isEmpty = (obj) => {
             return false;
     }
     return true;
-}
+};
 
 const infoButton = (
     <span>

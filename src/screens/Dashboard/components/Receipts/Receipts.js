@@ -1,35 +1,36 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './Receipts.css';
 
 // Shared UI Components
 import {
   Heading,
+  ReceiptItem,
 } from 'components';
 
 // TODO turn this into functional component if we arent using state...
-class Receipts extends Component {
+class Receipts extends PureComponent {
 
   render() {
-    // console.log("Receipts Props: ", this.props.cause);
+    const { supportedCauses } = this.props;
+
+    const causes = supportedCauses && supportedCauses.map(cause => {
+      return (
+        <ReceiptItem
+          key={cause.icon + cause.name}
+          {...cause}
+        />
+      );
+    });
+
     return (
       <div className="Receipts">
         <Heading text={'My Receipts'} />
 
-        <div className="slider">
-          <div className="receipt">
-            <p>$18</p>
-          </div>
-          <div className="receipt">
-            <p>$143</p>
-          </div>
-          <div className="receipt">
-            <p>$9</p>
-          </div>
-        </div>
+        {causes}
 
       </div>
     );
   }
-}
+};
 
 export default Receipts;
