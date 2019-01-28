@@ -17,7 +17,10 @@ const ReceiptItem = ({
 }) => {
     return (
         <div className='ReceiptItem'>
-            <img src={mainImage} alt={`${name}`} />
+            <img
+                src={mainImage}
+                alt={`${name}`}
+            />
             <div className="Info">
                 <Link to={`/cause/${id}`}>{name}</Link>
                 <Slider>
