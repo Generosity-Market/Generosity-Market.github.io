@@ -8,7 +8,7 @@ import './Splash.css';
 // Shared UI Components
 import {
   LinkButton,
-} from 'components';
+} from 'components/shared';
 
 class Splash extends Component {
 
