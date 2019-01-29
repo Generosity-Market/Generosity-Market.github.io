@@ -1,18 +1,27 @@
 .ReceiptItem {
     display: flex;
-    width: 90%;
-    margin: 1.5rem auto;
+    width: 92%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.ReceiptItem .image-wrapper {
+    box-shadow: var(--mini-box-shadow);
+    border-radius: var(--border-radius);
+    flex: 0 0 22%;
+    height: 5rem;
+    overflow: hidden;
 }
 
 .ReceiptItem img {
-    border-radius: 50%;
-    height: 5rem;
-    width: 5rem;
-    margin-right: 1rem;
+    height: 100%;
+    width: 100%;
 }
 
 .ReceiptItem .Info {
-    max-width: 80%;
+    flex: 0 0 80%;
+    margin-left: 1rem;
+    max-width: 78%;
 }
 
 .ReceiptItem .Info a {
@@ -20,6 +29,11 @@
     text-decoration: none;
 }
 
+.ReceiptItem .Slider {
+    margin-bottom: 0;
+}
+
 .ReceiptItem .Slider p {
-    flex: 0 0 5%; 
+    flex: 0 0 5%;
+    width: 100%;
 }

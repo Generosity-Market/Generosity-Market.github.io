@@ -1,12 +1,12 @@
 import React from 'react';
-import Utils from 'utilities/utilities';
+// import Utils from 'utilities/utilities';
 import { Link } from 'react-router-dom';
 import './ReceiptItem.css';
 
 // Shared UI Components
 import {
     Slider,
-    Pill,
+    Tile,
 } from 'components';
 
 const ReceiptItem = ({
@@ -17,24 +17,26 @@ const ReceiptItem = ({
 }) => {
     return (
         <div className='ReceiptItem'>
-            <img
-                src={mainImage}
-                alt={`${name}`}
-            />
+            <div className="image-wrapper">
+                <img
+                    src={mainImage}
+                    alt={`${name}`}
+                />
+            </div>
             <div className="Info">
                 <Link to={`/cause/${id}`}>{name}</Link>
                 <Slider>
                     {Donations.map(donation => (
-                        <Pill
+                        <Tile
                             uiContext={'active'}
                             key={donation.amount}
                         >
                             ${donation.amount}
-                        </Pill>
+                        </Tile>
                     ))}
                 </Slider>
             </div>
-        </div>
+        </div >
     );
 }
 
