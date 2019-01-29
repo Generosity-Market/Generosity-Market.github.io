@@ -6,7 +6,7 @@ import './CheckoutForm.css';
 import {
     ActionButton,
     FontAwesome,
-} from 'components';
+} from 'components/shared';
 
 // Stripe UI Components
 import {

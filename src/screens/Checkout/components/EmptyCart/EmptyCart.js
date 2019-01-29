@@ -4,7 +4,7 @@ import './EmptyCart.css';
 // Shared UI Components
 import {
   LinkButton,
-} from 'components';
+} from 'components/shared';
 
 const EmptyCart = (props) => (
   <div className="EmptyCart">
