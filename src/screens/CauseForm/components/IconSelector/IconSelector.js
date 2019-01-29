@@ -3,7 +3,7 @@ import './IconSelector.css';
 
 import {
   FontAwesome,
-} from 'components';
+} from 'components/shared';
 
 
 class IconSelector extends Component {

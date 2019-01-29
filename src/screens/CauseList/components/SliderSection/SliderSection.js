@@ -8,7 +8,7 @@ import {
     CauseTile,
     Heading,
     Slider,
-} from 'components';
+} from 'components/shared';
 
 const CauseTileWithLazyLoad = handleViewport(CauseTile);
 
