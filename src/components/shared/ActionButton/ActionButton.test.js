@@ -5,8 +5,10 @@ import ReactDOM from 'react-dom';
 import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-// Component import
-import ActionButton from './index.js';
+// Shared UI Components
+import {
+    ActionButton,
+} from 'components/shared';
 
 Enzyme.configure({ adapter: new Adapter() });
 

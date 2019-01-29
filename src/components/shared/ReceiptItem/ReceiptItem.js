@@ -7,13 +7,14 @@ import './ReceiptItem.css';
 import {
     Slider,
     Tile,
-} from 'components';
+} from 'components/shared';
 
 const ReceiptItem = ({
-    name,
+    Donations,
     id,
     mainImage,
-    Donations,
+    name,
+    onTileClick,
 }) => {
     return (
         <div className='ReceiptItem'>
@@ -30,6 +31,7 @@ const ReceiptItem = ({
                         <Tile
                             uiContext={'active'}
                             key={donation.amount}
+                            handleClick={onTileClick}
                         >
                             ${donation.amount}
                         </Tile>

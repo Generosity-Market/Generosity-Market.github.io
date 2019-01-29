@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FontAwesome from '../FontAwesome/FontAwesome';
 import './Tile.css';
+
+import {
+    FontAwesome
+} from 'components/shared';
 
 const Tile = ({
     icon,
-    onClick,
+    handleClick,
     children,
     uiContext,
 }) => {
@@ -13,7 +16,7 @@ const Tile = ({
     return (
         <div
             className={`Tile ${uiContext}`}
-            onClick={onClick}
+            onClick={handleClick}
         >
             {icon &&
                 <FontAwesome icon={icon} />
@@ -28,7 +31,13 @@ Tile.propTypes = {
     /**
     * The classname to apply to the root node
     */
-    uiContext: PropTypes.oneOf(['default', 'success', 'info', 'danger', 'active']),
+    uiContext: PropTypes.oneOf([
+        'default',
+        'active',
+        'danger',
+        'info',
+        'success',
+    ]),
 	/**
     * The children (usually text) to render at the root nodes
     */
@@ -36,7 +45,7 @@ Tile.propTypes = {
 	/**
     * The Handler for action button click
     */
-    onClick: PropTypes.func,
+    handleClick: PropTypes.func,
 	/**
     * The name of the Font Awesome icon to pass to the FontAwesome component
     */
