@@ -4,7 +4,7 @@ import './DonorComments.css';
 // Shared UI Components
 import {
   Heading,
-} from 'components';
+} from 'components/shared';
 
 // TODO convert to functional component if not using state
 class DonorComments extends Component {
