@@ -9,7 +9,7 @@ import './organization.css';
 import {
   Banner,
   LinkButton,
-} from 'components';
+} from 'components/shared';
 
 // Organization Page UI Components
 import OrgDetails from './components/OrgDetails/OrgDetails';

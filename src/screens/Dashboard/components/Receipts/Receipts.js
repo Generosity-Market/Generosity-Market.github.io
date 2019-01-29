@@ -5,7 +5,7 @@ import './Receipts.css';
 import {
   Heading,
   ReceiptItem,
-} from 'components';
+} from 'components/shared';
 
 // TODO turn this into functional component if we arent using state...
 class Receipts extends PureComponent {
@@ -24,7 +24,7 @@ class Receipts extends PureComponent {
 
     return (
       <div className="Receipts">
-        <Heading text={'My Receipts'} />
+        <Heading text={'Causes I Support'} />
 
         {causes}
 

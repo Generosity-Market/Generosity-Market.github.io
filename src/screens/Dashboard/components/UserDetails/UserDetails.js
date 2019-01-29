@@ -4,7 +4,7 @@ import './UserDetails.css';
 // Shared UI Components
 import {
   FontAwesome,
-} from 'components';
+} from 'components/shared';
 
 // TODO turn this into function component if we aren't using state
 class UserDetails extends Component {

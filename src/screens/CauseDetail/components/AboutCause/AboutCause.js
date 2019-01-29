@@ -4,7 +4,7 @@ import './AboutCause.css';
 // Shared UI Components
 import {
   TextSection,
-} from 'components';
+} from 'components/shared';
 
 // TODO convert to functional component if not using state
 class AboutCause extends Component {

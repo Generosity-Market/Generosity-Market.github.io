@@ -1,6 +1,9 @@
 import React from 'react';
-import FontAwesome from 'components/FontAwesome/FontAwesome';
 import './SlideMenu.css';
+
+import {
+  FontAwesome,
+} from 'components/shared';
 
 const SlideMenu = ({
   showMenu,

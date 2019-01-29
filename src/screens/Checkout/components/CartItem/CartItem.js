@@ -6,7 +6,7 @@ import './CartItem.css';
 import {
   FontAwesome,
   MainImage,
-} from 'components';
+} from 'components/shared';
 
 const CartItem = ({
   amount,

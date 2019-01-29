@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import FontAwesome from 'components/FontAwesome/FontAwesome';
 import './TopMenu.css';
+
+import {
+  FontAwesome,
+} from 'components/shared';
 
 class TopMenu extends Component {
 

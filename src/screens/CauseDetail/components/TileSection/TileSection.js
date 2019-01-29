@@ -7,7 +7,7 @@ import './TileSection.css';
 // Shared UI Components
 import {
   FontAwesome,
-} from 'components';
+} from 'components/shared';
 
 // TODO convert to functional component if not using state
 class TileSection extends Component {

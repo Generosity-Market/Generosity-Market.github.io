@@ -1,6 +1,8 @@
 import React from 'react';
 
-import LinkButton from 'components/LinkButton/LinkButton';
+import {
+    LinkButton,
+} from 'components/shared';
 
 const popup = ({ }) => {
 

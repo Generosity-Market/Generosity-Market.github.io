@@ -12,7 +12,7 @@ import {
   Heading,
   ImageUploader,
   InputGroup,
-} from 'components';
+} from 'components/shared';
 
 // Cause Form Components
 import IconSelector from './components/IconSelector/IconSelector';

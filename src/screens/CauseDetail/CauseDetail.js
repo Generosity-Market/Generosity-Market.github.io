@@ -10,7 +10,7 @@ import {
   Banner,
   FontAwesome,
   LinkButton,
-} from 'components';
+} from 'components/shared';
 
 // Cause Detail Components
 import ProgressBar from './components/ProgressBar/ProgressBar';

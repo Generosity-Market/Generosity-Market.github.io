@@ -6,7 +6,7 @@ import './ThankYou.css';
 // Shared UI Components
 import {
   LinkButton,
-} from 'components';
+} from 'components/shared';
 
 // Convert to functional component if not using state
 class ThankYou extends Component {

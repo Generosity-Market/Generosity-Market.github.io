@@ -7,7 +7,7 @@ import {
   FontAwesome,
   Heading,
   Slider,
-} from 'components';
+} from 'components/shared';
 
 // Import HOC to see if component is in viewport
 import handleViewport from 'react-in-viewport';

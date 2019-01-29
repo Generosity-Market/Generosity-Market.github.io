@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 // Shared UI Components
 import {
     InputGroup,
-} from 'components';
+} from 'components/shared';
 
 // Convert to functional component if not using state
 class VerificationInputGroup extends Component {

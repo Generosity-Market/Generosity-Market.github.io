@@ -5,7 +5,7 @@ import './Cart.css';
 // Shared UI Components
 import {
   FontAwesome,
-} from 'components';
+} from 'components/shared';
 
 const Cart = ({
   cart,

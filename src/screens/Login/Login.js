@@ -5,9 +5,11 @@ import { register, login } from '../../ducks/user';
 import './Login.css';
 
 // Shared UI Components
-// import LinkButton from 'components/LinkButton/LinkButton';
-import ActionButton from 'components/ActionButton';
-// import Modal from 'components/Modal/Modal';
+import {
+    ActionButton,
+    // LinkButton,
+    // Modal,
+} from 'components/shared';
 
 // Login Components
 

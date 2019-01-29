@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FontAwesome from 'components/FontAwesome/FontAwesome';
 import './ActionButton.css';
+
+import {
+    FontAwesome,
+} from 'components/shared';
 
 const ActionButton = ({ action, classname, icon, actionText }) => {
     return (

@@ -5,7 +5,7 @@ import './OrgDetails.css';
 import {
   Heading,
   TextSection,
-} from "components";
+} from "components/shared";
 
 // TODO convert to functional component if not using state
 export default class OrgDetails extends Component {
