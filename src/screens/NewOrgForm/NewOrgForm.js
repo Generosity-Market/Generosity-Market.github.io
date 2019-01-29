@@ -11,7 +11,7 @@ import {
   Heading,
   ImageUploader,
   InputGroup,
-} from 'components';
+} from 'components/shared';
 
 // New Organization Form Components
 import VerificationInputGroup from './components/VerificationInputGroup/VerificationInputGroup.js';
