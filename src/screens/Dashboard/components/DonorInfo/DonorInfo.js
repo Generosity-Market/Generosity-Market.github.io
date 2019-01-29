@@ -8,7 +8,7 @@ import {
     Heading,
     Pill,
     Slider,
-} from 'components';
+} from 'components/shared';
 
 const {
     sortByKey,

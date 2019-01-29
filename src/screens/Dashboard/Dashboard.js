@@ -19,7 +19,7 @@ import {
 import {
     Banner,
     LinkButton,
-} from 'components';
+} from 'components/shared';
 
 // Dashboard Components
 import UserDetails from "./components/UserDetails/UserDetails";
