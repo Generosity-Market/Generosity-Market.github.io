@@ -9,6 +9,9 @@ import './Login.css';
 import ActionButton from 'components/ActionButton';
 // import Modal from 'components/Modal/Modal';
 
+// Login Components
+
+// TODO Break up some of the components in this page...
 class Login extends Component {
     constructor(props) {
         super(props)
@@ -79,15 +82,15 @@ class Login extends Component {
             context,
         } = this.state;
 
-        const {
-            location: {
-                state: {
-                    from,
-                }
-            }
-        } = this.props;
+        // const {
+        //     location: {
+        //         state: {
+        //             from,
+        //         }
+        //     }
+        // } = this.props;
 
-        ; return (
+        return (
             <div className="Login">
                 <div className="sign-in">
                     <p
@@ -165,8 +168,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
+    login,
     register,
-    login
 };
 
 export default withRouter(
