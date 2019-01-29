@@ -1,6 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import FontAwesome from 'components/FontAwesome/FontAwesome';
+
+import {
+  FontAwesome,
+} from 'components/shared';
 
 const NavItem = ({
   color,
