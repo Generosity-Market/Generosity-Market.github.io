@@ -112,8 +112,12 @@ class CauseDetail extends Component {
 
 const mapStateToProps = (state) => {
   const {
-    cause: { selectedCause },
-    cart: { cart },
+    cause: {
+      selectedCause
+    },
+    cart: {
+      cart
+    },
   } = state;
 
   return {
@@ -122,6 +126,9 @@ const mapStateToProps = (state) => {
   }
 };
 
-const mapDispatchToProps = { causeSelected, getSingleCause };
+const mapDispatchToProps = {
+  causeSelected,
+  getSingleCause
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(CauseDetail);
