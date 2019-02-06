@@ -10,12 +10,17 @@ import {
 } from 'components/shared';
 
 const ReceiptItem = ({
-    Donations,
-    id,
-    mainImage,
-    name,
-    onTileClick,
+    cause,
+    selectCause,
 }) => {
+
+    const {
+        Donations,
+        id,
+        mainImage,
+        name,
+    } = cause;
+
     return (
         <div className='ReceiptItem'>
             <div className="image-wrapper">
@@ -25,13 +30,12 @@ const ReceiptItem = ({
                 />
             </div>
             <div className="Info">
-                <Link to={`/cause/${id}`}>{name}</Link>
+                <Link to={`/cause/${id}`} onClick={() => selectCause(cause)}>{name}</Link>
                 <Slider>
                     {Donations.map(donation => (
                         <Tile
                             uiContext={'active'}
                             key={donation.amount}
-                            handleClick={onTileClick}
                         >
                             ${donation.amount}
                         </Tile>

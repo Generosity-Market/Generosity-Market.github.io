@@ -1,5 +1,10 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 import './Receipts.css';
+
+import {
+  causeSelected,
+} from 'ducks/cause';
 
 // Shared UI Components
 import {
@@ -11,13 +16,17 @@ import {
 class Receipts extends PureComponent {
 
   render() {
-    const { supportedCauses } = this.props;
+    const {
+      causeSelected,
+      supportedCauses,
+    } = this.props;
 
     const causes = supportedCauses && supportedCauses.map(cause => {
       return (
         <ReceiptItem
           key={cause.icon + cause.name}
-          {...cause}
+          selectCause={causeSelected}
+          cause={cause}
         />
       );
     });
@@ -33,4 +42,20 @@ class Receipts extends PureComponent {
   }
 };
 
-export default Receipts;
+const mapStateToProps = (state) => {
+  const {
+    cause: {
+      causeList
+    },
+  } = state;
+
+  return {
+    causeList,
+  };
+};
+
+const mapDispatchToProps = {
+  causeSelected,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Receipts);
