@@ -1,5 +1,5 @@
 // Import and export shared UI components here
-export { default as ActionButton } from './ActionButton';
+export { default as ActionButton } from './ActionButton/ActionButton';
 export { default as Banner } from './Banner/Banner';
 export { default as CauseTile } from './CauseTile/CauseTile';
 export { default as FontAwesome } from './FontAwesome/FontAwesome';
