@@ -4,6 +4,7 @@ import './DonorInfo.css';
 
 // Shared UI Components
 import {
+    DownloadCSV,
     FontAwesome,
     Heading,
     Pill,
@@ -49,6 +50,18 @@ const getSortKey = (sort) => {
         default:
             return '';
     }
+}
+
+const formatDonorInfoForDownload = (info) => {
+    return info.map(item => {
+        const { id, email, amount, updatedAt } = item;
+        return {
+            "Transaction id": id,
+            Email: email,
+            Amount: amount,
+            Date: getFormattedDate(updatedAt),
+        }
+    })
 }
 
 
@@ -110,7 +123,6 @@ export default class DonorInfo extends Component {
                             className="donation-card"
                             style={{ backgroundColor: `${index % 2 === 0 ? 'transparent' : 'var(--black-10)'}` }}
                         >
-                            {/* <Pill>{`$${donation.amount}`}</Pill> */}
                             <p>${donation.amount}</p>
                             <p>{donation.email}</p>
                             <p>{getFormattedDate(donation.updatedAt)}</p>
@@ -141,6 +153,13 @@ export default class DonorInfo extends Component {
 
                 {!causeIsEmpty &&
                     <div className="wrapper">
+                        <DownloadCSV
+                            buttonText={'Download Donor info'}
+                            className="donor-download"
+                            csvData={formatDonorInfoForDownload(sortedArray)}
+                            filename={cause.name}
+                        />
+
                         {this.renderSorts(sort)}
 
                         <div

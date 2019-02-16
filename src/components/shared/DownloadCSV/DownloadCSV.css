@@ -1,0 +1,14 @@
+.csv-download {
+    color: var(--medium-blue); /* Test these colors  */
+    color: var(--text-gray); /* Test these colors  */
+    margin-left: 1rem;
+    text-decoration: none;
+}
+
+.csv-download i {
+    background-color: var(--text-gray);
+    border-radius: 50%;
+    color: var(--white);
+    margin-right: 0.5rem;
+    padding: 0.5rem;
+}
