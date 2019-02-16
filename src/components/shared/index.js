@@ -2,6 +2,7 @@
 export { default as ActionButton } from './ActionButton/ActionButton';
 export { default as Banner } from './Banner/Banner';
 export { default as CauseTile } from './CauseTile/CauseTile';
+export { default as DownloadCSV } from './DownloadCSV/DownloadCSV';
 export { default as FontAwesome } from './FontAwesome/FontAwesome';
 export { default as Heading } from './Heading/Heading';
 export { default as ImageUploader } from './ImageUploader/ImageUploader';

@@ -23,6 +23,10 @@
     transition: background-color 0.3s;
 }
 
+.DonorInfo .donor-download i {
+        background-color: var(--medium-blue-85);
+}
+
 .DonorInfo .donation-card {
     align-items: center;
     border-radius: var(--border-radius);
