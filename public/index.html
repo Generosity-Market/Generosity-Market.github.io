@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-    <!--
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <!-- <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico"> -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+    crossorigin="anonymous">
 
-    <!-- ****** faviconit.com favicons ****** -->
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicons/favicon.ico">
-    <link rel="icon" sizes="16x16 32x32 64x64" href="%PUBLIC_URL%/favicons/favicon.ico">
-    <link rel="icon" type="image/png" sizes="196x196" href="%PUBLIC_URL%/favicons/favicon-192.png">
-    <link rel="icon" type="image/png" sizes="160x160" href="%PUBLIC_URL%/favicons/favicon-160.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="%PUBLIC_URL%/favicons/favicon-96.png">
-    <link rel="icon" type="image/png" sizes="64x64" href="%PUBLIC_URL%/favicons/favicon-64.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicons/favicon-32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicons/favicon-16.png">
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicons/favicon-57.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="%PUBLIC_URL%/favicons/favicon-114.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="%PUBLIC_URL%/favicons/favicon-72.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="%PUBLIC_URL%/favicons/favicon-144.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="%PUBLIC_URL%/favicons/favicon-60.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="%PUBLIC_URL%/favicons/favicon-120.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="%PUBLIC_URL%/favicons/favicon-76.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="%PUBLIC_URL%/favicons/favicon-152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/favicons/favicon-180.png">
-    <meta name="msapplication-TileColor" content="#FFFFFF">
-    <meta name="msapplication-TileImage" content="%PUBLIC_URL%/favicons/favicon-144.png">
-    <meta name="msapplication-config" content="%PUBLIC_URL%/browserconfig.xml">
-    <!-- ****** faviconit.com favicons ****** -->
-    <!--
+  <!-- ****** faviconit.com favicons ****** -->
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicons/favicon.ico">
+  <link rel="icon" sizes="16x16 32x32 64x64" href="%PUBLIC_URL%/favicons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="196x196" href="%PUBLIC_URL%/favicons/favicon-192.png">
+  <link rel="icon" type="image/png" sizes="160x160" href="%PUBLIC_URL%/favicons/favicon-160.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="%PUBLIC_URL%/favicons/favicon-96.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="%PUBLIC_URL%/favicons/favicon-64.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicons/favicon-16.png">
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicons/favicon-57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="%PUBLIC_URL%/favicons/favicon-114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="%PUBLIC_URL%/favicons/favicon-72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="%PUBLIC_URL%/favicons/favicon-144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="%PUBLIC_URL%/favicons/favicon-60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="%PUBLIC_URL%/favicons/favicon-120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="%PUBLIC_URL%/favicons/favicon-76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="%PUBLIC_URL%/favicons/favicon-152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/favicons/favicon-180.png">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+  <meta name="msapplication-TileImage" content="%PUBLIC_URL%/favicons/favicon-144.png">
+  <meta name="msapplication-config" content="%PUBLIC_URL%/browserconfig.xml">
+  <!-- ****** faviconit.com favicons ****** -->
+
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -44,16 +45,17 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <script src="https://js.stripe.com/v3/"></script>
-    
-    <title>Generosity Market</title>
-  </head>
-  <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <div id="root"></div>
-    <!--
+  <script async src="https://js.stripe.com/v3/"></script>
+
+  <title>Generosity Market</title>
+</head>
+
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div id="root"></div>
+  <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -63,5 +65,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  </body>
+</body>
+
 </html>
