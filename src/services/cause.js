@@ -1,6 +1,5 @@
 import {
     fetchJSONData,
-    postJSONData,
     postFormData,
 } from 'fetchers/genericFetchers';
 
