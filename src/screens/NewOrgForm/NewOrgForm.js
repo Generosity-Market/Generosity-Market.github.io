@@ -14,7 +14,9 @@ import {
 } from 'components/shared';
 
 // New Organization Form Components
-import VerificationInputGroup from './components/VerificationInputGroup/VerificationInputGroup.js';
+import {
+  VerificationInputGroup,
+} from 'components/NewOrgForm';
 
 class NewOrgForm extends Component {
   constructor(props) {

@@ -7,10 +7,12 @@ import Utils from 'utilities/utilities';
 import './Checkout.css';
 
 // Checkout Components
-import Cart from './components/Cart/Cart';
-import CartFooter from './components/CartFooter/CartFooter';
-import EmptyCart from './components/EmptyCart/EmptyCart';
-import CheckoutForm from './components/CheckoutForm/CheckoutForm';
+import {
+  Cart,
+  CartFooter,
+  CheckoutForm,
+  EmptyCart,
+} from 'components/Checkout';
 
 class Checkout extends Component {
   constructor(props) {
@@ -26,7 +28,7 @@ class Checkout extends Component {
       // public_comment: '',
       // private_comment: '',
       showForm: false,
-      // Get this from .env for production. Do not commit the live key!!!
+      // TODO Get this from .env for production. Do not commit the live key!!!
       apiKey: "pk_test_qojWn3GnI7Cr16kIvzOjMYiA",
     };
   };

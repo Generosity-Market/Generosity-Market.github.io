@@ -15,7 +15,9 @@ import {
 } from 'components/shared';
 
 // Cause Form Components
-import IconSelector from './components/IconSelector/IconSelector';
+import {
+  IconSelector,
+} from 'components/CauseForm';
 
 class CauseForm extends Component {
   constructor(props) {

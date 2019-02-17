@@ -4,7 +4,9 @@ import { getCauseList, causeSelected } from 'ducks/cause';
 import './causelist.css';
 
 // CauseList components
-import SliderSection from './components/SliderSection/SliderSection';
+import {
+  SliderSection,
+} from 'components/CauseList';
 
 const returnEmpty = (getCauseList) => {
   return (

@@ -4,7 +4,7 @@ import {
     LinkButton,
 } from 'components/shared';
 
-const popup = ({ }) => {
+const Popup = ({ }) => {
 
     return (
         <div>
