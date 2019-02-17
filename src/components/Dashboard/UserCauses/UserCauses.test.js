@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import causes from '../../../../../public/api/causes.json';
 
 // Enzyme imports
 import Enzyme, { mount, shallow } from 'enzyme';
@@ -12,9 +11,7 @@ import UserCauses from './UserCauses.js';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const defaultProps = {
-  causes: causes,
-};
+const defaultProps = {};
 
 const testElement =
   <BrowserRouter>
@@ -24,7 +21,7 @@ const testElement =
 describe('<UserCauses />', () => {
 
   it('renders without crashing', () => {
-      const div = document.createElement('div');
-      ReactDOM.render(testElement, div);
+    const div = document.createElement('div');
+    ReactDOM.render(testElement, div);
   });
 });

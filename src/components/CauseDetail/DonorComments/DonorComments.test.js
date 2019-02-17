@@ -11,7 +11,7 @@ import DonorComments from './DonorComments.js';
 Enzyme.configure({ adapter: new Adapter() });
 
 const defaultProps = {
-  donorData: [
+  donations: [
     {
       name: "Sally Givesalot",
       comment: "Can't wait to hear the stories!!",

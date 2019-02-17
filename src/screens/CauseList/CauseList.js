@@ -20,7 +20,7 @@ const returnEmpty = (getCauseList) => {
 class CauseList extends Component {
 
   componentDidMount() {
-    if (this.props.causeList.length === 0) {
+    if (!this.props.causeList || this.props.causeList.length === 0) {
       this.props.getCauseList();
     }
   };

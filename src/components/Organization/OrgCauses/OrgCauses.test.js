@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import causes from 'public/api/causes.json';
 
 // Enzyme imports
 import Enzyme, { mount, shallow } from 'enzyme';
@@ -13,7 +12,7 @@ import OrgCauses from './OrgCauses.js';
 Enzyme.configure({ adapter: new Adapter() });
 
 const defaultProps = {
-  causes: causes,
+  causes: [],
 };
 
 const testElement =

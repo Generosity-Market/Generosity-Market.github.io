@@ -23,9 +23,13 @@ let store = createStore(
 
 Enzyme.configure({ adapter: new Adapter() });
 
+const defaultProps = {
+  causeList: [],
+};
+
 const testElement =
   // <Provider store={store}>
-  <CauseList store={store} />;
+  <CauseList {...defaultProps} store={store} />;
 // </Provider>;
 
 describe('<CauseList />', () => {

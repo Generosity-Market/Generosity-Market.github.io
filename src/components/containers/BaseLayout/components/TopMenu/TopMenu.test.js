@@ -8,13 +8,10 @@ import Adapter from 'enzyme-adapter-react-16';
 
 // Component import
 import TopMenu from './TopMenu.js';
-import navLinks from 'linksData';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const defaultProps = {
-  navLinks: navLinks,
-};
+const defaultProps = {};
 
 const testElement =
   <BrowserRouter>

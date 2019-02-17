@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk from 'redux-thunk';
@@ -21,7 +22,11 @@ let store = createStore(
   )
 );
 
-const testElement = <CauseForm store={store} />;
+const testElement = (
+  <BrowserRouter>
+    <CauseForm store={store} />
+  </BrowserRouter>
+);
 
 describe('<CauseForm />', () => {
 

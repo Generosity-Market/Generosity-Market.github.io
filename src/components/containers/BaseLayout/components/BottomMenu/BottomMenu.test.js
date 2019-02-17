@@ -8,7 +8,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 // Component import
 import BottomMenu from './BottomMenu.js';
-import bottomNavLinks from '../../linksData';
+import bottomNavLinks from 'constants/BottomNavLinks';
 
 Enzyme.configure({ adapter: new Adapter() });
 

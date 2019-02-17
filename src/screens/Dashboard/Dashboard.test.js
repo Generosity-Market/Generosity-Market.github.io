@@ -25,7 +25,14 @@ let store = createStore(
 );
 
 const defaultProps = {
-  match: { params: { id: 1 } },
+  match: {
+    params: {
+      id: 1
+    }
+  },
+  user: {
+    Preferences: [],
+  }
 };
 
 const testElement =

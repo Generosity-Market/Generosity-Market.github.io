@@ -7,7 +7,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 // Component import
 import SlideMenu from './SlideMenu.js';
-import navLinks from 'linksData.js';
+import navLinks from 'constants/linksData.js';
 
 Enzyme.configure({ adapter: new Adapter() });
 

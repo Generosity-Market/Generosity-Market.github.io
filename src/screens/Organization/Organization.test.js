@@ -25,7 +25,15 @@ let store = createStore(
 );
 
 const defaultProps = {
-  match: { params: { id: 1 } },
+  match: {
+    params: {
+      id: 1
+    }
+  },
+  organization: {
+    name: 'My Organization',
+    heading: 'My Heading',
+  },
 };
 
 const testElement =

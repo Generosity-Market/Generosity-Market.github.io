@@ -20,12 +20,14 @@ Enzyme.configure({ adapter: new Adapter() });
 let store = createStore(
   reducers,
   compose(
-      applyMiddleware(reduxThunk)
+    applyMiddleware(reduxThunk)
   )
 );
 
 const defaultProps = {
-  // Props...
+  cart: [{
+    amount: 5
+  }],
 };
 
 const testElement =
@@ -36,8 +38,8 @@ const testElement =
 describe('<Checkout />', () => {
 
   it('renders without crashing', () => {
-      const div = document.createElement('div');
-      ReactDOM.render(testElement, div);
-      ReactDOM.unmountComponentAtNode(div);
+    const div = document.createElement('div');
+    ReactDOM.render(testElement, div);
+    ReactDOM.unmountComponentAtNode(div);
   });
 });

@@ -13,7 +13,7 @@ import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 // Component import
-import SingleCause from './SingleCause.js';
+import CauseDetail from './CauseDetail.js';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -30,10 +30,10 @@ const defaultProps = {
 
 const testElement =
   <BrowserRouter>
-    <SingleCause {...defaultProps} store={store} />
+    <CauseDetail {...defaultProps} store={store} />
   </BrowserRouter>;
 
-describe('<SingleCause />', () => {
+describe('<CauseDetail />', () => {
   let wrapper;
   beforeAll(() => {
     wrapper = shallow(testElement);

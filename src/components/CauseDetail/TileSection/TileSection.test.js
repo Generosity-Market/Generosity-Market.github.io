@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 // import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk from 'redux-thunk';
-import reducers from '../../../../reducers/reducer';
+import reducers from 'reducers/reducer';
 
 // Enzyme imports
 import Enzyme, { mount, shallow } from 'enzyme';

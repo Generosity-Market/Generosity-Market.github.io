@@ -24,7 +24,7 @@ class BaseLayout extends Component {
 
   componentDidMount() {
     this.props.loadTokenFromCookie();
-    if (!this.props.causeList.length) {
+    if (!this.props.causeList || !this.props.causeList.length) {
       this.props.getCauseList();
     };
   }
