@@ -8,16 +8,15 @@ import {
 } from './actions';
 
 import Cookies from 'js-cookie';
-import Services from 'services/services';
 import { makeFetchCreator } from 'actions/makeFetchCreator';
 
-const {
+import {
     fetchUserData,
     registerUser,
     userLogin,
     fetchUserCreatedCauses,
     fetchUserSupportedCauses,
-} = Services;
+} from 'services';
 
 export const register = ({ email, password }) => {
     return (dispatch) => {
