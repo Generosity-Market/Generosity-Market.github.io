@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import Cookies from 'js-cookie';
-import './Routes.css';
+import './RouteTransitions.css';
 
 import {
     Switch,
