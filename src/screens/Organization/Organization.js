@@ -12,8 +12,10 @@ import {
 } from 'components/shared';
 
 // Organization Page UI Components
-import OrgDetails from './components/OrgDetails/OrgDetails';
-import OrgCauses from './components/OrgCauses/OrgCauses';
+import {
+  OrgCauses,
+  OrgDetails,
+} from 'components/Organization';
 
 class Organization extends Component {
 
