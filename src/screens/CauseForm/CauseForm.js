@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { addCause } from 'ducks/cause';
-import Services from 'services/services';
 import './causeForm.css';
 import inputOptions from './inputOptions';
+
+import {
+  submitCauseFormData,
+} from 'services';
 
 // Shared UI Component
 import {
@@ -110,7 +113,7 @@ class CauseForm extends Component {
     formData.append('bucket', 'cause');
     formData.append('state', JSON.stringify(causeData));
 
-    Services.submitCauseForm(formData, {
+    submitCauseFormData(formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }

@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Services from 'services/services';
 import './CauseTile.css';
+
+import {
+  getPlaceholder,
+} from 'services';
 
 import {
   getIconUrl,
@@ -19,7 +22,7 @@ const CauseTile = ({
   raised,
 }) => {
 
-  const imageURL = (inViewport ? cause.mainImage : Services.getLazyImagePlaceholder());
+  const imageURL = (inViewport ? cause.mainImage : getPlaceholder());
   // TODO update progress bar message when raised 100%
   const calculateBarWidth = (percentRaised) => {
     if (percentRaised >= 100) {
