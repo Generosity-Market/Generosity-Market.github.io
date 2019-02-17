@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import handleViewport from 'react-in-viewport';
-import Utils from "utilities/utilities";
 import "./dashboard.css";
+
+import {
+    getImageUrl,
+} from 'utilities';
 
 import {
     getCauseList,
@@ -150,10 +153,10 @@ class Dashboard extends Component {
                 <Banner
                     BGimage={
                         user.backgroundImage &&
-                        Utils.getImageURL(user.backgroundImage)
+                        getImageUrl(user.backgroundImage)
                     }
                     mainImage={
-                        user.mainImage && Utils.getImageURL(user.mainImage)
+                        user.mainImage && getImageUrl(user.mainImage)
                     }
                     roundImage={
                         user.Preferences[0]

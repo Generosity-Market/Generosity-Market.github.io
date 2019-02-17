@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { register, login } from '../../ducks/user';
 import './Login.css';
+
+import {
+    login,
+    register,
+} from 'ducks/user';
 
 // Shared UI Components
 import {

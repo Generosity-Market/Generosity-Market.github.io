@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getCauseList, causeSelected } from 'ducks/cause';
 import { getOrgData } from 'ducks/organization';
-import Utils from 'utilities/utilities';
 import './organization.css';
+
+import {
+  getImageUrl,
+} from 'utilities';
 
 // Shared UI Components
 import {
@@ -47,8 +50,8 @@ class Organization extends Component {
         {organization &&
           <Banner
             heading={name}
-            BGimage={backgroundImage && Utils.getImageURL(backgroundImage)}
-            mainImage={mainImage && Utils.getImageURL(mainImage)}
+            BGimage={backgroundImage && getImageUrl(backgroundImage)}
+            mainImage={mainImage && getImageUrl(mainImage)}
             roundImage={Preferences[0] ? Preferences[0].roundImage : false}
           />
         }
