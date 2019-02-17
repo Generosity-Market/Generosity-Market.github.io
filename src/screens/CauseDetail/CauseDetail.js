@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getSingleCause, causeSelected } from '../../ducks/cause';
-import Utils from '../../utilities/utilities';
+import { getSingleCause, causeSelected } from 'ducks/cause';
+import Utils from 'utilities/utilities';
 import './CauseDetail.css';
 
 // Shared UI Components
@@ -13,10 +13,12 @@ import {
 } from 'components/shared';
 
 // Cause Detail Components
-import ProgressBar from './components/ProgressBar/ProgressBar';
-import TileSection from './components/TileSection/TileSection';
-import AboutCause from './components/AboutCause/AboutCause';
-import DonorComments from './components/DonorComments/DonorComments';
+import {
+  AboutCause,
+  DonorComments,
+  ProgressBar,
+  TileSection,
+} from 'components/CauseDetail';
 
 class CauseDetail extends Component {
 
