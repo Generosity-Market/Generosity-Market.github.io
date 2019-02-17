@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getSingleCause, causeSelected } from 'ducks/cause';
-import Utils from 'utilities/utilities';
 import './CauseDetail.css';
+
+// Ducks
+import {
+  causeSelected,
+  getSingleCause,
+} from 'ducks/cause';
+
+// Utilities
+import {
+  scrollTo,
+  sharePage,
+} from 'utilities';
 
 // Shared UI Components
 import {
@@ -23,7 +33,7 @@ import {
 class CauseDetail extends Component {
 
   componentDidMount() {
-    Utils.scrollTo('topnav');
+    scrollTo('topnav');
 
     // fetch the current cause if undefined (Usually on refreshing the screen)
     if (!this.props.cause) {
@@ -82,7 +92,7 @@ class CauseDetail extends Component {
             classname="donate-link"
           />
 
-          <div className="share-link" onClick={() => Utils.sharePage()}>
+          <div className="share-link" onClick={() => sharePage()}>
             <FontAwesome classname={"fas fa-share-alt"} />
             Or Share This Page
           </div>
@@ -102,7 +112,7 @@ class CauseDetail extends Component {
           <ActionButton
             actionText="Share this page"
             classname="share-page"
-            action={Utils.sharePage}
+            action={sharePage}
             icon={"fas fa-share-alt"}
           />
 

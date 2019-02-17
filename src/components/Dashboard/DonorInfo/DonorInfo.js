@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import Utils from 'utilities/utilities';
 import './DonorInfo.css';
 
 // Shared UI Components
@@ -11,11 +10,11 @@ import {
     Slider,
 } from 'components/shared';
 
-const {
-    sortByKey,
+import {
     getFormattedDate,
+    sortByKey,
     // getIconURL,
-} = Utils;
+} from 'utilities';
 
 const isEmpty = (obj) => {
     for (var Donations in obj) {

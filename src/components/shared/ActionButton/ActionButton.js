@@ -6,7 +6,12 @@ import {
     FontAwesome,
 } from 'components/shared';
 
-const ActionButton = ({ action, classname, icon, actionText }) => {
+const ActionButton = ({
+    action,
+    actionText,
+    classname,
+    icon,
+}) => {
     return (
         <div className='ActionButton' style={buttonWrap}>
             <div onClick={action} className={classname} style={buttonStyles}>

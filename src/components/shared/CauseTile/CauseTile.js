@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Utils from 'utilities/utilities';
 import Services from 'services/services';
 import './CauseTile.css';
+
+import {
+  getIconUrl,
+} from 'utilities';
 
 const CauseTile = ({
   cause,
@@ -49,7 +52,7 @@ const CauseTile = ({
 
         <h4>
           {isFeatured &&
-            <img src={Utils.getIconURL(cause.icon)} alt={cause.icon} />}
+            <img src={getIconUrl(cause.icon)} alt={cause.icon} />}
           <p>
             {cause.name}
           </p>

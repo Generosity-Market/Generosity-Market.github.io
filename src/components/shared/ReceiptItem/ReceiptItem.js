@@ -1,5 +1,4 @@
 import React from 'react';
-// import Utils from 'utilities/utilities';
 import { Link } from 'react-router-dom';
 import './ReceiptItem.css';
 

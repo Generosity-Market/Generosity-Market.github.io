@@ -3,8 +3,11 @@ import { connect } from 'react-redux';
 import { removeFromCart, clearCart } from 'ducks/cart';
 import { submitDonation } from 'ducks/cause';
 import { Elements, StripeProvider } from 'react-stripe-elements';
-import Utils from 'utilities/utilities';
 import './Checkout.css';
+
+import {
+  getTotal,
+} from 'utilities';
 
 // Checkout Components
 import {
@@ -53,7 +56,7 @@ class Checkout extends Component {
 
           {cart.length > 0 &&
             <CartFooter
-              total={Utils.getTotal(cart, 'amount')}
+              total={getTotal(cart, 'amount')}
               toggleCheckoutForm={() => this.toggleCheckoutForm()}
               {...this.props}
             />}
@@ -62,7 +65,7 @@ class Checkout extends Component {
             <CheckoutForm
               toggleCheckoutForm={this.toggleCheckoutForm}
               showForm={this.state.showForm}
-              total={Utils.getTotal(cart, 'amount')}
+              total={getTotal(cart, 'amount')}
               submitDonation={submitDonation}
               clearCart={clearCart}
               {...this.props}
