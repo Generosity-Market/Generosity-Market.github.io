@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 // import { addCause } from 'ducks/cause';
-import Services from 'services/services';
 import inputOptions from './inputOptions.js';
 import './NewOrgForm.css';
+
+import {
+  submitOrgFormData,
+} from 'services';
 
 // Shared UI Components
 import {
@@ -83,7 +86,7 @@ class NewOrgForm extends Component {
     formData.append('state', JSON.stringify(this.state));
 
 
-    Services.submitFormData(formData, {
+    submitOrgFormData(formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }

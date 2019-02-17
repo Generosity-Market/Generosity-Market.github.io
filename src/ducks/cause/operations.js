@@ -6,15 +6,14 @@ import {
     updateTotal,
 } from './actions';
 
-import Services from 'services/services';
 import { makeFetchCreator } from 'actions/makeFetchCreator';
 
-const {
+import {
     fetchCauseList,
     fetchSingleCause,
-    submitFormData,
+    submitCauseFormData,
     submitPayment,
-} = Services;
+} from 'services';
 
 export {
     addCause,
@@ -47,7 +46,7 @@ export const getCauseList = () => makeFetchCreator(fetchCauseList, setData, null
 export const getSingleCause = (id) => makeFetchCreator(fetchSingleCause, causeSelected, id);
 
 // publishing the submitted cause page
-export const submitCauseForm = (args) => makeFetchCreator(submitFormData, addCause, args);
+export const submitCauseForm = (args) => makeFetchCreator(submitCauseFormData, addCause, args);
 
 // submitting a payment for total donation
 export const submitDonation = (args) => makeFetchCreator(submitPayment, updateDonations, args);
