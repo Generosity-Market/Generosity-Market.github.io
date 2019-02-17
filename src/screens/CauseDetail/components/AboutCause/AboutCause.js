@@ -15,11 +15,13 @@ class AboutCause extends Component {
 
         <TextSection
           heading={`About the ${this.props.title} Cause`}
-          text={this.props.aboutText} />
+          text={this.props.aboutText}
+        />
 
         <TextSection
           heading={`How your gift will be used`}
-          text={this.props.usageText} />
+          text={this.props.usageText}
+        />
 
       </div>
     );
