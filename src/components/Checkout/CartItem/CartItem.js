@@ -1,6 +1,9 @@
 import React from 'react';
-import Utils from 'utilities/utilities';
 import './CartItem.css';
+
+import {
+  removeIndexFromArray,
+} from 'utilities';
 
 // Shared UI Components
 import {
@@ -25,7 +28,7 @@ const CartItem = ({
         indexToRemove = i;
       }
     };
-    let updatedCart = Utils.removeIndexFromArray(indexToRemove, cart);
+    let updatedCart = removeIndexFromArray(indexToRemove, cart);
     removeFromCart(updatedCart);
   };
 

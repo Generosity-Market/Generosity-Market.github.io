@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import FontAwesome from '../FontAwesome/FontAwesome';
-import MiniButton from '../MiniButton/MiniButton';
 import { coverInput, profileInput } from './inputInfo.js';
 import './ImageUploader.css';
+
+import {
+  FontAwesome,
+  MiniButton,
+} from 'components/shared';
 
 // TODO convert to functional component if not using state
 export default class ImageUpload extends Component {

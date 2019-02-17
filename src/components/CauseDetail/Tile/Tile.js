@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToCart, removeFromCart } from 'ducks/cart';
-import Utils from 'utilities/utilities';
 import './Tile.css';
+
+import {
+  addToCart,
+  removeFromCart,
+} from 'ducks/cart';
+
+import {
+  getIconUrl,
+  removeIndexFromArray,
+} from 'utilities';
 
 class Tile extends Component {
   constructor(props) {
@@ -27,7 +35,7 @@ class Tile extends Component {
       }
     };
 
-    let updatedCart = Utils.removeIndexFromArray(indexToRemove, cart);
+    let updatedCart = removeIndexFromArray(indexToRemove, cart);
 
     this.props.removeFromCart(updatedCart);
 
@@ -57,7 +65,7 @@ class Tile extends Component {
 
         <p className={isSelected ? 'tile-amount isSelected' : 'tile-amount'}>${rest.amount}</p>
 
-        <img src={Utils.getIconURL(tileIcon)} alt='Tile Icon' />
+        <img src={getIconUrl(tileIcon)} alt='Tile Icon' />
 
       </div>
     );
