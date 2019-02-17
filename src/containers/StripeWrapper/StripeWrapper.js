@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StripeCheckout from 'react-stripe-checkout';
 import STRIPE_PUBLISHABLE from 'constants/stripe';
 import { onToken } from 'services/stripe';
 import Utils from 'utilities/utilities';
+
+const StripeCheckout = lazy(() => import('react-stripe-checkout'));
 
 // import PAYMENT_SERVER_URL from 'constants/server';
 
