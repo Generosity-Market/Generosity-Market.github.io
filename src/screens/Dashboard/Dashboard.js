@@ -22,10 +22,12 @@ import {
 } from 'components/shared';
 
 // Dashboard Components
-import UserDetails from "./components/UserDetails/UserDetails";
-import UserCauses from "./components/UserCauses/UserCauses";
-import DonorInfo from "./components/DonorInfo/DonorInfo";
-import Receipts from "./components/Receipts/Receipts";
+import {
+    DonorInfo,
+    Receipts,
+    UserCauses,
+    UserDetails,
+} from 'components/Dashboard';
 
 const InViewportUserCauses = handleViewport(UserCauses);
 const InViewportReceipts = handleViewport(Receipts);
