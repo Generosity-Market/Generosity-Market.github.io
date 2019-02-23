@@ -10,7 +10,7 @@ import {
 } from 'components/shared';
 
 // TODO convert to functional component if not using state
-class TileSection extends Component {
+export class TileSection extends Component {
 
   isTilePurchased = (tileNumber) => {
     return this.props.purchasedTiles.includes(tileNumber);

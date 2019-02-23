@@ -1,14 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
-// Enzyme imports
-import Enzyme, { mount, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 
 // Component import
 import DonorComments from './DonorComments.js';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 const defaultProps = {
   donations: [
@@ -31,12 +25,11 @@ const defaultProps = {
   ]
 };
 
-const testElement = <DonorComments {...defaultProps} />;
+const wrapper = shallow(<DonorComments {...defaultProps} />);
 
 describe('<DonorComments />', () => {
 
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(testElement, div);
+    expect(wrapper.exists('.DonorComments')).toBe(true);
   });
 });
