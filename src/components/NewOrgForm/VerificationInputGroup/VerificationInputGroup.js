@@ -8,7 +8,7 @@ import {
 } from 'components/shared';
 
 // Convert to functional component if not using state
-class VerificationInputGroup extends Component {
+export class VerificationInputGroup extends Component {
 
     render() {
         const inputOptions = [

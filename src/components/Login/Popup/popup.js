@@ -4,10 +4,10 @@ import {
     LinkButton,
 } from 'components/shared';
 
-const Popup = ({ }) => {
+const Popup = ({ id }) => {
 
     return (
-        <div>
+        <div className="Popup">
             <p>What would you like to do next?</p>
 
             <LinkButton
@@ -20,3 +20,5 @@ const Popup = ({ }) => {
         </div>
     );
 }
+
+export default Popup;
