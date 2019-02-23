@@ -14,7 +14,7 @@ import TopMenu from './components/TopMenu/TopMenu';
 import SlideMenu from './components/SlideMenu/SlideMenu';
 import BottomMenu from './components/BottomMenu/BottomMenu';
 
-class BaseLayout extends Component {
+export class BaseLayout extends Component {
   constructor(props) {
     super(props)
     this.state = {
