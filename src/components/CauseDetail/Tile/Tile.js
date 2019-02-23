@@ -12,7 +12,7 @@ import {
   removeIndexFromArray,
 } from 'utilities';
 
-class Tile extends Component {
+export class Tile extends Component {
   constructor(props) {
     super(props)
     this.state = {

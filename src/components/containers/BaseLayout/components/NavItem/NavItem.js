@@ -22,7 +22,7 @@ const NavItem = ({
         transform: 'scale(1.1)',
       }}
     >
-      <FontAwesome classname={icon} />
+      {icon && <FontAwesome classname={icon} />}
       {name}
     </NavLink>
   );

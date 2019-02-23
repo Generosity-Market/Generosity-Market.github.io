@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { removeFromCart, clearCart } from 'ducks/cart';
 import { submitDonation } from 'ducks/cause';
-import { Elements, StripeProvider } from 'react-stripe-elements';
 import './Checkout.css';
+
+import {
+  Elements,
+  StripeProvider,
+} from 'react-stripe-elements';
 
 import {
   getTotal,
@@ -17,7 +21,7 @@ import {
   EmptyCart,
 } from 'components/Checkout';
 
-class Checkout extends Component {
+export class Checkout extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -59,7 +63,8 @@ class Checkout extends Component {
               total={getTotal(cart, 'amount')}
               toggleCheckoutForm={() => this.toggleCheckoutForm()}
               {...this.props}
-            />}
+            />
+          }
 
           <Elements>
             <CheckoutForm

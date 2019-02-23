@@ -5,8 +5,9 @@ const FontAwesome = ({
     onClick,
     classname,
     style
-}) =>
-    <i onClick={onClick} className={classname} style={style}></i>;
+}) => (
+        <i onClick={onClick} className={classname} style={style}></i>
+    );
 
 FontAwesome.propTypes = {
     /**

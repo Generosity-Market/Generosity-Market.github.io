@@ -13,7 +13,7 @@ import {
 } from 'components/shared';
 
 // TODO turn this into functional component if we arent using state...
-class Receipts extends PureComponent {
+export class Receipts extends PureComponent {
 
   render() {
     const {

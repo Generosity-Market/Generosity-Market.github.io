@@ -14,7 +14,7 @@ import TopMenu from './components/TopMenu/TopMenu';
 import SlideMenu from './components/SlideMenu/SlideMenu';
 import BottomMenu from './components/BottomMenu/BottomMenu';
 
-class BaseLayout extends Component {
+export class BaseLayout extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -24,7 +24,7 @@ class BaseLayout extends Component {
 
   componentDidMount() {
     this.props.loadTokenFromCookie();
-    if (!this.props.causeList.length) {
+    if (!this.props.causeList || !this.props.causeList.length) {
       this.props.getCauseList();
     };
   }

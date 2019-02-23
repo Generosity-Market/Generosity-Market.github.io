@@ -20,7 +20,7 @@ import {
   OrgDetails,
 } from 'components/Organization';
 
-class Organization extends Component {
+export class Organization extends Component {
 
   componentDidMount() {
     this.props.getOrgData(2); // TODO this id needs to come from the url param...

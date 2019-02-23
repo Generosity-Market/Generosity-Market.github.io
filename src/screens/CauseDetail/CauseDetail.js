@@ -30,10 +30,10 @@ import {
   TileSection,
 } from 'components/CauseDetail';
 
-class CauseDetail extends Component {
+export class CauseDetail extends Component {
 
   componentDidMount() {
-    scrollTo('topnav');
+    // scrollTo('topnav');
 
     // fetch the current cause if undefined (Usually on refreshing the screen)
     if (!this.props.cause) {

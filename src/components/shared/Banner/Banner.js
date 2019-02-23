@@ -30,15 +30,15 @@ Banner.propTypes = {
     /**
      * The background image to apply to the hero node
      */
-    BGimage: PropTypes.string.isRequired,
+    BGimage: PropTypes.string,
     /**
      * The text to render inside the Banner
      */
-    heading: PropTypes.string.isRequired,
+    heading: PropTypes.string,
     /**
      * The main/profile image to display in the banner
      */
-    mainImage: PropTypes.string.isRequired,
+    mainImage: PropTypes.string,
     /**
      * Determines if the main/profile image is rounded or squircle shape
      */

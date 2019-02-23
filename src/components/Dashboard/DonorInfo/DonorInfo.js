@@ -64,7 +64,7 @@ const formatDonorInfoForDownload = (info) => {
 }
 
 
-export default class DonorInfo extends Component {
+export class DonorInfo extends Component {
     constructor(props) {
         super(props)
 
@@ -178,3 +178,5 @@ export default class DonorInfo extends Component {
     }
 
 }
+
+export default DonorInfo;
