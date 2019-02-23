@@ -21,7 +21,7 @@ import {
   EmptyCart,
 } from 'components/Checkout';
 
-class Checkout extends Component {
+export class Checkout extends Component {
   constructor(props) {
     super(props)
     this.state = {

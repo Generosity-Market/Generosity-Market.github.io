@@ -22,7 +22,7 @@ import {
   IconSelector,
 } from 'components/CauseForm';
 
-class CauseForm extends Component {
+export class CauseForm extends Component {
   constructor(props) {
     super(props)
     this.state = {

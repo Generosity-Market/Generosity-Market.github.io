@@ -9,7 +9,7 @@ import {
 } from 'components/shared';
 
 // Convert to functional component if not using state
-class ThankYou extends Component {
+export class ThankYou extends Component {
 
   // componentWillUnmount() {
   //   this.props.clearCart();

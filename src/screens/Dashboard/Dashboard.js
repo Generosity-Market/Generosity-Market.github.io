@@ -35,7 +35,7 @@ import {
 const InViewportUserCauses = handleViewport(UserCauses);
 const InViewportReceipts = handleViewport(Receipts);
 
-class Dashboard extends Component {
+export class Dashboard extends Component {
     constructor(props) {
         super(props);
         this.state = {

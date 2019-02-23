@@ -1,22 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './Login.js';
-import { BrowserRouter } from 'react-router-dom'
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import reducers from 'reducers/reducer';
 
-let store = createStore(reducers);
+// Enzyme imports
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
-describe('<App />', () => {
+import { Login } from './Login.js';
+
+Enzyme.configure({ adapter: new Adapter() });
+
+const defaultProps = {
+    location: {
+        state: {},
+    },
+};
+
+const wrapper = shallow(<Login {...defaultProps} />);
+
+describe('<Login />', () => {
 
     it('renders without crashing', () => {
-        const div = document.createElement('div');
-        ReactDOM.render(
-            <Provider store={store}>
-                <BrowserRouter>
-                    <App />
-                </BrowserRouter>
-            </Provider>, div);
+        expect(wrapper.exists('.Login')).toEqual(true);
     });
 });

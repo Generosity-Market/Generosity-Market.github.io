@@ -21,7 +21,7 @@ import {
 // } from 'components/Login';
 
 // TODO Break up some of the components in this page...
-class Login extends Component {
+export class Login extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -31,7 +31,7 @@ class Login extends Component {
             error: null,
             context: 'login',
             // modalIsOpen: false,
-        }
+        };
     }
 
     componentDidMount() {
@@ -90,14 +90,6 @@ class Login extends Component {
             error,
             context,
         } = this.state;
-
-        // const {
-        //     location: {
-        //         state: {
-        //             from,
-        //         }
-        //     }
-        // } = this.props;
 
         return (
             <div className="Login">

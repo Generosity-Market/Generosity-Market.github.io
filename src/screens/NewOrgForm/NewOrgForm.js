@@ -21,7 +21,7 @@ import {
   VerificationInputGroup,
 } from 'components/NewOrgForm';
 
-class NewOrgForm extends Component {
+export class NewOrgForm extends Component {
   constructor(props) {
     super(props)
     this.state = {

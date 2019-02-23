@@ -10,7 +10,7 @@ import {
   LinkButton,
 } from 'components/shared';
 
-class Splash extends Component {
+export class Splash extends Component {
 
   componentDidMount() {
     const { getCauseList, loadTokenFromCookie } = this.props;
