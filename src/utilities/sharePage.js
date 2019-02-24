@@ -1,3 +1,3 @@
-const sharePage = () => alert("Shared");
+const sharePage = () => alert('Shared');
 
 export default sharePage;

@@ -10,7 +10,7 @@ const wrapper = shallow(<CauseForm {...defaultProps} />);
 
 describe('<CauseForm />', () => {
 
-  it('renders without crashing', () => {
-    expect(wrapper.exists('.CauseForm')).toBe(true);
-  });
+    it('renders without crashing', () => {
+        expect(wrapper.exists('.CauseForm')).toBe(true);
+    });
 });

@@ -2,7 +2,7 @@
 const stripeServices = {
     createToken: (stripe) => {
         // TODO name should be replaced with the users name
-        return stripe.createToken({ name: "Name" }).then(data => data);
+        return stripe.createToken({ name: 'Name' }).then(data => data);
     },
 
 };

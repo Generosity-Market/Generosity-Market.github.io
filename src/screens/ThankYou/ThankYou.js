@@ -5,48 +5,48 @@ import './ThankYou.css';
 
 // Shared UI Components
 import {
-  LinkButton,
+    LinkButton,
 } from 'components/shared';
 
 // Convert to functional component if not using state
 export class ThankYou extends Component {
 
-  // componentWillUnmount() {
-  //   this.props.clearCart();
-  // }
+    // componentWillUnmount() {
+    //   this.props.clearCart();
+    // }
 
-  render() {
-    // console.log(this.props);
-    return (
-      <div className='ThankYou'>
-        <div className='message'>
-          <h1>Thank You</h1>
-          <p>for supporting such great causes!</p>
-        </div>
-        <LinkButton
-          linkText={'Find a cause'}
-          href={'/causes'}
-          classname='find-cause'
-        />
-      </div>
-    );
-  }
-};
+    render() {
+        // console.log(this.props);
+        return (
+            <div className='ThankYou'>
+                <div className='message'>
+                    <h1>Thank You</h1>
+                    <p>for supporting such great causes!</p>
+                </div>
+                <LinkButton
+                    linkText={'Find a cause'}
+                    href={'/causes'}
+                    classname='find-cause'
+                />
+            </div>
+        );
+    }
+}
 
 const mapStateToProps = (state) => {
-  const {
-    user: {
-      user,
-    },
-    cart: {
-      cart,
-    },
-  } = state;
+    const {
+        user: {
+            user,
+        },
+        cart: {
+            cart,
+        },
+    } = state;
 
-  return {
-    user,
-    cart,
-  }
+    return {
+        user,
+        cart,
+    };
 };
 
 const mapDispatchToProps = { clearCart };

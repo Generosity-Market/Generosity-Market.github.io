@@ -20,6 +20,6 @@ const inputOptions = [
         name: 'site_url',
         placeholder: 'Website URL',
     },
-]
+];
 
 export default inputOptions;

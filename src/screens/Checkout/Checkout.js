@@ -5,91 +5,95 @@ import { submitDonation } from 'ducks/cause';
 import './Checkout.css';
 
 import {
-  Elements,
-  StripeProvider,
+    Elements,
+    StripeProvider,
 } from 'react-stripe-elements';
 
 import {
-  getTotal,
+    getTotal,
 } from 'utilities';
 
 // Checkout Components
 import {
-  Cart,
-  CartFooter,
-  CheckoutForm,
-  EmptyCart,
+    Cart,
+    CartFooter,
+    CheckoutForm,
+    EmptyCart,
 } from 'components/Checkout';
 
 export class Checkout extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      // name: '',
-      // email: '',
-      // phone: '',
-      // address: '',
-      // city: '',
-      // state: '',
-      // zipCode: '',
-      // public_comment: '',
-      // private_comment: '',
-      showForm: false,
-      // TODO Get this from .env for production. Do not commit the live key!!!
-      apiKey: "pk_test_qojWn3GnI7Cr16kIvzOjMYiA",
+    constructor(props) {
+        super(props);
+        this.state = {
+            // name: '',
+            // email: '',
+            // phone: '',
+            // address: '',
+            // city: '',
+            // state: '',
+            // zipCode: '',
+            // public_comment: '',
+            // private_comment: '',
+            showForm: false,
+            // TODO Get this from .env for production. Do not commit the live key!!!
+            apiKey: 'pk_test_qojWn3GnI7Cr16kIvzOjMYiA',
+        };
+    }
+
+    toggleCheckoutForm = () => {
+        this.setState({ showForm: !this.state.showForm });
     };
-  };
 
-  toggleCheckoutForm = () => {
-    this.setState({ showForm: !this.state.showForm });
-  };
+    render() {
+        const {
+            cart,
+            // user,
+            clearCart,
+        } = this.props;
 
-  render() {
-    const {
-      cart,
-      // user,
-      clearCart,
-    } = this.props;
+        return (
+            <StripeProvider apiKey={this.state.apiKey}>
+                <div className="Checkout">
 
-    return (
-      <StripeProvider apiKey={this.state.apiKey}>
-        <div className="Checkout">
+                    {!cart.length > 0 ?
+                        <EmptyCart /> : <Cart {...this.props} />
+                    }
 
-          {!cart.length > 0 ?
-            <EmptyCart /> : <Cart {...this.props} />}
+                    {cart.length > 0 &&
+                        <CartFooter
+                            total={getTotal(cart, 'amount')}
+                            toggleCheckoutForm={() => this.toggleCheckoutForm()}
+                            {...this.props}
+                        />
+                    }
 
-          {cart.length > 0 &&
-            <CartFooter
-              total={getTotal(cart, 'amount')}
-              toggleCheckoutForm={() => this.toggleCheckoutForm()}
-              {...this.props}
-            />
-          }
+                    <Elements>
+                        <CheckoutForm
+                            toggleCheckoutForm={this.toggleCheckoutForm}
+                            showForm={this.state.showForm}
+                            total={getTotal(cart, 'amount')}
+                            submitDonation={submitDonation}
+                            clearCart={clearCart}
+                            {...this.props}
+                        />
+                    </Elements>
 
-          <Elements>
-            <CheckoutForm
-              toggleCheckoutForm={this.toggleCheckoutForm}
-              showForm={this.state.showForm}
-              total={getTotal(cart, 'amount')}
-              submitDonation={submitDonation}
-              clearCart={clearCart}
-              {...this.props}
-            />
-          </Elements>
-
-        </div>
-      </StripeProvider>
-    );
-  }
-};
+                </div>
+            </StripeProvider>
+        );
+    }
+}
 
 const mapStateToProps = (state) => {
-  const {
-    user: { user },
-    cart: { cart },
-  } = state;
+    const {
+        user: { user },
+        cart: { cart },
+    } = state;
 
-  return { user, cart }
+    return {
+        user,
+        cart,
+    };
 };
 
 const mapDispatchToProps = { clearCart, removeFromCart, submitDonation };

@@ -5,16 +5,16 @@ import { shallow } from 'enzyme';
 import { Checkout } from './Checkout.js';
 
 const defaultProps = {
-  cart: [{
-    amount: 5
-  }],
+    cart: [{
+        amount: 5
+    }],
 };
 
 const wrapper = shallow(<Checkout {...defaultProps} />);
 
 describe('<Checkout />', () => {
 
-  it('renders without crashing', () => {
-    expect(wrapper.exists('.Checkout')).toEqual(true);
-  });
+    it('renders without crashing', () => {
+        expect(wrapper.exists('.Checkout')).toEqual(true);
+    });
 });

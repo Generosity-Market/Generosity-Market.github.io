@@ -5,15 +5,15 @@ import { shallow } from 'enzyme';
 import { Splash } from './Splash.js';
 
 const defaultProps = {
-  getCauseList: jest.fn(),
-  loadTokenFromCookie: jest.fn(),
+    getCauseList: jest.fn(),
+    loadTokenFromCookie: jest.fn(),
 };
 
 const wrapper = shallow(<Splash {...defaultProps} />);
 
 describe('<Splash />', () => {
 
-  it('renders without crashing', () => {
-    expect(wrapper.exists('.Splash')).toEqual(true);
-  });
+    it('renders without crashing', () => {
+        expect(wrapper.exists('.Splash')).toEqual(true);
+    });
 });

@@ -7,28 +7,28 @@ import { shallow } from 'enzyme';
 import { Organization } from './Organization.js';
 
 const defaultProps = {
-  organization: {
-    name: 'My Organization',
-    Preferences: [],
-  },
+    organization: {
+        name: 'My Organization',
+        Preferences: [],
+    },
 };
 
 const mockGetOrgDataFunc = jest.fn();
 
 const wrapper = shallow(
-  <Organization
-    {...defaultProps}
-    getOrgData={mockGetOrgDataFunc}
-  />
+    <Organization
+        {...defaultProps}
+        getOrgData={mockGetOrgDataFunc}
+    />
 );
 
 describe('<Organization />', () => {
 
-  it('renders without crashing', () => {
-    expect(wrapper.exists('.Organization')).toEqual(true);
-  });
+    it('renders without crashing', () => {
+        expect(wrapper.exists('.Organization')).toEqual(true);
+    });
 
-  it('should fetch org data when not present', () => {
-    expect(mockGetOrgDataFunc).toBeCalled();
-  });
+    it('should fetch org data when not present', () => {
+        expect(mockGetOrgDataFunc).toBeCalled();
+    });
 });

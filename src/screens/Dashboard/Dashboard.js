@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import handleViewport from 'react-in-viewport';
-import "./dashboard.css";
+import './dashboard.css';
 
 import {
     getImageUrl,
@@ -11,12 +11,12 @@ import {
 import {
     getCauseList,
     causeSelected
-} from "ducks/cause";
+} from 'ducks/cause';
 
 import {
     getUserCreatedCauses,
     getUserSupportedCauses,
-} from "ducks/user";
+} from 'ducks/user';
 
 // Shared UI Components
 import {
@@ -55,7 +55,7 @@ export class Dashboard extends Component {
 
         const idsDontMatch = (Number(match.params.id) !== Number(userData.id));
 
-        if (!user && !userData) history.push("/");
+        if (!user && !userData) history.push('/');
         if (idsDontMatch) history.push(`/users/${userData.id}/dashboard`);
     }
 
@@ -66,11 +66,11 @@ export class Dashboard extends Component {
 
         if (previousUserWithoutCauses && userCurrentlyHasCauses) {
             this.setState({ loadingCauses: false });
-        };
+        }
     }
 
     getFirstName = name => {
-        let index = name.indexOf(" ");
+        let index = name.indexOf(' ');
         let firstName = name.substring(0, index);
         return firstName || name;
     };
@@ -183,9 +183,9 @@ export class Dashboard extends Component {
                     />
 
                     <LinkButton
-                        href={"/causes/new"}
-                        classname={"create-cause"}
-                        linkText={"Create a cause"}
+                        href={'/causes/new'}
+                        classname={'create-cause'}
+                        linkText={'Create a cause'}
                     />
 
                     {(user.CreatedCauses && !!user.CreatedCauses.length) &&

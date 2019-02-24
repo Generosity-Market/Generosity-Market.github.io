@@ -1,46 +1,46 @@
 .Splash {
-  background-image: url('../../Assets/Photography/Mobile/khendi-lee-25583.jpg');
-  background-size: 300%;
-  background-position: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  z-index: 5;
+    background-image: url('../../Assets/Photography/Mobile/khendi-lee-25583.jpg');
+    background-size: 300%;
+    background-position: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 5;
 }
 
 .Splash .logo-container {
-  background: linear-gradient(var(--white) 65%, rgba(255,255,255,0.0));
-  display: flex;
-  justify-content: center;
-  height: 45%;
-  width: 100%;
-  margin: 0 auto;
+    background: linear-gradient(var(--white) 65%, rgba(255,255,255,0.0));
+    display: flex;
+    justify-content: center;
+    height: 45%;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .Splash .Logo {
-  height: 15rem;
-  margin-top: 2rem;
-  width: 18rem;
+    height: 15rem;
+    margin-top: 2rem;
+    width: 18rem;
 }
 
 .Splash .links {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 34%;
-  margin-top: 0rem;
-  width: 70%;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 34%;
+    margin-top: 0rem;
+    width: 70%;
+    text-align: center;
 }
 
 .Splash .LinkButton {
-  border-radius: var(--border-radius);
-  font-family: var(--main-font);
-  font-weight: 300;
-  letter-spacing: 0.2rem;
+    border-radius: var(--border-radius);
+    font-family: var(--main-font);
+    font-weight: 300;
+    letter-spacing: 0.2rem;
 }
 
 .Splash .LinkButton a {
@@ -49,58 +49,58 @@
 }
 
 .Splash .LinkButton .create-cause {
-  background-color: var(--bright-green-85);
-  color: var(--white);
+    background-color: var(--bright-green-85);
+    color: var(--white);
 }
 
 .Splash .find-cause {
-  background-color: var(--dark-green-85);
-  color: var(--white);
+    background-color: var(--dark-green-85);
+    color: var(--white);
 }
 
 .Splash .sign-in {
-  background-color: var(--white-85);
-  color: var(--dark-green);
+    background-color: var(--white-85);
+    color: var(--dark-green);
 }
 
 .Splash .sign-up {
-  cursor: pointer;
-  color: var(--white);
-  font-size: 14px;
-  text-transform: capitalize;
-  text-align: center;
-  margin: 1rem 0rem 3rem;
-  width: 80%;
+    cursor: pointer;
+    color: var(--white);
+    font-size: 14px;
+    text-transform: capitalize;
+    text-align: center;
+    margin: 1rem 0rem 3rem;
+    width: 80%;
 }
 
 .Splash h1 {
-  color: var(--dark-green-85);
+    color: var(--dark-green-85);
 }
 
 @media screen and (min-width: 767px) {
 
-  .Splash {
-  background-size: cover;
-  background-position: 50%, 50%;
-  }
+    .Splash {
+        background-size: cover;
+        background-position: 50%, 50%;
+    }
 
-  .Splash .logo-container {
-    width: 100%;
-  }
+    .Splash .logo-container {
+        width: 100%;
+    }
 
-  .Splash .Logo {
-    height: 100%;
-    width: auto;
-  }
+    .Splash .Logo {
+        height: 100%;
+        width: auto;
+    }
 
-  .Splash .links {
-    height: 40%;
-    width: 25%;
-    margin: 3rem auto 0rem;
-  }
+    .Splash .links {
+        height: 40%;
+        width: 25%;
+        margin: 3rem auto 0rem;
+    }
 
-  .Splash .sign-up {
-    width: 25%;
-    margin: 0rem auto;
-  }
+    .Splash .sign-up {
+        width: 25%;
+        margin: 0rem auto;
+    }
 }
