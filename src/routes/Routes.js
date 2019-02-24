@@ -12,7 +12,7 @@ import {
 import {
     TransitionGroup,
     CSSTransition,
-} from "react-transition-group";
+} from 'react-transition-group';
 
 import {
     Splash,
@@ -32,7 +32,7 @@ import {
 // checking to see if there are cookies for authentication
 const loggedIn = () => {
     return !!Cookies.get('token');
-}
+};
 
 const userCookie = Cookies.getJSON('user');
 
@@ -81,7 +81,7 @@ const Routes = ({ location }) => {
                 </Suspense>
             </CSSTransition>
         </TransitionGroup>
-    )
+    );
 };
 
 export default withRouter(Routes);

@@ -24,19 +24,19 @@ const updateDonations = (data) => {
     return (dispatch, getState) => {
         const { charge, status, response: donations } = data;
 
-        if (data.status === "Success") {
+        if (data.status === 'Success') {
             const { causeList } = getState().cause;
 
             donations.forEach(donation => {
                 let causeIndex = causeList.map(cause => cause.id).indexOf(donation.causeID);
                 dispatch(setDonations({ causeIndex, donation }));
-                dispatch(updateTotal({ causeIndex, amount: donation.amount }))
-            })
+                dispatch(updateTotal({ causeIndex, amount: donation.amount }));
+            });
             return { status: charge.outcome.type };
         } else {
             return { status };
         }
-    }
+    };
 };
 
 // calling the api for the entire causelist

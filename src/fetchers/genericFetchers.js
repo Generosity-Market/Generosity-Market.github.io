@@ -11,16 +11,19 @@ export const fetchJSONData = (URL, args) =>
     fetch(api(URL), { method: 'GET', body: args })
         .then(response => response.json())
         .then(data => data)
-        .catch(err => !isTestingEnvironment && console.log("Error: ", err));
+        /* eslint-disable-next-line no-console */
+        .catch(err => !isTestingEnvironment && console.log('Error: ', err));
 
 export const postFormData = (URL, args) =>
     fetch(api(URL), { method: 'POST', body: args })
         .then(response => response.json())
         .then(data => data)
-        .catch(err => !isTestingEnvironment && console.log("Error: ", err));
+        /* eslint-disable-next-line no-console */
+        .catch(err => !isTestingEnvironment && console.log('Error: ', err));
 
 export const postJSONData = (URL, args) =>
     fetch(api(URL), { method: 'POST', ...args })
         .then(response => response.json())
         .then(data => data)
-        .catch(err => !isTestingEnvironment && console.log("Error: ", err));
+        /* eslint-disable-next-line no-console */
+        .catch(err => !isTestingEnvironment && console.log('Error: ', err));
