@@ -5,15 +5,15 @@ import { shallow } from 'enzyme';
 import Banner from './Banner.js';
 
 const defaultProps = {
-  BGimage: 'to be decided...',
-  mainImage: 'dilly dilly',
+    BGimage: 'to be decided...',
+    mainImage: 'dilly dilly',
 };
 
 const wrapper = shallow(<Banner {...defaultProps} />);
 
 describe('<Banner />', () => {
 
-  it('renders without crashing', () => {
-    expect(wrapper.exists('.Header')).toEqual(true);
-  });
+    it('renders without crashing', () => {
+        expect(wrapper.exists('.Header')).toEqual(true);
+    });
 });

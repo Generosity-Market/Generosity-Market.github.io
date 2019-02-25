@@ -20,7 +20,7 @@ const DownloadCSV = ({
         <Fragment>
             <CSVLink
                 className={`csv-download ${className}`}
-                filename={`${filename.split(" ").join("-").toLowerCase()}.csv`}
+                filename={`${filename.split(' ').join('-').toLowerCase()}.csv`}
                 data={csvData}
                 headers={headers && headers}
                 target="_blank"
@@ -30,7 +30,7 @@ const DownloadCSV = ({
             </CSVLink>
         </Fragment>
     );
-}
+};
 
 DownloadCSV.propTypes = {
     /**
@@ -55,11 +55,11 @@ DownloadCSV.propTypes = {
      * The data to be downloaded in an array format
      */
     data: PropTypes.array.isRequired,
-}
+};
 
 DownloadCSV.defaultProps = {
     buttonText: 'Download',
     className: '',
-}
+};
 
 export default DownloadCSV;

@@ -10,7 +10,7 @@
 
 //         this.state = {
 //             isOpen: false,
-//         }
+//         };
 //     }
 
 //     getParent = () => {
@@ -26,7 +26,8 @@
 //             handleCloseModal,
 //             // ...rest
 //         } = this.props;
-//         console.log("Is Open: ", isOpen);
+//         /* eslint-disable-next-line no-console */
+//         console.log('Is Open: ', isOpen);
 
 //         return (
 //             <Fragment>

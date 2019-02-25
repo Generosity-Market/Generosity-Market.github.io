@@ -8,7 +8,7 @@ const wrapper = shallow(<Loader />);
 
 describe('<Loader />', () => {
 
-  it('renders without crashing', () => {
-    expect(wrapper.exists('.Loader')).toBe(true);
-  });
+    it('renders without crashing', () => {
+        expect(wrapper.exists('.Loader')).toBe(true);
+    });
 });

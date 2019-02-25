@@ -58,6 +58,8 @@ export class NewOrgForm extends Component {
             let reader = new FileReader();
             let file = e.target.files[0];
             reader.onloadend = (data) => {
+                /* eslint-disable-next-line no-console */
+                console.log('Data', data);
                 this.setState({
                     [field]: file,
                     [url]: reader.result

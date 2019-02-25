@@ -44,7 +44,7 @@ class InputGroup extends Component {
                 onChange={this.props.handleUpdateState(input.name)}
                 value={this.props.state[input.name]}
             />
-        )
+        );
     }
 
     render() {

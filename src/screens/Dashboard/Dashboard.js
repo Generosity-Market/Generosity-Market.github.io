@@ -129,7 +129,7 @@ export class Dashboard extends Component {
 
         if (!CreatedCauses) {
             this.setState({ loadingCauses: true });
-            getUserCreatedCauses(id).then(() => this.setState({ loadingCauses: false }))
+            getUserCreatedCauses(id).then(() => this.setState({ loadingCauses: false }));
         }
     }
 
