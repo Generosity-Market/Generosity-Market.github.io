@@ -1,12 +1,12 @@
 .OrgDetails {
-  margin: 2rem auto;
-  /* width: 93%; */
+    margin: 2rem auto;
+    /* width: 93%; */
 }
 
 .OrgDetails a {
-  color: var(--dark-green);
-  font-size: 1.2rem;
-  display: block;
-  margin-top: 1.5rem;
-  padding: 0 0.65rem;
+    color: var(--dark-green);
+    font-size: 1.2rem;
+    display: block;
+    margin-top: 1.5rem;
+    padding: 0 0.65rem;
 }

@@ -3,81 +3,81 @@ import { connect } from 'react-redux';
 import './Tile.css';
 
 import {
-  addToCart,
-  removeFromCart,
+    addToCart,
+    removeFromCart,
 } from 'ducks/cart';
 
 import {
-  getIconUrl,
-  removeIndexFromArray,
+    getIconUrl,
+    removeIndexFromArray,
 } from 'utilities';
 
 export class Tile extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isSelected: false
-    };
-  };
+    constructor(props) {
+        super(props);
+        this.state = {
+            isSelected: false
+        };
+    }
 
-  addTileToCart = (args) => {
-    this.props.addToCart({ ...args });
-    this.setState({ isSelected: true });
-  };
-
-  removeTileFromCart = () => {
-    const { cart, amount, cause } = this.props;
-    let indexToRemove;
-
-    for (var i = 0; i < cart.length; i++) {
-      if ((cart[i].amount === amount) && (cart[i].cause === cause)) {
-        indexToRemove = i;
-      }
-    };
-
-    let updatedCart = removeIndexFromArray(indexToRemove, cart);
-
-    this.props.removeFromCart(updatedCart);
-
-    this.setState({ isSelected: false });
-  };
-
-  componentDidMount() {
-    const { cart, amount, cause } = this.props;
-    // if this tile is in the cart, we want to select it again open reopening the page
-    cart.forEach(index => {
-      if ((index.amount === amount) && (cause === index.cause)) {
+    addTileToCart = (args) => {
+        this.props.addToCart({ ...args });
         this.setState({ isSelected: true });
-      };
-    });
-  };
+    };
 
-  render() {
-    const { isPurchased, tileIcon, ...rest } = this.props;
-    const { isSelected } = this.state;
+    removeTileFromCart = () => {
+        const { cart, amount, cause } = this.props;
+        let indexToRemove;
 
-    return (
-      <div
-        className={isPurchased ? 'Tile isPurchased' : "Tile"}
-        onClick={isSelected ? () => this.removeTileFromCart() :
-          () => this.addTileToCart({ tileIcon, ...rest })}
-      >
+        for (var i = 0; i < cart.length; i++) {
+            if ((cart[i].amount === amount) && (cart[i].cause === cause)) {
+                indexToRemove = i;
+            }
+        }
 
-        <p className={isSelected ? 'tile-amount isSelected' : 'tile-amount'}>${rest.amount}</p>
+        let updatedCart = removeIndexFromArray(indexToRemove, cart);
 
-        <img src={getIconUrl(tileIcon)} alt='Tile Icon' />
+        this.props.removeFromCart(updatedCart);
 
-      </div>
-    );
-  }
-};
+        this.setState({ isSelected: false });
+    };
+
+    componentDidMount() {
+        const { cart, amount, cause } = this.props;
+        // if this tile is in the cart, we want to select it again open reopening the page
+        cart.forEach(index => {
+            if ((index.amount === amount) && (cause === index.cause)) {
+                this.setState({ isSelected: true });
+            }
+        });
+    }
+
+    render() {
+        const { isPurchased, tileIcon, ...rest } = this.props;
+        const { isSelected } = this.state;
+
+        return (
+            <div
+                className={isPurchased ? 'Tile isPurchased' : 'Tile'}
+                onClick={isSelected ? () => this.removeTileFromCart() :
+                    () => this.addTileToCart({ tileIcon, ...rest })}
+            >
+
+                <p className={isSelected ? 'tile-amount isSelected' : 'tile-amount'}>${rest.amount}</p>
+
+                <img src={getIconUrl(tileIcon)} alt='Tile Icon' />
+
+            </div>
+        );
+    }
+}
 
 const mapStateToProps = (state) => {
-  const {
-    cart: { cart },
-  } = state;
+    const {
+        cart: { cart },
+    } = state;
 
-  return { cart }
+    return { cart };
 };
 
 const mapDispatchToProps = { addToCart, removeFromCart };

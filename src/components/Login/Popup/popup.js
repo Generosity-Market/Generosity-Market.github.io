@@ -19,6 +19,6 @@ const Popup = ({ id }) => {
             />
         </div>
     );
-}
+};
 
 export default Popup;

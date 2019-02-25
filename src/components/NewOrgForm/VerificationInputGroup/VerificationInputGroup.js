@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 // import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 // Shared UI Components
 import {
@@ -21,7 +21,7 @@ export class VerificationInputGroup extends Component {
                 name: 'tax_id',
                 placeholder: 'Tax Id #',
             },
-        ]
+        ];
 
         return (
             <div className="VerificationInputGroup">
@@ -31,14 +31,14 @@ export class VerificationInputGroup extends Component {
                     inputOptions={inputOptions}
                 />
             </div>
-        )
+        );
     }
 }
 
-const mapStateToProps = (state) => {
-    return {}
-}
+const mapStateToProps = () => {
+    return {};
+};
 
-const mapDispatchToProps = {}
+const mapDispatchToProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(VerificationInputGroup)
+export default connect(mapStateToProps, mapDispatchToProps)(VerificationInputGroup);

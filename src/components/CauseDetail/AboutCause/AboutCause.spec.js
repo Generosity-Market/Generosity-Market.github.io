@@ -5,14 +5,14 @@ import { shallow } from 'enzyme';
 import AboutCause from './AboutCause.js';
 
 const defaultProps = {
-  // props...
+    // props...
 };
 
 const wrapper = shallow(<AboutCause {...defaultProps} />);
 
 describe('<AboutCause />', () => {
 
-  it('renders without crashing', () => {
-    expect(wrapper.exists('.AboutCause')).toBe(true);
-  });
+    it('renders without crashing', () => {
+        expect(wrapper.exists('.AboutCause')).toBe(true);
+    });
 });

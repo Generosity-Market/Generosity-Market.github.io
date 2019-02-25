@@ -1,29 +1,29 @@
 .BaseLayout {
-  padding-bottom: 3rem;
+    padding-bottom: 3rem;
 }
 
 .BaseLayout nav {
-  background-color: var(--white);
-  height: 100vh;
-  padding: 2rem 0 0 2rem;
-  position: fixed;
-  transition: left 0.4s ease-in-out;
-  width: 92.25vw;
-  z-index: 5;
+    background-color: var(--white);
+    height: 100vh;
+    padding: 2rem 0 0 2rem;
+    position: fixed;
+    transition: left 0.4s ease-in-out;
+    width: 92.25vw;
+    z-index: 5;
 }
 
 .navLinks {
-  color: var(--text-gray);
-  font-size: 1.5rem;
-  margin-bottom: 2.25rem;
-  text-shadow: 5px 3px 15px rgba(0,0,0,0.3);
-  text-decoration: none;
-  transition: all ease-in-out 0.3s;
+    color: var(--text-gray);
+    font-size: 1.5rem;
+    margin-bottom: 2.25rem;
+    text-shadow: 5px 3px 15px rgba(0,0,0,0.3);
+    text-decoration: none;
+    transition: all ease-in-out 0.3s;
 }
 
 .navLinks i {
-  margin-right: 2rem;
-  width: 5%;
+    margin-right: 2rem;
+    width: 5%;
 }
 
 /* nav .menuLogo {

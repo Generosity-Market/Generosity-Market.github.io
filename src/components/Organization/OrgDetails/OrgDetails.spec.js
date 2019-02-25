@@ -5,14 +5,14 @@ import { shallow } from 'enzyme';
 import OrgDetails from './OrgDetails.js';
 
 const defaultProps = {
-  // props...
+    // props...
 };
 
 const wrapper = shallow(<OrgDetails {...defaultProps} />);
 
 describe('<OrgDetails />', () => {
 
-  it('renders without crashing', () => {
-    expect(wrapper.exists('.OrgDetails')).toBe(true);
-  });
+    it('renders without crashing', () => {
+        expect(wrapper.exists('.OrgDetails')).toBe(true);
+    });
 });

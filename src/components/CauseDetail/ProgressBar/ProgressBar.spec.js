@@ -5,14 +5,14 @@ import { shallow } from 'enzyme';
 import ProgressBar from './ProgressBar.js';
 
 const defaultProps = {
-  // props...
+    // props...
 };
 
 const wrapper = shallow(<ProgressBar {...defaultProps} />);
 
 describe('<ProgressBar />', () => {
 
-  it('renders without crashing', () => {
-    expect(wrapper.exists('.ProgressBar')).toBe(true);
-  });
+    it('renders without crashing', () => {
+        expect(wrapper.exists('.ProgressBar')).toBe(true);
+    });
 });

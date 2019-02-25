@@ -5,18 +5,18 @@ import { shallow } from 'enzyme';
 import Cart from './Cart.js';
 
 const defaultProps = {
-  handleSelectIcon: () => { },
-  cart: [{
-    cause: 'Example cause',
-    amount: 54,
-  }],
+    handleSelectIcon: () => { },
+    cart: [{
+        cause: 'Example cause',
+        amount: 54,
+    }],
 };
 
 const wrapper = shallow(<Cart {...defaultProps} />);
 
 describe('<Cart />', () => {
 
-  it('renders without crashing', () => {
-    expect(wrapper.exists('.cart-container')).toBe(true);
-  });
+    it('renders without crashing', () => {
+        expect(wrapper.exists('.cart-container')).toBe(true);
+    });
 });

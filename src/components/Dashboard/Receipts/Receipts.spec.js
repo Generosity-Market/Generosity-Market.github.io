@@ -5,14 +5,14 @@ import { shallow } from 'enzyme';
 import { Receipts } from './Receipts.js';
 
 const defaultProps = {
-  // Props go here...
+    // Props go here...
 };
 
 const wrapper = shallow(<Receipts {...defaultProps} />);
 
 describe('<Receipts />', () => {
 
-  it('renders without crashing', () => {
-    expect(wrapper.exists('.Receipts')).toBe(true);
-  });
+    it('renders without crashing', () => {
+        expect(wrapper.exists('.Receipts')).toBe(true);
+    });
 });

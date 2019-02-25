@@ -15,79 +15,80 @@ import SlideMenu from './components/SlideMenu/SlideMenu';
 import BottomMenu from './components/BottomMenu/BottomMenu';
 
 export class BaseLayout extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      showMenu: false
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            showMenu: false,
+        };
+    }
+
+    componentDidMount() {
+        this.props.loadTokenFromCookie();
+        if (!this.props.causeList || !this.props.causeList.length) {
+            this.props.getCauseList();
+        }
+    }
+
+    navToggle = (endpoint) => {
+        setTimeout(() => this.setState({ showMenu: !this.state.showMenu }), 200);
+        if (endpoint) this.handleNavigation(endpoint);
     };
-  };
 
-  componentDidMount() {
-    this.props.loadTokenFromCookie();
-    if (!this.props.causeList || !this.props.causeList.length) {
-      this.props.getCauseList();
+    handleNavigation = (endpoint) => {
+        this.props.history.replace(endpoint);
     };
-  }
 
-  navToggle = (endpoint) => {
-    setTimeout(() => this.setState({ showMenu: !this.state.showMenu }), 200);
-    if (endpoint) this.handleNavigation(endpoint);
-  };
+    render() {
 
-  handleNavigation = (endpoint) => {
-    this.props.history.replace(endpoint);
-  };
+        return (
+            <div className="BaseLayout">
 
-  render() {
+                <TopMenu
+                    openMenu={this.navToggle}
+                />
 
-    return (
-      <div className="BaseLayout">
+                <SlideMenu
+                    navLinks={navLinks}
+                    closeMenu={this.navToggle}
+                    showMenu={this.state.showMenu}
+                    handleNavigation={this.navToggle}
+                    logout={this.props.userLogout}
+                />
 
-        <TopMenu
-          openMenu={this.navToggle}
-        />
+                {this.props.children}
 
-        <SlideMenu
-          navLinks={navLinks}
-          closeMenu={this.navToggle}
-          showMenu={this.state.showMenu}
-          handleNavigation={this.navToggle}
-          logout={this.props.userLogout}
-        />
+                <BottomMenu
+                    navLinks={bottomNavLinks}
+                    handleNavigation={this.handleNavigation}
+                    user={this.props.user}
+                />
 
-        {this.props.children}
-
-        <BottomMenu
-          navLinks={bottomNavLinks}
-          handleNavigation={this.handleNavigation}
-          user={this.props.user}
-        />
-
-      </div>
-    )
-  };
-};
+            </div>
+        );
+    }
+}
 
 const mapStateToProps = (state) => {
-  const {
-    cause: {
-      causeList,
-    },
-    user: {
-      user,
-    },
-  } = state;
+    const {
+        cause: {
+            causeList,
+        },
+        user: {
+            user,
+        },
+    } = state;
 
-  return {
-    causeList,
-    user,
-  };
+    return {
+        causeList,
+        user,
+    };
 };
 
 const mapDispatchToProps = {
-  getCauseList,
-  loadTokenFromCookie,
-  userLogout
+    getCauseList,
+    loadTokenFromCookie,
+    userLogout,
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BaseLayout));

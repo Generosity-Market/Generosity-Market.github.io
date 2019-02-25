@@ -5,16 +5,16 @@ import { shallow } from 'enzyme';
 import { Tile } from './Tile.js';
 
 const defaultProps = {
-  tileIcon: 'Africa',
-  cart: [],
-  amount: 5,
+    tileIcon: 'Africa',
+    cart: [],
+    amount: 5,
 };
 
 const wrapper = shallow(<Tile {...defaultProps} />);
 
 describe('<Tile />', () => {
 
-  it('renders without crashing', () => {
-    expect(wrapper.exists('.Tile')).toEqual(true);
-  });
+    it('renders without crashing', () => {
+        expect(wrapper.exists('.Tile')).toEqual(true);
+    });
 });
