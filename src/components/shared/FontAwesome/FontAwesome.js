@@ -14,7 +14,7 @@ FontAwesome.propTypes = {
     /**
      * The font awesome classname to apply to the root node
      */
-    className: PropTypes.string.isRequired,
+    classname: PropTypes.string.isRequired,
 };
 
 FontAwesome.defaultProps = {};

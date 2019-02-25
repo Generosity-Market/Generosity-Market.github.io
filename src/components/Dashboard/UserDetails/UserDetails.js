@@ -6,7 +6,19 @@ import {
     FontAwesome,
 } from 'components/shared';
 
+const photoUploadSection = (
+    <div className="photo-upload">
+        <FontAwesome classname={'far fa-image'} />
+        <div>
+            <FontAwesome classname={'fas fa-plus'} />
+            <p>Profile</p>
+        </div>
+    </div>
+);
+
 // TODO turn this into function component if we aren't using state
+// TODO Enable editing of the users information here...
+// TODO methods may need to be in the parent so it can handle submitting this info and any user images changes
 class UserDetails extends Component {
 
     render() {
@@ -23,14 +35,6 @@ class UserDetails extends Component {
 
         return (
             <div className="profile-details UserDetails">
-
-                <div className="photo-upload">
-                    <FontAwesome classname={'far fa-image'} />
-                    <div>
-                        <FontAwesome classname={'fas fa-plus'} />
-                        <p>Profile</p>
-                    </div>
-                </div>
 
                 <div className="user-details">
                     <p>
@@ -51,6 +55,8 @@ class UserDetails extends Component {
                         <FontAwesome classname={'fas fa-plus'} /> <p>edit profile</p>
                     </div>
                 </div>
+
+                {photoUploadSection}
 
             </div>
         );
