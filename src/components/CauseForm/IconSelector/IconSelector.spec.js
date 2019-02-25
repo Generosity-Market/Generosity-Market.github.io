@@ -5,14 +5,14 @@ import { shallow } from 'enzyme';
 import IconSelector from './IconSelector.js';
 
 const defaultProps = {
-  handleSelectIcon: () => { },
+    handleSelectIcon: () => { },
 };
 
 const wrapper = shallow(<IconSelector {...defaultProps} />);
 
 describe('<IconSelector />', () => {
 
-  it('renders without crashing', () => {
-    expect(wrapper.exists('.IconSelector')).toBe(true);
-  });
+    it('renders without crashing', () => {
+        expect(wrapper.exists('.IconSelector')).toBe(true);
+    });
 });

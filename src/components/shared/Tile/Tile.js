@@ -25,7 +25,7 @@ const Tile = ({
             {children}
         </div>
     );
-}
+};
 
 Tile.propTypes = {
     /**
@@ -38,24 +38,24 @@ Tile.propTypes = {
         'info',
         'success',
     ]),
-	/**
+    /**
     * The children (usually text) to render at the root nodes
     */
     children: PropTypes.string.isRequired,
-	/**
+    /**
     * The Handler for action button click
     */
     handleClick: PropTypes.func,
-	/**
+    /**
     * The name of the Font Awesome icon to pass to the FontAwesome component
     */
     icon: PropTypes.string,
-}
+};
 
 Tile.defaultProps = {
     onClick: () => { },
     uiContext: 'default',
     children: '',
-}
+};
 
 export default Tile;

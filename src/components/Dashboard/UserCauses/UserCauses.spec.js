@@ -10,7 +10,7 @@ const wrapper = shallow(<UserCauses {...defaultProps} />);
 
 describe('<UserCauses />', () => {
 
-  it('renders without crashing', () => {
-    expect(wrapper.exists('.UserCauses')).toBe(true);
-  });
+    it('renders without crashing', () => {
+        expect(wrapper.exists('.UserCauses')).toBe(true);
+    });
 });

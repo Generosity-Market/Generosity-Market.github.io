@@ -23,7 +23,7 @@ import {
 // TODO Break up some of the components in this page...
 export class Login extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             email: '',
             password: '',
@@ -79,7 +79,7 @@ export class Login extends Component {
                 classname={context === 'register' ? 'sign-up-button' : 'log-in-button'}
                 actionText={context === 'register' ? 'Sign up' : 'Log in'}
             />
-        )
+        );
     }
 
 
@@ -164,7 +164,7 @@ export class Login extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = () => {
     return {};
 };
 

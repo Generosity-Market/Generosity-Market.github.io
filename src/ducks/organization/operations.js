@@ -14,4 +14,4 @@ import {
 export const getOrgData = (id) => makeFetchCreator(fetchOrgData, setOrg, id);
 
 // submits organization form
-export const submitOrgForm = (args) => makeFetchCreator(submitOrgFormData, addOrg);
+export const submitOrgForm = (args) => makeFetchCreator(submitOrgFormData, addOrg, args);

@@ -43,6 +43,6 @@ const ReceiptItem = ({
             </div>
         </div >
     );
-}
+};
 
 export default ReceiptItem;

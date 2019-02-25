@@ -3,38 +3,38 @@
 .profilePreview .fa-camera,
 .coverPreview .fa-image,
 .previewComponent .btns {
-  align-items: center;
-  display: flex;
-  justify-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .ImageUploader {
-  flex-flow: row wrap;
-  margin-bottom: 3rem;
-  text-align: center;
+    flex-flow: row wrap;
+    margin-bottom: 3rem;
+    text-align: center;
 }
 
 .previewComponent .btns {
-  background-color: var(--bright-green);
-  border-radius: 50%;
-  border: none;
-  /* box-shadow: 0.2rem 0.2rem 2.5rem rgba(0,0,0,0.25) !important; */
-  color: var(--white) !important;
-  font-size: 18px;
-  height: 2.5rem;
-  width: 2.5rem;
-  position: absolute;
-  transition: right 0.5s ease 0.7s, left 0.5s ease 0.7s, top 0.5s ease 0.7s;
+    background-color: var(--bright-green);
+    border-radius: 50%;
+    border: none;
+    /* box-shadow: 0.2rem 0.2rem 2.5rem rgba(0,0,0,0.25) !important; */
+    color: var(--white) !important;
+    font-size: 18px;
+    height: 2.5rem;
+    width: 2.5rem;
+    position: absolute;
+    transition: right 0.5s ease 0.7s, left 0.5s ease 0.7s, top 0.5s ease 0.7s;
 }
 
 .previewComponent .btns.active {
-  transition: right 0.5s ease 0.7s, left 0.5s ease 0.7s, top 0.5s ease 0.7s;
+    transition: right 0.5s ease 0.7s, left 0.5s ease 0.7s, top 0.5s ease 0.7s;
 }
 
 .previewComponent .fa-image,
 .previewComponent .fa-camera {
-  color: var(--light-gray);
-  font-size: 3rem;
+    color: var(--light-gray);
+    font-size: 3rem;
 }
 
 .profilePreview,
@@ -42,116 +42,116 @@
 .profilePreview div,
 .profilePreview .fa-image,
 .profilePreview .fa-camera {
-  position: relative;
+    position: relative;
 }
 
 .coverLabel {
-  right: 3%;
-  bottom: 5%;
+    right: 3%;
+    bottom: 5%;
 }
 
 .coverPreview p {
-  color: var(--text-gray);
-  position: absolute;
-  text-align: center;
-  top: 30%;
-  width: 100%;
+    color: var(--text-gray);
+    position: absolute;
+    text-align: center;
+    top: 30%;
+    width: 100%;
 }
 
 .coverPreview .delete_cover {
-  right: 3%;
-  bottom: 25%;
+    right: 3%;
+    bottom: 25%;
 }
 
 .coverPreview div, .coverPreview .fa-image {
-  border: var(--border);
-  background-size: cover;
-  background-position: center;
-  height: 29vh;
-  width: 100vw;
+    border: var(--border);
+    background-size: cover;
+    background-position: center;
+    height: 29vh;
+    width: 100vw;
 }
 
 .coverPreview .banner-heading {
-  color: var(--white);
-  left: 0;
-  letter-spacing: 2px;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  text-shadow: 0.2rem 0.2rem 0.5rem rgba(0,0,0,1);
+    color: var(--white);
+    left: 0;
+    letter-spacing: 2px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    text-shadow: 0.2rem 0.2rem 0.5rem rgba(0,0,0,1);
 }
 
 .profilePreview div, .profilePreview .fa-camera {
-  background-color: var(--white);
-  background-size: cover;
-  background-position: center;
-  border: 2px solid var(--bright-green);
-  border-radius: 10%;
-  box-shadow: 0.2rem 0.3rem 2.5rem rgba(0,0,0,0.5);
-  height: 6.5rem;
-  top: -50px;
-  width: 6.5rem;
-  z-index: 1;
-  transition: border-radius 0.2s ease-in-out;
+    background-color: var(--white);
+    background-size: cover;
+    background-position: center;
+    border: 2px solid var(--bright-green);
+    border-radius: 10%;
+    box-shadow: 0.2rem 0.3rem 2.5rem rgba(0,0,0,0.5);
+    height: 6.5rem;
+    top: -50px;
+    width: 6.5rem;
+    z-index: 1;
+    transition: border-radius 0.2s ease-in-out;
 }
 
 .profilePreview div.circle, .profilePreview .fa-camera.circle {
-  border-radius: 50%;
-  transition: border-radius 0.2s ease-in-out;
+    border-radius: 50%;
+    transition: border-radius 0.2s ease-in-out;
 }
 
 .delete_profile.btns,
 .delete_cover.btns {
-  background-color: var(--danger);
-  box-shadow: none;
-  font-size: 24px;
+    background-color: var(--danger);
+    box-shadow: none;
+    font-size: 24px;
 }
 
 .change_profile_shape.btns {
-  /* background-color: var(--medium-blue); */
-  background-color: var(--dark-green);
-  /* background-color: var(--light-green); */
-  box-shadow: none;
-  top: -10%;
-  right: 45%;
-  z-index: 0;
+    /* background-color: var(--medium-blue); */
+    background-color: var(--dark-green);
+    /* background-color: var(--light-green); */
+    box-shadow: none;
+    top: -10%;
+    right: 45%;
+    z-index: 0;
 }
 
 .change_profile_shape.btns.active {
-  right: 32%;
-  top: 65%;
+    right: 32%;
+    top: 65%;
 }
 
 .delete_profile.btns {
-  left: 45%;
-  top: -10%;
-  z-index: 0;
+    left: 45%;
+    top: -10%;
+    z-index: 0;
 }
 
 .delete_profile.btns.active {
-  left: 32%;
-  top: 65%;
+    left: 32%;
+    top: 65%;
 }
 
 .profileLabel.btns {
-  top: 35%;
-  z-index: 2;
+    top: 35%;
+    z-index: 2;
 }
 
 .profileLabel.btns.active {
-  top: 65%;
+    top: 65%;
 }
 
 .change_profile_shape i {
-  font-size: 20px;
-  bottom: 0;
+    font-size: 20px;
+    bottom: 0;
 }
 
 .coverInput, .profileInput {
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  width: 0.1px;
-  z-index: -1;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 0.1px;
+    z-index: -1;
 }

@@ -5,14 +5,14 @@ import { shallow } from 'enzyme';
 import CartFooter from './CartFooter.js';
 
 const defaultProps = {
-  // Put props here...
+    // Put props here...
 };
 
 const wrapper = shallow(<CartFooter {...defaultProps} />);
 
 describe('<CartFooter />', () => {
 
-  it('renders without crashing', () => {
-    expect(wrapper.exists('.CartFooter')).toBe(true);
-  });
+    it('renders without crashing', () => {
+        expect(wrapper.exists('.CartFooter')).toBe(true);
+    });
 });

@@ -4,143 +4,143 @@ import './CauseDetail.css';
 
 // Ducks
 import {
-  causeSelected,
-  getSingleCause,
+    causeSelected,
+    getSingleCause,
 } from 'ducks/cause';
 
 // Utilities
 import {
-  scrollTo,
-  sharePage,
+    // scrollTo,
+    sharePage,
 } from 'utilities';
 
 // Shared UI Components
 import {
-  ActionButton,
-  Banner,
-  FontAwesome,
-  LinkButton,
+    ActionButton,
+    Banner,
+    FontAwesome,
+    LinkButton,
 } from 'components/shared';
 
 // Cause Detail Components
 import {
-  AboutCause,
-  DonorComments,
-  ProgressBar,
-  TileSection,
+    AboutCause,
+    DonorComments,
+    ProgressBar,
+    TileSection,
 } from 'components/CauseDetail';
 
 export class CauseDetail extends Component {
 
-  componentDidMount() {
-    // scrollTo('topnav');
+    componentDidMount() {
+        // scrollTo('topnav');
 
-    // fetch the current cause if undefined (Usually on refreshing the screen)
-    if (!this.props.cause) {
-      const id = this.props.match.params.id;
-      this.props.getSingleCause(id);
-    };
-  };
-
-  render() {
-    const {
-      cause,
-      cause: {
-        Donations,
-        name,
-        backgroundImage,
-        mainImage,
-        Preferences,
-        totalRaised,
-        amount,
-        description,
-        purpose,
-      },
-    } = this.props;
-
-    let purchasedTiles;
-
-    if (Donations) {
-      purchasedTiles = Object.keys(Donations).map(index => Donations[index].amount);
+        // fetch the current cause if undefined (Usually on refreshing the screen)
+        if (!this.props.cause) {
+            const id = this.props.match.params.id;
+            this.props.getSingleCause(id);
+        }
     }
 
-    return (
-      <div className="CauseDetail">
+    render() {
+        const {
+            cause,
+            cause: {
+                Donations,
+                name,
+                backgroundImage,
+                mainImage,
+                Preferences,
+                totalRaised,
+                amount,
+                description,
+                purpose,
+            },
+        } = this.props;
 
-        <Banner
-          heading={name}
-          BGimage={backgroundImage}
-          mainImage={mainImage}
-          roundImage={Preferences ? Preferences[0].roundImage : {}}
-        />
+        let purchasedTiles;
 
-        <div className="wrapper">
+        if (Donations) {
+            purchasedTiles = Object.keys(Donations).map(index => Donations[index].amount);
+        }
 
-          <ProgressBar
-            totalRaised={totalRaised}
-            goal={amount}
-          />
+        return (
+            <div className="CauseDetail">
 
-          <TileSection
-            {...cause}
-            purchasedTiles={purchasedTiles}
-          />
+                <Banner
+                    heading={name}
+                    BGimage={backgroundImage}
+                    mainImage={mainImage}
+                    roundImage={Preferences ? Preferences[0].roundImage : {}}
+                />
 
-          <LinkButton
-            href="/checkout"
-            linkText="Donate"
-            classname="donate-link"
-          />
+                <div className="wrapper">
 
-          <div className="share-link" onClick={() => sharePage()}>
-            <FontAwesome classname={"fas fa-share-alt"} />
-            Or Share This Page
-          </div>
+                    <ProgressBar
+                        totalRaised={totalRaised}
+                        goal={amount}
+                    />
 
-          <AboutCause
-            title={name}
-            aboutText={description}
-            usageText={purpose}
-          />
+                    <TileSection
+                        {...cause}
+                        purchasedTiles={purchasedTiles}
+                    />
 
-          {Donations && Donations.length > 0 &&
-            <DonorComments
-              donations={Donations}
-            />
-          }
+                    <LinkButton
+                        href="/checkout"
+                        linkText="Donate"
+                        classname="donate-link"
+                    />
 
-          <ActionButton
-            actionText="Share this page"
-            classname="share-page"
-            action={sharePage}
-            icon={"fas fa-share-alt"}
-          />
+                    <div className="share-link" onClick={() => sharePage()}>
+                        <FontAwesome classname={'fas fa-share-alt'} />
+                        Or Share This Page
+                    </div>
 
-        </div>
-      </div>
-    );
-  }
-};
+                    <AboutCause
+                        title={name}
+                        aboutText={description}
+                        usageText={purpose}
+                    />
+
+                    {Donations && Donations.length > 0 &&
+                        <DonorComments
+                            donations={Donations}
+                        />
+                    }
+
+                    <ActionButton
+                        actionText="Share this page"
+                        classname="share-page"
+                        action={sharePage}
+                        icon={'fas fa-share-alt'}
+                    />
+
+                </div>
+            </div>
+        );
+    }
+}
 
 const mapStateToProps = (state) => {
-  const {
-    cause: {
-      selectedCause
-    },
-    cart: {
-      cart
-    },
-  } = state;
+    const {
+        cause: {
+            selectedCause,
+        },
+        cart: {
+            cart,
+        },
+    } = state;
 
-  return {
-    cause: selectedCause,
-    cart,
-  }
+    return {
+        cause: selectedCause,
+        cart,
+    };
 };
 
 const mapDispatchToProps = {
-  causeSelected,
-  getSingleCause
+    causeSelected,
+    getSingleCause
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CauseDetail);

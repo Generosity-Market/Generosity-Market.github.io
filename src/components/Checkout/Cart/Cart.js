@@ -4,45 +4,45 @@ import './Cart.css';
 
 // Shared UI Components
 import {
-  FontAwesome,
+    FontAwesome,
 } from 'components/shared';
 
 const Cart = ({
-  cart,
-  clearCart,
-  removeFromCart,
-  // user,
+    cart,
+    clearCart,
+    removeFromCart,
+    // user,
 }) => {
-  // console.log("Cart User: ", user);
+    // console.log("Cart User: ", user);
 
-  const cartItems = cart.map(item => {
+    const cartItems = cart.map(item => {
+        return (
+            <CartItem
+                key={item.cause + item.amount}
+                {...item}
+                cart={cart}
+                removeFromCart={removeFromCart}
+            />
+        );
+    });
+
     return (
-      <CartItem
-        key={item.cause + item.amount}
-        {...item}
-        cart={cart}
-        removeFromCart={removeFromCart}
-      />
+        <div className="cart-container">
+            <h3 className="basket">Your Basket</h3>
+
+            <div className="inner-container">
+
+                {cartItems}
+
+                {cart.length > 1 &&
+                    <div className="clear-cart" onClick={() => clearCart()}>
+                        <p>clear cart</p>
+                        <FontAwesome classname={'fas fa-times'} />
+                    </div>}
+
+            </div>
+        </div>
     );
-  });
-
-  return (
-    <div className="cart-container">
-      <h3 className="basket">Your Basket</h3>
-
-      <div className="inner-container">
-
-        {cartItems}
-
-        {cart.length > 1 &&
-          <div className="clear-cart" onClick={() => clearCart()}>
-            <p>clear cart</p>
-            <FontAwesome classname={'fas fa-times'} />
-          </div>}
-
-      </div>
-    </div>
-  );
 
 };
 

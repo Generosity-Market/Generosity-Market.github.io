@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import NavItem from '../NavItem/NavItem';
 import './BottomMenu.css';
 
@@ -6,7 +6,8 @@ const BottomMenu = ({
     handleNavigation,
     navLinks,
     user,
-}) => (
+}) =>
+    (
         <div className="BottomMenu">
             {navLinks.map((link, index) =>
                 <NavItem

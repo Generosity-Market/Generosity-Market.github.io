@@ -1,49 +1,49 @@
 :root {
-  --danger:            #ff2828;
-  --danger-65:         rgba(255, 40, 40, 0.65);
-  --danger-35:         rgba(255, 40, 40, 0.35);
-  --medium-blue:       #478dff;
-  --medium-blue-85:    rgba(71,141,255,0.85);
-  --dark-green:        #008C49;
-  --dark-green-85:     rgba(0,140,73,0.85);
-  --bright-green:      #3ABF49;
-  --bright-green-85:   rgba(58,191,73,0.85);
-  --medium-green:      #4bb74d;
-  --medium-green-10:   rgba(75,183,77,0.1);
-  --medium-green-85:   rgba(75,183,77,0.85);
-  --light-green:       #acd147;
-  --light-green-85:    rgba(172,209,71,0.85);
-  --blackish:          #1e301b;
-  --dark-gray:         #606060;
-  --text-gray:         #707070;
-  --black-30:          rgba(0,0,0,0.3);
-  --black-20:          rgba(0,0,0,0.2);
-  --black-10:          rgba(0,0,0,0.1);
-  --light-gray:        #ddd;
-  --white:             rgba(255,255,255,1);
-  --white-85:          rgba(255,255,255,0.85);
+    --danger:            #ff2828;
+    --danger-65:         rgba(255, 40, 40, 0.65);
+    --danger-35:         rgba(255, 40, 40, 0.35);
+    --medium-blue:       #478dff;
+    --medium-blue-85:    rgba(71,141,255,0.85);
+    --dark-green:        #008C49;
+    --dark-green-85:     rgba(0,140,73,0.85);
+    --bright-green:      #3ABF49;
+    --bright-green-85:   rgba(58,191,73,0.85);
+    --medium-green:      #4bb74d;
+    --medium-green-10:   rgba(75,183,77,0.1);
+    --medium-green-85:   rgba(75,183,77,0.85);
+    --light-green:       #acd147;
+    --light-green-85:    rgba(172,209,71,0.85);
+    --blackish:          #1e301b;
+    --dark-gray:         #606060;
+    --text-gray:         #707070;
+    --black-30:          rgba(0,0,0,0.3);
+    --black-20:          rgba(0,0,0,0.2);
+    --black-10:          rgba(0,0,0,0.1);
+    --light-gray:        #ddd;
+    --white:             rgba(255,255,255,1);
+    --white-85:          rgba(255,255,255,0.85);
 
-  --main-font:         'Futura', 'Century Gothic', sans-serif;
-  --border:            1px solid var(--light-gray);
-  --border-radius:     5px;
-  --box-shadow:        0.2rem 0.2rem 1.5rem;
-  --black-box-shadow:  0.2rem 0.2rem 1.5rem rgba(0,0,0,0.5);
-  --mini-box-shadow:   0.2rem 0.2rem 1rem rgba(0,0,0,0.5);
+    --main-font:         'Futura', 'Century Gothic', sans-serif;
+    --border:            1px solid var(--light-gray);
+    --border-radius:     5px;
+    --box-shadow:        0.2rem 0.2rem 1.5rem;
+    --black-box-shadow:  0.2rem 0.2rem 1.5rem rgba(0,0,0,0.5);
+    --mini-box-shadow:   0.2rem 0.2rem 1rem rgba(0,0,0,0.5);
 }
 
 @font-face {
-  font-family: 'Futura';
-  font-style: normal;
-  font-weight: 400;
-  src:
-    local('Futura'),
-    url('./fonts/futura-book-font.ttf') format('ttf');
+    font-family: 'Futura';
+    font-style: normal;
+    font-weight: 400;
+    src:
+        local('Futura'),
+        url('./fonts/futura-book-font.ttf') format('ttf');
 }
 
 body, * {
-  margin: 0;
-  padding: 0;
-  font-family: var(--main-font);
+    margin: 0;
+    padding: 0;
+    font-family: var(--main-font);
 }
 
 *:focus,

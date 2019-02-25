@@ -10,6 +10,6 @@ const rootReducer = combineReducers({
     cause: causeReducer,
     cart: cartReducer,
     organization: organizationReducer,
-})
+});
 
 export default rootReducer;

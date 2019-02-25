@@ -5,24 +5,24 @@ import { shallow } from 'enzyme';
 import { Dashboard } from './Dashboard.js';
 
 const defaultProps = {
-  match: {
-    params: {
-      id: 1
+    match: {
+        params: {
+            id: 1
+        }
+    },
+    user: {
+        Preferences: [],
+    },
+    userData: {
+        id: 1,
     }
-  },
-  user: {
-    Preferences: [],
-  },
-  userData: {
-    id: 1,
-  }
 };
 
 const wrapper = shallow(<Dashboard {...defaultProps} />);
 
 describe('<Dashboard />', () => {
 
-  it('renders without crashing', () => {
-    expect(wrapper.exists('.Dashboard')).toEqual(true);
-  });
+    it('renders without crashing', () => {
+        expect(wrapper.exists('.Dashboard')).toEqual(true);
+    });
 });

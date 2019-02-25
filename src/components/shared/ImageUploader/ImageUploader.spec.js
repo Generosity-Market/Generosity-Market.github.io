@@ -5,14 +5,14 @@ import { shallow } from 'enzyme';
 import ImageUploader from './ImageUploader.js';
 
 const defaultProps = {
-  handleUpdateState: () => { },
+    handleUpdateState: () => { },
 };
 
 const wrapper = shallow(<ImageUploader {...defaultProps} />);
 
 describe('<ImageUploader />', () => {
 
-  it('renders without crashing', () => {
-    expect(wrapper.exists('.ImageUploader')).toBe(true);
-  });
+    it('renders without crashing', () => {
+        expect(wrapper.exists('.ImageUploader')).toBe(true);
+    });
 });

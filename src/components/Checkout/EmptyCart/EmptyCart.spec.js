@@ -5,14 +5,14 @@ import { shallow } from 'enzyme';
 import EmptyCart from './EmptyCart.js';
 
 const defaultProps = {
-  // Props go here...
+    // Props go here...
 };
 
 const wrapper = shallow(<EmptyCart {...defaultProps} />);
 
 describe('<EmptyCart />', () => {
 
-  it('renders without crashing', () => {
-    expect(wrapper.exists('.EmptyCart')).toBe(true);
-  });
+    it('renders without crashing', () => {
+        expect(wrapper.exists('.EmptyCart')).toBe(true);
+    });
 });

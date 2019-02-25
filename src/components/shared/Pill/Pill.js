@@ -22,31 +22,31 @@ const Pill = ({
             {children}
         </div>
     );
-}
+};
 
 Pill.propTypes = {
     /**
     * The classname to apply to the root node
     */
     uiContext: PropTypes.oneOf(['default', 'success', 'info', 'danger', 'active']),
-	/**
+    /**
     * The children (usually text) to render at the root nodes
     */
     children: PropTypes.string.isRequired,
-	/**
+    /**
     * The Handler for action button click
     */
     onClick: PropTypes.func,
-	/**
+    /**
     * The name of the Font Awesome icon to pass to the FontAwesome component
     */
     icon: PropTypes.string,
-}
+};
 
 Pill.defaultProps = {
     onClick: () => { },
     uiContext: 'default',
     children: '',
-}
+};
 
 export default Pill;

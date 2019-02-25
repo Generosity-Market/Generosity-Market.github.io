@@ -33,40 +33,40 @@ const infoButton = (
 const noCauseSelected = () => {
     return (
         <div className="empty-cause">
-            No cause selected. Click the {infoButton} button below a cause to see it's donations.
+            {`No cause selected. Click the ${infoButton} button below a cause to see it's donations.`}
         </div>
-    )
-}
+    );
+};
 
 const getSortKey = (sort) => {
     switch (sort) {
         case 'By Date':
-            return 'updatedAt'
+            return 'updatedAt';
         case 'By Amount':
             return 'amount';
-        case "By Email":
+        case 'By Email':
             return 'email';
         default:
             return '';
     }
-}
+};
 
 const formatDonorInfoForDownload = (info) => {
     return info.map(item => {
         const { id, email, amount, updatedAt } = item;
         return {
-            "Transaction id": id,
+            'Transaction id': id,
             Email: email,
             Amount: amount,
             Date: getFormattedDate(updatedAt),
-        }
-    })
-}
+        };
+    });
+};
 
 
 export class DonorInfo extends Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.sorts = [
             'By Date',
@@ -77,7 +77,7 @@ export class DonorInfo extends Component {
 
         this.state = {
             sort: '',
-        }
+        };
     }
 
     renderSorts = (sort) => {
@@ -92,7 +92,7 @@ export class DonorInfo extends Component {
                         >
                             {text}
                         </Pill>
-                    )
+                    );
                 })}
             </Slider>
         );
@@ -100,8 +100,8 @@ export class DonorInfo extends Component {
 
     handleUpdateState = (field) => {
         return (event) => {
-            this.setState({ [field]: event.target.textContent })
-        }
+            this.setState({ [field]: event.target.textContent });
+        };
     };
 
     renderDonations = (sortedDonations) => {
@@ -110,8 +110,8 @@ export class DonorInfo extends Component {
                 <p style={{ color: 'var(--text-gray', textAlign: 'center', marginTop: '1.5rem' }}>
                     This cause currently has no donations
                 </p>
-            )
-        };
+            );
+        }
 
         return (
             <Fragment>
@@ -126,10 +126,10 @@ export class DonorInfo extends Component {
                             <p>{donation.email}</p>
                             <p>{getFormattedDate(donation.updatedAt)}</p>
                         </div>
-                    )
+                    );
                 })}
             </Fragment>
-        )
+        );
     }
 
     render() {
@@ -174,7 +174,7 @@ export class DonorInfo extends Component {
                     </div>}
 
             </div>
-        )
+        );
     }
 
 }

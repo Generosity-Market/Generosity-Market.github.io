@@ -1,19 +1,19 @@
 .OrgCauses {
-  margin: 3rem 0;
-  text-align: center;
+    margin: 3rem 0;
+    text-align: center;
 }
 
 .OrgCauses h3 {
-  color: var(--dark-green);
-  font-size: 1.5rem;
-  text-transform: uppercase;
+    color: var(--dark-green);
+    font-size: 1.5rem;
+    text-transform: uppercase;
 }
 
 .OrgCauses .cause-wrapper {
-  display: flex;
-  flex-wrap: nowrap;
-  margin: 1rem auto;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 1rem auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
 }

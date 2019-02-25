@@ -10,7 +10,7 @@ const wrapper = shallow(<TopMenu {...defaultProps} />);
 
 describe('<TopMenu />', () => {
 
-  it('renders without crashing', () => {
-    expect(wrapper.exists('.TopMenu')).toBe(true);
-  });
+    it('renders without crashing', () => {
+        expect(wrapper.exists('.TopMenu')).toBe(true);
+    });
 });

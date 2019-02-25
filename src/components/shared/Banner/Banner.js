@@ -9,7 +9,8 @@ const Banner = ({
     heading,
     mainImage,
     roundImage,
-}) => (
+}) =>
+    (
         <div className='Header'>
             <div
                 className='hero-image'

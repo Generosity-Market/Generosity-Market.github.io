@@ -5,17 +5,16 @@ import { shallow } from 'enzyme';
 import { CauseDetail } from './CauseDetail.js';
 
 const defaultProps = {
-  cause: {
-    Donations: [],
-  },
-
+    cause: {
+        Donations: [],
+    },
 };
 
 const wrapper = shallow(<CauseDetail {...defaultProps} />);
 
 describe('<CauseDetail />', () => {
 
-  it('renders without crashing', () => {
-    expect(wrapper.exists('.CauseDetail')).toBe(true);
-  });
+    it('renders without crashing', () => {
+        expect(wrapper.exists('.CauseDetail')).toBe(true);
+    });
 });

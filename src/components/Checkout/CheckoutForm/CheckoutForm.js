@@ -34,15 +34,16 @@ class CheckoutForm extends Component {
             //     state: '',
             //     zip: '',
             // },
-        }
+        };
         this.submit = this.submit.bind(this);
-    };
+    }
 
     componentDidMount() {
         const { user } = this.props;
         if (user) {
-            console.log()
-            this.setState({ email: user.email })
+            /* eslint-disable-next-line no-console */
+            console.log();
+            this.setState({ email: user.email });
         }
     }
 
@@ -54,17 +55,17 @@ class CheckoutForm extends Component {
 
     handleButtonText = () => {
         const { loading, status } = this.state;
-        if (loading) return "loading...";
-        if (status === 'complete') return "donation complete";
-        if (status === 'failed') return "failed";
+        if (loading) return 'loading...';
+        if (status === 'complete') return 'donation complete';
+        if (status === 'failed') return 'failed';
         return `Charge $${this.props.total}`;
     }
 
     handleStateChange = (event) => {
-        this.setState({ email: event.target.value })
+        this.setState({ email: event.target.value });
     }
 
-    submit(event) {
+    submit() {
         const {
             stripe,
             total,
@@ -75,14 +76,15 @@ class CheckoutForm extends Component {
         } = this.props;
 
         this.setState({ loading: true, status: '' });
-        console.log("Checkout props: ", this.props);
+        /* eslint-disable-next-line no-console */
+        console.log('Checkout props: ', this.props);
 
         // TODO abstract this into a service?...
         stripeServices.createToken(stripe)
             .then(token => {
                 // TODO if token is undefined that means something wasnt filled in. We need to display an error message here...
                 if (!token) {
-                    this.setState({ loading: false, status: 'failed' })
+                    this.setState({ loading: false, status: 'failed' });
                     return;
                 }
 
@@ -95,7 +97,7 @@ class CheckoutForm extends Component {
                         email: this.state.email
                     }),
                     headers: {
-                        "Content-Type": "application/json"
+                        'Content-Type': 'application/json'
                     },
                 })
                     .then(response => {
@@ -108,13 +110,13 @@ class CheckoutForm extends Component {
                             setTimeout(() => this.props.history.push('/thankyou'), 1000);
                             clearCart();
                         } else if (response.status === 'failed') {
-                            this.setState({ loading: false, status: 'failed' })
+                            this.setState({ loading: false, status: 'failed' });
                         }
                         return response;
                     });
 
-            })
-    };
+            });
+    }
 
     render() {
         const {
@@ -156,9 +158,9 @@ class CheckoutForm extends Component {
                     />
                 </div>
             </div>
-        )
-    };
-};
+        );
+    }
+}
 
 const stripeStyles = {
     base: {

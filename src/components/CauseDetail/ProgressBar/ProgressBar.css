@@ -1,22 +1,22 @@
 .ProgressBar {
-  border: 1px solid var(--light-gray);
-  border-radius: 5px;
-  margin: 2rem auto;
-  padding: 0.5rem;
-  position: relative;
-  width: 90%;
+    border: 1px solid var(--light-gray);
+    border-radius: 5px;
+    margin: 2rem auto;
+    padding: 0.5rem;
+    position: relative;
+    width: 90%;
 }
 
 .percent-bar {
-  background-color: var(--light-green);
-  height: 20px;
-  overflow: visible;
-  padding: 0.8rem 0.5rem;
-  transition: width 0.3s;
+    background-color: var(--light-green);
+    height: 20px;
+    overflow: visible;
+    padding: 0.8rem 0.5rem;
+    transition: width 0.3s;
 }
 
 .percent-bar h3 {
-  color: var(--dark-green);
-  letter-spacing: 0.1rem;
-  position: absolute;
+    color: var(--dark-green);
+    letter-spacing: 0.1rem;
+    position: absolute;
 }

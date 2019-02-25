@@ -5,16 +5,16 @@ import { shallow } from 'enzyme';
 import UserDetails from './UserDetails.js';
 
 const defaultProps = {
-  address: {},
-  name: '',
-  phone: '',
+    address: {},
+    name: '',
+    phone: '',
 };
 
 const wrapper = shallow(<UserDetails {...defaultProps} />);
 
 describe('<UserDetails />', () => {
 
-  it('renders without crashing', () => {
-    expect(wrapper.exists('.UserDetails')).toBe(true);
-  });
+    it('renders without crashing', () => {
+        expect(wrapper.exists('.UserDetails')).toBe(true);
+    });
 });

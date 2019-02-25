@@ -3,10 +3,10 @@ import './UserCauses.css';
 
 // Shared UI Components
 import {
-  CauseTile,
-  FontAwesome,
-  Heading,
-  Slider,
+    CauseTile,
+    FontAwesome,
+    Heading,
+    Slider,
 } from 'components/shared';
 
 // Import HOC to see if component is in viewport
@@ -17,72 +17,72 @@ const CauseTileWithLazyLoad = handleViewport(CauseTile);
 // TODO convert this to functional component if we arent using state...
 class UserCauses extends Component {
 
-  getUserCauses = (causes) => {
-    const {
-      causeSelected,
-      selectCauseToHighlight,
-      highlightedCause,
-    } = this.props;
+    getUserCauses = (causes) => {
+        const {
+            causeSelected,
+            selectCauseToHighlight,
+            highlightedCause,
+        } = this.props;
 
-    return causes.map(cause => {
-      return (
-        <Fragment key={cause.id}>
-          <CauseTileWithLazyLoad
-            key={cause.id}
-            raised={Number(cause.totalRaised)}
-            cause={cause}
-            causeSelected={causeSelected}
-            highlightedCause={highlightedCause}
-          >
-            <p
-              className="see-donors"
-              onClick={() => selectCauseToHighlight(cause.id)}
-            >
-              <FontAwesome
-                classname={'fas fa-info-circle'}
-                style={{
-                  color: `${highlightedCause === cause.id ? 'var(--blackish)' : 'var(--text-gray)'}`,
-                }}
-              />
-            </p>
-          </CauseTileWithLazyLoad>
-        </Fragment>
-      );
-    });
-  }
+        return causes.map(cause => {
+            return (
+                <Fragment key={cause.id}>
+                    <CauseTileWithLazyLoad
+                        key={cause.id}
+                        raised={Number(cause.totalRaised)}
+                        cause={cause}
+                        causeSelected={causeSelected}
+                        highlightedCause={highlightedCause}
+                    >
+                        <p
+                            className="see-donors"
+                            onClick={() => selectCauseToHighlight(cause.id)}
+                        >
+                            <FontAwesome
+                                classname={'fas fa-info-circle'}
+                                style={{
+                                    color: `${highlightedCause === cause.id ? 'var(--blackish)' : 'var(--text-gray)'}`,
+                                }}
+                            />
+                        </p>
+                    </CauseTileWithLazyLoad>
+                </Fragment>
+            );
+        });
+    }
 
-  renderNoCauses = (text) => {
-    return (
-      <div className="no-causes">
-        {text}
-      </div>
-    );
-  }
+    renderNoCauses = (text) => {
+        return (
+            <div className="no-causes">
+                {text}
+            </div>
+        );
+    }
 
-  render() {
-    const {
-      causes,
-      loading,
-    } = this.props;
+    render() {
+        const {
+            causes,
+            loading,
+        } = this.props;
 
-    const hasCauses = (causes && causes.length > 0);
+        const hasCauses = (causes && causes.length > 0);
 
-    return (
-      <div className="UserCauses">
-        <Heading text={'Your Causes'} />
+        return (
+            <div className="UserCauses">
+                <Heading text={'Your Causes'} />
 
-        {!hasCauses && loading && this.renderNoCauses('Loading Your Causes...')}
+                {!hasCauses && loading && this.renderNoCauses('Loading Your Causes...')}
 
-        {!hasCauses && !loading && this.renderNoCauses('You haven\'t created any causes')}
+                {!hasCauses && !loading && this.renderNoCauses('You haven\'t created any causes')}
 
-        {hasCauses &&
-          <Slider>
-            {this.getUserCauses(causes)}
-          </Slider>
-        }
-      </div>
-    );
-  }
-};
+                {hasCauses &&
+                    <Slider>
+                        {this.getUserCauses(causes)}
+                    </Slider>
+                }
+            </div>
+        );
+    }
+}
 
 export default UserCauses;

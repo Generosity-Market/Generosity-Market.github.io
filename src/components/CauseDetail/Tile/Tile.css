@@ -1,44 +1,44 @@
 .Tile {
-  border: 1px solid var(--light-gray);
-  border-radius: 5px;
-  height: 43px;
-  margin: 0.5rem 0.3rem;
-  padding: 0.3rem;
-  padding-bottom: 1px;
-  position: relative;
-  width: 40px;
+    border: 1px solid var(--light-gray);
+    border-radius: 5px;
+    height: 43px;
+    margin: 0.5rem 0.3rem;
+    padding: 0.3rem;
+    padding-bottom: 1px;
+    position: relative;
+    width: 40px;
 }
 
 .Tile img {
-  height: 40px;
-  width: 40px;
+    height: 40px;
+    width: 40px;
 }
 
 .Tile .tile-amount {
-  align-items: center;
-  background-color: var(--dark-green-85);
-  color: var(--white);
-  display: flex;
-  justify-content: center;
-  height: 40px;
-  position: absolute;
-  transition: background-color 0.3s, color 0.3s, transform 0.3s, border-radius 0.3s;
-  width: 40px;
+    align-items: center;
+    background-color: var(--dark-green-85);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    position: absolute;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s, border-radius 0.3s;
+    width: 40px;
 }
 
 .tile-amount.isSelected {
-  background-color: var(--light-green-85);
-  border-radius: 5px;
-  color: var(--blackish);
-  transform: scale(1.3);
-  transition: background-color 0.3s, color 0.3s, transform 0.3s, border-radius 0.3s;
+    background-color: var(--light-green-85);
+    border-radius: 5px;
+    color: var(--blackish);
+    transform: scale(1.3);
+    transition: background-color 0.3s, color 0.3s, transform 0.3s, border-radius 0.3s;
 }
 
 .Tile.isPurchased {
-  pointer-events: none;
+    pointer-events: none;
 }
 
 .Tile.isPurchased p {
-  background-color: rgba(255,255,255,0.6);
-  color: var(--blackish);
+    background-color: rgba(255,255,255,0.6);
+    color: var(--blackish);
 }

@@ -1,92 +1,92 @@
 .CauseTile {
-  border-radius: var(--border-radius);
-  flex: 0 0 33%;
-  padding: 0.5rem;
-  transition: all 0.3s ease;
+    border-radius: var(--border-radius);
+    flex: 0 0 33%;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
 }
 
 .CauseTile a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .CauseTile .wrapper {
-  background-size: cover;
-  background-position: center;
-  border-radius: var(--border-radius);
-  box-shadow: var(--mini-box-shadow);
-  height: 6rem;
-  position: relative;
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--border-radius);
+    box-shadow: var(--mini-box-shadow);
+    height: 6rem;
+    position: relative;
 }
 
 .CauseTile a h4 {
-  color: var(--dark-gray);
-  font-size: 0.8rem;
-  margin: 0.5rem 0;
+    color: var(--dark-gray);
+    font-size: 0.8rem;
+    margin: 0.5rem 0;
 }
 
 .CauseTile .progress {
-  background-color: var(--light-green);
-  border-radius: var(--border-radius);
-  border-top-left-radius: 0px;
-  bottom: 0;
-  height: 26%;
-  overflow: visible;
-  position: absolute;
+    background-color: var(--light-green);
+    border-radius: var(--border-radius);
+    border-top-left-radius: 0px;
+    bottom: 0;
+    height: 26%;
+    overflow: visible;
+    position: absolute;
 }
 
 .CauseTile a h5 {
-  background-color: var(--black-20);
-  border-bottom-left-radius: var(--border-radius);
-  border-bottom-right-radius: var(--border-radius);
-  bottom: 0;
-  color: var(--white);
-  left: 0;
-  letter-spacing: 0.03rem;
-  margin-top: -0.3rem;
-  padding: 0.3rem 0;
-  position: absolute;
-  width: 100%;
+    background-color: var(--black-20);
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    bottom: 0;
+    color: var(--white);
+    left: 0;
+    letter-spacing: 0.03rem;
+    margin-top: -0.3rem;
+    padding: 0.3rem 0;
+    position: absolute;
+    width: 100%;
 }
 
 .CauseTile .wrapper img {
-  border-top-left-radius: var(--border-radius);
-  border-top-right-radius: var(--border-radius);
-  height: 60%;
-  width: 100%;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    height: 60%;
+    width: 100%;
 }
 
 /******************************************
-  Featured CauseTile components styling
+    Featured CauseTile components styling
 ******************************************/
 
 .CauseTile.featured {
-  flex: 0 0 90%;
-  margin: 0 0.2rem;
+    flex: 0 0 90%;
+    margin: 0 0.2rem;
 }
 
 .CauseTile.featured .wrapper {
-  height: 25vh;
+    height: 25vh;
 }
 
 .CauseTile.featured .progress {
-  height: 18%;
+    height: 18%;
 }
 
 .CauseTile.featured a h5 {
-  font-size: 1.25rem;
-  height: 13.5%;
+    font-size: 1.25rem;
+    height: 13.5%;
 }
 
 .CauseTile.featured a h4 {
-  font-size: 1.35rem;
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    font-size: 1.35rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .CauseTile.featured img {
-  width: 2.5rem;
-  height: 2.5rem;
-  margin-right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1rem;
 }

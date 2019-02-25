@@ -30,13 +30,13 @@ const userReducer = (state = initialState, action) => {
                 token: {
                     $set: null
                 }
-            })
+            });
         case LOG_OUT:
             return update(state, {
                 user: {
                     $set: null
                 }
-            })
+            });
         case SET_USER_CREATED_CAUSES:
             return update(state, {
                 user: {
@@ -44,7 +44,7 @@ const userReducer = (state = initialState, action) => {
                         $set: payload
                     }
                 }
-            })
+            });
         case SET_USER_SUPPORTED_CAUSES:
             return update(state, {
                 user: {
@@ -52,10 +52,10 @@ const userReducer = (state = initialState, action) => {
                         $set: payload
                     }
                 }
-            })
+            });
         default:
             return state;
     }
-}
+};
 
 export default userReducer;

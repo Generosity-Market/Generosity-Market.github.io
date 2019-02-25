@@ -1,6 +1,6 @@
-export const LOG_OUT = "LOG_OUT";
-export const SET_USER = "SET_USER";
-export const SET_TOKEN = "SET_TOKEN";
-export const REMOVE_TOKEN = "REMOVE_TOKEN";
-export const SET_USER_CREATED_CAUSES = "SET_USER_CREATED_CAUSES";
-export const SET_USER_SUPPORTED_CAUSES = "SET_USERSUPPORTED_CAUSES";
+export const LOG_OUT = 'LOG_OUT';
+export const SET_USER = 'SET_USER';
+export const SET_TOKEN = 'SET_TOKEN';
+export const REMOVE_TOKEN = 'REMOVE_TOKEN';
+export const SET_USER_CREATED_CAUSES = 'SET_USER_CREATED_CAUSES';
+export const SET_USER_SUPPORTED_CAUSES = 'SET_USERSUPPORTED_CAUSES';

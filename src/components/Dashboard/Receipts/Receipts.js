@@ -3,59 +3,57 @@ import { connect } from 'react-redux';
 import './Receipts.css';
 
 import {
-  causeSelected,
+    causeSelected,
 } from 'ducks/cause';
 
 // Shared UI Components
 import {
-  Heading,
-  ReceiptItem,
+    Heading,
+    ReceiptItem,
 } from 'components/shared';
 
 // TODO turn this into functional component if we arent using state...
 export class Receipts extends PureComponent {
 
-  render() {
-    const {
-      causeSelected,
-      supportedCauses,
-    } = this.props;
+    render() {
+        const {
+            causeSelected,
+            supportedCauses,
+        } = this.props;
 
-    const causes = supportedCauses && supportedCauses.map(cause => {
-      return (
-        <ReceiptItem
-          key={cause.icon + cause.name}
-          selectCause={causeSelected}
-          cause={cause}
-        />
-      );
-    });
+        const causes = supportedCauses && supportedCauses.map(cause => {
+            return (
+                <ReceiptItem
+                    key={cause.icon + cause.name}
+                    selectCause={causeSelected}
+                    cause={cause}
+                />
+            );
+        });
 
-    return (
-      <div className="Receipts">
-        <Heading text={'Causes I Support'} />
-
-        {causes}
-
-      </div>
-    );
-  }
-};
+        return (
+            <div className="Receipts">
+                <Heading text={'Causes I Support'} />
+                {causes}
+            </div>
+        );
+    }
+}
 
 const mapStateToProps = (state) => {
-  const {
-    cause: {
-      causeList
-    },
-  } = state;
+    const {
+        cause: {
+            causeList,
+        },
+    } = state;
 
-  return {
-    causeList,
-  };
+    return {
+        causeList,
+    };
 };
 
 const mapDispatchToProps = {
-  causeSelected,
-}
+    causeSelected,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Receipts);

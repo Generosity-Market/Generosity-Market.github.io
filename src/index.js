@@ -19,19 +19,19 @@ import Routes from './routes/Routes';
 
 // Creating the redux store with middleware
 const store = createStore(
-  rootReducer,
-  initialState,
-  compose(
-    applyMiddleware(thunk)
-  )
+    rootReducer,
+    initialState,
+    compose(
+        applyMiddleware(thunk)
+    )
 );
 
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <BaseLayout>
-        <Routes />
-      </BaseLayout>
-    </BrowserRouter>
-  </Provider>, document.getElementById('root'));
+    <Provider store={store}>
+        <BrowserRouter>
+            <BaseLayout>
+                <Routes />
+            </BaseLayout>
+        </BrowserRouter>
+    </Provider>, document.getElementById('root'));
 registerServiceWorker();
