@@ -152,8 +152,7 @@ export class Dashboard extends Component {
 
                 <Banner
                     BGimage={
-                        user.backgroundImage &&
-                        getImageUrl(user.backgroundImage)
+                        user.backgroundImage && getImageUrl(user.backgroundImage)
                     }
                     mainImage={
                         user.mainImage && getImageUrl(user.mainImage)
