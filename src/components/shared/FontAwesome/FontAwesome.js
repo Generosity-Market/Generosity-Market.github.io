@@ -1,22 +1,31 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 
 const FontAwesome = ({
+    icon,
     onClick,
-    classname,
-    style
+    size,
+    style,
+    ...rest
 }) =>
     (
-        <i onClick={onClick} className={classname} style={style}></i>
+        <FontAwesomeIcon
+            icon={icon}
+            onClick={onClick}
+            size={size}
+            style={style}
+            {...rest}
+        />
     );
+
+FontAwesome.defaultProps = {};
 
 FontAwesome.propTypes = {
     /**
-     * The font awesome classname to apply to the root node
+     * The font awesome icon to render
      */
-    classname: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
 };
-
-FontAwesome.defaultProps = {};
 
 export default FontAwesome;

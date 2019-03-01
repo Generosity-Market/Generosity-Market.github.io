@@ -5,6 +5,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import {
     faArrowAltCircleLeft,
     faBars,
+    faBuilding,
     faCamera,
     faCheckCircle,
     faChevronLeft,
@@ -12,10 +13,15 @@ import {
     faDownload,
     faHome,
     faInfoCircle,
+    faLightbulb,
+    faPencilAlt,
     faPlus,
+    faPuzzlePiece,
     faShareAlt,
+    faShoppingCart,
     faSquare,
     faTimes,
+    faUser,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -24,22 +30,35 @@ import {
     faTimesCircle,
 } from '@fortawesome/free-regular-svg-icons';
 
+import {
+    faCloudsmith,
+    faLeanpub,
+} from '@fortawesome/free-brands-svg-icons';
+
 library.add(
     faArrowAltCircleLeft,
     faBars,
+    faBuilding,
     faCamera,
     faCheckCircle,
     faChevronLeft,
     faChevronRight,
+    faCloudsmith,
     faCreditCard,
     faDownload,
     faHome,
     faImage,
     faInfoCircle,
+    faLeanpub,
+    faLightbulb,
+    faPencilAlt,
     faPlus,
+    faPuzzlePiece,
     faShareAlt,
+    faShoppingCart,
     faSquare,
     faTimes,
     faTimesCircle,
+    faUser,
     // add additional icons here
 );
