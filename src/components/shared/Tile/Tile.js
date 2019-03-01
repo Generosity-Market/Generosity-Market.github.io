@@ -49,7 +49,10 @@ Tile.propTypes = {
     /**
     * The name of the Font Awesome icon to pass to the FontAwesome component
     */
-    icon: PropTypes.string,
+    icon: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.array,
+    ]),
 };
 
 Tile.defaultProps = {

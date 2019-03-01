@@ -6,17 +6,17 @@ const bottomNavLinks = [
     // }, 
     {
         name: 'New Cause',
-        icon: 'fas fa-plus',
+        icon: 'plus',
         endpoint: () => '/causes/new',
     },
     {
         name: 'My Dashboard',
-        icon: 'fas fa-user',
+        icon: 'user',
         endpoint: (id) => `/users/${id}/dashboard`,
     },
     {
         name: 'Checkout',
-        icon: 'fas fa-shopping-cart',
+        icon: 'shopping-cart',
         endpoint: () => '/checkout',
     },
 ];

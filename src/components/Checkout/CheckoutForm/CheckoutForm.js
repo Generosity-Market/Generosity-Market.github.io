@@ -128,7 +128,10 @@ class CheckoutForm extends Component {
         return (
             <div className="CheckoutForm" style={showForm && total > 0 ? { bottom: '-5%' } : { bottom: '-100%' }}>
                 <div className="card">
-                    <FontAwesome onClick={toggleCheckoutForm} classname='far fa-times-circle' />
+                    <FontAwesome
+                        onClick={toggleCheckoutForm}
+                        icon={['far', 'times-circle']}
+                    />
                     <p>Would you like to complete the purchase?</p>
 
                     <div className="stripe-field email">

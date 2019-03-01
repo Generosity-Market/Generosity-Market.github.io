@@ -25,7 +25,7 @@ const DownloadCSV = ({
                 headers={headers && headers}
                 target="_blank"
             >
-                <FontAwesome classname={'fas fa-download'} />
+                <FontAwesome icon={'download'} />
                 {buttonText}
             </CSVLink>
         </Fragment>

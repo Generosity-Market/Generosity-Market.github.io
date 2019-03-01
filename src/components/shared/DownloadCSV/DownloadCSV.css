@@ -1,11 +1,13 @@
 .csv-download {
+    align-items: center;
     color: var(--medium-blue); /* Test these colors  */
     color: var(--text-gray); /* Test these colors  */
+    display: flex;
     margin-left: 1rem;
     text-decoration: none;
 }
 
-.csv-download i {
+.csv-download svg {
     background-color: var(--text-gray);
     border-radius: 50%;
     color: var(--white);

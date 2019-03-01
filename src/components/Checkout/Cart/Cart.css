@@ -41,7 +41,7 @@
     width: 30%;
 }
 
-.clear-cart i {
+.clear-cart svg {
     color: var(--black-30);
     font-size: 1.3rem;
 }

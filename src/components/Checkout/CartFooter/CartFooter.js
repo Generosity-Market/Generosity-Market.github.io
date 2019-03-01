@@ -27,7 +27,7 @@ const CartFooter = ({
                 onClick={toggleCheckoutForm}
             >
                 Donate ${total}
-                <FontAwesome classname={'far fa-credit-card'} />
+                <FontAwesome icon={['far', 'credit-card']} />
             </div>
 
         </div>

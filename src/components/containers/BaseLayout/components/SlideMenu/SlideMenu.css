@@ -15,7 +15,7 @@
     top: 1rem;
 }
 
-.closeMenu i {
+.closeMenu svg {
     font-size: 28px;
     text-shadow: 5px 3px 15px rgba(0,0,0,0.3);
 }
