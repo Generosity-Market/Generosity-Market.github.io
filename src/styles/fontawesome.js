@@ -41,5 +41,5 @@ library.add(
     faSquare,
     faTimes,
     faTimesCircle,
-    // more icons go here
+    // add additional icons here
 );
