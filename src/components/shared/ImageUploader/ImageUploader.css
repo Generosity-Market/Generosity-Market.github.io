@@ -9,9 +9,14 @@
 }
 
 .ImageUploader {
+    width: 100%;
     flex-flow: row wrap;
     margin-bottom: 3rem;
     text-align: center;
+}
+
+.Banner {
+    width: 100%;
 }
 
 .previewComponent .btns {
@@ -50,6 +55,10 @@
     bottom: 5%;
 }
 
+.coverPreview {
+    height: 29vh;
+}
+
 .coverPreview p {
     color: var(--text-gray);
     position: absolute;
@@ -63,12 +72,21 @@
     bottom: 25%;
 }
 
-.coverPreview div, .coverPreview .fa-image {
+.coverPreview div {
     border: var(--border);
     background-size: cover;
     background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 29vh;
     width: 100vw;
+}
+
+.coverPreview .fa-image {
+    height: 4rem;
+    margin-top: 1.5rem;
+    width: 4rem;
 }
 
 .coverPreview .banner-heading {
@@ -81,13 +99,16 @@
     text-shadow: 0.2rem 0.2rem 0.5rem rgba(0,0,0,1);
 }
 
-.profilePreview div, .profilePreview .fa-camera {
+.profilePreview div {
+    align-items: center;
     background-color: var(--white);
     background-size: cover;
     background-position: center;
     border: 2px solid var(--bright-green);
     border-radius: 10%;
     box-shadow: 0.2rem 0.3rem 2.5rem rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
     height: 6.5rem;
     top: -50px;
     width: 6.5rem;
@@ -95,7 +116,7 @@
     transition: border-radius 0.2s ease-in-out;
 }
 
-.profilePreview div.circle, .profilePreview .fa-camera.circle {
+.profilePreview div.circle {
     border-radius: 50%;
     transition: border-radius 0.2s ease-in-out;
 }
@@ -112,13 +133,12 @@
     background-color: var(--dark-green);
     /* background-color: var(--light-green); */
     box-shadow: none;
-    top: -10%;
     right: 45%;
     z-index: 0;
 }
 
 .change_profile_shape.btns.active {
-    right: 32%;
+    right: 30%;
     top: 65%;
 }
 
@@ -129,7 +149,7 @@
 }
 
 .delete_profile.btns.active {
-    left: 32%;
+    left: 30%;
     top: 65%;
 }
 
@@ -140,11 +160,6 @@
 
 .profileLabel.btns.active {
     top: 65%;
-}
-
-.change_profile_shape i {
-    font-size: 20px;
-    bottom: 0;
 }
 
 .coverInput, .profileInput {
