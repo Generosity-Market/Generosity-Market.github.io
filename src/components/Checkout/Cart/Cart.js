@@ -37,7 +37,7 @@ const Cart = ({
                 {cart.length > 1 &&
                     <div className="clear-cart" onClick={() => clearCart()}>
                         <p>clear cart</p>
-                        <FontAwesome classname={'fas fa-times'} />
+                        <FontAwesome icon={'times'} />
                     </div>}
 
             </div>

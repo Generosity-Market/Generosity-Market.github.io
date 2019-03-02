@@ -14,7 +14,7 @@ class TopMenu extends Component {
 
                 <div className='links'>
                     <Link to="/causes">
-                        <FontAwesome classname={'fas fa-home'} />
+                        <FontAwesome icon={'home'} />
                     </Link>
                 </div>
 
@@ -27,7 +27,7 @@ class TopMenu extends Component {
 
                 <div className='links'>
                     <div onClick={() => this.props.openMenu()}>
-                        <FontAwesome classname={'fas fa-bars'} />
+                        <FontAwesome icon={'bars'} />
                     </div>
                 </div>
 

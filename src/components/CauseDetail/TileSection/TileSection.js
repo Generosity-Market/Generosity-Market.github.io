@@ -95,7 +95,10 @@ export class TileSection extends Component {
                 <h2>Select Amount</h2>
 
                 <div className="direction-arrows left">
-                    <FontAwesome classname={'fas fa-2x fa-chevron-left'} />
+                    <FontAwesome
+                        icon={'chevron-left'}
+                        size={'2x'}
+                    />
                 </div>
 
                 <div className="tile-wrapper">
@@ -103,7 +106,10 @@ export class TileSection extends Component {
                 </div>
 
                 <div className="direction-arrows right">
-                    <FontAwesome classname={'fas fa-2x fa-chevron-right'} />
+                    <FontAwesome
+                        icon={'chevron-right'}
+                        size={'2x'}
+                    />
                 </div>
             </div>
         );

@@ -93,7 +93,7 @@ export class CauseDetail extends Component {
                     />
 
                     <div className="share-link" onClick={() => sharePage()}>
-                        <FontAwesome classname={'fas fa-share-alt'} />
+                        <FontAwesome icon={'share-alt'} />
                         Or Share This Page
                     </div>
 

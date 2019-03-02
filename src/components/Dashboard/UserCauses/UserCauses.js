@@ -39,7 +39,7 @@ class UserCauses extends Component {
                             onClick={() => selectCauseToHighlight(cause.id)}
                         >
                             <FontAwesome
-                                classname={'fas fa-info-circle'}
+                                icon={'info-circle'}
                                 style={{
                                     color: `${highlightedCause === cause.id ? 'var(--blackish)' : 'var(--text-gray)'}`,
                                 }}

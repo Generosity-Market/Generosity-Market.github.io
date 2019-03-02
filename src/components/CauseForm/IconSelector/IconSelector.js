@@ -25,7 +25,10 @@ class IconSelector extends Component {
                 <div className="selector">
 
                     <div className="button left" onClick={this.decreaseViewIndex}>
-                        <FontAwesome classname={'fas fa-2x fa-chevron-left'} />
+                        <FontAwesome
+                            icon={'chevron-left'}
+                            size={'2x'}
+                        />
                     </div>
 
                     <div className="slider">
@@ -38,7 +41,10 @@ class IconSelector extends Component {
                     </div>
 
                     <div className="button right" onClick={this.increaseViewIndex}>
-                        <FontAwesome classname={'fas fa-2x fa-chevron-right'} />
+                        <FontAwesome
+                            icon={'chevron-right'}
+                            size={'2x'}
+                        />
                     </div>
 
                 </div>
@@ -56,7 +62,10 @@ class IconSelector extends Component {
                 >
                     {match ? (
                         <div className="overlay">
-                            <FontAwesome classname={'far fa-lg fa-check-circle'} />
+                            <FontAwesome
+                                icon={'check-circle'}
+                                size={'lg'}
+                            />
                         </div>
                     ) : null}
                     <img src={this.returnIconUrl(icon)} alt={icon} />

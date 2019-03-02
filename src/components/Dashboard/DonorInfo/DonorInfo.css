@@ -23,7 +23,7 @@
     transition: background-color 0.3s;
 }
 
-.DonorInfo .donor-download i {
+.DonorInfo .donor-download svg {
         background-color: var(--medium-blue-85);
 }
 

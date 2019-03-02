@@ -18,7 +18,7 @@ const MainImage = ({
             justifyContent: 'center',
         }}
     >
-        {!mainImage && <FontAwesome classname="fas fa-camera" />}
+        {!mainImage && <FontAwesome icon="camera" />}
     </div>;
 
 export default MainImage;

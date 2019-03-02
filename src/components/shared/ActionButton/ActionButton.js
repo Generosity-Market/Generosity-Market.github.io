@@ -15,7 +15,7 @@ const ActionButton = ({
     return (
         <div className='ActionButton' style={buttonWrap}>
             <div onClick={action} className={classname} style={buttonStyles}>
-                {icon && <FontAwesome classname={icon} />}
+                {icon && <FontAwesome icon={icon} />}
                 {actionText}
             </div>
         </div>
@@ -57,7 +57,10 @@ ActionButton.propTypes = {
     /**
      * The name of the Font Awesome icon to pass to the FontAwesome component
      */
-    icon: PropTypes.string
+    icon: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.array,
+    ]),
 };
 
 ActionButton.defaultProps = {

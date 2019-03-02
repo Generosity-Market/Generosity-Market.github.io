@@ -8,9 +8,9 @@ import {
 
 const photoUploadSection = (
     <div className="photo-upload">
-        <FontAwesome classname={'far fa-image'} />
+        <FontAwesome icon={['far', 'image']} />
         <div>
-            <FontAwesome classname={'fas fa-plus'} />
+            <FontAwesome icon={'plus'} />
             <p>Profile</p>
         </div>
     </div>
@@ -52,7 +52,8 @@ class UserDetails extends Component {
                     </p>
 
                     <div className="edit-button">
-                        <FontAwesome classname={'fas fa-plus'} /> <p>edit profile</p>
+                        <FontAwesome icon={'plus'} />
+                        <p>edit profile</p>
                     </div>
                 </div>
 

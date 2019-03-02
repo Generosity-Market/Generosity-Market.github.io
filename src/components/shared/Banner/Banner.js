@@ -20,7 +20,7 @@ const Banner = ({
                 }}
             >
                 <h2>{heading && heading}</h2>
-                {/* !props.BGimage && <FontAwesome classname="far fa-image"/> */}
+                {/* !props.BGimage && <FontAwesome icon={['far', 'image']} /> */}
             </div>
 
             <MainImage mainImage={mainImage && mainImage} roundImage={roundImage} />

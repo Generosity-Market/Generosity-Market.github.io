@@ -43,7 +43,7 @@ const CartItem = ({
             </div>
 
             <div className="clear" onClick={() => removeItemFromCart()}>
-                <FontAwesome classname={'far fa-times-circle'} />
+                <FontAwesome icon={['far', 'times-circle']} />
             </div>
         </div>
     );

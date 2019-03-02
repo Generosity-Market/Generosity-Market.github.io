@@ -4,6 +4,9 @@ import ReactDOM from 'react-dom';
 import './styles/index.css';
 import registerServiceWorker from './registerServiceWorker';
 
+// import your fontawesome library
+import 'styles/fontawesome';
+
 // Redux and React-router
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';

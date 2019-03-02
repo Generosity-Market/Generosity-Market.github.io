@@ -6,7 +6,7 @@ import {
 } from 'components/shared';
 
 const SlideMenu = ({
-    showMenu,
+    showMenu = false,
     navLinks,
     handleNavigation,
     closeMenu,
@@ -26,7 +26,7 @@ const SlideMenu = ({
                 className='navLinks'
                 onClick={() => handleNavigation(endpoint)}
             >
-                <FontAwesome classname={icon} />
+                <FontAwesome icon={icon} fixedWidth />
                 {name}
             </div>
         );
@@ -45,7 +45,10 @@ const SlideMenu = ({
                 {navLinks.map(link => renderLink(link))}
 
                 <div className="logout navLinks" onClick={() => { logout(); handleNavigation('/'); }}>
-                    <FontAwesome classname={'fas fa-arrow-alt-circle-left'} style={{ color: 'var(--danger-65)' }} />
+                    <FontAwesome
+                        icon={'arrow-alt-circle-left'}
+                        style={{ color: 'var(--danger-65)' }}
+                    />
                     Log Out
                 </div>
 
@@ -55,7 +58,7 @@ const SlideMenu = ({
                 className='closeMenu'
                 onClick={() => closeMenu()}
             >
-                <FontAwesome classname={'fas fa-times'} />
+                <FontAwesome icon={'times'} />
             </div>
 
         </nav>

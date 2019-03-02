@@ -8,14 +8,26 @@ Generosity Market is a platform for non-profits and charities to raise funds.
 ```sh
 git clone https://github.com/Generosity-Market/Generosity-Market.github.io.git
 cd Generosity-Market.github.io
-yarn
+npm install
 ```
 
 ## Start
 ```sh
-yarn start
+npm start
 ```
 Application will be running on [localhost:3000](http://localhost:3000).
+
+## Test
+```sh
+npm test
+```
+Entire test suite will run
+
+or
+```sh
+npm run test:watch
+```
+Runs test suite in watch mode, any component changes will rerun the test suite.
 
 ## Meta
 * Joe Gordy - [GH:JGordy](https://github.com/jgordy)
