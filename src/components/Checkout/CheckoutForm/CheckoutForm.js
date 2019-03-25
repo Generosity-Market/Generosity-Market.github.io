@@ -55,7 +55,7 @@ class CheckoutForm extends Component {
 
     handleButtonText = () => {
         const { loading, status } = this.state;
-        if (loading) return 'loading...';
+        if (loading) return 'submitting payment...';
         if (status === 'complete') return 'donation complete';
         if (status === 'failed') return 'failed';
         return `Charge $${this.props.total}`;
@@ -157,7 +157,7 @@ class CheckoutForm extends Component {
                     <ActionButton
                         action={this.submit}
                         actionText={this.handleButtonText()}
-                        icon={this.state.status === 'complete' && 'far fa-check-circle'}
+                        icon={this.state.status === 'complete' && 'fa-check-circle'}
                     />
                 </div>
             </div>

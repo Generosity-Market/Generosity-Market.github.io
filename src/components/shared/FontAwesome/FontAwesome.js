@@ -25,7 +25,10 @@ FontAwesome.propTypes = {
     /**
      * The font awesome icon to render
      */
-    icon: PropTypes.string.isRequired,
+    icon: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+    ]).isRequired,
 };
 
 export default FontAwesome;

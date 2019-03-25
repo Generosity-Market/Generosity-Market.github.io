@@ -54,7 +54,7 @@ DownloadCSV.propTypes = {
     /**
      * The data to be downloaded in an array format
      */
-    data: PropTypes.array.isRequired,
+    csvData: PropTypes.array.isRequired,
 };
 
 DownloadCSV.defaultProps = {
