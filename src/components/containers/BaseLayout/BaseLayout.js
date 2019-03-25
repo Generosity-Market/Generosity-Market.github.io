@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCauseList } from 'ducks/cause';
@@ -11,8 +11,9 @@ import bottomNavLinks from 'constants/BottomNavLinks';
 
 // Component imports
 import TopMenu from './components/TopMenu/TopMenu';
-import SlideMenu from './components/SlideMenu/SlideMenu';
 import BottomMenu from './components/BottomMenu/BottomMenu';
+// import SlideMenu from './components/SlideMenu/SlideMenu';
+const SlideMenu = React.lazy(() => import('./components/SlideMenu/SlideMenu')); // See if this helps with the menu loading on top of the page, before css is loaded and moves it away
 
 export class BaseLayout extends Component {
     constructor(props) {
@@ -48,13 +49,15 @@ export class BaseLayout extends Component {
                     openMenu={this.navToggle}
                 />
 
-                <SlideMenu
-                    navLinks={navLinks}
-                    closeMenu={this.navToggle}
-                    showMenu={this.state.showMenu}
-                    handleNavigation={this.navToggle}
-                    logout={this.props.userLogout}
-                />
+                <Suspense fallback={null}>
+                    <SlideMenu
+                        navLinks={navLinks}
+                        closeMenu={this.navToggle}
+                        showMenu={this.state.showMenu}
+                        handleNavigation={this.navToggle}
+                        logout={this.props.userLogout}
+                    />
+                </Suspense>
 
                 {this.props.children}
 
