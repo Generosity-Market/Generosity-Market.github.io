@@ -62,7 +62,7 @@ export default class ImageUpload extends Component {
                 {$coverPreview}
                 {coverURL &&
                     <MiniButton
-                        classname="delete_cover"
+                        className="delete_cover"
                         onClick={(e) => handleImageChange(e, 'cover_image', 'coverURL')}
                     >
                         <FontAwesome icon={'times'} />
@@ -87,17 +87,17 @@ export default class ImageUpload extends Component {
                 {$profilePreview}
 
                 <MiniButton
-                    classname={profileURL ? 'change_profile_shape active' : 'change_profile_shape'}
+                    className={profileURL ? 'change_profile_shape active' : 'change_profile_shape'}
                     onClick={handleUpdateState('roundImage')}
                 >
                     <FontAwesome
-                        classname={roundImage ? 'fas fa-square' : 'fas fa-circle'}
+                        className={roundImage ? 'fas fa-square' : 'fas fa-circle'}
                         icon={roundImage ? 'square' : 'circle'}
                     />
                 </MiniButton>
 
                 <MiniButton
-                    classname={profileURL ? 'delete_profile active' : 'delete_profile'}
+                    className={profileURL ? 'delete_profile active' : 'delete_profile'}
                     onClick={(e) => handleImageChange(e, 'profile_image', 'profileURL')}
                 >
                     <FontAwesome icon={'times'} />

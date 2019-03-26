@@ -29,6 +29,18 @@ FontAwesome.propTypes = {
         PropTypes.string,
         PropTypes.arrayOf(PropTypes.string),
     ]).isRequired,
+    /**
+    * On click handler
+    */
+    onClick: PropTypes.func,
+    /**
+    * String values that help determine icon size
+    */
+    size: PropTypes.string, // need to change to array of specific values 'PropTypes.onOf([ 'values' ])'
+    /**
+    * Style object to pass to icon
+    */
+    style: PropTypes.object,
 };
 
 export default FontAwesome;
