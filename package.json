@@ -14,7 +14,7 @@
         "react": "^16.8.5",
         "react-csv": "^1.1.1",
         "react-dom": "^16.8.5",
-        "react-in-viewport": "0.0.30",
+        "react-in-viewport": "0.0.37",
         "react-modal": "^3.8.1",
         "react-redux": "^5.1.1",
         "react-router-dom": "^4.3.1",
@@ -51,7 +51,7 @@
         "jest": "^23.6.0",
         "jest-cli": "^23.6.0",
         "prop-types": "^15.7.2",
-        "redux-test-utils": "^0.2.2"
+        "redux-test-utils": "^0.3.0"
     },
     "browserslist": [
         ">0.2%",

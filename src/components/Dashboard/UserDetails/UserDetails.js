@@ -5,6 +5,7 @@ import './UserDetails.css';
 import {
     FontAwesome,
     MiniButton,
+    PhoneInput,
     TextInput,
 } from 'components/shared';
 
@@ -101,7 +102,6 @@ class UserDetails extends Component {
                 zipcode,
             },
             editProfile,
-            phone,
         } = this.props;
 
         return (
@@ -117,9 +117,14 @@ class UserDetails extends Component {
                         disabled={!editProfile}
                     />
 
-                    <p>
-                        <span>Phone: </span>{phone}
-                    </p>
+                    <PhoneInput
+                        label="Phone:"
+                        name="phone"
+                        placeholder="Phone number"
+                        onChange={this.changeHandler}
+                        value={this.state.phone}
+                        disabled={!editProfile}
+                    />
 
                     <p>
                         <span>Address: </span><br />
