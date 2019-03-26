@@ -4,7 +4,7 @@ import './UserDetails.css';
 // Shared UI Components
 import {
     FontAwesome,
-    MiniButton,
+    // MiniButton,
     PhoneInput,
     TextInput,
 } from 'components/shared';
@@ -15,14 +15,14 @@ class UserDetails extends Component {
 
         // Can we do this any better than setting default state from props?
         this.state = {
-            name: this.props.name || '',
+            name: props.name || '',
             address: {
-                city: this.props.address.city || '',
-                state: this.props.address.state || '',
-                street: this.props.address.street || '',
-                zipcode: this.props.address.zipcode || '',
+                city: props.address.city || '',
+                state: props.address.state || '',
+                street: props.address.street || '',
+                zipcode: props.address.zipcode || '',
             },
-            phone: this.props.phone || '',
+            phone: props.phone || '',
         };
     }
 
@@ -67,26 +67,41 @@ class UserDetails extends Component {
         if (editProfile) {
             return (
                 <Fragment>
-                    <div className="edit-ctas">
-                        <MiniButton className='danger' onClick={() => this.handleCancelEdit(this.props)}>
-                            <FontAwesome icon='times' />
-                        </MiniButton>
+                    <div className="edit-ctas" onClick={() => this.handleCancelEdit(this.props)}>
+                        <FontAwesome
+                            icon='times'
+                            style={{
+                                color: 'var(--danger)',
+                                marginBottom: '0.5rem',
+                            }}
+                            size='2x'
+                        />
                         <p>Cancel Editing</p>
                     </div>
-                    <div className="edit-ctas">
-                        <MiniButton className='success' onClick={this.handleSubmit}>
-                            <FontAwesome icon='save' />
-                        </MiniButton>
+                    <div className="edit-ctas" onClick={this.handleSubmit}>
+                        <FontAwesome
+                            icon='save'
+                            style={{
+                                color: 'var(--bright-green)',
+                                marginBottom: '0.5rem',
+                            }}
+                            size='2x'
+                        />
                         <p>Save Changes</p>
                     </div>
                 </Fragment>
             );
         } else {
             return (
-                <div className="edit-ctas">
-                    <MiniButton className='info' onClick={handleEditProfile}>
-                        <FontAwesome icon='user-edit' />
-                    </MiniButton>
+                <div className="edit-ctas" onClick={handleEditProfile}>
+                    <FontAwesome
+                        icon='user-edit'
+                        style={{
+                            color: 'var(--light-green)',
+                            marginBottom: '0.5rem',
+                        }}
+                        size='2x'
+                    />
                     <p>Edit Profile</p>
                 </div>
             );
