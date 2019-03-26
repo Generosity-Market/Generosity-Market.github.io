@@ -12,6 +12,7 @@ export { default as Loader } from './Loader';
 export { default as MainImage } from './MainImage/MainImage';
 export { default as MiniButton } from './MiniButton/MiniButton';
 export { default as Modal } from './Modal/Modal';
+export { default as PhoneInput } from './PhoneInput/PhoneInput';
 export { default as Pill } from './Pill/Pill';
 export { default as ReceiptItem } from './ReceiptItem/ReceiptItem';
 export { default as Slider } from './Slider/Slider';
