@@ -25,15 +25,12 @@
     width: 100%;
 }
 
-.Dashboard .fa-plus {
-    margin-right: 0.25rem;
-}
-
 .user-details {
     flex-basis: 70%;
     margin-left: 1rem;
 }
 
+/* Can be deleted after inputs are implemented */
 .user-details p {
     border: 1px solid var(--light-gray);
     color: var(--text-gray);
@@ -42,19 +39,31 @@
     padding: 1rem;
 }
 
+/* Can be deleted after inputs are implemented */
 .user-details span {
     color: var(--bright-green);
     margin-right: 0.15rem;
 }
 
-.edit-button {
-    color: var(--text-gray);
+.edit-profile-ctas {
     display: flex;
-    justify-content: flex-end;
-    font-weight: lighter;
+    flex: 1 1 20%;
+    flex-flow: column;
+    align-items: center;
 }
 
-.user-details .edit-button p {
-    border: none;
-    padding: 0;
+.edit-profile-ctas .btns {
+    margin-bottom: 0.3rem;
+}
+
+.edit-ctas {
+    display: flex;
+    flex-flow: column;
+    font-size: 0.7rem;
+    align-items: center;
+    margin: 0.5rem 0 1rem;
+}
+
+.edit-ctas p {
+    color: var(--text-gray);
 }

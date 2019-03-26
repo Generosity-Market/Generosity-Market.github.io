@@ -69,6 +69,8 @@ export class Dashboard extends Component {
         }
     }
 
+    handleEditProfile = () => this.setState({ editProfile: !this.state.editProfile });
+
     getFirstName = name => {
         let index = name.indexOf(' ');
         let firstName = name.substring(0, index);
@@ -170,6 +172,7 @@ export class Dashboard extends Component {
                         phone={user.phone}
                         address={this.returnAddressInfo(user)}
                         editProfile={editProfile}
+                        handleEditProfile={this.handleEditProfile}
                     />
 
                     <InViewportUserCauses
@@ -209,7 +212,7 @@ const mapStateToProps = state => {
     } = state;
 
     return {
-        user
+        user,
     };
 };
 
