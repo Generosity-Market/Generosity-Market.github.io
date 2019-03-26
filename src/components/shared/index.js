@@ -16,5 +16,6 @@ export { default as Pill } from './Pill/Pill';
 export { default as ReceiptItem } from './ReceiptItem/ReceiptItem';
 export { default as Slider } from './Slider/Slider';
 export { default as Swiper } from './Swiper/Swiper';
+export { default as TextInput } from './TextInput/TextInput';
 export { default as TextSection } from './TextSection/TextSection';
 export { default as Tile } from './Tile/Tile';
