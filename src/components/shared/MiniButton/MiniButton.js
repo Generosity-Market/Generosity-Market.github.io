@@ -1,21 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './MiniButton.css';
 
 const MiniButton = ({
-    classname,
+    className,
     onClick,
-    children
+    children,
 }) =>
     <div
-        className={`${classname} btns`}
+        className={`btns ${className}`}
         onClick={(e) => onClick(e)}
     >
         {children}
     </div>;
 
 MiniButton.propTypes = {
-    classname: PropTypes.string,
-    onClick: PropTypes.func
+    className: PropTypes.string,
+    onClick: PropTypes.func.isRequired,
 };
 
 export default MiniButton;

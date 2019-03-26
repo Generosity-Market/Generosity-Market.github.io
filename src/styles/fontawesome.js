@@ -18,11 +18,13 @@ import {
     faPencilAlt,
     faPlus,
     faPuzzlePiece,
+    faSave,
     faShareAlt,
     faShoppingCart,
     faSquare,
     faTimes,
     faUser,
+    faUserEdit,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -56,11 +58,13 @@ library.add(
     faPencilAlt,
     faPlus,
     faPuzzlePiece,
+    faSave,
     faShareAlt,
     faShoppingCart,
     faSquare,
     faTimes,
     faTimesCircle,
     faUser,
+    faUserEdit,
     // add additional icons here
 );
