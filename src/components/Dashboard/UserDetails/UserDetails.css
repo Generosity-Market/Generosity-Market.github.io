@@ -26,42 +26,38 @@
 }
 
 .user-details {
-    flex-basis: 70%;
+    width: 70%;
     margin-left: 1rem;
+    flex-grow: 1;
 }
 
-/* Can be deleted after inputs are implemented */
-.user-details p {
-    border: 1px solid var(--light-gray);
-    color: var(--text-gray);
-    border-radius: 5px;
-    margin-bottom: 1rem;
-    padding: 1rem;
-}
-
-/* Can be deleted after inputs are implemented */
-.user-details span {
-    color: var(--bright-green);
-    margin-right: 0.15rem;
-}
-
-.edit-profile-ctas {
+.edit-profile-btns {
     display: flex;
-    flex: 1 1 20%;
+    flex: 0 1 20%;
     flex-flow: column;
     align-items: center;
 }
 
-.edit-profile-ctas .btns {
+.edit-profile-btns .btns {
     margin-bottom: 0.3rem;
 }
 
 .edit-ctas {
+    border: 1px solid var(--white);
+    /* border-radius: var(--border-radius); */
+    /* background-color: var(--medium-green-10); */
+
     display: flex;
     flex-flow: column;
     font-size: 0.7rem;
     align-items: center;
-    margin: 0.5rem 0 1.25rem;
+    margin: 0 0 1rem;
+    padding: 0.4rem;
+    width: 70%;
+}
+
+.edit-ctas svg {
+    margin-bottom: 0.25rem;
 }
 
 .edit-ctas p {

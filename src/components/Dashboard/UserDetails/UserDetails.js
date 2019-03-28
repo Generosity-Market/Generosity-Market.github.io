@@ -3,6 +3,7 @@ import './UserDetails.css';
 
 // Shared UI Components
 import {
+    AddressInputs,
     FontAwesome,
     // MiniButton,
     PhoneInput,
@@ -13,7 +14,7 @@ class UserDetails extends Component {
     constructor(props) {
         super(props);
 
-        // Can we do this any better than setting default state from props?
+        // TODO Can we do this any better than setting default state from props?
         this.state = {
             name: props.name || '',
             address: {
@@ -27,26 +28,37 @@ class UserDetails extends Component {
     }
 
     changeHandler = ({
-        target: {
+        target: { // event.target
             name,
             value,
         }
     }) => {
-        this.setState({
-            [name]: value
-        });
+        // const shouldOnlyAllowIntegers = ['phone', 'zipcode'].includes(name); // TODO add this as a validation instead of a check here, so that it can be used on all inputs that needit
+        const isNotAddressField = ['name', 'phone'].includes(name);
+
+        if (isNotAddressField) {
+            this.setState({
+                [name]: value
+            });
+        } else {
+            this.setState({
+                address: {
+                    ...this.state.address,
+                    [name]: value,
+                }
+            });
+        }
     }
 
     handleSubmit = () => {
-
+        // TODO here we want to call an action that sends the new user info to the server,
+        // TODO then overwrite the user data in the redux store with the user info returned by the server.
+        // TODO also have some verification checks on the inputs [minLength, isEmpty, isProfane, etc...]
     }
 
-    handleCancelEdit = ({
-        address,
-        handleEditProfile,
-        name,
-        phone,
-    }) => {
+    handleUndoChanges = () => {
+        const { address, name, phone } = this.props;
+
         this.setState({
             name: name || '',
             address: {
@@ -57,37 +69,42 @@ class UserDetails extends Component {
             },
             phone: phone || '',
         });
+    };
 
-        handleEditProfile();
+    handleCancelEdit = () => {
+        this.handleUndoChanges();
+        this.props.handleEditProfile();
     }
 
-    renderProfileCTAs = () => {
+    renderEditProfileCTAs = () => {
         const { editProfile, handleEditProfile } = this.props;
 
         if (editProfile) {
             return (
                 <Fragment>
-                    <div className="edit-ctas" onClick={() => this.handleCancelEdit(this.props)}>
-                        <FontAwesome
-                            icon='times'
-                            style={{
-                                color: 'var(--danger)',
-                                marginBottom: '0.5rem',
-                            }}
-                            size='2x'
-                        />
-                        <p>Cancel Editing</p>
-                    </div>
                     <div className="edit-ctas" onClick={this.handleSubmit}>
                         <FontAwesome
+                            className='success'
                             icon='save'
-                            style={{
-                                color: 'var(--bright-green)',
-                                marginBottom: '0.5rem',
-                            }}
                             size='2x'
                         />
-                        <p>Save Changes</p>
+                        <p>Save</p>
+                    </div>
+                    <div className="edit-ctas" onClick={this.handleUndoChanges}>
+                        <FontAwesome
+                            className='warning'
+                            icon='undo-alt'
+                            size='2x'
+                        />
+                        <p>Undo</p>
+                    </div>
+                    <div className="edit-ctas" onClick={this.handleCancelEdit}>
+                        <FontAwesome
+                            className='danger'
+                            icon='times'
+                            size='2x'
+                        />
+                        <p>Cancel</p>
                     </div>
                 </Fragment>
             );
@@ -95,14 +112,11 @@ class UserDetails extends Component {
             return (
                 <div className="edit-ctas" onClick={handleEditProfile}>
                     <FontAwesome
+                        className='info'
                         icon='user-edit'
-                        style={{
-                            color: 'var(--light-green)',
-                            marginBottom: '0.5rem',
-                        }}
                         size='2x'
                     />
-                    <p>Edit Profile</p>
+                    <p>Edit</p>
                 </div>
             );
         }
@@ -110,14 +124,14 @@ class UserDetails extends Component {
 
     render() {
         const {
-            address: {
-                street,
-                city,
-                state,
-                zipcode,
-            },
             editProfile,
         } = this.props;
+
+        const inputProps = {
+            className: editProfile ? 'active' : null,
+            disabled: !editProfile,
+            onChange: this.changeHandler,
+        };
 
         return (
             <div className="profile-details UserDetails">
@@ -127,29 +141,26 @@ class UserDetails extends Component {
                         label="Name:"
                         name="name"
                         placeholder="Your name"
-                        onChange={this.changeHandler}
                         value={this.state.name}
-                        disabled={!editProfile}
+                        {...inputProps}
                     />
 
                     <PhoneInput
                         label="Phone:"
-                        name="phone"
                         placeholder="Phone number"
-                        onChange={this.changeHandler}
                         value={this.state.phone}
-                        disabled={!editProfile}
+                        {...inputProps}
                     />
 
-                    <p>
-                        <span>Address: </span><br />
-                        {street},<br />
-                        {city}, {state} {zipcode}
-                    </p>
+                    <AddressInputs
+                        {...this.state.address}
+                        {...inputProps}
+                    />
+
                 </div>
 
-                <div className="edit-profile-ctas">
-                    {this.renderProfileCTAs()}
+                <div className="edit-profile-btns">
+                    {this.renderEditProfileCTAs()}
                 </div>
 
             </div>
