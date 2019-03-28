@@ -29,7 +29,7 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "cross-env CI=true react-scripts test --env=jsdom",
-        "test:watch": "react-scripts test --env=jsdom --verbose=true",
+        "test:watch": "react-scripts test --env=jsdom",
         "lint": "eslint src",
         "eject": "react-scripts eject",
         "predeploy": "npm run build",
