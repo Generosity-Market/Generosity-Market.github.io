@@ -105,7 +105,7 @@ class CheckoutForm extends Component {
                             // Update the button text
                             this.setState({ loading: false, status: 'complete' });
                             // Remove the checkout form from the screen
-                            setTimeout(() => this.props.toggleCheckoutForm(), 500);
+                            setTimeout(() => this.props.toggleCheckoutForm(), 1500);
                             // Navigate to the "Thank You" page
                             setTimeout(() => this.props.history.push('/thankyou'), 1000);
                             clearCart();
@@ -157,7 +157,7 @@ class CheckoutForm extends Component {
                     <ActionButton
                         action={this.submit}
                         actionText={this.handleButtonText()}
-                        icon={this.state.status === 'complete' && 'fa-check-circle'}
+                        icon={this.state.status === 'complete' && 'check-circle'}
                     />
                 </div>
             </div>

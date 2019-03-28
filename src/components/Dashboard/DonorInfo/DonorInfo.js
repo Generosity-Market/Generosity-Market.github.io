@@ -29,7 +29,7 @@ const infoButton = (<FontAwesome icon={'info-circle'} />);
 const noCauseSelected = () => {
     return (
         <div className="empty-cause">
-            {`No cause selected. Click the ${<span>{infoButton}</span>} button below a cause to see it's donations.`}
+            No cause selected. Click the <span>{infoButton}</span> button below a cause to see corresponding donations.
         </div>
     );
 };
