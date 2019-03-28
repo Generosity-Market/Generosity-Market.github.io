@@ -3,8 +3,8 @@ import { PropTypes } from 'prop-types';
 import './PhoneInput.css';
 
 const PhoneInput = ({
+    className,
     label,
-    name,
     onChange,
     placeholder,
     value,
@@ -12,14 +12,14 @@ const PhoneInput = ({
 }) => {
 
     return (
-        <div className="form-row">
-            <label htmlFor={name} className="label-helper">
+        <div className={`form-row ${className}`}>
+            <label htmlFor='phone' className="label-helper">
                 {label}
             </label>
             <input
                 className="input-phone"
                 type="tel"
-                name={name}
+                name="phone"
                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                 placeholder={placeholder}
                 onChange={onChange}
@@ -32,13 +32,13 @@ const PhoneInput = ({
 
 PhoneInput.propTypes = {
     /**
+    * The class name to add to the root node
+    */
+    className: PropTypes.string,
+    /**
     * Label to render for the input
     */
     label: PropTypes.string.isRequired,
-    /**
-    * The name of the input [ 'phone', 'phone_number', 'etc...' ]
-    */
-    name: PropTypes.string.isRequired,
     /**
     * On Change handler
     */

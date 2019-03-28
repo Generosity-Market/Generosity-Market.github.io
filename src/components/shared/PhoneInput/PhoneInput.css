@@ -1,13 +1,3 @@
-.form-row {
-    border: 1px solid var(--light-gray);
-    color: var(--text-gray);
-    border-radius: 5px;
-    margin-bottom: 1rem;
-    padding: 1rem;
-    padding-right: 0;
-    width: 93%;
-}
-
 .input-phone {
     color: var(--text-gray);
     font-size: 0.9rem; 
@@ -16,9 +6,4 @@
 
 .input-phone::placeholder {
     color: var(--black-30);
-}
-
-.label-helper {
-    color: var(--bright-green);
-    margin-right: 0.5rem;
 }
