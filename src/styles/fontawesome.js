@@ -23,6 +23,7 @@ import {
     faShoppingCart,
     faSquare,
     faTimes,
+    faUndoAlt,
     faUser,
     faUserEdit,
 } from '@fortawesome/free-solid-svg-icons';
@@ -64,6 +65,7 @@ library.add(
     faSquare,
     faTimes,
     faTimesCircle,
+    faUndoAlt,
     faUser,
     faUserEdit,
     // add additional icons here
