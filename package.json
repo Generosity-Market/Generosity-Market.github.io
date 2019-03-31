@@ -23,7 +23,8 @@
         "react-swipe-component": "^2.1.0",
         "react-transition-group": "^2.7.0",
         "redux": "^3.7.2",
-        "redux-thunk": "^2.3.0"
+        "redux-thunk": "^2.3.0",
+        "usa-states": "0.0.5"
     },
     "scripts": {
         "start": "react-scripts start",

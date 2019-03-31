@@ -41,7 +41,10 @@ Tile.propTypes = {
     /**
     * The children (usually text) to render at the root nodes
     */
-    children: PropTypes.string.isRequired,
+    children: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.array,
+    ]).isRequired,
     /**
     * The Handler for action button click
     */
