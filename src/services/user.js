@@ -1,11 +1,14 @@
 import {
     fetchJSONData,
     postJSONData,
+    //  postFormData,
 } from 'fetchers/genericFetchers';
 
 export const userLogin = (data) => postJSONData('/login', data);
 
 export const registerUser = (data) => postJSONData('/signup', data);
+
+export const postEditedUser = (id, data) => postJSONData(`/edit/user/${id}`, data);
 
 export const fetchUserData = (id) => fetchJSONData(`/user/${id}`);
 

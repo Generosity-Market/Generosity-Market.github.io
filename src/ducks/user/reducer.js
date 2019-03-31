@@ -2,6 +2,7 @@ import update from 'immutability-helper';
 import initialState from 'store/store';
 
 import {
+    EDIT_USER,
     LOG_OUT,
     REMOVE_TOKEN,
     SET_USER,
@@ -13,6 +14,12 @@ import {
 const userReducer = (state = initialState, action) => {
     const { type, payload } = action;
     switch (type) {
+        case EDIT_USER:
+            return update(state, {
+                user: {
+                    $set: payload
+                }
+            });
         case SET_USER:
             return update(state, {
                 user: {

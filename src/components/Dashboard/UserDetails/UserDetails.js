@@ -27,12 +27,12 @@ class UserDetails extends Component {
         };
     }
 
-    changeHandler = ({
-        target: { // event.target
+    changeHandler = (event) => {
+        const {
             name,
             value,
-        }
-    }) => {
+        } = event.target;
+
         // const shouldOnlyAllowIntegers = ['phone', 'zipcode'].includes(name); // TODO add this as a validation instead of a check here, so that it can be used on all inputs that needit
         const isNotAddressField = ['name', 'phone'].includes(name);
 
@@ -51,9 +51,12 @@ class UserDetails extends Component {
     }
 
     handleSubmit = () => {
-        // TODO here we want to call an action that sends the new user info to the server,
-        // TODO then overwrite the user data in the redux store with the user info returned by the server.
+        const { userId, editUserData } = this.props;
+
         // TODO also have some verification checks on the inputs [minLength, isEmpty, isProfane, etc...]
+
+        editUserData(userId, this.state)
+            .then(success => success && this.props.handleEditProfile());
     }
 
     handleUndoChanges = () => {
@@ -74,6 +77,16 @@ class UserDetails extends Component {
     handleCancelEdit = () => {
         this.handleUndoChanges();
         this.props.handleEditProfile();
+    }
+
+    getInputProps = () => {
+        const { editProfile } = this.props;
+
+        return {
+            className: editProfile ? 'active' : null,
+            disabled: !editProfile,
+            onChange: this.changeHandler,
+        };
     }
 
     renderEditProfileCTAs = () => {
@@ -123,15 +136,6 @@ class UserDetails extends Component {
     }
 
     render() {
-        const {
-            editProfile,
-        } = this.props;
-
-        const inputProps = {
-            className: editProfile ? 'active' : null,
-            disabled: !editProfile,
-            onChange: this.changeHandler,
-        };
 
         return (
             <div className="profile-details UserDetails">
@@ -142,19 +146,19 @@ class UserDetails extends Component {
                         name="name"
                         placeholder="Your name"
                         value={this.state.name}
-                        {...inputProps}
+                        {...this.getInputProps()}
                     />
 
                     <PhoneInput
                         label="Phone:"
                         placeholder="Phone number"
                         value={this.state.phone}
-                        {...inputProps}
+                        {...this.getInputProps()}
                     />
 
                     <AddressInputs
                         {...this.state.address}
-                        {...inputProps}
+                        {...this.getInputProps()}
                     />
 
                 </div>

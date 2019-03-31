@@ -1,5 +1,6 @@
 import { makeActionCreator } from 'actions/makeActionCreator';
 import {
+    EDIT_USER,
     LOG_OUT,
     REMOVE_TOKEN,
     SET_USER,
@@ -8,6 +9,7 @@ import {
     SET_USER_SUPPORTED_CAUSES,
 } from './types';
 
+export const editUser = makeActionCreator(EDIT_USER);
 export const logout = makeActionCreator(LOG_OUT);
 export const removeToken = makeActionCreator(REMOVE_TOKEN);
 export const setUser = makeActionCreator(SET_USER);
