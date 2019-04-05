@@ -5,8 +5,8 @@ import './UserDetails.css';
 import {
     AddressInputs,
     FontAwesome,
-    // MiniButton,
     PhoneInput,
+    Pill,
     TextInput,
 } from 'components/shared';
 
@@ -16,14 +16,18 @@ class UserDetails extends Component {
 
         // TODO Can we do this any better than setting default state from props?
         this.state = {
-            name: props.name || '',
             address: {
                 city: props.address.city || '',
                 state: props.address.state || '',
                 street: props.address.street || '',
                 zipcode: props.address.zipcode || '',
             },
+            name: props.name || '',
             phone: props.phone || '',
+
+            formStatus: {
+                isSaved: false,
+            }
         };
     }
 
@@ -50,13 +54,28 @@ class UserDetails extends Component {
         }
     }
 
+    handleFormStatus = () => {
+        this.setState({
+            formStatus: {
+                isSaved: !this.state.formStatus.isSaved
+            }
+        });
+    }
+
     handleSubmit = () => {
         const { userId, editUserData } = this.props;
+        // const { formStatus } = this.state;
 
         // TODO also have some verification checks on the inputs [minLength, isEmpty, isProfane, etc...]
 
         editUserData(userId, this.state)
-            .then(success => success && this.props.handleEditProfile());
+            .then(success => {
+                if (success) {
+                    this.props.handleEditProfile();
+                    this.handleFormStatus();
+                    setTimeout(() => this.handleFormStatus(), 3000);
+                }
+            });
     }
 
     handleUndoChanges = () => {
@@ -132,9 +151,21 @@ class UserDetails extends Component {
     }
 
     render() {
+        const { formStatus } = this.state;
 
         return (
             <div className="profile-details UserDetails">
+
+                <div className={!formStatus.isSaved ? 'form-status fade-exit fade-exit-active' : 'form-status fade-enter fade-enter-active'}>
+                    <Pill
+                        icon='check-circle'
+                        uiContext='success'
+                    >
+                        Profile Saved
+                    </Pill>
+                </div>
+
+
 
                 <div className="user-details">
                     <TextInput

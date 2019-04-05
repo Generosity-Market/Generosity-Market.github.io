@@ -1,28 +1,22 @@
 .profile-details {
     display: flex;
-    margin: 2.5rem 0;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+    position: relative;
 }
 
-.photo-upload {
-    flex-basis: 30%;
-    margin: 0 1rem;
+.profile-details > div.form-status {
+    margin-bottom: 0.75rem;
+    position: aboslute;
+    left: 50%;
+    -webkit-transform: translateX(75%);
+    transform: translateX(75%);
+    width: 40%;
 }
 
-.photo-upload .fa-image {
-    border: 1px solid var(--light-gray);
-    border-radius: 5px;
-    font-size: 48px;
-    color: var(--light-gray);
-    align-self: flex-start;
-    padding: 1.5rem;
-}
 
-.photo-upload div {
-    color: var(--bright-green);
-    display: flex;
-    justify-content: center;
-    margin-top: 0.5rem;
-    width: 100%;
+.profile-details .Pill {
+    text-align: center;
 }
 
 .user-details {
@@ -32,10 +26,11 @@
 }
 
 .edit-profile-btns {
+    align-items: center;
     display: flex;
     flex: 0 1 20%;
     flex-flow: column;
-    align-items: center;
+    padding-top: 0.5rem;
 }
 
 .edit-profile-btns .btns {
