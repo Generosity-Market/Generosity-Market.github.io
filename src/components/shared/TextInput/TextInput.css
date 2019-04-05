@@ -10,7 +10,8 @@
 }
 
 .form-row.active {
-    border-color: var(--medium-green-85);
+    box-shadow: 0.1rem 0.1rem 0.5rem 0.25rem var(--medium-green-10);
+    /* border-color: var(--medium-green-85); */
 }
 
 .input-text {

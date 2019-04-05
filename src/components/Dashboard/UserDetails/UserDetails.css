@@ -57,6 +57,7 @@
 }
 
 .edit-ctas svg {
+    color: var(--black-30);
     margin-bottom: 0.25rem;
 }
 

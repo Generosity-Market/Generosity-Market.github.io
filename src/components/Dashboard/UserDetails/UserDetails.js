@@ -97,7 +97,6 @@ class UserDetails extends Component {
                 <Fragment>
                     <div className="edit-ctas" onClick={this.handleSubmit}>
                         <FontAwesome
-                            className='success'
                             icon='save'
                             size='2x'
                         />
@@ -105,7 +104,6 @@ class UserDetails extends Component {
                     </div>
                     <div className="edit-ctas" onClick={this.handleUndoChanges}>
                         <FontAwesome
-                            className='warning'
                             icon='undo-alt'
                             size='2x'
                         />
@@ -113,7 +111,6 @@ class UserDetails extends Component {
                     </div>
                     <div className="edit-ctas" onClick={this.handleCancelEdit}>
                         <FontAwesome
-                            className='danger'
                             icon='times'
                             size='2x'
                         />
@@ -125,8 +122,7 @@ class UserDetails extends Component {
             return (
                 <div className="edit-ctas" onClick={handleEditProfile}>
                     <FontAwesome
-                        className='info'
-                        icon='user-edit'
+                        icon='pen'
                         size='2x'
                     />
                     <p>Edit</p>
