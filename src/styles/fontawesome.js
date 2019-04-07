@@ -15,14 +15,18 @@ import {
     faHome,
     faInfoCircle,
     faLightbulb,
+    faPen,
     faPencilAlt,
     faPlus,
     faPuzzlePiece,
+    faSave,
     faShareAlt,
     faShoppingCart,
     faSquare,
     faTimes,
+    faUndoAlt,
     faUser,
+    faUserEdit,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -53,14 +57,18 @@ library.add(
     faInfoCircle,
     faLeanpub,
     faLightbulb,
+    faPen,
     faPencilAlt,
     faPlus,
     faPuzzlePiece,
+    faSave,
     faShareAlt,
     faShoppingCart,
     faSquare,
     faTimes,
     faTimesCircle,
+    faUndoAlt,
     faUser,
+    faUserEdit,
     // add additional icons here
 );

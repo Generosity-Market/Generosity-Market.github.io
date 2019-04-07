@@ -18,6 +18,7 @@
     width: 85% !important;
 }
 
+
 .share-link {
     color: var(--text-gray);
     margin: 2rem auto;
@@ -27,6 +28,7 @@
     width: 50%;
 }
 
+.share-page svg,
 .share-link svg {
     margin-right: 0.5rem;
 }

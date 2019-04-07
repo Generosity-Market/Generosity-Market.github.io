@@ -9,6 +9,10 @@
     font-weight: bold;
 }
 
+.Pill svg {
+    margin-right: 0.5rem;
+}
+
 .Pill.success {
     background-color: var(--light-green);
 }

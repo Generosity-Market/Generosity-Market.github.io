@@ -113,7 +113,7 @@ export class CauseDetail extends Component {
                         actionText="Share this page"
                         classname="share-page"
                         action={sharePage}
-                        icon={'fas fa-share-alt'}
+                        icon={'share-alt'}
                     />
 
                 </div>

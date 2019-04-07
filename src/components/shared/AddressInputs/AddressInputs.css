@@ -1,0 +1,10 @@
+.AddressInputs .flex {
+    justify-content: space-between;
+    width: 100%;
+}
+
+.AddressInputs p {
+    color: var(--dark-green);
+    font-weight: bold;
+    margin-left: 0.75rem;
+}

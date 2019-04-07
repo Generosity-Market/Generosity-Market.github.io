@@ -3,6 +3,7 @@ export {
     register,
     login,
     loadTokenFromCookie,
+    editUserData,
     userLogout,
     getUserData,
     getUserCreatedCauses,
@@ -10,6 +11,7 @@ export {
 } from './operations';
 
 export {
+    EDIT_USER,
     LOG_OUT,
     REMOVE_TOKEN,
     SET_USER,

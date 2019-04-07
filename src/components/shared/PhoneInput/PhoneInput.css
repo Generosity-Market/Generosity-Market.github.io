@@ -1,0 +1,9 @@
+.input-phone {
+    color: var(--text-gray);
+    font-size: 0.9rem; 
+    width: 77%;
+}
+
+.input-phone::placeholder {
+    color: var(--black-30);
+}

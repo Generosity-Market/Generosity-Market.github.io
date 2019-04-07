@@ -14,6 +14,7 @@ import {
 } from 'ducks/cause';
 
 import {
+    editUserData,
     getUserCreatedCauses,
     getUserSupportedCauses,
 } from 'ducks/user';
@@ -68,6 +69,8 @@ export class Dashboard extends Component {
             this.setState({ loadingCauses: false });
         }
     }
+
+    handleEditProfile = () => this.setState({ editProfile: !this.state.editProfile });
 
     getFirstName = name => {
         let index = name.indexOf(' ');
@@ -137,6 +140,7 @@ export class Dashboard extends Component {
         const {
             user,
             causeSelected,
+            editUserData,
         } = this.props;
 
         const {
@@ -166,10 +170,13 @@ export class Dashboard extends Component {
 
                 <div className='Wrapper'>
                     <UserDetails
+                        userId={user.id}
                         name={user.name}
                         phone={user.phone}
                         address={this.returnAddressInfo(user)}
                         editProfile={editProfile}
+                        handleEditProfile={this.handleEditProfile}
+                        editUserData={editUserData}
                     />
 
                     <InViewportUserCauses
@@ -209,12 +216,13 @@ const mapStateToProps = state => {
     } = state;
 
     return {
-        user
+        user,
     };
 };
 
 const mapDispatchToProps = {
     causeSelected,
+    editUserData,
     getUserCreatedCauses,
     getUserSupportedCauses,
     getCauseList,

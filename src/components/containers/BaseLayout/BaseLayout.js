@@ -12,7 +12,6 @@ import bottomNavLinks from 'constants/BottomNavLinks';
 // Component imports
 import TopMenu from './components/TopMenu/TopMenu';
 import BottomMenu from './components/BottomMenu/BottomMenu';
-// import SlideMenu from './components/SlideMenu/SlideMenu';
 const SlideMenu = React.lazy(() => import('./components/SlideMenu/SlideMenu')); // See if this helps with the menu loading on top of the page, before css is loaded and moves it away
 
 export class BaseLayout extends Component {

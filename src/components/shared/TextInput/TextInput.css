@@ -1,0 +1,43 @@
+.form-row {
+    border: var(--border);
+    border-radius: 5px;
+    color: var(--text-gray);
+    display: flex;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    padding-right: 0;
+    transition: 0.3s border-color ease;
+}
+
+.form-row.active {
+    box-shadow: 0.1rem 0.1rem 0.5rem 0.25rem var(--medium-green-10);
+    /* border-color: var(--medium-green-85); */
+}
+
+.input-text {
+    color: var(--text-gray);
+    font-size: 1rem;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.input-text::placeholder {
+    color: var(--black-30);
+}
+
+.label-helper {
+    color: var(--medium-green);
+    margin-right: 0.5rem;
+}
+
+.label-helper.success {
+    color: var(--bright-green);
+}
+
+.label-helper.warning {
+    color: var(--warning);
+}
+
+.label-helper.danger {
+    color: var(--danger);
+}

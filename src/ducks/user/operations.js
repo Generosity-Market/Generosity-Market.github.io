@@ -1,4 +1,5 @@
 import {
+    editUser,
     logout,
     removeToken,
     setUser,
@@ -14,6 +15,7 @@ import {
     fetchUserData,
     registerUser,
     userLogin,
+    postEditedUser,
     fetchUserCreatedCauses,
     fetchUserSupportedCauses,
 } from 'services';
@@ -75,6 +77,40 @@ export const login = ({ email, password }) => {
                     }, { expires: 90 }
                     );
                     return data;
+                }
+            });
+    };
+};
+
+export const editUserData = (id, { address, name, phone }) => {
+    // TODO this is called directly in component -> fetch(POST) -> action -> reducer -> rerender
+    return (dispatch, getState) => {
+        return postEditedUser(id, {
+            body: JSON.stringify({
+                phone,
+                address,
+                name,
+            }),
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(data => {
+                if (data.error) {
+                    // dispatch(setAlert({ type: 'error', message: data.error }));
+                    return data;
+                } else {
+                    let prevUserState = getState().user.user;
+
+                    const newUserState = {
+                        ...data,
+                        CreatedCauses: prevUserState.CreatedCauses,
+                        Preferences: prevUserState.Preferences,
+                    };
+
+                    dispatch(editUser(newUserState));
+                    return true;
                 }
             });
     };
