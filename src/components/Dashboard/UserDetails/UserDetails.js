@@ -10,6 +10,8 @@ import {
     TextInput,
 } from 'components/shared';
 
+import { isEqual } from 'utilities';
+
 class UserDetails extends Component {
     constructor(props) {
         super(props);
@@ -62,18 +64,45 @@ class UserDetails extends Component {
         });
     }
 
+    usersInfoChanged = () => {
+
+        const { props, state } = this;
+
+        const userState = {
+            name: state.name,
+            address: state.address,
+            phone: state.phone,
+        };
+
+        const userProps = {
+            name: props.name,
+            address: props.address,
+            phone: props.phone,
+        };
+
+        return !isEqual(userState, userProps);
+    }
+
+    succesfulActions = () => {
+        this.props.handleEditProfile();
+        this.handleFormStatus();
+        setTimeout(() => this.handleFormStatus(), 3000);
+    };
+
     handleSubmit = () => {
         const { userId, editUserData } = this.props;
-        // const { formStatus } = this.state;
 
         // TODO also have some verification checks on the inputs [minLength, isEmpty, isProfane, etc...]
+
+        // Check to see if the user actually edited the info
+        if (!this.usersInfoChanged()) {
+            return this.succesfulActions();
+        }
 
         editUserData(userId, this.state)
             .then(success => {
                 if (success) {
-                    this.props.handleEditProfile();
-                    this.handleFormStatus();
-                    setTimeout(() => this.handleFormStatus(), 3000);
+                    this.succesfulActions();
                 }
             });
     }
