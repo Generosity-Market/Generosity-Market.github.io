@@ -3,6 +3,7 @@ export { default as getImageUrl } from './getImageUrl';
 export { default as getIconUrl } from './getIconUrl';
 export { default as getTotal } from './getTotal';
 export { default as getRandomNumber } from './getRandomNumber';
+export { default as isEqual } from './isEqual';
 export { default as isMobile } from './isMobile';
 export { default as isTestingEnvironment } from './isTestingEnvironment';
 export { default as removeIndexFromArray } from './removeIndexFromArray';
