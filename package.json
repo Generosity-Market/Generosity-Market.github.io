@@ -29,8 +29,8 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "test": "cross-env CI=true react-scripts test --env=jsdom",
-        "test:watch": "react-scripts test --env=jsdom",
+        "test": "cross-env react-scripts test --no-watch",
+        "test:watch": "react-scripts test --verbose",
         "lint": "eslint src",
         "eject": "react-scripts eject",
         "predeploy": "npm run build",
