@@ -15,10 +15,15 @@
 }
 
 .input-text {
+    border-style: none;
     color: var(--text-gray);
     font-size: 1rem;
     flex-grow: 1;
     overflow: hidden;
+}
+
+.input-text:disabled {
+    background: 2px var(--white);
 }
 
 .input-text::placeholder {
