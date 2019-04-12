@@ -84,6 +84,7 @@ export const login = ({ email, password }) => {
 
 export const editUserData = (id, { address, name, phone }) => {
     // TODO this is called directly in component -> fetch(POST) -> action -> reducer -> rerender
+    // TODO Should do input validations here?
     return (dispatch, getState) => {
         return postEditedUser(id, {
             body: JSON.stringify({
