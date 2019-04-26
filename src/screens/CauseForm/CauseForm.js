@@ -151,7 +151,7 @@ export class CauseForm extends Component {
                     roundImage={this.state.roundImage}
                     whiteText={this.state.whiteText}
                 />
-                <Heading text={'Select Your Cause Profile & Cover Images'} />
+                <Heading text={'Select Your Cause\'s Profile & Cover Images'} />
 
                 <InputGroup
                     state={this.state}
