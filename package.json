@@ -29,7 +29,7 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "test": "cross-env react-scripts test --watchAll=false",
+        "test": "cross-env react-scripts test --watchAll=false --silent",
         "test:watch": "react-scripts test --verbose",
         "lint": "eslint src",
         "eject": "react-scripts eject",
