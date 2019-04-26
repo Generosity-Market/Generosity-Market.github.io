@@ -18,7 +18,7 @@
         "react-modal": "^3.8.1",
         "react-redux": "^5.1.1",
         "react-router-dom": "^4.3.1",
-        "react-scripts": "^2.1.8",
+        "react-scripts": "3.0.0",
         "react-stripe-elements": "^2.0.1",
         "react-swipe-component": "^2.1.0",
         "react-transition-group": "^2.7.0",
@@ -29,7 +29,7 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "test": "cross-env react-scripts test --no-watch",
+        "test": "cross-env react-scripts test --watchAll=false",
         "test:watch": "react-scripts test --verbose",
         "lint": "eslint src",
         "eject": "react-scripts eject",
@@ -49,8 +49,8 @@
         "eslint-plugin-react": "^7.12.4",
         "gh-pages": "^2.0.1",
         "husky": "^1.3.1",
-        "jest": "^23.6.0",
-        "jest-cli": "^23.6.0",
+        "jest": "^24.7.1",
+        "jest-cli": "^24.7.1",
         "prop-types": "^15.7.2",
         "redux-test-utils": "^0.3.0"
     },
