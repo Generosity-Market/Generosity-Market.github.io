@@ -44,5 +44,19 @@
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
         "react/prop-types": 0
+    },
+    "settings": {
+        "react": {
+            "createClass": "createReactClass",
+            "version": "detect",
+            "flowVersion": "0.53"
+        },
+        "linkComponents": [
+            "Hyperlink",
+            {
+                "name": "Link",
+                "linkAttribute": "to"
+            }
+        ]
     }
 }
