@@ -20,7 +20,7 @@ import {
 // Cause Form Components
 import {
     IconSelector,
-} from 'components/CauseForm';
+} from 'components/containers/CauseForm';
 
 export class CauseForm extends Component {
     constructor(props) {
@@ -130,7 +130,8 @@ export class CauseForm extends Component {
                 this.props.addCause(res.Cause);
                 // BUG FIX -> Navigating to previously created page instead of the newly created one...
                 setTimeout(() => this.props.history.push(`/cause/${res.Cause.id}`), 1000);
-            }).catch(err => {
+            })
+            .catch(err => {
                 // handle your error
                 /* eslint-disable-next-line no-console */
                 console.log('Error: ', err);

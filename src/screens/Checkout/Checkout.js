@@ -19,7 +19,7 @@ import {
     CartFooter,
     CheckoutForm,
     EmptyCart,
-} from 'components/Checkout';
+} from 'components/containers/Checkout';
 
 export class Checkout extends Component {
     constructor(props) {

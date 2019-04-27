@@ -19,7 +19,7 @@ import {
 // New Organization Form Components
 import {
     VerificationInputGroup,
-} from 'components/NewOrgForm';
+} from 'components/containers/NewOrgForm';
 
 export class NewOrgForm extends Component {
     constructor(props) {

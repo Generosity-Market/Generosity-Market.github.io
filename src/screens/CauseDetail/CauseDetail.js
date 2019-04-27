@@ -28,7 +28,7 @@ import {
     DonorComments,
     ProgressBar,
     TileSection,
-} from 'components/CauseDetail';
+} from 'components/containers/CauseDetail';
 
 export class CauseDetail extends Component {
 

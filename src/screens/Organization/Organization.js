@@ -18,7 +18,7 @@ import {
 import {
     OrgCauses,
     OrgDetails,
-} from 'components/Organization';
+} from 'components/containers/Organization';
 
 export class Organization extends Component {
 
