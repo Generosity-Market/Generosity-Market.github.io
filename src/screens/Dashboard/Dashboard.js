@@ -49,15 +49,15 @@ export class Dashboard extends Component {
     componentDidMount() {
         const {
             history,
-            match,
+            // match,
             user,
             userData,
         } = this.props;
 
-        const idsDontMatch = (Number(match.params.id) !== Number(userData.id));
+        // const idsDontMatch = (Number(match.params.id) !== Number(userData.id));
 
         if (!user && !userData) history.push('/');
-        if (idsDontMatch) history.push(`/users/${userData.id}/dashboard`);
+        // if (idsDontMatch) history.push(`/users/${userData.id}/dashboard`);
     }
 
     componentDidUpdate(prevProps) {
