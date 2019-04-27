@@ -20,7 +20,7 @@ import {
 // Cause Form Components
 import {
     IconSelector,
-} from 'components/CauseForm';
+} from 'components/containers/CauseForm';
 
 export class CauseForm extends Component {
     constructor(props) {
