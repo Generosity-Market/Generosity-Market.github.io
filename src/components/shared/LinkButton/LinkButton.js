@@ -48,7 +48,7 @@ const LinkButton = ({
 
 const linkStyles = {
     width: '100%',
-    height: '100%',
+    // height: '100%', // causes strange layout bug... TODO investigate...
     display: 'inline-block',
     padding: '1.25rem 0rem',
     cursor: 'pointer',
