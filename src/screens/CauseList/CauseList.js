@@ -6,7 +6,7 @@ import './causelist.css';
 // CauseList components
 import {
     SliderSection,
-} from 'components/CauseList';
+} from 'components/containers/CauseList';
 
 const returnEmpty = (getCauseList) => {
     /* eslint-disable-next-line no-console */
