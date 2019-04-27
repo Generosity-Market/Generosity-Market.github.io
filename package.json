@@ -28,6 +28,7 @@
     },
     "scripts": {
         "start": "react-scripts start",
+        "dev": "PORT=3001 react-scripts start",
         "build": "react-scripts build",
         "test": "cross-env react-scripts test --watchAll=false --silent",
         "test:watch": "react-scripts test --verbose",

@@ -31,7 +31,7 @@ import {
     Receipts,
     UserCauses,
     UserDetails,
-} from 'components/Dashboard';
+} from 'components/containers/Dashboard';
 
 const InViewportUserCauses = handleViewport(UserCauses);
 const InViewportReceipts = handleViewport(Receipts);
