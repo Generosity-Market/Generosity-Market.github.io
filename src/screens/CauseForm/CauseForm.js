@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { addCause } from 'ducks/cause';
-import './causeForm.css';
+import './CauseForm.css';
 import inputOptions from './inputOptions';
 
 import {
