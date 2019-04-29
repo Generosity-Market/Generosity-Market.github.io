@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { addCause } from 'ducks/cause';
-import './CauseForm.css';
 import inputOptions from './inputOptions';
+import './CauseForm.css';
 
-import {
-    submitCauseFormData,
-} from 'services';
+import { submitCauseFormData } from 'services';
 
 // Shared UI Component
 import {

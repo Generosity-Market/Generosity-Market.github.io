@@ -6,11 +6,11 @@ cache:
     - node_modules
 script: 
   - npm test
-  - npm build
+  - npm run build
 deploy:
   provider: pages
-  # github_token: $github_token
-  skip_cleanup: true
+  github_token: $github_token
+  # skip_cleanup: true
   local_dir: build
   on:
     branch: master
