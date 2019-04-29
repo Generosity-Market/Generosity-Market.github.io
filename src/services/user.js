@@ -10,7 +10,7 @@ export const registerUser = (data) => postJSONData('/signup', data);
 
 export const postEditedUser = (id, data) => postJSONData(`/edit/user/${id}`, data);
 
-export const postUserImages = (id, data) => postFormData('/user/${id}/upload', data);
+export const postUserImages = (id, data) => postFormData(`/user/${id}/upload`, data);
 
 export const fetchUserData = (id) => fetchJSONData(`/user/${id}`);
 
