@@ -83,7 +83,7 @@ export class CauseDetail extends Component {
 
                     <TileSection
                         {...cause}
-                        purchasedTiles={purchasedTiles}
+                        purchasedTiles={purchasedTiles || []}
                     />
 
                     <LinkButton

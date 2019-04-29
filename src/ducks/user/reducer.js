@@ -9,6 +9,7 @@ import {
     SET_TOKEN,
     SET_USER_CREATED_CAUSES,
     SET_USER_SUPPORTED_CAUSES,
+    SET_USER_IMAGES,
 } from './types';
 
 const userReducer = (state = initialState, action) => {
@@ -17,38 +18,38 @@ const userReducer = (state = initialState, action) => {
         case EDIT_USER:
             return update(state, {
                 user: {
-                    $set: payload
+                    $set: payload,
                 }
             });
         case SET_USER:
             return update(state, {
                 user: {
-                    $set: payload
+                    $set: payload,
                 }
             });
         case SET_TOKEN:
             return update(state, {
                 token: {
-                    $set: payload
+                    $set: payload,
                 }
             });
         case REMOVE_TOKEN:
             return update(state, {
                 token: {
-                    $set: null
+                    $set: null,
                 }
             });
         case LOG_OUT:
             return update(state, {
                 user: {
-                    $set: null
+                    $set: null,
                 }
             });
         case SET_USER_CREATED_CAUSES:
             return update(state, {
                 user: {
                     CreatedCauses: {
-                        $set: payload
+                        $set: payload,
                     }
                 }
             });
@@ -56,8 +57,14 @@ const userReducer = (state = initialState, action) => {
             return update(state, {
                 user: {
                     SupportedCauses: {
-                        $set: payload
+                        $set: payload,
                     }
+                }
+            });
+        case SET_USER_IMAGES:
+            return update(state, {
+                user: {
+                    $set: payload,
                 }
             });
         default:
