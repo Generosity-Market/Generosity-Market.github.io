@@ -30,7 +30,7 @@
         "start": "react-scripts start",
         "dev": "PORT=3001 react-scripts start",
         "build": "react-scripts build",
-        "test": "cross-env react-scripts test --watchAll=false --silent",
+        "test": "cross-env react-scripts test --watchAll=false --silent ",
         "test:watch": "react-scripts test --verbose",
         "lint": "eslint src",
         "eject": "react-scripts eject",
@@ -39,7 +39,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "npm run lint && npm test",
+            "pre-commit": "npm run lint && npm test -- --o",
             "pre-push": "npm test"
         }
     },
