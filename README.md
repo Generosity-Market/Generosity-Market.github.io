@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/JGordy/Generosity-Market.github.io.svg?branch=master)](https://travis-ci.org/JGordy/Generosity-Market.github.io)
+
 # Generosity Market
 > Make fundraising easier
 
