@@ -4,9 +4,7 @@ import { shallow } from 'enzyme';
 // Component import
 import Popup from './Popup.js';
 
-const defaultProps = {
-    // props...
-};
+const defaultProps = {};
 
 const wrapper = shallow(<Popup {...defaultProps} />);
 

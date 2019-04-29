@@ -1,8 +1,6 @@
 import React from 'react';
 
-import {
-    LinkButton,
-} from 'components/shared';
+import { LinkButton } from 'components/shared';
 
 const Popup = ({ id }) => {
 

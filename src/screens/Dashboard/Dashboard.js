@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import handleViewport from 'react-in-viewport';
-import './dashboard.css';
+import './Dashboard.css';
 
-import {
-    getImageUrl,
-} from 'utilities';
+import { getImageUrl } from 'utilities';
 
 import {
     getCauseList,
