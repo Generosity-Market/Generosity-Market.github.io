@@ -8,6 +8,8 @@ cache:
 script: 
   - npm test
   - npm run build
+notifications:
+  slack: generositymarket:ZeAVzH5Ww7PB50ugNnwl5JuT
 # deploy:
 #   provider: pages
 #   github_token: $github_token
