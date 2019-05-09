@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import { Checkout } from './Checkout.js';
+import { Checkout } from './Checkout';
 
 const defaultProps = {
     cart: [{
@@ -17,4 +17,6 @@ describe('<Checkout />', () => {
     it('renders without crashing', () => {
         expect(wrapper.exists('.Checkout')).toEqual(true);
     });
+
+    it.todo('Test other things on the Checkout page');
 });

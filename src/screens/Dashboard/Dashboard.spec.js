@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import { Dashboard } from './Dashboard.js';
+import { Dashboard } from './Dashboard';
 
 const defaultProps = {
     match: {
@@ -25,4 +25,6 @@ describe('<Dashboard />', () => {
     it('renders without crashing', () => {
         expect(wrapper.exists('.Dashboard')).toEqual(true);
     });
+
+    it.todo('Test other things on the Dashboard page');
 });

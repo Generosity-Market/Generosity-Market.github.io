@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import { CauseDetail } from './CauseDetail.js';
+import { CauseDetail } from './CauseDetail';
 
 const defaultProps = {
     cause: {
@@ -17,4 +17,6 @@ describe('<CauseDetail />', () => {
     it('renders without crashing', () => {
         expect(wrapper.exists('.CauseDetail')).toBe(true);
     });
+
+    it.todo('Test other stuff on the CauseDetail page');
 });

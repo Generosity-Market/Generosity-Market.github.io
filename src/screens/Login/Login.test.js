@@ -4,7 +4,7 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import { Login } from './Login.js';
+import { Login } from './Login';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -21,4 +21,6 @@ describe('<Login />', () => {
     it('renders without crashing', () => {
         expect(wrapper.exists('.Login')).toEqual(true);
     });
+
+    it.todo('Test other things on the Login page');
 });

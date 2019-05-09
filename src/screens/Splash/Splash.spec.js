@@ -16,4 +16,6 @@ describe('<Splash />', () => {
     it('renders without crashing', () => {
         expect(wrapper.exists('.Splash')).toEqual(true);
     });
+
+    it.todo('Test other things on the Splash page');
 });
