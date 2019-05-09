@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import { ThankYou } from './ThankYou.js';
+import { ThankYou } from './ThankYou';
 
 const defaultProps = {
     // props...
@@ -15,4 +15,6 @@ describe('<ThankYou />', () => {
     it('renders without crashing', () => {
         expect(wrapper.exists('.ThankYou')).toBe(true);
     });
+
+    it.todo('Test other things on the ThankYou page');
 });

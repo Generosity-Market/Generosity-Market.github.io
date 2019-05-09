@@ -7,7 +7,7 @@ import './CauseForm.css';
 
 import { submitCauseFormData } from 'services';
 
-// Shared UI Component
+// Shared UI Components
 import {
     ActionButton,
     Heading,

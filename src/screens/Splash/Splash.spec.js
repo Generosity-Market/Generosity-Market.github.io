@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import { Splash } from './Splash.js';
+import { Splash } from './Splash';
 
 const defaultProps = {
     getCauseList: jest.fn(),
@@ -16,4 +16,6 @@ describe('<Splash />', () => {
     it('renders without crashing', () => {
         expect(wrapper.exists('.Splash')).toEqual(true);
     });
+
+    it.todo('Test other things on the Splash page');
 });

@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 // Component import
 // NOTE must be exported/imported in this manner to work around the redux connection and only test the UI
 // NOTE Actions and Reducers should be tested for any other activities this component would handle.
-import { Organization } from './Organization.js';
+import { Organization } from './Organization';
 
 const defaultProps = {
     organization: {
@@ -31,4 +31,6 @@ describe('<Organization />', () => {
     it('should fetch org data when not present', () => {
         expect(mockGetOrgDataFunc).toBeCalled();
     });
+
+    it.todo('Test other things on the Organization page');
 });

@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import { CauseList } from './CauseList.js';
+import { CauseList } from './CauseList';
 
 const defaultProps = {
     causeList: [],
@@ -29,4 +29,6 @@ describe('<CauseList />', () => {
 
         expect(wrapper.exists('.CauseList')).toBe(true);
     });
+
+    it.todo('Test other things on the CauseList page');
 });
