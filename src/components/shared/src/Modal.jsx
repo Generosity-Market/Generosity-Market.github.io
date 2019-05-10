@@ -1,6 +1,6 @@
 // import React, { Component, Fragment } from 'react';
 // import ReactModal from 'react-modal';
-// import './Modal.css';
+// import '../styles/Modal.css';
 
 // ReactModal.setAppElement('#root');
 

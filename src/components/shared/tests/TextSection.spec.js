@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import TextSection from './TextSection.js';
+import TextSection from '../src/TextSection';
 
 const defaultProps = {};
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import MainImage from './MainImage.js';
+import MainImage from '../src/MainImage';
 
 const defaultProps = {
     classname: 'submit',

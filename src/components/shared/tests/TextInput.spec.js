@@ -1,13 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import PhoneInput from './PhoneInput';
+import TextInput from '../src/TextInput';
 
 const defaultProps = {};
 
-const wrapper = shallow(<PhoneInput {...defaultProps} />);
+const wrapper = shallow(<TextInput {...defaultProps} />);
 
-describe('<PhoneInput />', () => {
+describe('<TextInput />', () => {
 
     it('renders without crashing', () => {
         expect(wrapper.exists()).toBe(true);

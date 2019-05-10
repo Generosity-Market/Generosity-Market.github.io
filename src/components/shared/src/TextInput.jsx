@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './TextInput.css';
+import '../styles/TextInput.css';
 
 const TextInput = ({
     className,

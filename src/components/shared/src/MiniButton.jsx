@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './MiniButton.css';
+import '../styles/MiniButton.css';
 
 const MiniButton = ({
     className,

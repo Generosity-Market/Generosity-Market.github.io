@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import Slider from './Slider.js';
+import Slider from '../src/Slider';
 
 const defaultProps = {
     classname: 'submit',

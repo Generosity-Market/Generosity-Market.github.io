@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Pill from './Pill.js';
+import Pill from '../src/Pill';
 
 const defaultProps = {
     classname: 'edit',

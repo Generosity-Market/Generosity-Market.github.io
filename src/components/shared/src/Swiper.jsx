@@ -1,6 +1,6 @@
 // import React, { Component } from 'react';
 // import Swipe from 'react-swipe-component';
-// import './Swiper.css';
+// import '../styles/Swiper.css';
 
 // class Swiper extends Component {
 

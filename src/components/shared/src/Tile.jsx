@@ -1,19 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FontAwesome from '../FontAwesome/FontAwesome';
-import './Pill.css';
+import '../styles/Tile.css';
 
-const Pill = ({
+import {
+    FontAwesome
+} from 'components/shared';
+
+const Tile = ({
     icon,
-    onClick,
+    handleClick,
     children,
     uiContext,
 }) => {
 
     return (
         <div
-            className={`Pill ${uiContext}`}
-            onClick={onClick}
+            className={`Tile ${uiContext}`}
+            onClick={handleClick}
         >
             {icon &&
                 <FontAwesome icon={icon} />
@@ -24,19 +27,28 @@ const Pill = ({
     );
 };
 
-Pill.propTypes = {
+Tile.propTypes = {
     /**
     * The classname to apply to the root node
     */
-    uiContext: PropTypes.oneOf(['default', 'success', 'info', 'danger', 'active']),
+    uiContext: PropTypes.oneOf([
+        'default',
+        'active',
+        'danger',
+        'info',
+        'success',
+    ]),
     /**
     * The children (usually text) to render at the root nodes
     */
-    children: PropTypes.string.isRequired,
+    children: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.array,
+    ]).isRequired,
     /**
     * The Handler for action button click
     */
-    onClick: PropTypes.func,
+    handleClick: PropTypes.func,
     /**
     * The name of the Font Awesome icon to pass to the FontAwesome component
     */
@@ -46,10 +58,10 @@ Pill.propTypes = {
     ]),
 };
 
-Pill.defaultProps = {
+Tile.defaultProps = {
     onClick: () => { },
     uiContext: 'default',
     children: '',
 };
 
-export default Pill;
+export default Tile;

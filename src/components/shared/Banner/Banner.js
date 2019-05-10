@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MainImage from '../MainImage/MainImage';
+import MainImage from '../src/MainImage';
 // import FontAwesome from '../FontAwesome/FontAwesome';
 import './Banner.css';
 

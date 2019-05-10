@@ -1,6 +1,6 @@
 import React from 'react';
 import FontAwesome from '../FontAwesome/FontAwesome';
-import './MainImage.css';
+import '../styles/MainImage.css';
 
 const MainImage = ({
     roundImage,

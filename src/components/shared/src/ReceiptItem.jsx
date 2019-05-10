@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './ReceiptItem.css';
+import '../styles/ReceiptItem.css';
 
 // Shared UI Components
 import {

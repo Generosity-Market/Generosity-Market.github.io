@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import MiniButton from './MiniButton.js';
+import MiniButton from '../src/MiniButton';
 
 const defaultProps = {
     classname: 'submit',

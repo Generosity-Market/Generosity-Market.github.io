@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import Tile from './Tile.js';
+import Tile from '../src/Tile';
 
 const defaultProps = {};
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import ReceiptItem from './ReceiptItem.js';
+import ReceiptItem from '../src/ReceiptItem';
 
 const defaultProps = {
     cause: {
