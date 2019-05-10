@@ -11,8 +11,8 @@ const ActionButton = ({
     actionText,
     classname,
     icon,
-}) => {
-    return (
+}) => 
+    (
         <div className='ActionButton' style={buttonWrap}>
             <div onClick={action} className={classname} style={buttonStyles}>
                 {icon && <FontAwesome icon={icon} />}
@@ -20,7 +20,6 @@ const ActionButton = ({
             </div>
         </div>
     );
-};
 
 const buttonStyles = {
     width: '100%',
