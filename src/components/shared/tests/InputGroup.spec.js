@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import InputGroup from './InputGroup';
+import InputGroup from '../src/InputGroup';
 
 const defaultProps = {
     state: {

@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import LinkButton from './LinkButton.js';
+import LinkButton from '../src/LinkButton';
 
 const defaultProps = {
     href: 'https://google.com',

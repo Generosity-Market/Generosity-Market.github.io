@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FontAwesome from '../FontAwesome/FontAwesome';
+import FontAwesome from './FontAwesome';
 import '../styles/Pill.css';
 
 const Pill = ({

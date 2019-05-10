@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import DownloadCSV from './DownloadCSV';
+import DownloadCSV from '../src/DownloadCSV';
 
 const defaultProps = {
     filename: 'my file',

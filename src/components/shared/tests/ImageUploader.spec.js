@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import ImageUploader from './ImageUploader.js';
+import ImageUploader from '../src/ImageUploader';
 
 const defaultProps = {
     handleUpdateState: () => { },

@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import CauseTile from './CauseTile.js';
+import CauseTile from '../src/CauseTile';
 
 const defaultProps = {
     cause: {

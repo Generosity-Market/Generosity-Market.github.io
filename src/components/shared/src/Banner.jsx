@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MainImage from '../src/MainImage';
-// import FontAwesome from '../FontAwesome/FontAwesome';
-import './Banner.css';
+import MainImage from './MainImage';
+// import FontAwesome from './FontAwesome';
+import '../styles/Banner.css';
 
 const Banner = ({
     BGimage,

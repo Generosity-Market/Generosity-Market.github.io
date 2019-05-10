@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './InputGroup.css';
+import '../styles/InputGroup.css';
 
 // TODO convert to functional component if not using state
 class InputGroup extends Component {

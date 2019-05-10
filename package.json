@@ -33,13 +33,21 @@
         "test": "cross-env react-scripts test --watchAll=false --silent ",
         "test:watch": "react-scripts test --verbose",
         "lint": "eslint src",
+        "lint-staged": "lint-staged",
         "eject": "react-scripts eject",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build"
     },
+    "lint-staged": {
+        "*.js": [
+            "eslint src --fix",
+            "git add",
+            "npm run test -- --bail --findRelatedTests"
+        ]
+    },
     "husky": {
         "hooks": {
-            "pre-commit": "npm run lint && npm test -- --o",
+            "pre-commit": "npm run lint-staged",
             "pre-push": "npm test"
         }
     },
@@ -53,6 +61,7 @@
         "husky": "^1.3.1",
         "jest": "^24.7.1",
         "jest-cli": "^24.7.1",
+        "lint-staged": "^8.1.6",
         "prop-types": "^15.7.2",
         "redux-test-utils": "^0.3.0"
     },

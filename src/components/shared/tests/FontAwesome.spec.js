@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import FontAwesome from './FontAwesome.js';
+import FontAwesome from '../src/FontAwesome';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Import Icon Library

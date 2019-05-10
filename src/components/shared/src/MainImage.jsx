@@ -1,5 +1,5 @@
 import React from 'react';
-import FontAwesome from '../FontAwesome/FontAwesome';
+import FontAwesome from './FontAwesome';
 import '../styles/MainImage.css';
 
 const MainImage = ({

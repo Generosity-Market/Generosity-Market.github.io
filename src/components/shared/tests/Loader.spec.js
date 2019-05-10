@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import Loader from './index.js';
+import Loader from '../src/Loader';
 
 const wrapper = shallow(<Loader />);
 

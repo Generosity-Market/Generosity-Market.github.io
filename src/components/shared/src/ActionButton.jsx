@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './ActionButton.css';
+import '../styles/ActionButton.css';
 
 import {
     FontAwesome,

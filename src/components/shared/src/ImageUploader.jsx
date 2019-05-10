@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { coverInput, profileInput } from './inputInfo.js';
-import './ImageUploader.css';
+import { coverInput, profileInput } from '../config/inputInfo.js';
+import '../styles/ImageUploader.css';
 
 import {
     FontAwesome,

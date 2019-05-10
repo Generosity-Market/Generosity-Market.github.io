@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { CSVLink } from 'react-csv';
-import './DownloadCSV.css';
+import '../styles/DownloadCSV.css';
 
 import {
     FontAwesome,

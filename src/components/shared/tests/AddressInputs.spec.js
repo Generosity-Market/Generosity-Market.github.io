@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import AddressInputs from './AddressInputs.js';
+import AddressInputs from '../src/AddressInputs';
 
 const defaultProps = {};
 

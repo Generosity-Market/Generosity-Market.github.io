@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import Banner from './Banner.js';
+import Banner from '../src/Banner';
 
 const defaultProps = {
     BGimage: 'to be decided...',

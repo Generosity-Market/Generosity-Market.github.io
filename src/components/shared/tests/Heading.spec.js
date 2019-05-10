@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import Heading from './Heading.js';
+import Heading from '../src/Heading';
 
 const defaultProps = {
     text: 'Nearly Funded',
