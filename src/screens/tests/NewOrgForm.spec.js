@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import { NewOrgForm } from './NewOrgForm';
+import { NewOrgForm } from '../src/NewOrgForm';
 
 const defaultProps = {
     // props...

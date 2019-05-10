@@ -8,7 +8,7 @@ export const CauseDetail = lazy(() => import('screens/src/CauseDetail'));
 export const Checkout = lazy(() => import('screens/src/Checkout'));
 export const ThankYou = lazy(() => import('screens/src/ThankYou'));
 export const Organization = lazy(() => import('screens/src/Organization'));
-export const NewOrgForm = lazy(() => import('screens/NewOrgForm/NewOrgForm'));
+export const NewOrgForm = lazy(() => import('screens/src/NewOrgForm'));
 export const CauseForm = lazy(() => import('screens/src/CauseForm'));
 export const Login = lazy(() => import('screens/src/Login'));
 export const Error404 = lazy(() => import('screens/src/Error404'));
