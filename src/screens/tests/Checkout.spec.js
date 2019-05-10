@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import { Checkout } from './Checkout';
+import { Checkout } from '../src/Checkout';
 
 const defaultProps = {
     cart: [{

@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import { Error404 } from './Error404';
+import { Error404 } from '../src/Error404';
 
 const defaultProps = {
     // props...

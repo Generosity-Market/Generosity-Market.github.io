@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import { Splash } from './Splash';
+import { Splash } from '../src/Splash';
 
 const defaultProps = {
     getCauseList: jest.fn(),

@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import { Dashboard } from './Dashboard';
+import { Dashboard } from '../src/Dashboard';
 
 const defaultProps = {
     match: {

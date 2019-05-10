@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { clearCart } from 'ducks/cart';
-import './ThankYou.css';
+import '../styles/ThankYou.css';
 
 // Shared UI Components
 import {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getCauseList, causeSelected } from 'ducks/cause';
-import './causelist.css';
+import '../styles/CauseList.css';
 
 // CauseList components
 import {

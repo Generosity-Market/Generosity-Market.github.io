@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import { CauseForm } from './CauseForm';
+import { CauseForm } from '../src/CauseForm';
 
 const defaultProps = {};
 

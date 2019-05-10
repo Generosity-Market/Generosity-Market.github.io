@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './CauseDetail.css';
+import '../styles/CauseDetail.css';
 
 // Ducks
 import {

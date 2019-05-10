@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { addCause } from 'ducks/cause';
-import inputOptions from './inputOptions.js';
-import './NewOrgForm.css';
+import orgFormOptions from '../config/orgFormOptions.js';
+import '../styles/NewOrgForm.css';
 
 import {
     submitOrgFormData,
@@ -130,7 +130,7 @@ export class NewOrgForm extends Component {
                 <InputGroup
                     state={this.state}
                     handleUpdateState={this.handleUpdateState}
-                    inputOptions={inputOptions}
+                    inputOptions={orgFormOptions}
                 />
 
                 <VerificationInputGroup

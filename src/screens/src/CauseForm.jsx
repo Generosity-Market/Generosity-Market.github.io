@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { addCause } from 'ducks/cause';
-import inputOptions from './inputOptions';
-import './CauseForm.css';
+import causeFormOptions from '../config/causeFormOptions';
+import '../styles/CauseForm.css';
 
 import { submitCauseFormData } from 'services';
 
@@ -155,7 +155,7 @@ export class CauseForm extends Component {
                 <InputGroup
                     state={this.state}
                     handleUpdateState={this.handleUpdateState}
-                    inputOptions={inputOptions}
+                    inputOptions={causeFormOptions}
                     selectOptions={this.selectOptions}
                 />
 
