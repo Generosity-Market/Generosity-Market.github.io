@@ -41,12 +41,13 @@
     "lint-staged": {
         "*.js": [
             "eslint src --fix",
-            "git add"
+            "git add",
+            "npm run test -- --bail --findRelatedTests"
         ]
     },
     "husky": {
         "hooks": {
-            "pre-commit": "npm run lint-staged && npm run test -- --bail --findRelatedTests --$STAGED_FILES",
+            "pre-commit": "npm run lint-staged",
             "pre-push": "npm test"
         }
     },
