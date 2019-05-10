@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import handleViewport from 'react-in-viewport';
-import './Dashboard.css';
+import '../styles/Dashboard.css';
 
 import { getImageUrl } from 'utilities';
 

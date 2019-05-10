@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getCauseList } from 'ducks/cause';
 import { loadTokenFromCookie } from 'ducks/user';
-import './Splash.css';
+import '../styles/Splash.css';
 
 // Shared UI Components
 import {

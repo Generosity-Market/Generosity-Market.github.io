@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import { CauseDetail } from './CauseDetail';
+import { CauseDetail } from '../src/CauseDetail';
 
 const defaultProps = {
     cause: {

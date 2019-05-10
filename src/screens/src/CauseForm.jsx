@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { addCause } from 'ducks/cause';
-import inputOptions from './inputOptions';
-import './CauseForm.css';
+import inputOptions from '../config/inputOptions';
+import '../styles/CauseForm.css';
 
 import { submitCauseFormData } from 'services';
 

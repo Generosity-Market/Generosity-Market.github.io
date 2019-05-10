@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import { ThankYou } from './ThankYou';
+import { ThankYou } from '../src/ThankYou';
 
 const defaultProps = {
     // props...

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { removeFromCart, clearCart } from 'ducks/cart';
 import { submitDonation } from 'ducks/cause';
-import './Checkout.css';
+import '../styles/Checkout.css';
 
 import {
     Elements,

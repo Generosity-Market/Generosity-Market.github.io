@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getCauseList, causeSelected } from 'ducks/cause';
 import { getOrgData } from 'ducks/organization';
-import './organization.css';
+import '../styles/Organization.css';
 
 import {
     getImageUrl,
