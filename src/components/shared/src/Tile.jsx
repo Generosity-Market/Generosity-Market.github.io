@@ -11,9 +11,8 @@ const Tile = ({
     handleClick,
     children,
     uiContext,
-}) => {
-
-    return (
+}) =>
+    (
         <div
             className={`Tile ${uiContext}`}
             onClick={handleClick}
@@ -25,7 +24,6 @@ const Tile = ({
             {children}
         </div>
     );
-};
 
 Tile.propTypes = {
     /**

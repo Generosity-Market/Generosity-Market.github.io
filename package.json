@@ -39,11 +39,13 @@
         "deploy": "gh-pages -d build"
     },
     "lint-staged": {
-        "*.js": [
-            "eslint src --fix",
-            "git add",
-            "npm run test -- --bail --findRelatedTests"
-        ]
+        "linters": {
+            "*.{js,jsx, css}": [
+                "eslint src --fix",
+                "git add",
+                "npm run test -- --bail --findRelatedTests"
+            ]
+        }
     },
     "husky": {
         "hooks": {
