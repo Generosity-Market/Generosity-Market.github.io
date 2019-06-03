@@ -39,7 +39,8 @@ class UserDetails extends Component {
             value,
         } = event.target;
 
-        // const shouldOnlyAllowIntegers = ['phone', 'zipcode'].includes(name); // TODO add this as a validation instead of a check here, so that it can be used on all inputs that needit
+        // const shouldOnlyAllowIntegers = ['phone', 'zipcode'].includes(name);
+        // TODO add this as a validation instead of a check here, so that it can be used on all inputs that need it
         const isNotAddressField = ['name', 'phone'].includes(name);
 
         if (isNotAddressField) {

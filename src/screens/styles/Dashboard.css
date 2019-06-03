@@ -1,0 +1,27 @@
+.Dashboard {
+    min-height: 100vh;
+    max-width: 100vw;
+}
+
+.Dashboard .Wrapper {
+    padding-top: 2rem;
+    margin-top: -5.5rem;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+    z-index: 1;
+    background-color: var(--white);
+}
+
+.Dashboard .LinkButton {
+    margin: 2rem auto 3rem;
+    width: 80%;
+}
+
+.Dashboard .create-cause {
+    background-color: var(--bright-green);
+    border-radius: var(--border-radius);
+    box-shadow: var(--black-box-shadow);
+    color: var(--white);
+    padding: 0.75rem 0rem !important;
+    
+}

@@ -94,7 +94,6 @@ export const editUserData = (id, { address, name, phone }) => {
                 address,
                 name,
             }),
-            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             }

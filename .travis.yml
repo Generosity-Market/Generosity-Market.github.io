@@ -1,0 +1,19 @@
+os: osx
+language: node_js
+node_js: 
+  - "8"
+cache:
+  directories:
+    - node_modules
+script: 
+  - npm test
+  - npm run build
+notifications:
+  slack: generositymarket:ZeAVzH5Ww7PB50ugNnwl5JuT
+# deploy:
+#   provider: pages
+#   github_token: $github_token
+#   skip_cleanup: true
+#   local_dir: build
+#   on:
+#     branch: master
