@@ -208,11 +208,11 @@ export class Dashboard extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    const {
-        user: { user }
-    } = state;
-
+const mapStateToProps = ({
+    user: {
+        user,
+    },
+}) => {
     return {
         user,
     };
