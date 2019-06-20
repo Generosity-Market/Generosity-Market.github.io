@@ -1,10 +1,9 @@
-import React, { Component, Fragment } from 'react';
+import React, { useState } from 'react';
 import './UserDetails.css';
 
 // Shared UI Components
 import {
     AddressInputs,
-    FontAwesome,
     PhoneInput,
     Pill,
     TextInput,
@@ -12,221 +11,169 @@ import {
 
 import { isEqual } from 'utilities';
 
-class UserDetails extends Component {
-    constructor(props) {
-        super(props);
+import EditProfileCTAs from '../EditProfileCTAs/EditProfileCTAs';
 
-        // TODO Can we do this any better than setting default state from props?
-        this.state = {
-            address: {
-                city: props.address.city || '',
-                state: props.address.state || '',
-                street: props.address.street || '',
-                zipcode: props.address.zipcode || '',
-            },
-            name: props.name || '',
-            phone: props.phone || '',
+const UserDetails = ({
+    editProfile,
+    editUserData,
+    handleEditProfile,
+    user,
+}) => {
+    const [userState, setUserState] = useState({
+        address: {
+            city: user.city || '',
+            state: user.state || '',
+            street: user.street || '',
+            zipcode: user.zipcode || '',
+        },
+        name: user.name || '',
+        phone: user.phone || '',
+    });
+    const [formStatus, setFormStatus] = useState({
+        isSaved: false,
+    });
 
-            formStatus: {
-                isSaved: false,
-            }
-        };
-    }
-
-    changeHandler = (event) => {
-        const {
+    const changeHandler = ({
+        target: {
             name,
             value,
-        } = event.target;
-
+        }
+    }) => {
         // const shouldOnlyAllowIntegers = ['phone', 'zipcode'].includes(name);
         // TODO add this as a validation instead of a check here, so that it can be used on all inputs that need it
         const isNotAddressField = ['name', 'phone'].includes(name);
 
         if (isNotAddressField) {
-            this.setState({
+            setUserState({
+                ...userState,
                 [name]: value
             });
         } else {
-            this.setState({
+            setUserState({
+                ...userState,
                 address: {
-                    ...this.state.address,
+                    ...userState.address,
                     [name]: value,
                 }
             });
         }
-    }
+    };
 
-    handleFormStatus = () => {
-        this.setState({
-            formStatus: {
-                isSaved: !this.state.formStatus.isSaved
-            }
+    const handleFormStatus = () => {
+        setFormStatus({
+            ...formStatus,
+            isSaved: !formStatus.isSaved,
         });
-    }
+    };
 
-    usersInfoChanged = () => {
-
-        const { props, state } = this;
-
-        const userState = {
-            name: state.name,
-            address: state.address,
-            phone: state.phone,
+    const usersInfoChanged = () => {
+        const userInfo = {
+            name: userState.name,
+            address: userState.address,
+            phone: userState.phone,
         };
 
         const userProps = {
-            name: props.name,
-            address: props.address,
-            phone: props.phone,
+            name: user.name,
+            address: user.address,
+            phone: user.phone,
         };
 
-        return !isEqual(userState, userProps);
-    }
-
-    succesfulActions = () => {
-        this.props.handleEditProfile();
-        this.handleFormStatus();
-        setTimeout(() => this.handleFormStatus(), 3000);
+        return !isEqual(userInfo, userProps);
     };
 
-    handleSubmit = () => {
-        const { userId, editUserData } = this.props;
+    const succesfulActions = () => {
+        handleEditProfile();
+        handleFormStatus();
+        setTimeout(() => handleFormStatus(), 3000);
+    };
 
-        // TODO also have some verification checks on the inputs [minLength, isEmpty, isProfane, etc...]
+    const handleSubmit = () => {
+        // TODO: also have some verification checks on the inputs [minLength, isEmpty, isProfane, etc...]
 
         // Check to see if the user actually edited the info
-        if (!this.usersInfoChanged()) {
-            return this.succesfulActions();
+        if (!usersInfoChanged()) {
+            return succesfulActions();
         }
 
-        editUserData(userId, this.state)
+        editUserData(user.id, userState)
             .then(success => {
                 if (success) {
-                    this.succesfulActions();
+                    succesfulActions();
                 }
             });
-    }
+    };
 
-    handleUndoChanges = () => {
-        const { address, name, phone } = this.props;
-
-        this.setState({
-            name: name || '',
+    const handleUndoChanges = () => {
+        setUserState({
+            name: user.name || '',
             address: {
-                city: address.city || '',
-                state: address.state || '',
-                street: address.street || '',
-                zipcode: address.zipcode || '',
+                city: user.city || '',
+                state: user.state || '',
+                street: user.street || '',
+                zipcode: user.zipcode || '',
             },
-            phone: phone || '',
+            phone: user.phone || '',
         });
     };
 
-    handleCancelEdit = () => {
-        this.handleUndoChanges();
-        this.props.handleEditProfile();
-    }
+    const handleCancelEdit = () => {
+        handleUndoChanges();
+        handleEditProfile();
+    };
 
-    getInputProps = () => {
-        const { editProfile } = this.props;
-
+    const getInputProps = () => {
         return {
             className: editProfile ? 'active' : null,
             disabled: !editProfile,
-            onChange: this.changeHandler,
+            onChange: changeHandler,
         };
-    }
+    };
 
-    renderEditProfileCTAs = () => {
-        const { editProfile, handleEditProfile } = this.props;
-
-        if (editProfile) {
-            return (
-                <Fragment>
-                    <div className="edit-ctas" onClick={this.handleSubmit}>
-                        <FontAwesome
-                            icon='save'
-                            size='2x'
-                        />
-                        <p>Save</p>
-                    </div>
-                    <div className="edit-ctas" onClick={this.handleUndoChanges}>
-                        <FontAwesome
-                            icon='undo-alt'
-                            size='2x'
-                        />
-                        <p>Undo</p>
-                    </div>
-                    <div className="edit-ctas" onClick={this.handleCancelEdit}>
-                        <FontAwesome
-                            icon='times'
-                            size='2x'
-                        />
-                        <p>Cancel</p>
-                    </div>
-                </Fragment>
-            );
-        } else {
-            return (
-                <div className="edit-ctas" onClick={handleEditProfile}>
-                    <FontAwesome
-                        icon='pen'
-                        size='2x'
-                    />
-                    <p>Edit</p>
-                </div>
-            );
-        }
-    }
-
-    render() {
-        const { formStatus } = this.state;
-
-        return (
-            <div className="profile-details UserDetails">
-
-                <div className={!formStatus.isSaved ? 'form-status fade-exit fade-exit-active' : 'form-status fade-enter fade-enter-active'}>
-                    <Pill
-                        icon='check-circle'
-                        uiContext='success'
-                    >
-                        Profile Saved
-                    </Pill>
-                </div>
-
-
-
-                <div className="user-details">
-                    <TextInput
-                        label="Name:"
-                        name="name"
-                        placeholder="Your name"
-                        value={this.state.name}
-                        {...this.getInputProps()}
-                    />
-
-                    <PhoneInput
-                        label="Phone:"
-                        placeholder="Phone number"
-                        value={this.state.phone}
-                        {...this.getInputProps()}
-                    />
-
-                    <AddressInputs
-                        {...this.state.address}
-                        {...this.getInputProps()}
-                    />
-
-                </div>
-
-                <div className="edit-profile-btns">
-                    {this.renderEditProfileCTAs()}
-                </div>
-
+    return (
+        <div className="profile-details UserDetails">
+            <div className={!formStatus.isSaved ? 'form-status fade-exit fade-exit-active' : 'form-status fade-enter fade-enter-active'}>
+                <Pill
+                    icon='check-circle'
+                    uiContext='success'
+                >
+                    Profile Saved
+                </Pill>
             </div>
-        );
-    }
-}
+
+            <div className="user-details">
+                <TextInput
+                    label="Name:"
+                    name="name"
+                    placeholder="Your name"
+                    value={userState.name}
+                    {...getInputProps()}
+                />
+
+                <PhoneInput
+                    label="Phone:"
+                    placeholder="Phone number"
+                    value={userState.phone}
+                    {...getInputProps()}
+                />
+
+                <AddressInputs
+                    {...userState.address}
+                    {...getInputProps()}
+                />
+            </div>
+
+            <div className="edit-profile-btns">
+                <EditProfileCTAs
+                    editProfile={editProfile}
+                    handleEditProfile={handleEditProfile}
+                    handleCancelEdit={handleCancelEdit}
+                    handleSubmit={handleSubmit}
+                    handleUndoChanges={handleUndoChanges}
+                />
+            </div>
+        </div>
+    );
+};
 
 export default UserDetails;
