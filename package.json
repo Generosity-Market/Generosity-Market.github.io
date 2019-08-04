@@ -38,13 +38,6 @@
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build"
     },
-    "lint-staged": {
-        "*.{js,jsx}": [
-            "eslint src --fix",
-            "git add",
-            "npm run test -- --bail --findRelatedTests"
-        ]
-    },
     "husky": {
         "hooks": {
             "pre-commit": "npm run lint-staged",
