@@ -18,6 +18,7 @@ export { default as Pill } from './src/Pill';
 export { default as ReceiptItem } from './src/ReceiptItem';
 export { default as Slider } from './src/Slider';
 export { default as Swiper } from './src/Swiper';
+export { default as TexturedCircle } from './src/TexturedCircle';
 export { default as TextInput } from './src/TextInput';
 export { default as TextSection } from './src/TextSection';
 export { default as Tile } from './src/Tile';

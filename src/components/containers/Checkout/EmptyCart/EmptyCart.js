@@ -4,16 +4,18 @@ import './EmptyCart.css';
 // Shared UI Components
 import {
     LinkButton,
+    TexturedCircle,
 } from 'components/shared';
 
 const EmptyCart = () => (
     <div className="EmptyCart">
 
-        <div className="basket-icon">
-            <div>
-                <img src={require('Assets/icons/basket.png')} alt="basket icon" />
-            </div>
-        </div>
+        <TexturedCircle
+            className="basket-icon"
+            colorMask="rgba(75,183,77,0.07)"
+        >
+            <img src={require('Assets/icons/basket.png')} alt="basket icon" />
+        </TexturedCircle>
 
         <div className="empty-message">
             <h3>Your basket is empty</h3>

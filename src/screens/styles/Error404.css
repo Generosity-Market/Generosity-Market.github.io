@@ -1,0 +1,44 @@
+.Error404 {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    justify-content: center;
+    text-align: center;
+    width: 100vw;
+}
+
+.Error404 h1,
+.Error404 h2 {
+    font-size: 1.4rem;
+    margin: 1rem auto;
+    width: 60%;
+}
+
+.Error404 h1 {
+    color: var(--blackish);
+    margin-top: 24rem;
+}
+
+.Error404 h2 {
+    color: var(--text-gray);
+    font-size: 1.17rem;
+    line-height: 1.75rem;
+}
+
+.Error404 h2 span {
+    color: var(--warning);
+    font-size: 1.3rem;
+}
+
+.Error404 .ActionButton {
+    
+    background-color: var(--warning);
+    border-radius: var(--border-radius);
+    box-shadow: var(--black-box-shadow);
+    box-shadow: 7px 7px 50px 0px var(--warning);
+    margin: 2rem auto;
+    transform: scale(0.8);
+    width: 80%;
+    padding: 1.25rem 0rem;
+}

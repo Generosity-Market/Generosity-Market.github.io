@@ -48,9 +48,7 @@ const EditProfileCTAs = ({
             {ctas.map(cta => (
                 <IconCta
                     key={cta.icon + cta.label}
-                    icon={cta.icon}
-                    onClick={cta.onClick}
-                    label={cta.label}
+                    {...cta}
                 />
             ))}
         </Fragment>
