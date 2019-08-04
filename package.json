@@ -38,12 +38,6 @@
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build"
     },
-    "husky": {
-        "hooks": {
-            "pre-commit": "npm run lint-staged",
-            "pre-push": "npm test"
-        }
-    },
     "devDependencies": {
         "babel-jest": "^24.8.0",
         "cross-env": "^5.2.0",
