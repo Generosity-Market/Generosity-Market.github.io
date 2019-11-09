@@ -167,7 +167,8 @@ export class DonorInfo extends Component {
                         </div>
 
                         {this.renderDonations(sortedArray)}
-                    </div>}
+                    </div>
+                }
 
             </div>
         );

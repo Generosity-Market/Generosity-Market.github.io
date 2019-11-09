@@ -12,6 +12,21 @@
     top: -1rem;
     width: 6.5rem;
 }
+/* 
+.MainImage:after {
+    content: "";
+    position: absolute;
+    width: 95%;
+    height: 100%;
+    top: 5%;
+    left: calc(5% / 2);
+    z-index: -1;
+    border-radius: 50px;
+    background: url('https://images.pexels.com/photos/2613349/pexels-photo-2613349.jpeg') 
+                no-repeat 
+                center center/cover;
+    filter: blur(10px);
+} */
 
 .MainImage .fa-camera {
     align-self: center;

@@ -9,10 +9,10 @@
 }
 
 .Error404 h1,
-.Error404 h2 {
+.Error404 .message {
     font-size: 1.4rem;
-    margin: 1rem auto;
-    width: 60%;
+    margin: 1.5rem auto;
+    width: 65%;
 }
 
 .Error404 h1 {
@@ -20,25 +20,21 @@
     margin-top: 24rem;
 }
 
-.Error404 h2 {
+.Error404 span {
+    color: var(--warning);
+    display: block;
+}
+
+.Error404 .message {
     color: var(--text-gray);
-    font-size: 1.17rem;
+    font-size: 1.2rem;
+    font-weight: 500;
     line-height: 1.75rem;
 }
 
-.Error404 h2 span {
+.Error404 .oops {
     color: var(--warning);
-    font-size: 1.3rem;
-}
-
-.Error404 .ActionButton {
-    
-    background-color: var(--warning);
-    border-radius: var(--border-radius);
-    box-shadow: var(--black-box-shadow);
-    box-shadow: 7px 7px 50px 0px var(--warning);
-    margin: 2rem auto;
-    transform: scale(0.8);
-    width: 80%;
-    padding: 1.25rem 0rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }

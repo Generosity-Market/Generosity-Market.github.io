@@ -1,8 +1,9 @@
 import React from 'react';
 import '../styles/Error404.css';
 
+import { Button } from '@jgordy24/stalls-ui';
+
 import {
-    ActionButton,
     TexturedCircle,
 } from 'components/shared';
 
@@ -20,16 +21,20 @@ export const Error404 = ({
                 />
             </TexturedCircle>
 
-            <h1>404 Page Not Found</h1>
-            <h2>
-                <span>Oops!</span> This is awkward...
-                <p>{'You are looking for something that doesn\'t actually exist.'}</p>
-            </h2>
+            <h1>
+                <span>404</span>
+                Page Not Found
+            </h1>
 
-            <ActionButton
-                action={history.goBack}
-                actionText="Go back my friend, go back"
-                classname={'go_back'}
+            <div className="message">
+                <p className="oops">Oops!</p>
+                <p>{'This is awkward... \nYou are looking for something that doesn\'t actually exist.'}</p>
+            </div>
+
+            <Button
+                bsStyle="warning"
+                label="Go back my friend, go back"
+                onClick={history.goBack}
             />
         </div>
     );

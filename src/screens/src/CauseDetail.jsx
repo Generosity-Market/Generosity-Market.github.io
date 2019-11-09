@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../styles/CauseDetail.css';
 
+// import { Button } from '@jgordy24/stalls-ui';
+
 // Ducks
 import {
     causeSelected,
@@ -108,6 +110,14 @@ export class CauseDetail extends Component {
                             donations={Donations}
                         />
                     }
+
+                    {/* <Button
+                        bsStyle="success"
+                        bsSize="long"
+                        label="Share this page"
+                        onClick={sharePage}
+                        icon="share-alt"
+                    /> */}
 
                     <ActionButton
                         actionText="Share this page"

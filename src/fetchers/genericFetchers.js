@@ -5,7 +5,7 @@ import {
 // NOTE add any services and api calls here. Don't expose api keys here. Use env files instead
 const api = endpoint => {
     const isProdEnv = process.env.NODE_ENV === 'production';
-    const baseUrl = isProdEnv ? 'https://gen-mar-poc.herokuapp.com/api' : 'http://localhost:3000/api';
+    const baseUrl = isProdEnv ? 'https://gen-mar-poc.herokuapp.com/api' : 'http://localhost:3002/api';
     return baseUrl + endpoint;
 };
 

@@ -1,4 +1,7 @@
 .CauseDetail .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
     background-color: var(--white);
     border-top-left-radius: 1.5rem;
     border-top-right-radius: 1.5rem;

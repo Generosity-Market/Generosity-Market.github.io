@@ -4,6 +4,7 @@ import { clearCart } from 'ducks/cart';
 import '../styles/ThankYou.css';
 
 // Shared UI Components
+// import { Button } from '@jgordy24/stalls-ui';
 import {
     LinkButton,
 } from 'components/shared';
@@ -23,11 +24,21 @@ export class ThankYou extends Component {
                     <h1>Thank You</h1>
                     <p>for supporting such great causes!</p>
                 </div>
+
+                {/* Use when href issue is fixed in library
+                <Button
+                    bsStyle="success"
+                    label="Find a cause"
+                    href="/causes"
+                />
+                */}
+
                 <LinkButton
                     linkText={'Find a cause'}
                     href={'/causes'}
                     classname='find-cause'
                 />
+
             </div>
         );
     }
