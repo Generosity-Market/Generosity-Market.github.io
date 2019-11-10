@@ -22,7 +22,7 @@
         "@fortawesome/free-solid-svg-icons": "^5.10.1",
         "@fortawesome/react-fontawesome": "^0.1.4",
         "@jgordy24/react-hooks-lib": "^1.2.0",
-        "@jgordy24/stalls-ui": "^0.3.23",
+        "@jgordy24/stalls-ui": "^0.3.26",
         "immutability-helper": "^2.8.1",
         "js-cookie": "^2.2.0",
         "react": "^16.8.5",
