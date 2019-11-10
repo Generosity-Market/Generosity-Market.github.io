@@ -57,7 +57,7 @@ const UserDetails = ({
         }
     };
 
-    const handleFormStatus = () => setFormSaved(!formSaved);
+    const handleFormStatus = () => setFormSaved(state => !state);
 
     const usersInfoChanged = () => {
         const userInfo = {
@@ -127,8 +127,6 @@ const UserDetails = ({
             onChange: changeHandler,
         };
     };
-
-    // console.warn('UserDetails.js %c(Line: 96) --> formSaved: ', 'color: lime', formSaved);
 
     return (
         <div className="profile-details UserDetails">
