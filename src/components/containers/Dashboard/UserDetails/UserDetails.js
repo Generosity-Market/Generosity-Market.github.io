@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import './UserDetails.css';
 
 // Shared UI Components
+import { Pill } from '@jgordy24/stalls-ui';
 import {
     AddressInputs,
     PhoneInput,
-    Pill,
     TextInput,
 } from 'components/shared';
 
@@ -29,9 +29,7 @@ const UserDetails = ({
         name: user.name || '',
         phone: user.phone || '',
     });
-    const [formStatus, setFormStatus] = useState({
-        isSaved: false,
-    });
+    const [formSaved, setFormSaved] = useState(false);
 
     const changeHandler = ({
         target: {
@@ -59,12 +57,7 @@ const UserDetails = ({
         }
     };
 
-    const handleFormStatus = () => {
-        setFormStatus({
-            ...formStatus,
-            isSaved: !formStatus.isSaved,
-        });
-    };
+    const handleFormStatus = () => setFormSaved(!formSaved);
 
     const usersInfoChanged = () => {
         const userInfo = {
@@ -75,7 +68,12 @@ const UserDetails = ({
 
         const userProps = {
             name: user.name,
-            address: user.address,
+            address: {
+                city: user.city,
+                state: user.state,
+                street: user.street,
+                zipcode: user.zipcode,
+            },
             phone: user.phone,
         };
 
@@ -124,21 +122,27 @@ const UserDetails = ({
 
     const getInputProps = () => {
         return {
-            className: editProfile ? 'active' : null,
+            className: editProfile ? 'active' : '',
             disabled: !editProfile,
             onChange: changeHandler,
         };
     };
 
+    // console.warn('UserDetails.js %c(Line: 96) --> formSaved: ', 'color: lime', formSaved);
+
     return (
         <div className="profile-details UserDetails">
-            <div className={!formStatus.isSaved ? 'form-status fade-exit fade-exit-active' : 'form-status fade-enter fade-enter-active'}>
+            <div
+                className={formSaved
+                    ? 'form-status fade-enter fade-enter-active'
+                    : 'form-status fade-exit fade-exit-active'
+                }
+            >
                 <Pill
                     icon='check-circle'
-                    uiContext='success'
-                >
-                    Profile Saved
-                </Pill>
+                    bsStyle='success'
+                    label='Profile Saved'
+                />
             </div>
 
             <div className="user-details">

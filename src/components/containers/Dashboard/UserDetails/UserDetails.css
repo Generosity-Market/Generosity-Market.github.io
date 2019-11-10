@@ -1,19 +1,15 @@
 .profile-details {
     display: flex;
     flex-wrap: wrap;
-    margin: 2rem 0;
+    margin: 5rem 0 3rem;
     position: relative;
 }
 
 .profile-details > div.form-status {
     margin-bottom: 0.75rem;
-    position: aboslute;
-    left: 50%;
     -webkit-transform: translateX(75%);
     transform: translateX(75%);
-    width: 40%;
 }
-
 
 .profile-details .Pill {
     text-align: center;
