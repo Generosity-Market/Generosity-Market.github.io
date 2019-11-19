@@ -16,11 +16,6 @@
         "deploy": "gh-pages -d build"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-svg-core": "^1.2.21",
-        "@fortawesome/free-brands-svg-icons": "^5.10.1",
-        "@fortawesome/free-regular-svg-icons": "^5.10.1",
-        "@fortawesome/free-solid-svg-icons": "^5.10.1",
-        "@fortawesome/react-fontawesome": "^0.1.4",
         "@jgordy24/react-hooks-lib": "^1.2.0",
         "@jgordy24/stalls-ui": "^0.3.30",
         "immutability-helper": "^2.8.1",

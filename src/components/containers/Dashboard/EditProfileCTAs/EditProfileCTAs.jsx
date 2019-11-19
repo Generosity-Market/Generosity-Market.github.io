@@ -30,7 +30,7 @@ const EditProfileCTAs = ({
     if (!editProfile) {
         return (
             <IconCta
-                icon='pen'
+                icon='pencil-alt'
                 onClick={handleEditProfile}
                 label='Edit'
             />
