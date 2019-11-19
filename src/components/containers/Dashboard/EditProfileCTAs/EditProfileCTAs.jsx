@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import './EditProfileCTAs.css';
 
 // Shared UI Components
-import { FontAwesome } from 'components/shared';
+import { Glyphicon } from '@jgordy24/stalls-ui';
 
 const IconCta = ({
     icon,
@@ -12,7 +12,7 @@ const IconCta = ({
 }) =>
     (
         <div className="edit-ctas" onClick={onClick}>
-            <FontAwesome
+            <Glyphicon
                 icon={icon}
                 size='2x'
             />

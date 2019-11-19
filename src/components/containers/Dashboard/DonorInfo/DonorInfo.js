@@ -2,11 +2,10 @@ import React, { Component, Fragment } from 'react';
 import './DonorInfo.css';
 
 // Shared UI Components
+import { Glyphicon, Pill } from '@jgordy24/stalls-ui';
 import {
     DownloadCSV,
-    FontAwesome,
     Heading,
-    Pill,
     Slider,
 } from 'components/shared';
 
@@ -24,7 +23,7 @@ const isEmpty = (obj) => {
     return true;
 };
 
-const infoButton = (<FontAwesome icon={'info-circle'} />);
+const infoButton = (<Glyphicon icon={'info-circle'} />);
 
 const noCauseSelected = () => {
     return (
@@ -83,11 +82,11 @@ export class DonorInfo extends Component {
                     return (
                         <Pill
                             key={text + text}
-                            uiContext={sort === text ? 'active' : 'success'}
+                            bsStyle='success'
+                            active={sort === text}
                             onClick={this.handleUpdateState('sort')}
-                        >
-                            {text}
-                        </Pill>
+                            label={text}
+                        />
                     );
                 })}
             </Slider>

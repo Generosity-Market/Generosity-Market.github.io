@@ -2,9 +2,9 @@ import React, { Component, Fragment } from 'react';
 import './UserCauses.css';
 
 // Shared UI Components
+import { Glyphicon } from '@jgordy24/stalls-ui';
 import {
     CauseTile,
-    FontAwesome,
     Heading,
     Slider,
 } from 'components/shared';
@@ -38,7 +38,7 @@ class UserCauses extends Component {
                             className="see-donors"
                             onClick={() => selectCauseToHighlight(cause.id)}
                         >
-                            <FontAwesome
+                            <Glyphicon
                                 icon={'info-circle'}
                                 style={{
                                     color: `${highlightedCause === cause.id ? 'var(--blackish)' : 'var(--text-gray)'}`,

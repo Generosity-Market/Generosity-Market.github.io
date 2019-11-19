@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import './IconSelector.css';
 
-import {
-    FontAwesome,
-} from 'components/shared';
-
+import { Glyphicon } from '@jgordy24/stalls-ui';
 
 class IconSelector extends Component {
     constructor(props) {
@@ -25,7 +22,7 @@ class IconSelector extends Component {
                 <div className="selector">
 
                     <div className="button left" onClick={this.decreaseViewIndex}>
-                        <FontAwesome
+                        <Glyphicon
                             icon={'chevron-left'}
                             size={'2x'}
                         />
@@ -41,7 +38,7 @@ class IconSelector extends Component {
                     </div>
 
                     <div className="button right" onClick={this.increaseViewIndex}>
-                        <FontAwesome
+                        <Glyphicon
                             icon={'chevron-right'}
                             size={'2x'}
                         />
@@ -62,7 +59,7 @@ class IconSelector extends Component {
                 >
                     {match ? (
                         <div className="overlay">
-                            <FontAwesome
+                            <Glyphicon
                                 icon={'check-circle'}
                                 size={'lg'}
                             />

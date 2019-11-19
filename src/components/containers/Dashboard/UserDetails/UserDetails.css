@@ -11,10 +11,6 @@
     transform: translateX(75%);
 }
 
-.profile-details .Pill {
-    text-align: center;
-}
-
 .user-details {
     width: 70%;
     margin-left: 1rem;

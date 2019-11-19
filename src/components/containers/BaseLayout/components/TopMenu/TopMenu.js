@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './TopMenu.css';
 
-import {
-    FontAwesome,
-} from 'components/shared';
+import { Glyphicon } from '@jgordy24/stalls-ui';
 
 class TopMenu extends Component {
 
@@ -14,7 +12,7 @@ class TopMenu extends Component {
 
                 <div className='links'>
                     <Link to="/causes">
-                        <FontAwesome icon={'home'} />
+                        <Glyphicon icon={'home'} />
                     </Link>
                 </div>
 
@@ -27,7 +25,7 @@ class TopMenu extends Component {
 
                 <div className='links'>
                     <div onClick={() => this.props.openMenu()}>
-                        <FontAwesome icon={'bars'} />
+                        <Glyphicon icon={'bars'} />
                     </div>
                 </div>
 
