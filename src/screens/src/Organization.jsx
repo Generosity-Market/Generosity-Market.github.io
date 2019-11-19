@@ -10,9 +10,10 @@ import {
 
 // Shared UI Components
 import {
-    Banner,
-    LinkButton,
-} from 'components/shared';
+    Button,
+    // HeroSection,
+} from '@jgordy24/stalls-ui';
+import { Banner } from 'components/shared';
 
 // Organization Page UI Components
 import {
@@ -56,6 +57,17 @@ export class Organization extends Component {
                     />
                 }
 
+                {/* organization &&
+                    <HeroSection
+                        heading={name}
+                        coverImgSrc={backgroundImage && getImageUrl(backgroundImage)}
+                        profileImgSrc={mainImage && getImageUrl(mainImage)}
+                        roundedProfile={Preferences[0] ? Preferences[0].roundImage : false}
+                    >
+                        <h1>{name}</h1>
+                    </HeroSection>
+                */}
+
                 <div className="Wrapper">
 
                     {organization &&
@@ -71,10 +83,11 @@ export class Organization extends Component {
                         email={email}
                     />
 
-                    <LinkButton
+                    <Button
+                        bsStyle='active'
+                        bsSize='full'
                         href={site_url}
-                        classname={'org-link'}
-                        linkText={`Visit ${short_name}`}
+                        label={`Visit ${short_name}`}
                     />
 
                 </div>

@@ -9,9 +9,8 @@ import {
 } from 'services';
 
 // Shared UI Components
-// import { Button } from '@jgordy24/stalls-ui';
+import { Button } from '@jgordy24/stalls-ui';
 import {
-    ActionButton,
     Heading,
     ImageUploader,
     InputGroup,
@@ -139,16 +138,11 @@ export class NewOrgForm extends Component {
                     handleUpdateState={this.handleUpdateState}
                 />
 
-                <ActionButton
-                    actionText={'create organization'}
-                    classname={'create-org'}
-                    action={this.handleSubmit}
-                />
-                {/* <Button
+                <Button
                     bsStyle="success"
-                    label="create organization"
+                    label="Create organization"
                     onClick={this.handleSubmit}
-                />  */}
+                />
             </div>
         );
     }

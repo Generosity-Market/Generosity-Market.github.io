@@ -32,18 +32,3 @@
   color: var(--text-gray);
   font-weight: 300;
 }
-
-.EmptyCart .LinkButton {
-  background-color: var(--bright-green);
-  border-radius: var(--border-radius);
-  box-shadow: var(--black-box-shadow);
-  box-shadow: 7px 7px 50px 0px var(--bright-green);
-  margin: 2rem auto;
-  transform: scale(0.8);
-  width: 62%;
-}
-
-.EmptyCart a {
-  color: var(--white);
-  letter-spacing: 3px;
-}

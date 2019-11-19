@@ -2,10 +2,8 @@ import React from 'react';
 import './EmptyCart.css';
 
 // Shared UI Components
-import {
-    LinkButton,
-    TexturedCircle,
-} from 'components/shared';
+import { Button } from '@jgordy24/stalls-ui';
+import { TexturedCircle } from 'components/shared';
 
 const EmptyCart = () => (
     <div className="EmptyCart">
@@ -22,10 +20,10 @@ const EmptyCart = () => (
             <h4>Fill it by supporting some great causes</h4>
         </div>
 
-        <LinkButton
-            href="/causes"
-            classname="find-cause"
-            linkText="Find a Cause"
+        <Button
+            label='Find a Cause'
+            bsStyle='success'
+            href='/causes'
         />
 
     </div>

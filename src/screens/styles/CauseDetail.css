@@ -10,18 +10,6 @@
     z-index: 1;
 }
 
-.share-page {
-    background-color: var(--bright-green);
-    /* border: 1px solid var(--light-gray); */
-    border-radius: 5px;
-    box-shadow: var(--black-box-shadow);
-    color: var(--white);
-    margin: 1rem auto 3rem !important;
-    padding: 0.75rem !important;
-    width: 85% !important;
-}
-
-
 .share-link {
     color: var(--text-gray);
     margin: 2rem auto;
@@ -31,17 +19,6 @@
     width: 50%;
 }
 
-.share-page svg,
 .share-link svg {
     margin-right: 0.5rem;
-}
-
-.donate-link {
-    background-color: var(--dark-green);
-    border-radius: var(--border-radius);
-    box-shadow: var(--black-box-shadow);
-    color: var(--white);
-    margin-left: 5% !important;
-    margin-right: auto !important;
-    width: 90% !important;
 }

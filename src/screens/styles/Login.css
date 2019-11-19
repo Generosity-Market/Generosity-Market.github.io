@@ -35,30 +35,6 @@
     margin-bottom: 1rem;
 }
 
-.sign-in .submit-buttons {
-    display: flex;
-    justify-content: space-around;
-    margin: 0 0.5rem;
-}
-
-.submit-buttons .ActionButton {
-    width: 40%;
-}
-
-.submit-buttons .ActionButton .log-in-button {
-    background-color: var(--white);
-    border-radius: var(--border-radius);
-    color: var(--dark-green);
-    padding: 0.5rem 0;
-}
-
-.submit-buttons .ActionButton .sign-up-button {
-    background-color: var(--dark-green);
-    border-radius: var(--border-radius);
-    color: var(--white);
-    padding: 0.5rem 0;
-}
-
 .sign-up-link,
 .log-in-link {
     background-color: var(--black-30);

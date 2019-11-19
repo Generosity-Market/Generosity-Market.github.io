@@ -10,18 +10,6 @@
     border-top-right-radius: 1.5rem;
     z-index: 1;
     background-color: var(--white);
-}
-
-.Dashboard .LinkButton {
-    margin: 2rem auto 3rem;
-    width: 80%;
-}
-
-.Dashboard .create-cause {
-    background-color: var(--bright-green);
-    border-radius: var(--border-radius);
-    box-shadow: var(--black-box-shadow);
-    color: var(--white);
-    padding: 0.75rem 0rem !important;
-    
+    display: flex;
+    flex-direction: column;
 }

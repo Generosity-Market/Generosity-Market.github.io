@@ -12,8 +12,8 @@ import {
 } from 'utilities';
 
 // Shared UI Component
+import { Button } from '@jgordy24/stalls-ui';
 import {
-    ActionButton,
     Heading,
     ImageUploader,
     InputGroup,
@@ -161,10 +161,10 @@ export class CauseForm extends Component {
                 <Heading text={'Select Your Fundraising Icon'} />
                 <IconSelector handleSelect={this.handleSelectIcon} />
 
-                <ActionButton
-                    actionText={this.handleButtonText()}
-                    classname={'publish-cause'}
-                    action={this.handlePublish}
+                <Button
+                    bsStyle='success'
+                    label={this.handleButtonText()}
+                    onClick={this.handlePublish}
                 />
 
             </div>
