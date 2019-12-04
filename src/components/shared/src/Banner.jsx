@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MainImage from './MainImage';
-// import FontAwesome from './FontAwesome';
+// import { Glyphicon } from '@jgordy24/stalls-ui';
 import '../styles/Banner.css';
 
 const Banner = ({
@@ -20,7 +20,7 @@ const Banner = ({
                 }}
             >
                 <h2>{heading && heading}</h2>
-                {/* !props.BGimage && <FontAwesome icon={['far', 'image']} /> */}
+                {/* !props.BGimage && <Glyphicon icon={['far', 'image']} /> */}
             </div>
 
             <MainImage mainImage={mainImage && mainImage} roundImage={roundImage} />

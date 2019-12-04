@@ -1,0 +1,22 @@
+.edit-ctas {
+    border: 1px solid var(--white);
+    /* border-radius: var(--border-radius); */
+    /* background-color: var(--medium-green-10); */
+
+    display: flex;
+    flex-flow: column;
+    font-size: 0.7rem;
+    align-items: center;
+    margin: 0 0 1rem;
+    padding: 0.4rem;
+    width: 70%;
+}
+
+.edit-ctas svg {
+    color: var(--black-30);
+    margin-bottom: 0.25rem;
+}
+
+.edit-ctas p {
+    color: var(--text-gray);
+}

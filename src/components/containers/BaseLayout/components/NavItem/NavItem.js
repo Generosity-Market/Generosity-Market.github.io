@@ -1,9 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import {
-    FontAwesome,
-} from 'components/shared';
+import { Glyphicon } from '@jgordy24/stalls-ui';
 
 const NavItem = ({
     color,
@@ -22,7 +20,7 @@ const NavItem = ({
                 transform: 'scale(1.1)',
             }}
         >
-            {icon && <FontAwesome icon={icon} />}
+            {icon && <Glyphicon icon={icon} />}
             {name}
         </NavLink>
     );

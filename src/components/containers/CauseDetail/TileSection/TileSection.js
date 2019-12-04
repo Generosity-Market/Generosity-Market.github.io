@@ -5,9 +5,7 @@ import Tile from '../Tile/Tile';
 import './TileSection.css';
 
 // Shared UI Components
-import {
-    FontAwesome,
-} from 'components/shared';
+import { Glyphicon } from '@jgordy24/stalls-ui';
 
 // TODO convert to functional component if not using state
 export class TileSection extends Component {
@@ -95,7 +93,7 @@ export class TileSection extends Component {
                 <h2>Select Amount</h2>
 
                 <div className="direction-arrows left">
-                    <FontAwesome
+                    <Glyphicon
                         icon={'chevron-left'}
                         size={'2x'}
                     />
@@ -106,7 +104,7 @@ export class TileSection extends Component {
                 </div>
 
                 <div className="direction-arrows right">
-                    <FontAwesome
+                    <Glyphicon
                         icon={'chevron-right'}
                         size={'2x'}
                     />

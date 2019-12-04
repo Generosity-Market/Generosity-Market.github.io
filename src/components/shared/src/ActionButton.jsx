@@ -2,20 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/ActionButton.css';
 
-import {
-    FontAwesome,
-} from 'components/shared';
+import { Glyphicon } from '@jgordy24/stalls-ui';
 
 const ActionButton = ({
     action,
     actionText,
     classname,
     icon,
-}) => 
+}) =>
     (
         <div className='ActionButton' style={buttonWrap}>
             <div onClick={action} className={classname} style={buttonStyles}>
-                {icon && <FontAwesome icon={icon} />}
+                {icon && <Glyphicon icon={icon} />}
                 {actionText}
             </div>
         </div>
@@ -54,7 +52,7 @@ ActionButton.propTypes = {
      */
     action: PropTypes.func.isRequired,
     /**
-     * The name of the Font Awesome icon to pass to the FontAwesome component
+     * The name of the Font Awesome icon to pass to the Glyphicon component
      */
     icon: PropTypes.oneOfType([
         PropTypes.string,

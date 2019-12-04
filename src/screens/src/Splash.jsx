@@ -6,9 +6,7 @@ import { loadTokenFromCookie } from 'ducks/user';
 import '../styles/Splash.css';
 
 // Shared UI Components
-import {
-    LinkButton,
-} from 'components/shared';
+import { Button } from '@jgordy24/stalls-ui';
 
 export class Splash extends Component {
 
@@ -32,21 +30,29 @@ export class Splash extends Component {
                 </div>
 
                 <div className='links'>
-                    <LinkButton
-                        classname={'create-cause'}
-                        linkText={'Create a cause'}
-                        href={'/causes/new'}
+                    <Button
+                        bsStyle='success'
+                        bsSize='full'
+                        label='Create a cause'
+                        href='/causes/new'
+                        transparent={true}
                     />
-                    <LinkButton
-                        classname={'find-cause'}
-                        linkText={'Find a cause'}
-                        href={'/causes'}
+
+                    <Button
+                        bsStyle='active'
+                        bsSize='full'
+                        label='Find a cause'
+                        href='/causes'
+                        transparent={true}
                     />
-                    <LinkButton
-                        classname={'sign-in'}
-                        linkText={'Sign in'}
-                        href={'/login'}
-                        context={'login'}
+
+                    <Button
+                        bsStyle='pale'
+                        bsSize='full'
+                        label='Sign in'
+                        href='/login'
+                        linkContext='login'
+                        transparent={true}
                     />
                 </div>
 

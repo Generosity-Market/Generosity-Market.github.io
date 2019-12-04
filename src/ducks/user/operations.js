@@ -6,6 +6,7 @@ import {
     setToken,
     setUserCreatedCauses,
     setUserSupportedCauses,
+    // setUserImages,
 } from './actions';
 
 import Cookies from 'js-cookie';
@@ -16,6 +17,7 @@ import {
     registerUser,
     userLogin,
     postEditedUser,
+    // postUserImages,
     fetchUserCreatedCauses,
     fetchUserSupportedCauses,
 } from 'services';
@@ -115,6 +117,17 @@ export const editUserData = (id, { address, name, phone }) => {
             });
     };
 };
+
+// export const sendUserImages = (data) => makeFetchCreator(postUserImages, setUserImages, data);
+// export const sendUserImages = (id, data) => {
+
+//     return (dispatch, getState) => {
+
+//         return postUserImages(id, {
+//             // body:
+//         })
+//     }
+// }
 
 // TODO finish this action...
 export const loadTokenFromCookie = () => {

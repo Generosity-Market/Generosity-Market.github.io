@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import { CSVLink } from 'react-csv';
 import '../styles/DownloadCSV.css';
 
-import {
-    FontAwesome,
-} from 'components/shared';
+import { Glyphicon } from '@jgordy24/stalls-ui';
 
 const DownloadCSV = ({
     buttonText,
@@ -25,7 +23,7 @@ const DownloadCSV = ({
                 headers={headers && headers}
                 target="_blank"
             >
-                <FontAwesome icon={'download'} />
+                <Glyphicon icon={'download'} />
                 {buttonText}
             </CSVLink>
         </Fragment>

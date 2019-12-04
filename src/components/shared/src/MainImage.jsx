@@ -1,5 +1,5 @@
 import React from 'react';
-import FontAwesome from './FontAwesome';
+import { Glyphicon } from '@jgordy24/stalls-ui';
 import '../styles/MainImage.css';
 
 const MainImage = ({
@@ -19,7 +19,7 @@ const MainImage = ({
                 justifyContent: 'center',
             }}
         >
-            {!mainImage && <FontAwesome icon="camera" />}
+            {!mainImage && <Glyphicon icon="camera" />}
         </div>
     );
 

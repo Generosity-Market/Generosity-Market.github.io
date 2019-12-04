@@ -9,10 +9,10 @@ import {
 } from 'services';
 
 // Shared UI Components
+import { Button } from '@jgordy24/stalls-ui';
 import {
-    ActionButton,
     Heading,
-    ImageUploader,
+    ImageUploaderControlled,
     InputGroup,
 } from 'components/shared';
 
@@ -115,7 +115,7 @@ export class NewOrgForm extends Component {
         return (
             <div className="NewOrgForm">
 
-                <ImageUploader
+                <ImageUploaderControlled
                     handleImageChange={this.handleImageChange}
                     handleUpdateState={this.handleUpdateState}
                     name={this.state.name}
@@ -138,12 +138,11 @@ export class NewOrgForm extends Component {
                     handleUpdateState={this.handleUpdateState}
                 />
 
-                <ActionButton
-                    actionText={'create organization'}
-                    classname={'create-org'}
-                    action={this.handleSubmit}
+                <Button
+                    bsStyle="success"
+                    label="Create organization"
+                    onClick={this.handleSubmit}
                 />
-
             </div>
         );
     }

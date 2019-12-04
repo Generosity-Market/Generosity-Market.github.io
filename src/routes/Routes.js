@@ -48,11 +48,20 @@ const Routes = ({ location }) => {
                     <Switch location={location}>
 
                         <Route exact path='/login' render={() => (
-                            !loggedIn() || !userCookie ? <Login /> : <Redirect to={`/users/${userCookie.id}/dashboard`} />
+                            !loggedIn() || !userCookie
+                                ? <Login />
+                                : <Redirect to={`/users/${userCookie.id}/dashboard`} />
                         )} />
 
                         <Route exact path='/users/:id/dashboard' render={() => (
-                            loggedIn() ? <Dashboard userData={userCookie} /> : <Redirect to={{ pathname: '/login', state: { from: '/users/:id/dashboard' } }} />
+                            loggedIn()
+                                ? <Dashboard userData={userCookie} />
+                                : <Redirect
+                                    to={{
+                                        pathname: '/login',
+                                        state: { from: '/users/:id/dashboard' }
+                                    }}
+                                />
                         )} />
 
                         <Route exact path='/checkout' component={Checkout} />
@@ -62,7 +71,9 @@ const Routes = ({ location }) => {
                         <Route exact path='/cause/:id' component={CauseDetail} />
 
                         <Route exact path='/causes/new' render={() => (
-                            loggedIn() ? <CauseForm /> : <Redirect to={{ pathname: '/login', state: { from: '/causes/new' } }} />
+                            loggedIn()
+                                ? <CauseForm />
+                                : <Redirect to={{ pathname: '/login', state: { from: '/causes/new' } }} />
                         )} />
 
                         <Route exact path='/causes' component={CauseList} />
@@ -72,7 +83,9 @@ const Routes = ({ location }) => {
                         <Route exact path='/organizations/:id' component={Organization} />
 
                         <Route exact path='/' render={() => (
-                            !loggedIn() ? <Splash /> : <Redirect to={{ pathname: `/users/${userCookie.id}/dashboard` }} />
+                            !loggedIn()
+                                ? <Splash />
+                                : <Redirect to={{ pathname: `/users/${userCookie.id}/dashboard` }} />
                         )} />
 
                         <Route component={Error404} />

@@ -4,9 +4,9 @@ import './CheckoutForm.css';
 
 // Shared UI Components
 import {
-    ActionButton,
-    FontAwesome,
-} from 'components/shared';
+    Button,
+    Glyphicon,
+} from '@jgordy24/stalls-ui';
 
 // Stripe UI Components
 import {
@@ -93,6 +93,7 @@ class CheckoutForm extends Component {
                         ...token,
                         cart,
                         userID: user.id,
+                        id: user.id,
                         amount: total * 100,
                         email: this.state.email
                     }),
@@ -128,7 +129,7 @@ class CheckoutForm extends Component {
         return (
             <div className="CheckoutForm" style={showForm && total > 0 ? { bottom: '-5%' } : { bottom: '-100%' }}>
                 <div className="card">
-                    <FontAwesome
+                    <Glyphicon
                         onClick={toggleCheckoutForm}
                         icon={['far', 'times-circle']}
                     />
@@ -154,10 +155,11 @@ class CheckoutForm extends Component {
                         </div>
                     </div>
 
-                    <ActionButton
-                        action={this.submit}
-                        actionText={this.handleButtonText()}
+                    <Button
+                        bsStyle='success'
                         icon={this.state.status === 'complete' && 'check-circle'}
+                        label={this.handleButtonText()}
+                        onClick={this.submit}
                     />
                 </div>
             </div>

@@ -1,4 +1,4 @@
-.ImageUploader,
+.ImageUploaderControlled,
 .profilePreview,
 .profilePreview .fa-camera,
 .coverPreview .fa-image,
@@ -8,7 +8,7 @@
     justify-content: center;
 }
 
-.ImageUploader {
+.ImageUploaderControlled {
     width: 100%;
     flex-flow: row wrap;
     margin-bottom: 3rem;
@@ -19,23 +19,6 @@
     width: 100%;
 }
 
-.previewComponent .btns {
-    background-color: var(--bright-green);
-    border-radius: 50%;
-    border: none;
-    /* box-shadow: 0.2rem 0.2rem 2.5rem rgba(0,0,0,0.25) !important; */
-    color: var(--white) !important;
-    font-size: 18px;
-    height: 2.5rem;
-    width: 2.5rem;
-    position: absolute;
-    transition: right 0.5s ease 0.7s, left 0.5s ease 0.7s, top 0.5s ease 0.7s;
-}
-
-.previewComponent .btns.active {
-    transition: right 0.5s ease 0.7s, left 0.5s ease 0.7s, top 0.5s ease 0.7s;
-}
-
 .previewComponent .fa-image,
 .previewComponent .fa-camera {
     color: var(--light-gray);
@@ -44,7 +27,6 @@
 
 .profilePreview,
 .coverPreview,
-.profilePreview div,
 .profilePreview .fa-image,
 .profilePreview .fa-camera {
     position: relative;
@@ -57,6 +39,7 @@
 
 .coverPreview {
     height: 29vh;
+    position: relative;
 }
 
 .coverPreview p {
@@ -67,12 +50,7 @@
     width: 100%;
 }
 
-.coverPreview .delete_cover {
-    right: 3%;
-    bottom: 25%;
-}
-
-.coverPreview div {
+.coverPreview .image {
     border: var(--border);
     background-size: cover;
     background-position: center;
@@ -99,7 +77,19 @@
     text-shadow: 0.2rem 0.2rem 0.5rem rgba(0,0,0,1);
 }
 
-.profilePreview div {
+.coverPreview .FileInput {
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+}
+
+.coverPreview .btns.danger {
+    position: absolute;
+    right: 3%;
+    bottom: 25%;
+}
+
+.profilePreview .image {
     align-items: center;
     background-color: var(--white);
     background-size: cover;
@@ -113,53 +103,20 @@
     top: -50px;
     width: 6.5rem;
     z-index: 1;
+    transform: translateY(-50%);
     transition: border-radius 0.2s ease-in-out;
 }
 
-.profilePreview div.circle {
+.profilePreview .image.circle {
     border-radius: 50%;
     transition: border-radius 0.2s ease-in-out;
 }
 
-.delete_profile.btns,
-.delete_cover.btns {
-    background-color: var(--danger);
-    box-shadow: none;
-    font-size: 24px;
-}
-
-.change_profile_shape.btns {
-    /* background-color: var(--medium-blue); */
-    background-color: var(--dark-green);
-    /* background-color: var(--light-green); */
-    box-shadow: none;
-    right: 45%;
-    z-index: 0;
-}
-
-.change_profile_shape.btns.active {
-    right: 30%;
-    top: 65%;
-}
-
-.delete_profile.btns {
-    left: 45%;
-    top: -10%;
-    z-index: 0;
-}
-
-.delete_profile.btns.active {
-    left: 30%;
-    top: 65%;
-}
-
-.profileLabel.btns {
-    top: 35%;
-    z-index: 2;
-}
-
-.profileLabel.btns.active {
-    top: 65%;
+.profile_btns {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(60%);
 }
 
 .coverInput, .profileInput {

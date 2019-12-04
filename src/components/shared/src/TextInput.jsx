@@ -20,7 +20,7 @@ const TextInput = ({
         >
             <label htmlFor={name} className="label-helper">
                 {label}
-                {/* TODO should we add an icon for different validation statuses?? */}
+                {/* TODO: should we add an icon for different validation statuses?? */}
             </label>
             <input
                 className="input-text"

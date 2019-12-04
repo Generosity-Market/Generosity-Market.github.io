@@ -7,11 +7,15 @@ import '../styles/CauseForm.css';
 
 import { submitCauseFormData } from 'services';
 
-// Shared UI Components
 import {
-    ActionButton,
+    appendFormData,
+} from 'utilities';
+
+// Shared UI Component
+import { Button } from '@jgordy24/stalls-ui';
+import {
     Heading,
-    ImageUploader,
+    ImageUploaderControlled,
     InputGroup,
 } from 'components/shared';
 
@@ -97,19 +101,14 @@ export class CauseForm extends Component {
     handlePublish = () => {
         // console.log('handle uploading-', this.state);
         this.setState({ status: 'loading' });
-        delete this.state.profileURL;
-        delete this.state.coverURL;
 
         const causeData = {
             ...this.state,
+            bucket: 'cause',
             userID: this.props.user.id,
         };
 
-        const formData = new FormData();
-        formData.append('profileImage', this.state.profile_image);
-        formData.append('coverImage', this.state.cover_image);
-        formData.append('bucket', 'cause');
-        formData.append('state', JSON.stringify(causeData));
+        const formData = appendFormData(causeData);
 
         submitCauseFormData(formData, {
             headers: {
@@ -141,7 +140,7 @@ export class CauseForm extends Component {
         return (
             <div className="CauseForm">
 
-                <ImageUploader
+                <ImageUploaderControlled
                     handleImageChange={this.handleImageChange}
                     handleUpdateState={this.handleUpdateState}
                     name={this.state.name}
@@ -162,10 +161,10 @@ export class CauseForm extends Component {
                 <Heading text={'Select Your Fundraising Icon'} />
                 <IconSelector handleSelect={this.handleSelectIcon} />
 
-                <ActionButton
-                    actionText={this.handleButtonText()}
-                    classname={'publish-cause'}
-                    action={this.handlePublish}
+                <Button
+                    bsStyle='success'
+                    label={this.handleButtonText()}
+                    onClick={this.handlePublish}
                 />
 
             </div>

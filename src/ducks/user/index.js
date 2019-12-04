@@ -18,6 +18,7 @@ export {
     SET_TOKEN,
     SET_USER_CREATED_CAUSES,
     SET_USER_SUPPORTED_CAUSES,
+    SET_USER_IMAGES,
 } from './types';
 
 export default userReducer;

@@ -9,16 +9,8 @@ import {
 } from 'ducks/user';
 
 // Shared UI Components
-import {
-    ActionButton,
-    // LinkButton,
-    // Modal,
-} from 'components/shared';
-
-// Login Components
-// import {
-//     Popup,
-// } from 'components/containers/Login';
+import { Button } from '@jgordy24/stalls-ui';
+import { ActionButton } from 'components/shared';
 
 // TODO Break up some of the components in this page...
 export class Login extends Component {
@@ -30,7 +22,6 @@ export class Login extends Component {
             loggingIn: false,
             error: null,
             context: 'login',
-            // modalIsOpen: false,
         };
     }
 
@@ -38,14 +29,6 @@ export class Login extends Component {
         const { context } = this.props.location.state;
         if (context === 'register') this.setState({ context: context });
     }
-
-    // handleOpenModal = () => {
-    //     this.setState({ modalIsOpen: true });
-    // }
-
-    // handleCloseModal = () => {
-    //     this.setState({ modalIsOpen: false });
-    // }
 
     handleState = field => {
         return (event) => {
@@ -71,17 +54,6 @@ export class Login extends Component {
         // TODO Use location state to determine what page navigated to the login page... redirect there...
         if (user) history.push(`/users/${user.id}/dashboard`);
     }
-
-    renderActionButton = (context) => {
-        return (
-            <ActionButton
-                action={() => this.handleSubmit(this.props[context])}
-                classname={context === 'register' ? 'sign-up-button' : 'log-in-button'}
-                actionText={context === 'register' ? 'Sign up' : 'Log in'}
-            />
-        );
-    }
-
 
     render() {
         const {
@@ -121,10 +93,11 @@ export class Login extends Component {
                     />
 
                     <div className="submit-buttons">
-                        <ActionButton
-                            action={() => this.handleSubmit(this.props[context])}
-                            classname={context === 'register' ? 'sign-up-button' : 'log-in-button'}
-                            actionText={context === 'register' ? 'Sign up' : 'Log in'}
+                        <Button
+                            bsStyle={context === 'register' ? 'active' : 'pale'}
+                            bsSize='long'
+                            onClick={() => this.handleSubmit(this.props[context])}
+                            label={context === 'register' ? 'Sign up' : 'Log in'}
                         />
                     </div>
 
@@ -146,19 +119,12 @@ export class Login extends Component {
 
                 {/*<h3>OR</h3>*/}
 
-                {/*<LinkButton 
-                    classname="facebook-login" 
-                    href="/causes" 
-                    linkText={'log in with facebook'}
-                />*/}
-
-                {/*<Modal
-                    isOpen={this.state.modalIsOpen}
-                    handleCloseModal={this.handleCloseModal}
-                >
-                    Modal!!
-                </Modal>*/}
-
+                {/* <Button
+                        label='log in with facebook'
+                        href='/causes'
+                        bsStyle='info'
+                        bsSize='full'
+                /> */}
             </div>
         );
     }

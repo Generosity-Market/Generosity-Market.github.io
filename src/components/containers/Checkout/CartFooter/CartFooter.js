@@ -2,9 +2,7 @@ import React from 'react';
 import './CartFooter.css';
 
 // Shared UI Components
-import {
-    FontAwesome,
-} from 'components/shared';
+import { Glyphicon } from '@jgordy24/stalls-ui';
 
 const CartFooter = ({
     // cart, 
@@ -27,7 +25,7 @@ const CartFooter = ({
                 onClick={toggleCheckoutForm}
             >
                 Donate ${total}
-                <FontAwesome icon={['far', 'credit-card']} />
+                <Glyphicon icon={['far', 'credit-card']} />
             </div>
 
         </div>
