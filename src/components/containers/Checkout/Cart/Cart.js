@@ -3,9 +3,7 @@ import CartItem from '../CartItem/CartItem';
 import './Cart.css';
 
 // Shared UI Components
-import {
-    FontAwesome,
-} from 'components/shared';
+import { Glyphicon } from '@jgordy24/stalls-ui';
 
 const Cart = ({
     cart,
@@ -37,8 +35,9 @@ const Cart = ({
                 {cart.length > 1 &&
                     <div className="clear-cart" onClick={() => clearCart()}>
                         <p>clear cart</p>
-                        <FontAwesome icon={'times'} />
-                    </div>}
+                        <Glyphicon icon={'times'} />
+                    </div>
+                }
 
             </div>
         </div>

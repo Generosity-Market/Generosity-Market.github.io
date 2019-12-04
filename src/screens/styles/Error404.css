@@ -1,0 +1,40 @@
+.Error404 {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    justify-content: center;
+    text-align: center;
+    width: 100vw;
+}
+
+.Error404 h1,
+.Error404 .message {
+    font-size: 1.4rem;
+    margin: 1.5rem auto;
+    width: 65%;
+}
+
+.Error404 h1 {
+    color: var(--blackish);
+    margin-top: 24rem;
+}
+
+.Error404 span {
+    color: var(--warning);
+    display: block;
+}
+
+.Error404 .message {
+    color: var(--text-gray);
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.75rem;
+}
+
+.Error404 .oops {
+    color: var(--warning);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}

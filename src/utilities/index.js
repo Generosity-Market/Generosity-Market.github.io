@@ -1,3 +1,4 @@
+export { default as appendFormData } from './appendFormData';
 export { default as getFormattedDate } from './getFormattedDate';
 export { default as getImageUrl } from './getImageUrl';
 export { default as getIconUrl } from './getIconUrl';

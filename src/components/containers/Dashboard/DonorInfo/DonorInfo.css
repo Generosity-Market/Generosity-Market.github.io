@@ -18,11 +18,6 @@
     padding: 0 0.5rem;
 }
 
-.DonorInfo .Pill {
-    flex: 0 0 21%;
-    transition: background-color 0.3s;
-}
-
 .DonorInfo .donor-download svg {
         background-color: var(--medium-blue-85);
 }
@@ -34,12 +29,4 @@
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 0.65rem;
-}
-
-.donation-card .Pill {
-    align-items: center;
-    color: var(--text-gray);
-    display: flex;
-    flex: 0 0 10%;
-    justify-content: center;
 }

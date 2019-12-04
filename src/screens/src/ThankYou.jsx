@@ -4,9 +4,7 @@ import { clearCart } from 'ducks/cart';
 import '../styles/ThankYou.css';
 
 // Shared UI Components
-import {
-    LinkButton,
-} from 'components/shared';
+import { Button } from '@jgordy24/stalls-ui';
 
 // Convert to functional component if not using state
 export class ThankYou extends Component {
@@ -23,11 +21,14 @@ export class ThankYou extends Component {
                     <h1>Thank You</h1>
                     <p>for supporting such great causes!</p>
                 </div>
-                <LinkButton
-                    linkText={'Find a cause'}
-                    href={'/causes'}
-                    classname='find-cause'
+
+                <Button
+                    bsStyle='success'
+                    bsSize='lg'
+                    label='Find a cause'
+                    href='/causes'
                 />
+
             </div>
         );
     }

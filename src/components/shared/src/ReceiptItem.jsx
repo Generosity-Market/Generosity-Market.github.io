@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom';
 import '../styles/ReceiptItem.css';
 
 // Shared UI Components
-import {
-    Slider,
-    Tile,
-} from 'components/shared';
+import { Tile } from '@jgordy24/stalls-ui';
+import { Slider } from 'components/shared';
 
 const ReceiptItem = ({
     cause,
@@ -33,7 +31,7 @@ const ReceiptItem = ({
                 <Slider>
                     {Donations.map(donation => (
                         <Tile
-                            uiContext={'active'}
+                            bsStyle='active'
                             key={donation.amount}
                         >
                             ${donation.amount}

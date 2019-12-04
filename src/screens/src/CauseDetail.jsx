@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../styles/CauseDetail.css';
 
+import {
+    Button,
+    Glyphicon,
+} from '@jgordy24/stalls-ui';
+
 // Ducks
 import {
     causeSelected,
@@ -15,12 +20,7 @@ import {
 } from 'utilities';
 
 // Shared UI Components
-import {
-    ActionButton,
-    Banner,
-    FontAwesome,
-    LinkButton,
-} from 'components/shared';
+import { Banner } from 'components/shared';
 
 // Cause Detail Components
 import {
@@ -83,17 +83,18 @@ export class CauseDetail extends Component {
 
                     <TileSection
                         {...cause}
-                        purchasedTiles={purchasedTiles}
+                        purchasedTiles={purchasedTiles || []}
                     />
 
-                    <LinkButton
-                        href="/checkout"
-                        linkText="Donate"
-                        classname="donate-link"
+                    <Button
+                        label='Donate'
+                        bsStyle='active'
+                        bsSize='full'
+                        href='/checkout'
                     />
 
                     <div className="share-link" onClick={() => sharePage()}>
-                        <FontAwesome icon={'share-alt'} />
+                        <Glyphicon icon={'share-alt'} />
                         Or Share This Page
                     </div>
 
@@ -109,11 +110,12 @@ export class CauseDetail extends Component {
                         />
                     }
 
-                    <ActionButton
-                        actionText="Share this page"
-                        classname="share-page"
-                        action={sharePage}
-                        icon={'share-alt'}
+                    <Button
+                        bsStyle="success"
+                        bsSize="long"
+                        label="Share this page"
+                        onClick={sharePage}
+                        icon="share-alt"
                     />
 
                 </div>

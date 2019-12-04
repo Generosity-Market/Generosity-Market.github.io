@@ -1,4 +1,4 @@
-.Modal {
+.modal-wrapper {
     position: absolute;
     top: 10rem;
     left: 2.5rem;
@@ -11,7 +11,7 @@
     align-items: center;
 }
 
-.Overlay {
+.modal-overlay {
     position: fixed;
     top: 0;
     left: 0;

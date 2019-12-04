@@ -13,6 +13,7 @@ export {
     userLogin,
     registerUser,
     postEditedUser,
+    postUserImages,
     fetchUserData,
     fetchUserCreatedCauses,
     fetchUserSupportedCauses,

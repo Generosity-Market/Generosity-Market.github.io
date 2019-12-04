@@ -8,6 +8,7 @@ const defaultProps = {
     address: {},
     name: '',
     phone: '',
+    user: {},
 };
 
 const wrapper = shallow(<UserDetails {...defaultProps} />);

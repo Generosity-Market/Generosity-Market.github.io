@@ -6,10 +6,8 @@ import {
 } from 'utilities';
 
 // Shared UI Components
-import {
-    FontAwesome,
-    MainImage,
-} from 'components/shared';
+import { Glyphicon } from '@jgordy24/stalls-ui';
+import { MainImage } from 'components/shared';
 
 const CartItem = ({
     amount,
@@ -43,7 +41,7 @@ const CartItem = ({
             </div>
 
             <div className="clear" onClick={() => removeItemFromCart()}>
-                <FontAwesome icon={['far', 'times-circle']} />
+                <Glyphicon icon={['far', 'times-circle']} />
             </div>
         </div>
     );

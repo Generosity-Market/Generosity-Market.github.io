@@ -1,9 +1,7 @@
 import React from 'react';
 import './SlideMenu.css';
 
-import {
-    FontAwesome,
-} from 'components/shared';
+import { Glyphicon } from '@jgordy24/stalls-ui';
 
 const SlideMenu = ({
     showMenu = false,
@@ -26,7 +24,7 @@ const SlideMenu = ({
                 className='navLinks'
                 onClick={() => handleNavigation(endpoint)}
             >
-                <FontAwesome icon={icon} fixedWidth />
+                <Glyphicon icon={icon} fixedWidth />
                 {name}
             </div>
         );
@@ -45,7 +43,7 @@ const SlideMenu = ({
                 {navLinks.map(link => renderLink(link))}
 
                 <div className="logout navLinks" onClick={() => { logout(); handleNavigation('/'); }}>
-                    <FontAwesome
+                    <Glyphicon
                         icon={'arrow-alt-circle-left'}
                         style={{ color: 'var(--danger-65)' }}
                     />
@@ -58,7 +56,7 @@ const SlideMenu = ({
                 className='closeMenu'
                 onClick={() => closeMenu()}
             >
-                <FontAwesome icon={'times'} />
+                <Glyphicon icon={'times'} />
             </div>
 
         </nav>

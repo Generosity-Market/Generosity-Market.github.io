@@ -35,7 +35,7 @@ export class Checkout extends Component {
             // public_comment: '',
             // private_comment: '',
             showForm: false,
-            // TODO Get this from .env for production. Do not commit the live key!!!
+            // TODO: Get this from .env for production. Do not commit the live key!!!
             apiKey: 'pk_test_qojWn3GnI7Cr16kIvzOjMYiA',
         };
     }

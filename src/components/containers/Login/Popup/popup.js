@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { LinkButton } from 'components/shared';
+import { Button } from '@jgordy24/stalls-ui';
 
 const Popup = ({ id }) => {
 
@@ -8,11 +8,17 @@ const Popup = ({ id }) => {
         <div className="Popup">
             <p>What would you like to do next?</p>
 
-            <LinkButton
+            <Button
+                label='Create a cause'
+                bsStyle='info'
+                bsSize='sm'
                 href="/causes/new"
             />
 
-            <LinkButton
+            <Button
+                label='See my dashboard'
+                bsStyle='info'
+                bsSize='sm'
                 href={`/users/${id}/dashboard`}
             />
         </div>

@@ -1,22 +1,14 @@
 .profile-details {
     display: flex;
     flex-wrap: wrap;
-    margin: 2rem 0;
+    margin: 6rem 0 3rem;
     position: relative;
 }
 
 .profile-details > div.form-status {
     margin-bottom: 0.75rem;
-    position: aboslute;
-    left: 50%;
     -webkit-transform: translateX(75%);
     transform: translateX(75%);
-    width: 40%;
-}
-
-
-.profile-details .Pill {
-    text-align: center;
 }
 
 .user-details {
@@ -31,31 +23,4 @@
     flex: 0 1 20%;
     flex-flow: column;
     padding-top: 0.5rem;
-}
-
-.edit-profile-btns .btns {
-    margin-bottom: 0.3rem;
-}
-
-.edit-ctas {
-    border: 1px solid var(--white);
-    /* border-radius: var(--border-radius); */
-    /* background-color: var(--medium-green-10); */
-
-    display: flex;
-    flex-flow: column;
-    font-size: 0.7rem;
-    align-items: center;
-    margin: 0 0 1rem;
-    padding: 0.4rem;
-    width: 70%;
-}
-
-.edit-ctas svg {
-    color: var(--black-30);
-    margin-bottom: 0.25rem;
-}
-
-.edit-ctas p {
-    color: var(--text-gray);
 }
