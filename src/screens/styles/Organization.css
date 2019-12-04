@@ -8,18 +8,9 @@
     border-top-left-radius: 1.5rem;
     border-top-right-radius: 1.5rem;
     margin-top: -4.5rem;
-    padding-top: 4rem;
+    padding-top: 0rem;
+    /* padding-top: 4rem; */
     z-index: 1;
-}
-
-.Organization .LinkButton {
-    margin: 0 auto;
-    width: 85%;
-}
-
-.Organization .org-link {
-    background-color: var(--dark-green);
-    border-radius: var(--border-radius);
-    box-shadow: var(--black-box-shadow);
-    color: var(--white);
+    display: flex;
+    flex-direction: column;
 }

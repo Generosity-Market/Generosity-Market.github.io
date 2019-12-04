@@ -1,17 +1,17 @@
-import React, { PureComponent } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import handleViewport from 'react-in-viewport';
 import '../styles/Dashboard.css';
 
 import {
-    appendFormData,
-    // getImageUrl,
-} from 'utilities';
+    Button,
+    ImageUploader,
+} from '@jgordy24/stalls-ui';
 
 import {
     getCauseList,
-    causeSelected
+    causeSelected,
 } from 'ducks/cause';
 
 import {
@@ -19,13 +19,6 @@ import {
     getUserCreatedCauses,
     getUserSupportedCauses,
 } from 'ducks/user';
-
-// Shared UI Components
-import {
-    // Banner,
-    LinkButton,
-    ImageUploader,
-} from 'components/shared';
 
 // Dashboard Components
 import {
@@ -38,159 +31,86 @@ import {
 const InViewportUserCauses = handleViewport(UserCauses);
 const InViewportReceipts = handleViewport(Receipts);
 
-export class Dashboard extends PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {
-            editProfile: false,
-            highlightedCause: null,
-            loadingCauses: false,
-            cover_image: '',
-            coverURL: '',
-            profile_image: '',
-            profileURL: '',
-            roundImage: true,
-        };
-    }
+export const Dashboard = ({
+    causeSelected,
+    editUserData,
+    getUserCreatedCauses,
+    getUserSupportedCauses,
+    history,
+    user,
+    userData, // NOTE: Cookie data?? I think
+}) => {
 
-    componentDidMount() {
-        const {
-            history,
-            // match,
-            user,
-            userData,
-        } = this.props;
+    // TODO: useReducer hook instead
+    const [highlightedCause, setHighlightedCause] = useState(null);
+    const [editProfile, setEditProfile] = useState(false);
+    const [loadingCauses, setLoadingCauses] = useState(false);
 
+    useEffect(() => {
         // const idsDontMatch = (Number(match.params.id) !== Number(userData.id));
 
         if (!user && !userData) history.push('/');
         // if (idsDontMatch) history.push(`/users/${userData.id}/dashboard`);
-    }
+    }, [history, user, userData]);
 
-    componentDidUpdate(prevProps) {
-        // Typical usage (don't forget to compare props):
-        const previousUserWithoutCauses = (prevProps.user && !prevProps.user.Causes);
-        const userCurrentlyHasCauses = (this.props.user && this.props.user.Causes);
+    // TODO: Convert this to hooks???
+    // componentDidUpdate(prevProps) {
+    //     // Typical usage (don't forget to compare props):
+    //     const previousUserWithoutCauses = (prevProps.user && !prevProps.user.Causes);
+    //     const userCurrentlyHasCauses = (this.props.user && this.props.user.Causes);
 
-        if (previousUserWithoutCauses && userCurrentlyHasCauses) {
-            this.setState({ loadingCauses: false });
-        }
-    }
+    //     if (previousUserWithoutCauses && userCurrentlyHasCauses) {
+    //         this.setState({ loadingCauses: false });
+    //     }
+    // }
 
-    handleEditProfile = () => this.setState({ editProfile: !this.state.editProfile });
+    const handleEditProfile = () => setEditProfile(!editProfile);
 
-    returnAddressInfo = ({ street, city, state, zipcode }) => {
-        return {
-            street,
-            city,
-            state,
-            zipcode
-        };
-    };
-
-    selectCauseToHighlight = causeId => {
-        const { highlightedCause } = this.state;
-
-        switch (highlightedCause) {
+    const selectCauseToHighlight = causeId => {
+        switch (true) {
             case null:
-            case !causeId:
-                this.setState({ highlightedCause: causeId });
+            case (highlightedCause !== causeId):
+                setHighlightedCause(causeId);
                 break;
             // If the cause that is already highlighted is selected, set state to null??
-            case causeId:
-                this.setState({ highlightedCause: null });
+            case (highlightedCause === causeId):
+                setHighlightedCause(null);
                 break;
             default:
                 break;
         }
     };
 
-    getHighlightedCause = () => {
-        const { user } = this.props;
-        const { highlightedCause } = this.state;
-
+    const getHighlightedCause = () => {
         return user.CreatedCauses.filter(cause => cause.id === highlightedCause)[0];
     };
 
-    getReceipts = (id) => {
-        const {
-            getUserSupportedCauses,
-            user: {
-                SupportedCauses,
-            },
-        } = this.props;
-
-        if (!SupportedCauses) getUserSupportedCauses(id);
-    }
-
-    getCauses = (id) => {
-        const {
-            getUserCreatedCauses,
-            user: {
-                CreatedCauses,
-            },
-        } = this.props;
-
-        if (!CreatedCauses) {
-            this.setState({ loadingCauses: true });
-            getUserCreatedCauses(id).then(() => this.setState({ loadingCauses: false }));
-        }
-    }
-
-    handleUpdateState = (field) => {
-        return (event) => {
-            if (field === 'roundImage') {
-                this.setState({ [field]: !this.state[field] });
-            } else {
-                this.setState({ [field]: event.target.value });
-            }
-        };
+    const getReceipts = (id) => {
+        if (!user.SupportedCauses) getUserSupportedCauses(id);
     };
 
-    handleImageChange = (event, field, url) => {
-        event.preventDefault();
-        if (event.target.files) {
-            let reader = new FileReader();
-            let file = event.target.files[0];
-            reader.onloadend = () => {
-                this.setState({
-                    [field]: file,
-                    [url]: reader.result
-                });
-            };
-            reader.readAsDataURL(file);
-        } else {
-            this.setState({
-                [field]: '',
-                [url]: ''
-            });
+    const getCauses = (id) => {
+        if (!user.CreatedCauses) {
+            setLoadingCauses(true);
+            getUserCreatedCauses(id).then(() => setLoadingCauses(false));
         }
     };
 
-    handleSaveImage = () => {
-        const {
-            cover_image,
-            coverURL,
-            profile_image,
-            profileURL,
-            roundImage,
-        } = this.state;
-        // console.log('handle uploading-', this.state);
-        this.setState({ status: 'loading' });
-
-        const userData = {
-            cover_image,
-            coverURL,
-            profile_image,
-            profileURL,
-            roundImage,
-            bucket: 'user',
-            id: this.props.user.id,
-        };
-
-        const formData = appendFormData(userData);
+    const handleSaveImage = (imageData) => {
         /* eslint-disable-next-line no-console */
-        console.log('User FormData: ', formData);
+        console.log('ImageData: ', imageData);
+        // console.log('handle uploading-', this.state);
+        // this.setState({ status: 'loading' });
+
+        // const userData = {
+        //     ...images,
+        //     bucket: 'user',
+        //     id: user.id,
+        // };
+
+        // const formData = appendFormData(userData);
+        /* eslint-disable-next-line no-console */
+        // console.log('User FormData: ', formData);
 
         // submitCauseFormData(formData, {
         //     headers: {
@@ -217,75 +137,55 @@ export class Dashboard extends PureComponent {
         //     });
     };
 
-    render() {
-        const {
-            user,
-            causeSelected,
-            editUserData,
-        } = this.props;
+    return user && (
+        <div className='Dashboard'>
+            <ImageUploader
+                coverImgSrc={user.mainImage}
+                heading={''}
+                profileImgSrc={user.backgroundImage}
+                /* eslint-disable-next-line no-console */
+                onSubmit={handleSaveImage}
+                roundImage={user.roundImage}
+            />
 
-        const {
-            highlightedCause,
-            editProfile,
-            loadingCauses,
-        } = this.state;
-
-        // console.warn("User -> Dashboard: ", user);
-        // console.warn('Dashboard Props: ', this.props);
-
-        return user && (
-            <div className='Dashboard'>
-
-                <ImageUploader
-                    handleImageChange={this.handleImageChange}
-                    handleUpdateState={this.handleUpdateState}
-                    profileURL={this.state.profileURL || user.mainImage}
-                    coverURL={this.state.coverURL || user.backgroundImage}
-                    roundImage={this.state.roundImage}
-                    whiteText={this.state.whiteText}
+            <div className='Wrapper'>
+                <UserDetails
+                    user={user}
+                    editProfile={editProfile}
+                    handleEditProfile={handleEditProfile}
+                    editUserData={editUserData}
                 />
 
-                <div className='Wrapper'>
-                    <UserDetails
-                        userId={user.id}
-                        name={user.name}
-                        phone={user.phone}
-                        address={this.returnAddressInfo(user)}
-                        editProfile={editProfile}
-                        handleEditProfile={this.handleEditProfile}
-                        editUserData={editUserData}
-                    />
+                <InViewportUserCauses
+                    loading={loadingCauses}
+                    causes={user.CreatedCauses}
+                    causeSelected={causeSelected}
+                    selectCauseToHighlight={selectCauseToHighlight}
+                    highlightedCause={highlightedCause}
+                    onEnterViewport={() => getCauses(user.id)}
+                />
 
-                    <InViewportUserCauses
-                        loading={loadingCauses}
-                        causes={user.CreatedCauses}
-                        causeSelected={causeSelected}
-                        selectCauseToHighlight={this.selectCauseToHighlight}
-                        highlightedCause={highlightedCause}
-                        onEnterViewport={() => this.getCauses(user.id)}
-                    />
+                <Button
+                    bsStyle='success'
+                    bsSize='long'
+                    label='Create a cause'
+                    href='/causes/new'
+                />
 
-                    <LinkButton
-                        href={'/causes/new'}
-                        classname={'create-cause'}
-                        linkText={'Create a cause'}
+                {(user.CreatedCauses && !!user.CreatedCauses.length) &&
+                    <DonorInfo
+                        cause={{ ...getHighlightedCause() }}
                     />
+                }
 
-                    {(user.CreatedCauses && !!user.CreatedCauses.length) &&
-                        <DonorInfo
-                            cause={{ ...this.getHighlightedCause() }}
-                        />
-                    }
-
-                    <InViewportReceipts
-                        supportedCauses={user.SupportedCauses}
-                        onEnterViewport={() => this.getReceipts(user.id)}
-                    />
-                </div>
+                <InViewportReceipts
+                    supportedCauses={user.SupportedCauses}
+                    onEnterViewport={() => getReceipts(user.id)}
+                />
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
 const mapStateToProps = state => {
     const {

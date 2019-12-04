@@ -12,7 +12,7 @@ import {
 import { Button } from '@jgordy24/stalls-ui';
 import {
     Heading,
-    ImageUploader,
+    ImageUploaderControlled,
     InputGroup,
 } from 'components/shared';
 
@@ -115,7 +115,7 @@ export class NewOrgForm extends Component {
         return (
             <div className="NewOrgForm">
 
-                <ImageUploader
+                <ImageUploaderControlled
                     handleImageChange={this.handleImageChange}
                     handleUpdateState={this.handleUpdateState}
                     name={this.state.name}

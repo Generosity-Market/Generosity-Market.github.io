@@ -1,122 +1,150 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { coverInput, profileInput } from '../config/inputInfo.js';
 import '../styles/ImageUploader.css';
 
 import {
-    FontAwesome,
+    Glyphicon,
+    FileInput,
     MiniButton,
-} from 'components/shared';
+} from '@jgordy24/stalls-ui';
 
-// TODO convert to functional component if not using state
-export default class ImageUpload extends Component {
+// TODO: NOTE: All commented out code is from an attempt to create a conext provider to handle the image functionality.
+// Temporarily abandoning the idea
 
-    createFileInput = (input, URL) => {
-        let iconName = URL ? 'pencil-alt' : 'plus';
-        return (
-            <label className={URL ? `${input.labelClass} active` : input.labelClass}>
-                <FontAwesome
-                    icon={iconName}
-                />
-                <input
-                    className={input.inputClass}
-                    type="file"
-                    onChange={(e) => this.props.handleImageChange(e, input.image_type, input.argument)}
-                    onClick={(event) => { event.target.value = null; }}
-                />
-            </label>
-        );
-    }
+// import {
+//     useImageState,
+//     useImageDispatch
+// } from 'screens/context/imageContext';
 
-    checkURL = (URL, faClass, roundImage) => {
+const ImageUploaderControlled = ({
+    coverURL,
+    handleImageChange,
+    handleUpdateState,
+    name,
+    profileURL,
+    roundImage,
+}) => {
+
+    // const context = useImageState();
+    // const dispatch = useImageDispatch();
+    //     onChange = {(event) => {
+    //     event.preventDefault();
+    //     dispatch({
+    //         type: 'SET_IMAGE',
+    //         payload: {
+    //             files: event.target.files,
+    //             field: input.image_type,
+    //             url: input.argument,
+    //         },
+    //     });
+    // }}
+
+    const createFileInput = (input, URL) => (
+        <FileInput
+            bsStyle='success'
+            icon={URL ? 'pencil-alt' : 'plus'}
+            inputName={input.image_type}
+            onChange={(event) => handleImageChange(event, input.image_type, input.argument)}
+            onClick={(event) => { event.target.value = null; }}
+        />
+    );
+
+    const renderImage = (URL, faClass) => {
         if (URL) {
             return (
                 <div
-                    className={roundImage ? 'circle' : ''}
+                    className={roundImage ? 'image circle' : 'image'}
                     style={{ backgroundImage: `url(${URL})` }}
                 >
                 </div>
             );
         } else {
             return (
-                <div className={roundImage ? 'circle' : ''}>
-                    <FontAwesome icon={faClass} />
+                <div className={roundImage ? 'image circle' : 'image'}>
+                    <Glyphicon icon={faClass} />
                 </div>
             );
         }
-    }
+    };
 
-    renderCoverPreview = () => {
-        const {
-            coverURL,
-            handleImageChange,
-            name,
-        } = this.props;
+    const renderCoverPreview = () => {
+        let $coverPreview = renderImage(coverURL, ['far', 'image']);
 
-        let $coverPreview = this.checkURL(coverURL, ['far', 'image']);
+        // onClick = {(event) => dispatch({
+        //     type: 'SET_IMAGE',
+        //     payload: {
+        //         event,
+        //         field: 'cover_image',
+        //         url: 'coverURL',
+        //     },
+        // })}        
 
         return (
             <div className="coverPreview">
                 <h2 className="banner-heading">{name}</h2>
-                {this.createFileInput(coverInput, coverURL)}
                 {!coverURL && <p>Add Cover Photo</p>}
                 {$coverPreview}
+                {createFileInput(coverInput, coverURL)}
                 {coverURL &&
                     <MiniButton
-                        className="delete_cover"
-                        onClick={(e) => handleImageChange(e, 'cover_image', 'coverURL')}
-                    >
-                        <FontAwesome icon={'times'} />
-                    </MiniButton>}
+                        bsStyle="danger"
+                        icon='times'
+                        onClick={(event) => handleImageChange(event, 'cover_image', 'coverURL')}
+                    />
+                }
             </div>
         );
-    }
+    };
 
-    renderProfilePreview = () => {
-        const {
-            handleImageChange,
-            handleUpdateState,
-            profileURL,
-            roundImage,
-        } = this.props;
+    const renderProfilePreview = () => {
+        let $profilePreview = renderImage(profileURL, 'camera');
 
-        let $profilePreview = this.checkURL(profileURL, 'camera', roundImage);
+        // onClick={() => dispatch({
+        //     type: 'SET_STATE',
+        //     roundImage: !context.roundImage,
+        // })}
+
+        // onClick = {(event) => dispatch({
+        //     type: 'SET_IMAGE',
+        //     payload: {
+        //         event,
+        //         field: 'profile_image',
+        //         url: 'profileURL',
+        //     },
+        // })}
 
         return (
             <div className="profilePreview">
-                {this.createFileInput(profileInput, profileURL)}
                 {$profilePreview}
-
-                <MiniButton
-                    className={profileURL ? 'change_profile_shape active' : 'change_profile_shape'}
-                    onClick={handleUpdateState('roundImage')}
-                >
-                    <FontAwesome
-                        className={roundImage ? 'fas fa-square' : 'fas fa-circle'}
-                        icon={roundImage ? 'square' : 'circle'}
-                    />
-                </MiniButton>
-
-                <MiniButton
-                    className={profileURL ? 'delete_profile active' : 'delete_profile'}
-                    onClick={(e) => handleImageChange(e, 'profile_image', 'profileURL')}
-                >
-                    <FontAwesome icon={'times'} />
-                </MiniButton>
-
-            </div>
-        );
-    }
-
-    render() {
-
-        return (
-            <div className="ImageUploader previewComponent">
-                <div className="Banner">
-                    {this.renderCoverPreview()}
-                    {this.renderProfilePreview()}
+                <div className="profile_btns">
+                    {createFileInput(profileInput, profileURL)}
+                    {profileURL &&
+                        <MiniButton
+                            bsStyle='info'
+                            icon={roundImage ? 'square' : 'circle'}
+                            onClick={handleUpdateState('roundImage')}
+                        />
+                    }
+                    {profileURL &&
+                        <MiniButton
+                            bsStyle='danger'
+                            icon='times'
+                            onClick={(e) => handleImageChange(e, 'profile_image', 'profileURL')}
+                        />
+                    }
                 </div>
             </div>
         );
-    }
+    };
 
-}
+    return (
+        <div className="ImageUploaderControlled previewComponent">
+            <div className="Banner">
+                {renderCoverPreview()}
+                {renderProfilePreview()}
+            </div>
+        </div>
+    );
+};
+
+export default ImageUploaderControlled;

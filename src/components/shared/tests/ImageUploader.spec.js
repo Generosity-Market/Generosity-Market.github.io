@@ -2,17 +2,17 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import ImageUploader from '../src/ImageUploader';
+import ImageUploaderControlled from '../src/ImageUploader';
 
 const defaultProps = {
     handleUpdateState: () => { },
 };
 
-const wrapper = shallow(<ImageUploader {...defaultProps} />);
+const wrapper = shallow(<ImageUploaderControlled {...defaultProps} />);
 
-describe('<ImageUploader />', () => {
+describe('<ImageUploaderControlled />', () => {
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('.ImageUploader')).toBe(true);
+        expect(wrapper.exists('.ImageUploaderControlled')).toBe(true);
     });
 });

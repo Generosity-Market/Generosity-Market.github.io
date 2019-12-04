@@ -15,7 +15,7 @@ import {
 import { Button } from '@jgordy24/stalls-ui';
 import {
     Heading,
-    ImageUploader,
+    ImageUploaderControlled,
     InputGroup,
 } from 'components/shared';
 
@@ -140,7 +140,7 @@ export class CauseForm extends Component {
         return (
             <div className="CauseForm">
 
-                <ImageUploader
+                <ImageUploaderControlled
                     handleImageChange={this.handleImageChange}
                     handleUpdateState={this.handleUpdateState}
                     name={this.state.name}
