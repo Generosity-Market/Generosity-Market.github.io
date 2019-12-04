@@ -8,7 +8,7 @@ import {
 } from 'components/shared';
 
 export const Error404 = ({
-    history,
+    history = {},
 }) => {
 
     return (
