@@ -115,7 +115,7 @@ export const Dashboard = ({
                     setTimeout(() => setIsUploading({ status: false, message: null }), 3000);
                 }
 
-                setIsUploading({ status: true, message: 'Upload Successful √' });
+                setIsUploading({ status: true, message: 'Upload Successful' });
                 setTimeout(() => setIsUploading({ status: false, message: null }), 3000);
             });
     };
@@ -134,8 +134,7 @@ export const Dashboard = ({
                     <span className='upload_status'>
                         <Pill
                             label={isUploading.message}
-                            bsStyle="default"
-                            active
+                            bsStyle="info"
                         />
                     </span>
                 }
