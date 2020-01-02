@@ -8,12 +8,12 @@ export const userLogin = (data) => postJSONData('/login', data);
 
 export const registerUser = (data) => postJSONData('/signup', data);
 
-export const postEditedUser = (id, data) => postJSONData(`/edit/user/${id}`, data);
+export const postEditedUser = (id, data) => postJSONData(`/users/${id}/edit`, data);
 
-export const postUserImages = (id, data) => postFormData(`/user/${id}/upload`, data);
+export const postUserImages = (id, data) => postFormData(`/users/${id}/images`, data);
 
-export const fetchUserData = (id) => fetchJSONData(`/user/${id}`);
+export const fetchUserData = (id) => fetchJSONData(`/users/${id}`);
 
-export const fetchUserCreatedCauses = (id) => fetchJSONData(`/user/${id}/causes`);
+export const fetchUserCreatedCauses = (id) => fetchJSONData(`/users/${id}/causes`);
 
-export const fetchUserSupportedCauses = (id) => fetchJSONData(`/user/${id}/donations`);
+export const fetchUserSupportedCauses = (id) => fetchJSONData(`/users/${id}/donations`);
