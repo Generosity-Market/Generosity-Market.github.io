@@ -6,18 +6,19 @@ import {
     setToken,
     setUserCreatedCauses,
     setUserSupportedCauses,
-    // setUserImages,
+    setUserImages,
 } from './actions';
 
 import Cookies from 'js-cookie';
 import { makeFetchCreator } from 'actions/makeFetchCreator';
+import { appendFormData } from 'utilities';
 
 import {
     fetchUserData,
     registerUser,
     userLogin,
     postEditedUser,
-    // postUserImages,
+    postUserImages,
     fetchUserCreatedCauses,
     fetchUserSupportedCauses,
 } from 'services';
@@ -85,8 +86,8 @@ export const login = ({ email, password }) => {
 };
 
 export const editUserData = (id, { address, name, phone }) => {
-    // TODO this is called directly in component -> fetch(POST) -> action -> reducer -> rerender
-    // TODO Should do input validations here?
+    // TODO: this is called directly in component -> fetch(POST) -> action -> reducer -> rerender
+    // TODO: Should do input validations here?
     return (dispatch, getState) => {
         return postEditedUser(id, {
             body: JSON.stringify({
@@ -118,18 +119,35 @@ export const editUserData = (id, { address, name, phone }) => {
     };
 };
 
-// export const sendUserImages = (data) => makeFetchCreator(postUserImages, setUserImages, data);
-// export const sendUserImages = (id, data) => {
+// TODO: BUG: Returning dispatch and getState doesnt seem to work here...
+// so we are passing the entire user object to construct state after the fetch
+export const submitUserImages = (prevUser, uploadData) => {
+    const headers = { 'Content-Type': 'multipart/form-data' };
+    const formData = appendFormData(uploadData);
 
-//     return (dispatch, getState) => {
+    return postUserImages(prevUser.id, formData, { headers })
+        .then(data => {
+            if (data.error) {
+                // dispatch(setAlert({ type: 'error', message: data.error }));
+                return { error: data.error };
+            } else {
 
-//         return postUserImages(id, {
-//             // body:
-//         })
-//     }
-// }
+                const newUserState = {
+                    ...data,
+                    CreatedCauses: prevUser.CreatedCauses,
+                    Preferences: prevUser.Preferences,
+                };
 
-// TODO finish this action...
+                setUserImages(newUserState);
+                return { success: true };
+            }
+        })
+        .catch(error => {
+            return { error };
+        });
+};
+
+// TODO: finish this action...
 export const loadTokenFromCookie = () => {
     return async (dispatch) => {
         const token = Cookies.get('token');

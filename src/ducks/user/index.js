@@ -8,6 +8,7 @@ export {
     getUserData,
     getUserCreatedCauses,
     getUserSupportedCauses,
+    submitUserImages,
 } from './operations';
 
 export {
