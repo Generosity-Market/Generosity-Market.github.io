@@ -5,7 +5,9 @@ import { shallow } from 'enzyme';
 import { Error404 } from '../src/Error404';
 
 const defaultProps = {
-    // props...
+    history: {
+        goBack: jest.fn(),
+    }
 };
 
 const wrapper = shallow(<Error404 {...defaultProps} />);

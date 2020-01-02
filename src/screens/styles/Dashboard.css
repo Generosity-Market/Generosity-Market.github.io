@@ -13,3 +13,10 @@
     display: flex;
     flex-direction: column;
 }
+
+.Dashboard .upload_status {
+    position: absolute;
+    top: 22rem;
+    left: 50%;
+    transform: translateX(-50%);
+}

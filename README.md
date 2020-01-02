@@ -7,7 +7,7 @@ Generosity Market is a platform for non-profits and charities to raise funds.
 
 ## Installation
 
-[![Build Status](https://travis-ci.org/JGordy/Generosity-Market.github.io.svg?branch=master)](https://travis-ci.org/JGordy/Generosity-Market.github.io)
+[![Build Status](https://travis-ci.org/Generosity-Market/Generosity-Market.github.io.svg?branch=master)](https://travis-ci.org/Generosity-Market/Generosity-Market.github.io)
 
 ```sh
 git clone https://github.com/Generosity-Market/Generosity-Market.github.io.git
