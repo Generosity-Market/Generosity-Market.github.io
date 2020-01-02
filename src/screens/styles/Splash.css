@@ -36,7 +36,7 @@
     text-align: center;
 }
 
-.Splash .LinkButton {
+/* .Splash .LinkButton {
     border-radius: var(--border-radius);
     font-family: var(--main-font);
     font-weight: 300;
@@ -61,7 +61,7 @@
 .Splash .sign-in {
     background-color: var(--white-85);
     color: var(--dark-green);
-}
+} */
 
 .Splash .sign-up {
     cursor: pointer;
