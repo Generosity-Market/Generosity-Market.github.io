@@ -8,8 +8,16 @@
     margin-top: -1.5rem;
     border-top-left-radius: 1.5rem;
     border-top-right-radius: 1.5rem;
-    z-index: 1;
+    z-index: -1;
     background-color: var(--white);
     display: flex;
     flex-direction: column;
+    position: relative;
+}
+
+.Dashboard .upload_status {
+    position: absolute;
+    top: 9rem;
+    left: 50%;
+    transform: translateX(-50%);
 }

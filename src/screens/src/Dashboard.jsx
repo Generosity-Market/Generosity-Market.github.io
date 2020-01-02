@@ -7,6 +7,7 @@ import '../styles/Dashboard.css';
 import {
     Button,
     ImageUploader,
+    Pill,
 } from '@jgordy24/stalls-ui';
 
 import {
@@ -18,6 +19,7 @@ import {
     editUserData,
     getUserCreatedCauses,
     getUserSupportedCauses,
+    submitUserImages,
 } from 'ducks/user';
 
 // Dashboard Components
@@ -45,6 +47,7 @@ export const Dashboard = ({
     const [highlightedCause, setHighlightedCause] = useState(null);
     const [editProfile, setEditProfile] = useState(false);
     const [loadingCauses, setLoadingCauses] = useState(false);
+    const [isUploading, setIsUploading] = useState({ status: false, message: null });
 
     useEffect(() => {
         // const idsDontMatch = (Number(match.params.id) !== Number(userData.id));
@@ -85,70 +88,58 @@ export const Dashboard = ({
         return user.CreatedCauses.filter(cause => cause.id === highlightedCause)[0];
     };
 
-    const getReceipts = (id) => {
-        if (!user.SupportedCauses) getUserSupportedCauses(id);
+    const getReceipts = () => {
+        if (!user.SupportedCauses) getUserSupportedCauses(user.id);
     };
 
-    const getCauses = (id) => {
+    const getCauses = () => {
         if (!user.CreatedCauses) {
             setLoadingCauses(true);
-            getUserCreatedCauses(id).then(() => setLoadingCauses(false));
+            getUserCreatedCauses(user.id).then(() => setLoadingCauses(false));
         }
     };
 
     const handleSaveImage = (imageData) => {
-        /* eslint-disable-next-line no-console */
-        console.log('ImageData: ', imageData);
-        // console.log('handle uploading-', this.state);
-        // this.setState({ status: 'loading' });
+        setIsUploading({ status: true, message: 'Uploading...' });
 
-        // const userData = {
-        //     ...images,
-        //     bucket: 'user',
-        //     id: user.id,
-        // };
+        const uploadData = {
+            profile_image: imageData.profileImage.file,
+            cover_image: imageData.coverImage.file,
+            bucket: 'user',
+        };
 
-        // const formData = appendFormData(userData);
-        /* eslint-disable-next-line no-console */
-        // console.log('User FormData: ', formData);
+        submitUserImages(user, uploadData)
+            .then(res => {
+                if (res.error) {
+                    setIsUploading({ status: true, message: 'Upload Failed' });
+                    setTimeout(() => setIsUploading({ status: false, message: null }), 3000);
+                }
 
-        // submitCauseFormData(formData, {
-        //     headers: {
-        //         'Content-Type': 'multipart/form-data'
-        //     }
-        // })
-        //     .then(res => {
-        //         // TODO look for the response to see if errors come here....
-        //         /* eslint-disable-next-line no-console */
-        //         console.log('Response: ', res);
-        //         if (res.errors) {
-        //             // return // handle error...
-        //         }
-
-        //         this.setState({ status: 'success' });
-        //         this.props.addCause(res.Cause);
-        //         // BUG FIX -> Navigating to previously created page instead of the newly created one...
-        //         setTimeout(() => this.props.history.push(`/cause/${res.Cause.id}`), 1000);
-        //     })
-        //     .catch(err => {
-        //         // handle your error
-        //         /* eslint-disable-next-line no-console */
-        //         console.log('Error: ', err);
-        //     });
+                setIsUploading({ status: true, message: 'Upload Successful √' });
+                setTimeout(() => setIsUploading({ status: false, message: null }), 3000);
+            });
     };
 
     return user && (
         <div className='Dashboard'>
             <ImageUploader
-                coverImgSrc={user.mainImage}
-                heading={''}
-                profileImgSrc={user.backgroundImage}
-                /* eslint-disable-next-line no-console */
+                coverImgSrc={user.backgroundImage}
+                profileImgSrc={user.mainImage}
                 onSubmit={handleSaveImage}
                 roundImage={user.roundImage}
             />
 
             <div className='Wrapper'>
+                {isUploading.status &&
+                    <span className='upload_status'>
+                        <Pill
+                            label={isUploading.message}
+                            bsStyle="default"
+                            active
+                        />
+                    </span>
+                }
+
                 <UserDetails
                     user={user}
                     editProfile={editProfile}
@@ -162,7 +153,7 @@ export const Dashboard = ({
                     causeSelected={causeSelected}
                     selectCauseToHighlight={selectCauseToHighlight}
                     highlightedCause={highlightedCause}
-                    onEnterViewport={() => getCauses(user.id)}
+                    onEnterViewport={getCauses}
                 />
 
                 <Button
@@ -180,7 +171,7 @@ export const Dashboard = ({
 
                 <InViewportReceipts
                     supportedCauses={user.SupportedCauses}
-                    onEnterViewport={() => getReceipts(user.id)}
+                    onEnterViewport={getReceipts}
                 />
             </div>
         </div>
@@ -203,6 +194,7 @@ const mapDispatchToProps = {
     getUserCreatedCauses,
     getUserSupportedCauses,
     getCauseList,
+    submitUserImages,
 };
 
 export default withRouter(

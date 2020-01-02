@@ -6,10 +6,7 @@ import causeFormOptions from '../config/causeFormOptions';
 import '../styles/CauseForm.css';
 
 import { submitCauseFormData } from 'services';
-
-import {
-    appendFormData,
-} from 'utilities';
+import { appendFormData } from 'utilities';
 
 // Shared UI Component
 import { Button } from '@jgordy24/stalls-ui';

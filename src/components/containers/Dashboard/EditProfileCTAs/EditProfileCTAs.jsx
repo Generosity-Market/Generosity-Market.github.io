@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import './EditProfileCTAs.css';
 
 // Shared UI Components
@@ -32,7 +32,7 @@ const EditProfileCTAs = ({
             <IconCta
                 icon='pencil-alt'
                 onClick={handleEditProfile}
-                label='Edit'
+                label='Edit Info'
             />
         );
     }
@@ -56,7 +56,28 @@ const EditProfileCTAs = ({
 
 };
 
-EditProfileCTAs.propTypes = {};
+EditProfileCTAs.propTypes = {
+    /**
+    * Ability of the user to edit the profile
+    */
+    editProfile: PropTypes.bool.isRequired,
+    /**
+    * Method to toggle the ability to edit the user's profile
+    */
+    handleEditProfile: PropTypes.func.isRequired,
+    /**
+    * Submit handler being passed to the component
+    */
+    handleSubmit: PropTypes.func.isRequired,
+    /**
+    * Reverts changes to thier default properties
+    */
+    handleUndoChanges: PropTypes.func.isRequired,
+    /**
+    * Reverts changes to thier default properties and makes profile not editable
+    */
+    handleCancelEdit: PropTypes.func.isRequired,
+};
 
 EditProfileCTAs.defaultProps = {};
 
