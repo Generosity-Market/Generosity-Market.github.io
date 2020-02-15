@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import './Tile.css';
 
@@ -13,21 +13,32 @@ import {
 } from 'utilities';
 
 // TODO: Convert to functional w/useState Hook
-export class Tile extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isSelected: false
-        };
-    }
+const Tile = ({
+    addToCart,
+    amount,
+    cart,
+    cause,
+    isPurchased,
+    removeFromCart,
+    tileIcon,
+    ...rest
+}) => {
+    const [isSelected, setIsSelected] = useState(false);
 
-    addTileToCart = (args) => {
-        this.props.addToCart({ ...args });
-        this.setState({ isSelected: true });
+    useEffect(() => {
+        cart.forEach(index => {
+            if ((index.amount === amount) && (cause === index.cause)) {
+                setIsSelected(true);
+            }
+        });
+    }, [amount, cause, cart]);
+
+    const addTileToCart = (args) => {
+        addToCart({ ...args });
+        setIsSelected(true);
     };
 
-    removeTileFromCart = () => {
-        const { cart, amount, cause } = this.props;
+    const removeTileFromCart = () => {
         let indexToRemove;
 
         for (var i = 0; i < cart.length; i++) {
@@ -38,40 +49,24 @@ export class Tile extends Component {
 
         let updatedCart = removeIndexFromArray(indexToRemove, cart);
 
-        this.props.removeFromCart(updatedCart);
-
-        this.setState({ isSelected: false });
+        removeFromCart(updatedCart);
+        setIsSelected(false);
     };
 
-    componentDidMount() {
-        const { cart, amount, cause } = this.props;
-        // if this tile is in the cart, we want to select it again open reopening the page
-        cart.forEach(index => {
-            if ((index.amount === amount) && (cause === index.cause)) {
-                this.setState({ isSelected: true });
-            }
-        });
-    }
+    return (
+        <div
+            className={isPurchased ? 'Tile isPurchased' : 'Tile'}
+            onClick={isSelected ? removeTileFromCart :
+                () => addTileToCart({ tileIcon, amount, cause, ...rest })}
+        >
 
-    render() {
-        const { isPurchased, tileIcon, ...rest } = this.props;
-        const { isSelected } = this.state;
+            <p className={isSelected ? 'tile-amount isSelected' : 'tile-amount'}>${amount}</p>
 
-        return (
-            <div
-                className={isPurchased ? 'Tile isPurchased' : 'Tile'}
-                onClick={isSelected ? () => this.removeTileFromCart() :
-                    () => this.addTileToCart({ tileIcon, ...rest })}
-            >
+            <img src={getIconUrl(tileIcon)} alt='Tile Icon' />
 
-                <p className={isSelected ? 'tile-amount isSelected' : 'tile-amount'}>${rest.amount}</p>
-
-                <img src={getIconUrl(tileIcon)} alt='Tile Icon' />
-
-            </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
 const mapStateToProps = ({ cart }) => ({ cart });
 
