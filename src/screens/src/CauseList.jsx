@@ -63,10 +63,8 @@ export class CauseList extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    const {
-        cause: { causeList },
-    } = state;
+const mapStateToProps = ({ cause }) => {
+    const { causeList } = cause;
 
     return { causeList };
 };

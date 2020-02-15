@@ -17,7 +17,7 @@ import {
     fetchUserData,
     registerUser,
     userLogin,
-    postEditedUser,
+    putEditedUser,
     postUserImages,
     fetchUserCreatedCauses,
     fetchUserSupportedCauses,
@@ -72,7 +72,7 @@ export const login = ({ email, password }) => {
                     dispatch(setToken(data['auth_token']));
                     dispatch(setUser({ ...user }));
 
-                    Cookies.set('token', data['auth_token'], { expires: 90 });
+                    Cookies.set('gm_id', data['auth_token'], { expires: 90 });
                     Cookies.set('user', {
                         email: user['email'],
                         name: user['name'],
@@ -89,7 +89,7 @@ export const editUserData = (id, { address, name, phone }) => {
     // TODO: this is called directly in component -> fetch(POST) -> action -> reducer -> rerender
     // TODO: Should do input validations here?
     return (dispatch, getState) => {
-        return postEditedUser(id, {
+        return putEditedUser(id, {
             body: JSON.stringify({
                 phone,
                 address,
@@ -150,7 +150,7 @@ export const submitUserImages = (prevUser, uploadData) => {
 // TODO: finish this action...
 export const loadTokenFromCookie = () => {
     return async (dispatch) => {
-        const token = Cookies.get('token');
+        const token = Cookies.get('gm_id');
         const user = Cookies.getJSON('user');
         if (token && user) {
             dispatch(setToken(token));
@@ -162,7 +162,7 @@ export const loadTokenFromCookie = () => {
 
 export const userLogout = () => {
     return (dispatch) => {
-        const token = Cookies.remove('token');
+        const token = Cookies.remove('gm_id');
         Cookies.remove('user');
         dispatch(removeToken(token));
         dispatch(logout());

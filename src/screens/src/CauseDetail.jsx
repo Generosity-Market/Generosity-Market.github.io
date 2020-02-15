@@ -48,11 +48,11 @@ export class CauseDetail extends Component {
             cause: {
                 Donations,
                 name,
-                backgroundImage,
-                mainImage,
+                cover_image,
+                profile_image,
                 Preferences,
                 totalRaised,
-                amount,
+                goal_amount,
                 description,
                 purpose,
             },
@@ -69,16 +69,16 @@ export class CauseDetail extends Component {
 
                 <Banner
                     heading={name}
-                    BGimage={backgroundImage}
-                    mainImage={mainImage}
-                    roundImage={Preferences ? Preferences[0].roundImage : {}}
+                    cover_image={cover_image}
+                    profile_image={profile_image}
+                    round_image={Preferences ? Preferences[0].round_image : {}}
                 />
 
                 <div className="wrapper">
 
                     <ProgressBar
                         totalRaised={totalRaised}
-                        goal={amount}
+                        goal={goal_amount}
                     />
 
                     <TileSection
@@ -124,19 +124,12 @@ export class CauseDetail extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    const {
-        cause: {
-            selectedCause,
-        },
-        cart: {
-            cart,
-        },
-    } = state;
+const mapStateToProps = ({ cause, user }) => {
+    const { selectedCause } = cause;
 
     return {
         cause: selectedCause,
-        cart,
+        user
     };
 };
 

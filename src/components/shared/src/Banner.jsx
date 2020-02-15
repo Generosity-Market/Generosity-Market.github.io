@@ -5,25 +5,25 @@ import MainImage from './MainImage';
 import '../styles/Banner.css';
 
 const Banner = ({
-    BGimage,
+    cover_image,
     heading,
-    mainImage,
-    roundImage,
+    profile_mage,
+    round_image,
 }) =>
     (
         <div className='Header'>
             <div
                 className='hero-image'
                 style={{
-                    backgroundImage: BGimage && `url(${BGimage})`,
-                    backgroundColor: BGimage ? '' : 'var(--black-10)',
+                    backgroundImage: cover_image && `url(${cover_image})`,
+                    backgroundColor: cover_image ? '' : 'var(--black-10)',
                 }}
             >
                 <h2>{heading && heading}</h2>
-                {/* !props.BGimage && <Glyphicon icon={['far', 'image']} /> */}
+                {/* !props.cover_image && <Glyphicon icon={['far', 'image']} /> */}
             </div>
 
-            <MainImage mainImage={mainImage && mainImage} roundImage={roundImage} />
+            <MainImage profile_image={profile_mage && profile_mage} round_image={round_image} />
         </div>
     );
 
@@ -31,7 +31,7 @@ Banner.propTypes = {
     /**
      * The background image to apply to the hero node
      */
-    BGimage: PropTypes.string,
+    cover_image: PropTypes.string,
     /**
      * The text to render inside the Banner
      */
@@ -39,16 +39,16 @@ Banner.propTypes = {
     /**
      * The main/profile image to display in the banner
      */
-    mainImage: PropTypes.string,
+    profile_image: PropTypes.string,
     /**
      * Determines if the main/profile image is rounded or squircle shape
      */
-    roundImage: PropTypes.bool,
+    round_image: PropTypes.bool,
 };
 
 Banner.defaultProps = {
     heading: '',
-    roundImage: true,
+    round_image: true,
 };
 
 export default Banner;

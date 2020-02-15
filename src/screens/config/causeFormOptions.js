@@ -16,7 +16,7 @@ const inputOptions = [
         placeholder: 'Tax ID  (If Non Profit / Organization)',
     }, {
         type: 'number',
-        name: 'goal',
+        name: 'goal_amount',
         placeholder: 'Fundraising Goal',
     }, {
         type: 'textarea',

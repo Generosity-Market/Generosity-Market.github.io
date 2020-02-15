@@ -1,7 +1,7 @@
 const searchURL = 'https://projects.propublica.org/nonprofits/api/v2/organizations/';
 
-export const fetchNonProfitStatus = (taxID) => {
-    const fetchURL = `${searchURL}${taxID}.json`;
+export const fetchNonProfitStatus = (tax_id) => {
+    const fetchURL = `${searchURL}${tax_id}.json`;
     fetch(fetchURL)
         .then(response => response.json())
         .then(data => data)

@@ -9,4 +9,4 @@ export const fetchOrgData = (id) => fetchJSONData(`/organizations/${id}`);
 
 export const submitOrgFormData = (data) => postFormData('/organizations/new', data);
 
-export const verifyNonProfitStatus = (taxID) => fetchNonProfitStatus(taxID);
+export const verifyNonProfitStatus = (tax_id) => fetchNonProfitStatus(tax_id);

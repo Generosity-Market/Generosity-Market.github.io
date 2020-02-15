@@ -5,17 +5,13 @@ const initialState = {
         causeList: [],
         selectedCause: '',
     },
-    user: {
-        token: Cookies.get('token'),
-        user: null,
-    },
+    token: Cookies.get('gm_id'),
+    user: {},
     organization: {
         orgList: [],
         selectedOrg: '',
     },
-    cart: {
-        cart: [],
-    },
+    cart: [],
     // filter: 'all',
     // alert: { type: null, message: null }
 };

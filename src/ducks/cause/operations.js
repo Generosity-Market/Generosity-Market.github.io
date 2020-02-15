@@ -28,7 +28,7 @@ const updateDonations = (data) => {
             const { causeList } = getState().cause;
 
             donations.forEach(donation => {
-                let causeIndex = causeList.map(cause => cause.id).indexOf(donation.causeID);
+                let causeIndex = causeList.map(cause => cause.id).indexOf(donation.cause_id);
                 dispatch(setDonations({ causeIndex, donation }));
                 dispatch(updateTotal({ causeIndex, amount: donation.amount }));
             });

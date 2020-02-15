@@ -37,8 +37,8 @@ export class CauseForm extends Component {
             profileURL: '',
             cover_image: '',
             coverURL: '',
-            roundImage: true,
-            whiteText: true,
+            round_image: true,
+            white_text: true,
 
             status: '',
         };
@@ -65,7 +65,7 @@ export class CauseForm extends Component {
 
     handleUpdateState = (field) => {
         return (event) => {
-            if ((field === 'roundImage') || (field === 'whiteText')) {
+            if ((field === 'round_image') || (field === 'white_text')) {
                 this.setState({ [field]: !this.state[field] });
             } else {
                 this.setState({ [field]: event.target.value });
@@ -102,7 +102,7 @@ export class CauseForm extends Component {
         const causeData = {
             ...this.state,
             bucket: 'cause',
-            userID: this.props.user.id,
+            user_id: this.props.user.id,
         };
 
         const formData = appendFormData(causeData);
@@ -143,7 +143,7 @@ export class CauseForm extends Component {
                     name={this.state.name}
                     profileURL={this.state.profileURL}
                     coverURL={this.state.coverURL}
-                    roundImage={this.state.roundImage}
+                    round_image={this.state.round_image}
                     whiteText={this.state.whiteText}
                 />
                 <Heading text={'Select Your Cause\'s Profile & Cover Images'} />
@@ -169,13 +169,7 @@ export class CauseForm extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    const {
-        user: { user },
-    } = state;
-
-    return { user };
-};
+const mapStateToProps = ({ user }) => user;
 
 const mapDispatchToProps = { addCause };
 

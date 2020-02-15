@@ -13,7 +13,7 @@ const CartItem = ({
     amount,
     cart,
     cause,
-    mainImage,
+    profile_image,
     removeFromCart,
     type,
 }) => {
@@ -32,7 +32,7 @@ const CartItem = ({
 
     return (
         <div className="CartItem">
-            <MainImage roundImage={false} mainImage={mainImage} />
+            <MainImage round_image={false} profile_image={profile_image} />
 
             <div className="itemInfo">
                 <h3>{cause}</h3>

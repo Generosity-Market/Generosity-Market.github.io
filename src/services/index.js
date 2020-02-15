@@ -12,7 +12,7 @@ export {
 export {
     userLogin,
     registerUser,
-    postEditedUser,
+    putEditedUser,
     postUserImages,
     fetchUserData,
     fetchUserCreatedCauses,

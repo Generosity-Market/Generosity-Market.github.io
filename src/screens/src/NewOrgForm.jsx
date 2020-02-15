@@ -27,7 +27,7 @@ export class NewOrgForm extends Component {
         this.state = {
             tax_id: '',
             name: '',
-            short_name: '',
+            display_name: '',
             heading: '', // called 'motto' on the front end
             mission: '',
             email: '',
@@ -36,15 +36,15 @@ export class NewOrgForm extends Component {
             profileURL: '',
             cover_image: '',
             coverURL: '',
-            roundImage: true,
-            whiteText: true,
+            round_image: true,
+            white_text: true,
             verifiedNonProfit: false,
         };
     }
 
     handleUpdateState = field => {
         return (event) => {
-            if ((field === 'roundImage') || (field === 'whiteText')) {
+            if ((field === 'round_image') || (field === 'white_text')) {
                 this.setState({ [field]: !this.state[field] });
             } else {
                 this.setState({ [field]: event.target.value });
@@ -82,8 +82,8 @@ export class NewOrgForm extends Component {
         delete this.state.backgroundURL;
 
         const formData = new FormData();
-        formData.append('mainImage', this.state.profile_image);
-        formData.append('backgroundImage', this.state.cover_image);
+        formData.append('profile_image', this.state.profile_image);
+        formData.append('cover_image', this.state.cover_image);
         formData.append('bucket', 'organization');
         formData.append('state', JSON.stringify(this.state));
 
@@ -121,8 +121,8 @@ export class NewOrgForm extends Component {
                     name={this.state.name}
                     profileURL={this.state.profileURL}
                     coverURL={this.state.coverURL}
-                    roundImage={this.state.roundImage}
-                    whiteText={this.state.whiteText}
+                    round_image={this.state.round_image}
+                    white_text={this.state.white_text}
                 />
 
                 <Heading text={'Select Your Organization\'s Profile & Cover Images'} />

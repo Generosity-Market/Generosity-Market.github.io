@@ -1,69 +1,73 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../styles/InputGroup.css';
 
-// TODO convert to functional component if not using state
-class InputGroup extends Component {
+const InputGroup = ({
+    handleUpdateState,
+    inputOptions,
+    selectOptions,
+    state,
+}) => {
 
-    getSelectOptions = (options, index) => {
+    const getSelectOptions = (options) => {
         return (
             <select
-                key={index} name='type' size={1}
-                onChange={this.props.handleUpdateState('type')}
-                value={this.props.state.type}
+                key='select-type'
+                name='type'
+                size={1}
+                onChange={handleUpdateState('type')}
+                value={state.type}
             >
                 <option value="">- Type of Cause -</option>
-                {options.map((option, index) => {
+                {options.map((option) => {
                     return (
-                        <option key={index} value={option}>{option}</option>
+                        <option key={option} value={option}>{option}</option>
                     );
                 })}
             </select>
         );
-    }
+    };
 
-    getTextArea = (input, index) => {
+    const getTextArea = (input) => {
         return (
             <textarea
-                key={index}
+                key={input.name}
                 name={input.name}
                 placeholder={input.placeholder}
-                onChange={this.props.handleUpdateState(input.name)}
-                value={this.props.state[input.name]}
+                onChange={handleUpdateState(input.name)}
+                value={state[input.name]}
             >
             </textarea>
         );
     };
 
-    getInput = (input, index) => {
+    const getInput = (input) => {
         return (
             <input
-                key={index}
+                key={input.name}
                 type={input.type}
                 name={input.name}
                 placeholder={input.placeholder}
-                onChange={this.props.handleUpdateState(input.name)}
-                value={this.props.state[input.name]}
+                onChange={handleUpdateState(input.name)}
+                value={state[input.name]}
             />
         );
-    }
+    };
 
-    render() {
-        let inputs = this.props.inputOptions.map((input, index) => {
-            if (input.type === 'select') {
-                return this.getSelectOptions(this.props.selectOptions, index);
-            } else if (input.type === 'textarea') {
-                return this.getTextArea(input, index);
-            } else {
-                return this.getInput(input, index);
-            }
-        });
+    let inputs = inputOptions.map((input) => {
+        if (input.type === 'select') {
+            return getSelectOptions(selectOptions);
+        } else if (input.type === 'textarea') {
+            return getTextArea(input);
+        } else {
+            return getInput(input);
+        }
+    });
 
-        return (
-            <div className="InputGroup">
-                {inputs}
-            </div>
-        );
-    }
-}
+    return (
+        <div className="InputGroup">
+            {inputs}
+        </div>
+    );
+};
 
 export default InputGroup;

@@ -7,10 +7,10 @@ import CauseTile from '../src/CauseTile';
 const defaultProps = {
     cause: {
         id: 1,
-        amount: 1000,
+        goal_amount: 1000,
         name: 'Example',
         icon: '',
-        mainImage: 'madi-robson-113926.jpg',
+        profile_image: 'madi-robson-113926.jpg',
     },
 };
 

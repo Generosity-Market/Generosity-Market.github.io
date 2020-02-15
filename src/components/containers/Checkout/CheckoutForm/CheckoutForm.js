@@ -92,7 +92,7 @@ class CheckoutForm extends Component {
                     body: JSON.stringify({
                         ...token,
                         cart,
-                        userID: user.id,
+                        user_id: user.id,
                         id: user.id,
                         amount: total * 100,
                         email: this.state.email

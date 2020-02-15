@@ -13,33 +13,33 @@ import { isEqual } from 'utilities';
 
 import EditProfileCTAs from '../EditProfileCTAs/EditProfileCTAs';
 
+const userInitialState = (user) => ({
+    address: {
+        city: user.city || '',
+        state: user.state || '',
+        address_1: user.address_1 || '',
+        address_2: user.address_2 || '',
+        zipcode: user.zipcode || '',
+    },
+    first_name: user.first_name || '',
+    last_name: user.last_name || '',
+    phone: user.phone || '',
+});
+
 const UserDetails = ({
     editProfile,
     editUserData,
     handleEditProfile,
     user,
 }) => {
-    const [userState, setUserState] = useState({
-        address: {
-            city: user.city || '',
-            state: user.state || '',
-            street: user.street || '',
-            zipcode: user.zipcode || '',
-        },
-        name: user.name || '',
-        phone: user.phone || '',
-    });
+    const [userState, setUserState] = useState(userInitialState(user));
     const [formSaved, setFormSaved] = useState(false);
 
-    const changeHandler = ({
-        target: {
-            name,
-            value,
-        }
-    }) => {
+    const changeHandler = ({ target }) => {
+        const { name, value } = target;
         // const shouldOnlyAllowIntegers = ['phone', 'zipcode'].includes(name);
-        // TODO add this as a validation instead of a check here, so that it can be used on all inputs that need it
-        const isNotAddressField = ['name', 'phone'].includes(name);
+        // TODO: add this as a validation instead of a check here, so that it can be used on all inputs that need it
+        const isNotAddressField = ['first_name', 'last_name', 'phone'].includes(name);
 
         if (isNotAddressField) {
             setUserState({
@@ -103,16 +103,7 @@ const UserDetails = ({
     };
 
     const handleUndoChanges = () => {
-        setUserState({
-            name: user.name || '',
-            address: {
-                city: user.city || '',
-                state: user.state || '',
-                street: user.street || '',
-                zipcode: user.zipcode || '',
-            },
-            phone: user.phone || '',
-        });
+        setUserState(userInitialState(user));
     };
 
     const handleCancelEdit = () => {
@@ -144,13 +135,26 @@ const UserDetails = ({
             </div>
 
             <div className="user-details">
-                <TextInput
-                    label="Name:"
-                    name="name"
-                    placeholder="Your name"
-                    value={userState.name}
-                    {...getInputProps()}
-                />
+                <p>Name</p>
+                <div className="flex">
+                    <TextInput
+                        label="First:"
+                        name="first_name"
+                        placeholder="Ex: John"
+                        value={userState.first_name}
+                        inputStyle={{ width: '40%' }}
+                        {...getInputProps()}
+                    />
+
+                    <TextInput
+                        label="Last:"
+                        name="last_name"
+                        placeholder="Ex: Doe"
+                        value={userState.last_name}
+                        inputStyle={{ width: '40%' }}
+                        {...getInputProps()}
+                    />
+                </div>
 
                 <PhoneInput
                     label="Phone:"

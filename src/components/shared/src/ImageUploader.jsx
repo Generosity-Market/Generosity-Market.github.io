@@ -22,7 +22,7 @@ const ImageUploaderControlled = ({
     handleUpdateState,
     name,
     profileURL,
-    roundImage,
+    round_image,
 }) => {
 
     // const context = useImageState();
@@ -53,14 +53,14 @@ const ImageUploaderControlled = ({
         if (URL) {
             return (
                 <div
-                    className={roundImage ? 'image circle' : 'image'}
+                    className={round_image ? 'image circle' : 'image'}
                     style={{ backgroundImage: `url(${URL})` }}
                 >
                 </div>
             );
         } else {
             return (
-                <div className={roundImage ? 'image circle' : 'image'}>
+                <div className={round_image ? 'image circle' : 'image'}>
                     <Glyphicon icon={faClass} />
                 </div>
             );
@@ -101,7 +101,7 @@ const ImageUploaderControlled = ({
 
         // onClick={() => dispatch({
         //     type: 'SET_STATE',
-        //     roundImage: !context.roundImage,
+        //     round_image: !context.round_image,
         // })}
 
         // onClick = {(event) => dispatch({
@@ -121,8 +121,8 @@ const ImageUploaderControlled = ({
                     {profileURL &&
                         <MiniButton
                             bsStyle='info'
-                            icon={roundImage ? 'square' : 'circle'}
-                            onClick={handleUpdateState('roundImage')}
+                            icon={round_image ? 'square' : 'circle'}
+                            onClick={handleUpdateState('round_image')}
                         />
                     }
                     {profileURL &&
