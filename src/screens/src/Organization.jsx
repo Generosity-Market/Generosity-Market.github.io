@@ -33,15 +33,15 @@ export class Organization extends Component {
             organization,
             organization: {
                 name,
-                backgroundImage,
-                mainImage,
+                cover_image,
+                profile_image,
                 Preferences,
                 Causes,
                 heading,
                 mission,
                 email,
                 site_url,
-                short_name,
+                display_name,
             }
         } = this.props;
 
@@ -51,18 +51,18 @@ export class Organization extends Component {
                 {organization &&
                     <Banner
                         heading={name}
-                        BGimage={backgroundImage && getImageUrl(backgroundImage)}
-                        mainImage={mainImage && getImageUrl(mainImage)}
-                        roundImage={Preferences[0] ? Preferences[0].roundImage : false}
+                        BGimage={cover_image && getImageUrl(cover_image)}
+                        profile_image={profile_image && getImageUrl(profile_image)}
+                        round_image={Preferences[0] ? Preferences[0].round_image : false}
                     />
                 }
 
                 {/* organization &&
                     <HeroSection
                         heading={name}
-                        coverImgSrc={backgroundImage && getImageUrl(backgroundImage)}
-                        profileImgSrc={mainImage && getImageUrl(mainImage)}
-                        roundedProfile={Preferences[0] ? Preferences[0].roundImage : false}
+                        coverImgSrc={cover_image && getImageUrl(cover_image)}
+                        profileImgSrc={profile_image && getImageUrl(profile_image)}
+                        roundedProfile={Preferences[0] ? Preferences[0].round_image : false}
                     >
                         <h1>{name}</h1>
                     </HeroSection>
@@ -87,7 +87,7 @@ export class Organization extends Component {
                         bsStyle='active'
                         bsSize='full'
                         href={site_url}
-                        label={`Visit ${short_name}`}
+                        label={`Visit ${display_name}`}
                     />
 
                 </div>
@@ -96,10 +96,8 @@ export class Organization extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    const {
-        organization: { selectedOrg },
-    } = state;
+const mapStateToProps = ({ organization }) => {
+    const { selectedOrg } = organization;
 
     return {
         organization: selectedOrg,

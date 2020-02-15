@@ -120,13 +120,13 @@ export const Dashboard = ({
             });
     };
 
-    return user && (
+    return !user ? null : (
         <div className='Dashboard'>
             <ImageUploader
-                coverImgSrc={user.backgroundImage}
-                profileImgSrc={user.mainImage}
+                coverImgSrc={user.cover_image}
+                profileImgSrc={user.profile_image}
                 onSubmit={handleSaveImage}
-                roundImage={user.roundImage}
+                round_image={user.round_image}
             />
 
             <div className='Wrapper'>
@@ -177,15 +177,7 @@ export const Dashboard = ({
     );
 };
 
-const mapStateToProps = ({
-    user: {
-        user,
-    },
-}) => {
-    return {
-        user,
-    };
-};
+const mapStateToProps = ({ user }) => user;
 
 const mapDispatchToProps = {
     causeSelected,

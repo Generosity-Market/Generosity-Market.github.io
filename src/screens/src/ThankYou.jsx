@@ -34,21 +34,7 @@ export class ThankYou extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    const {
-        user: {
-            user,
-        },
-        cart: {
-            cart,
-        },
-    } = state;
-
-    return {
-        user,
-        cart,
-    };
-};
+const mapStateToProps = ({ cart, user }) => ({ cart, user });
 
 const mapDispatchToProps = { clearCart };
 
