@@ -6,7 +6,7 @@ import Banner from '../src/Banner';
 
 const defaultProps = {
     BGimage: 'to be decided...',
-    mainImage: 'dilly dilly',
+    profile_image: 'dilly dilly',
 };
 
 const wrapper = shallow(<Banner {...defaultProps} />);

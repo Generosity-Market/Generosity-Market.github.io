@@ -7,9 +7,10 @@ import {
 } from 'components/shared';
 
 const AddressInputs = ({
+    address_1,
+    address_2,
     city,
     state,
-    street,
     zipcode,
     ...rest,
 }) => {
@@ -18,10 +19,17 @@ const AddressInputs = ({
         <div className="AddressInputs">
             <p>Address</p>
             <TextInput
-                label="Street:"
-                name="street"
+                label="Address:"
+                name="address_1"
                 placeholder="Ex: 123 ABC Street"
-                value={street}
+                value={address_1}
+                {...rest}
+            />
+            <TextInput
+                label="Address 2:"
+                name="address_2"
+                placeholder="Ex: Apt 456"
+                value={address_2}
                 {...rest}
             />
             <TextInput

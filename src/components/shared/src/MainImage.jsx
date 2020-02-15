@@ -3,23 +3,23 @@ import { Glyphicon } from '@jgordy24/stalls-ui';
 import '../styles/MainImage.css';
 
 const MainImage = ({
-    roundImage,
-    mainImage,
+    round_image,
+    profile_image,
     BGimage
 }) =>
     (
         <div
             className="MainImage"
             style={{
-                borderRadius: roundImage ? '50%' : '10%',
-                backgroundImage: mainImage && `url(${mainImage})`,
+                borderRadius: round_image ? '50%' : '10%',
+                backgroundImage: profile_image && `url(${profile_image})`,
                 backgroundColor: BGimage ? '' : 'var(--white)',
-                display: mainImage ? 'block' : 'flex',
+                display: profile_image ? 'block' : 'flex',
                 alignContent: 'center',
                 justifyContent: 'center',
             }}
         >
-            {!mainImage && <Glyphicon icon="camera" />}
+            {!profile_image && <Glyphicon icon="camera" />}
         </div>
     );
 

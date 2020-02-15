@@ -14,7 +14,7 @@ const ReceiptItem = ({
     const {
         Donations,
         id,
-        mainImage,
+        profile_image,
         name,
     } = cause;
 
@@ -22,7 +22,7 @@ const ReceiptItem = ({
         <div className='ReceiptItem'>
             <div className="image-wrapper">
                 <img
-                    src={mainImage}
+                    src={profile_image}
                     alt={`${name}`}
                 />
             </div>

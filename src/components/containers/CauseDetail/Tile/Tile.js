@@ -72,13 +72,7 @@ export class Tile extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    const {
-        cart: { cart },
-    } = state;
-
-    return { cart };
-};
+const mapStateToProps = ({ cart }) => cart;
 
 const mapDispatchToProps = { addToCart, removeFromCart };
 

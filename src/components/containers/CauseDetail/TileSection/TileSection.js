@@ -7,7 +7,7 @@ import './TileSection.css';
 // Shared UI Components
 import { Glyphicon } from '@jgordy24/stalls-ui';
 
-// TODO convert to functional component if not using state
+// TODO: convert to functional component if not using state
 export class TileSection extends Component {
 
     isTilePurchased = (tileNumber) => {
@@ -70,16 +70,16 @@ export class TileSection extends Component {
     };
 
     mapTiles = (tiles) => {
-        const { id, name, icon, mainImage } = this.props;
+        const { id, name, icon, profile_image } = this.props;
         return tiles.map(tile => {
             return (
                 <Tile
                     key={name + tile.tileNumber}
-                    causeID={id}
+                    cause_id={id}
                     cause={name}
                     amount={tile.tileNumber}
                     tileIcon={icon}
-                    mainImage={mainImage}
+                    profile_image={profile_image}
                     isPurchased={tile.isPurchased}
                 />
             );
@@ -114,13 +114,7 @@ export class TileSection extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    const {
-        cart: { cart },
-    } = state;
-
-    return { cart };
-};
+const mapStateToProps = ({ cart }) => cart;
 
 const mapDispatchToProps = { clearCart };
 

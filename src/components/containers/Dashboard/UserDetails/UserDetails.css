@@ -17,6 +17,17 @@
     flex-grow: 1;
 }
 
+.user-details .flex {
+    justify-content: space-between;
+    width: 100%;
+}
+
+.user-details p {
+    color: var(--dark-green);
+    font-weight: bold;
+    margin-left: 0.75rem;
+}
+
 .edit-profile-btns {
     align-items: center;
     display: flex;

@@ -22,8 +22,8 @@ const CauseTile = ({
     raised,
 }) => {
 
-    const imageURL = (inViewport ? cause.mainImage : getPlaceholder());
-    // TODO update progress bar message when raised 100%
+    const imageURL = (inViewport ? cause.profile_image : getPlaceholder());
+    // TODO: update progress bar message when raised 100%
     const calculateBarWidth = (percentRaised) => {
         if (percentRaised >= 100) {
             return 100;
@@ -49,8 +49,8 @@ const CauseTile = ({
                     className="wrapper"
                     style={{ backgroundImage: `url(${imageURL})` }}
                 >
-                    <div className="progress" style={{ width: `${calculateBarWidth(raised / cause.amount * 100).toFixed(2)}%` }}></div>
-                    <h5>${raised || 0} of ${cause.amount}</h5>
+                    <div className="progress" style={{ width: `${calculateBarWidth(raised / cause.goal_amount * 100).toFixed(2)}%` }}></div>
+                    <h5>${raised || 0} of ${cause.goal_amount}</h5>
                 </div>
 
                 <h4>
