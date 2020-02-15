@@ -31,7 +31,7 @@ import {
 
 // checking to see if there are cookies for authentication
 const loggedIn = () => {
-    return !!Cookies.get('token');
+    return !!Cookies.get('gm_id');
 };
 
 const userCookie = Cookies.getJSON('user');
