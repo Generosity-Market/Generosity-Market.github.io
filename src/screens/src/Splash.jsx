@@ -8,6 +8,7 @@ import '../styles/Splash.css';
 // Shared UI Components
 import { Button } from '@jgordy24/stalls-ui';
 
+// TODO: Convert to functional component
 export class Splash extends Component {
 
     componentDidMount() {

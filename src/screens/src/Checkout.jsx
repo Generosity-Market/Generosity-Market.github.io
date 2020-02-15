@@ -21,6 +21,7 @@ import {
     EmptyCart,
 } from 'components/containers/Checkout';
 
+// TODO: Convert to functional?
 export class Checkout extends Component {
     constructor(props) {
         super(props);

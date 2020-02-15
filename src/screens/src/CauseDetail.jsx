@@ -31,6 +31,7 @@ import {
     TileSection,
 } from 'components/containers/CauseDetail';
 
+// TODO: Convert to functional
 export class CauseDetail extends Component {
 
     componentDidMount() {

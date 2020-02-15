@@ -21,10 +21,11 @@ import {
     OrgDetails,
 } from 'components/containers/Organization';
 
+// TODO: Convert to functional component
 export class Organization extends Component {
 
     componentDidMount() {
-        this.props.getOrgData(2); // TODO this id needs to come from the url param...
+        this.props.getOrgData(2); // TODO: this id needs to come from the url param...
     }
 
     render() {

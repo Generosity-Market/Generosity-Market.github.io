@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-// TODO convert to functional component if not using state
+// TODO: convert to functional component
 export default class Loader extends Component {
 
     render() {

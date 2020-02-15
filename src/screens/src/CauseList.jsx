@@ -19,6 +19,7 @@ const returnEmpty = (getCauseList) => {
     );
 };
 
+// TODO: Convert to functional
 export class CauseList extends Component {
     componentDidMount() {
         if (!this.props.causeList || this.props.causeList.length === 0) {

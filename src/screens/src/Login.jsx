@@ -12,7 +12,7 @@ import {
 import { Button } from '@jgordy24/stalls-ui';
 import { ActionButton } from 'components/shared';
 
-// TODO Break up some of the components in this page...
+// TODO: Break up some of the components in this page...
 export class Login extends Component {
     constructor(props) {
         super(props);
