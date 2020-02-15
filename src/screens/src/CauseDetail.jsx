@@ -5,6 +5,7 @@ import '../styles/CauseDetail.css';
 import {
     Button,
     Glyphicon,
+    LinkButton,
 } from '@jgordy24/stalls-ui';
 
 // Ducks
@@ -86,10 +87,10 @@ export class CauseDetail extends Component {
                         purchasedTiles={purchasedTiles || []}
                     />
 
-                    <Button
+                    <LinkButton
                         label='Donate'
                         bsStyle='active'
-                        bsSize='full'
+                        bsSize='long'
                         href='/checkout'
                     />
 

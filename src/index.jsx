@@ -7,8 +7,10 @@ import registerServiceWorker from './registerServiceWorker';
 // Redux and React-router
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
+import ReduxPromise from 'redux-promise';
 import rootReducer from './reducers/reducer';
 import initialState from './store/store';
 
@@ -21,9 +23,10 @@ import Routes from './routes/Routes';
 const store = createStore(
     rootReducer,
     initialState,
-    compose(
+    composeWithDevTools(
+        applyMiddleware(ReduxPromise),
         applyMiddleware(thunk)
-    )
+    ),
 );
 
 ReactDOM.render(

@@ -5,8 +5,9 @@ import handleViewport from 'react-in-viewport';
 import '../styles/Dashboard.css';
 
 import {
-    Button,
+    // Button,
     ImageUploader,
+    LinkButton,
     Pill,
 } from '@jgordy24/stalls-ui';
 
@@ -155,7 +156,7 @@ export const Dashboard = ({
                     onEnterViewport={getCauses}
                 />
 
-                <Button
+                <LinkButton
                     bsStyle='success'
                     bsSize='long'
                     label='Create a cause'
