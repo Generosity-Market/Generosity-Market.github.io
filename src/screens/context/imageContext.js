@@ -12,7 +12,7 @@ const initialState = {
     coverURL: '',
     profile_image: '',
     profileURL: '',
-    roundImage: true,
+    round_image: true,
 };
 
 const handleImageChange = ({ files, field, url }) => {
