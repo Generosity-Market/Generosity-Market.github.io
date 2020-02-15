@@ -9,7 +9,7 @@ import {
     UPDATE_TOTAL,
 } from './types';
 
-const causeReducer = (state = initialState, action) => {
+const causeReducer = (state = initialState.cause, action) => {
     const { type, payload } = action;
     switch (type) {
         case SET_DATA:

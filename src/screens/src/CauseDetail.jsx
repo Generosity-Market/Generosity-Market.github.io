@@ -129,7 +129,7 @@ const mapStateToProps = ({ cause, user }) => {
 
     return {
         cause: selectedCause,
-        user
+        user,
     };
 };
 

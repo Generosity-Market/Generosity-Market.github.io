@@ -7,26 +7,19 @@ import {
     REMOVE_FROM_CART,
 } from './types';
 
-const cartReducer = (state = initialState, action) => {
-    const { type, payload } = action;
+const cartReducer = (state = initialState.cart, { type, payload }) => {
     switch (type) {
         case ADD_TO_CART:
             return update(state, {
-                cart: {
-                    $push: [payload]
-                }
+                $push: [payload]
             });
         case REMOVE_FROM_CART:
             return update(state, {
-                cart: {
-                    $set: payload
-                }
+                $set: payload
             });
         case CLEAR_CART:
             return update(state, {
-                cart: {
-                    $set: []
-                }
+                $set: []
             });
         default:
             return state;

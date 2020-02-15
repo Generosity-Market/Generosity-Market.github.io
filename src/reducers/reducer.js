@@ -4,9 +4,11 @@ import cartReducer from 'ducks/cart';
 import userReducer from 'ducks/user';
 import causeReducer from 'ducks/cause';
 import organizationReducer from 'ducks/organization';
+import tokenReducer from 'ducks/auth_token';
 
 const rootReducer = combineReducers({
     user: userReducer,
+    token: tokenReducer,
     cause: causeReducer,
     cart: cartReducer,
     organization: organizationReducer,

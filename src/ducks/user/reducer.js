@@ -4,68 +4,41 @@ import initialState from 'store/store';
 import {
     EDIT_USER,
     LOG_OUT,
-    REMOVE_TOKEN,
     SET_USER,
-    SET_TOKEN,
     SET_USER_CREATED_CAUSES,
     SET_USER_SUPPORTED_CAUSES,
     SET_USER_IMAGES,
 } from './types';
 
-const userReducer = (state = initialState, action) => {
-    const { type, payload } = action;
+const userReducer = (state = initialState.user, { type, payload }) => {
     switch (type) {
         case EDIT_USER:
             return update(state, {
-                user: {
-                    $set: payload,
-                }
+                $set: payload,
             });
         case SET_USER:
             return update(state, {
-                user: {
-                    $set: payload,
-                }
-            });
-        case SET_TOKEN:
-            return update(state, {
-                token: {
-                    $set: payload,
-                }
-            });
-        case REMOVE_TOKEN:
-            return update(state, {
-                token: {
-                    $set: null,
-                }
+                $set: payload,
             });
         case LOG_OUT:
             return update(state, {
-                user: {
-                    $set: null,
-                }
+                $set: {},
             });
         case SET_USER_CREATED_CAUSES:
             return update(state, {
-                user: {
-                    CreatedCauses: {
-                        $set: payload,
-                    }
+                CreatedCauses: {
+                    $set: payload,
                 }
             });
         case SET_USER_SUPPORTED_CAUSES:
             return update(state, {
-                user: {
-                    SupportedCauses: {
-                        $set: payload,
-                    }
+                SupportedCauses: {
+                    $set: payload,
                 }
             });
         case SET_USER_IMAGES:
             return update(state, {
-                user: {
-                    $set: payload,
-                }
+                $set: payload,
             });
         default:
             return state;
