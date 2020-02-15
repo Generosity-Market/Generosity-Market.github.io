@@ -1,13 +1,16 @@
 import {
     editUser,
     logout,
-    removeToken,
     setUser,
-    setToken,
     setUserCreatedCauses,
     setUserSupportedCauses,
     setUserImages,
 } from './actions';
+
+import {
+    removeToken,
+    setToken,
+} from '../auth_token/actions';
 
 import Cookies from 'js-cookie';
 import { makeFetchCreator } from 'actions/makeFetchCreator';

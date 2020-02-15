@@ -177,7 +177,7 @@ export const Dashboard = ({
     );
 };
 
-const mapStateToProps = ({ user }) => user;
+const mapStateToProps = ({ user }) => ({ user });
 
 const mapDispatchToProps = {
     causeSelected,

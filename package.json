@@ -37,6 +37,7 @@
     },
     "devDependencies": {
         "babel-jest": "^24.8.0",
+        "chalk": "^3.0.0",
         "cross-env": "^5.2.0",
         "enzyme": "^3.10.0",
         "enzyme-adapter-react-16": "^1.14.0",
@@ -46,8 +47,10 @@
         "jest": "^24.7.1",
         "jest-cli": "^24.7.1",
         "lint-staged": "^9.2.1",
+        "progress-bar-webpack-plugin": "^2.1.0",
         "prop-types": "^15.7.2",
-        "redux-test-utils": "^0.3.0"
+        "redux-test-utils": "^0.3.0",
+        "webpack-bundle-analyzer": "^3.6.0"
     },
     "browserslist": [
         ">0.2%",

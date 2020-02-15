@@ -17,7 +17,7 @@ export class TileSection extends Component {
     calculateTiles = () => {
         let tileArray = [];
         let tileNumber = 1;
-        let amount = this.props.amount;
+        let amount = this.props.goal_amount;
 
         while (amount > 0) {
             tileArray.push({
@@ -87,6 +87,7 @@ export class TileSection extends Component {
     };
 
     render() {
+        // console.log('props: ', this.props);
         const tiles = this.calculateTiles();
         return (
             <div className="TileSection">
@@ -114,7 +115,7 @@ export class TileSection extends Component {
     }
 }
 
-const mapStateToProps = ({ cart }) => cart;
+const mapStateToProps = ({ cart }) => ({ cart });
 
 const mapDispatchToProps = { clearCart };
 

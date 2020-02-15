@@ -12,6 +12,7 @@ import {
     removeIndexFromArray,
 } from 'utilities';
 
+// TODO: Convert to functional w/useState Hook
 export class Tile extends Component {
     constructor(props) {
         super(props);
@@ -72,7 +73,7 @@ export class Tile extends Component {
     }
 }
 
-const mapStateToProps = ({ cart }) => cart;
+const mapStateToProps = ({ cart }) => ({ cart });
 
 const mapDispatchToProps = { addToCart, removeFromCart };
 
