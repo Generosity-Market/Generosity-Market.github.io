@@ -79,7 +79,7 @@ export class CauseDetail extends Component {
 
                     <ProgressBar
                         totalRaised={totalRaised}
-                        goal={goal_amount}
+                        goal_amount={goal_amount}
                     />
 
                     <TileSection

@@ -14,10 +14,10 @@ import handleViewport from 'react-in-viewport';
 
 const CauseTileWithLazyLoad = handleViewport(CauseTile);
 
-// TODO convert this to functional component if we arent using state...
+// TODO: convert this to functional component if we arent using state...
 class UserCauses extends Component {
 
-    getUserCauses = (causes) => {
+    renderUserCauses = (causes) => {
         const {
             causeSelected,
             selectCauseToHighlight,
@@ -77,7 +77,7 @@ class UserCauses extends Component {
 
                 {hasCauses &&
                     <Slider>
-                        {this.getUserCauses(causes)}
+                        {this.renderUserCauses(causes)}
                     </Slider>
                 }
             </div>

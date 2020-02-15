@@ -18,7 +18,7 @@ import {
 } from 'react-stripe-elements';
 
 
-// TODO Add in the user's id if logged in, if not create a user and send the returned id...
+// TODO: Add in the user's id if logged in, if not create a user and send the returned id...
 class CheckoutForm extends Component {
     constructor(props) {
         super(props);

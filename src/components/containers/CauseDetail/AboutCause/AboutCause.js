@@ -1,31 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './AboutCause.css';
 
 // Shared UI Components
-import {
-    TextSection,
-} from 'components/shared';
+import { TextSection } from 'components/shared';
 
-// TODO convert to functional component if not using state
-class AboutCause extends Component {
+const AboutCause = ({
+    title,
+    aboutText,
+    usageText,
+}) => {
+    return (
+        <div className="AboutCause">
 
-    render() {
-        return (
-            <div className="AboutCause">
+            <TextSection
+                heading={`About the ${title} Cause`}
+                text={aboutText}
+            />
 
-                <TextSection
-                    heading={`About the ${this.props.title} Cause`}
-                    text={this.props.aboutText}
-                />
+            <TextSection
+                heading={'How your gift will be used'}
+                text={usageText}
+            />
 
-                <TextSection
-                    heading={'How your gift will be used'}
-                    text={this.props.usageText}
-                />
-
-            </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
 export default AboutCause;
