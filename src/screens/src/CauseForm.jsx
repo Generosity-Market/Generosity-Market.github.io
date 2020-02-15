@@ -169,7 +169,7 @@ export class CauseForm extends Component {
     }
 }
 
-const mapStateToProps = ({ user }) => user;
+const mapStateToProps = ({ user }) => ({ user });
 
 const mapDispatchToProps = { addCause };
 

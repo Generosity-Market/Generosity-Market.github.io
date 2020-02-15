@@ -40,15 +40,11 @@ export class Receipts extends PureComponent {
     }
 }
 
-const mapStateToProps = (state) => {
-    const {
-        cause: {
-            causeList,
-        },
-    } = state;
+const mapStateToProps = ({ cause }) => {
+    const { causeList } = cause;
 
     return {
-        causeList,
+        causeList
     };
 };
 

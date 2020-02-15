@@ -71,15 +71,8 @@ export class BaseLayout extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    const {
-        cause: {
-            causeList,
-        },
-        user: {
-            user,
-        },
-    } = state;
+const mapStateToProps = ({ cause, user }) => {
+    const { causeList } = cause;
 
     return {
         causeList,

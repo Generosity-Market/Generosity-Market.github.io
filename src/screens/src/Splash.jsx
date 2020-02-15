@@ -70,7 +70,7 @@ export class Splash extends Component {
         );
     }
 }
-const mapStateToProps = ({ user }) => user;
+const mapStateToProps = ({ user }) => ({ user });
 
 const mapDispatchToProps = {
     getCauseList,
