@@ -12,8 +12,7 @@ import {
     removeIndexFromArray,
 } from 'utilities';
 
-// TODO: Convert to functional w/useState Hook
-const Tile = ({
+export const Tile = ({
     addToCart,
     amount,
     cart,
