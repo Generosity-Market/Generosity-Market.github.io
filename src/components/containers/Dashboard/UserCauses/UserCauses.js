@@ -1,4 +1,5 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
+import handleViewport from 'react-in-viewport';
 import './UserCauses.css';
 
 // Shared UI Components
@@ -9,21 +10,17 @@ import {
     Slider,
 } from 'components/shared';
 
-// Import HOC to see if component is in viewport
-import handleViewport from 'react-in-viewport';
-
 const CauseTileWithLazyLoad = handleViewport(CauseTile);
 
-// TODO: convert this to functional component if we arent using state...
-class UserCauses extends Component {
+const UserCauses = ({
+    causes,
+    causeSelected,
+    highlightedCause,
+    loading,
+    selectCauseToHighlight,
+}) => {
 
-    renderUserCauses = (causes) => {
-        const {
-            causeSelected,
-            selectCauseToHighlight,
-            highlightedCause,
-        } = this.props;
-
+    const renderUserCauses = (causes) => {
         return causes.map(cause => {
             return (
                 <Fragment key={cause.id}>
@@ -49,40 +46,27 @@ class UserCauses extends Component {
                 </Fragment>
             );
         });
-    }
+    };
 
-    renderNoCauses = (text) => {
-        return (
-            <div className="no-causes">
-                {text}
-            </div>
-        );
-    }
+    const hasCauses = (causes && causes.length > 0);
 
-    render() {
-        const {
-            causes,
-            loading,
-        } = this.props;
+    return (
+        <div className="UserCauses">
+            <Heading text={'Your Causes'} />
 
-        const hasCauses = (causes && causes.length > 0);
+            {!hasCauses &&
+                <div className="no-causes">
+                    {loading ? 'Loading Your Causes...' : 'You haven\'t created any causes'}
+                </div>
+            }
 
-        return (
-            <div className="UserCauses">
-                <Heading text={'Your Causes'} />
-
-                {!hasCauses && loading && this.renderNoCauses('Loading Your Causes...')}
-
-                {!hasCauses && !loading && this.renderNoCauses('You haven\'t created any causes')}
-
-                {hasCauses &&
-                    <Slider>
-                        {this.renderUserCauses(causes)}
-                    </Slider>
-                }
-            </div>
-        );
-    }
-}
+            {hasCauses &&
+                <Slider>
+                    {renderUserCauses(causes)}
+                </Slider>
+            }
+        </div>
+    );
+};
 
 export default UserCauses;

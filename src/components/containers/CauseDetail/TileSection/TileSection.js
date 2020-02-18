@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { clearCart } from 'ducks/cart';
-import Tile from '../Tile/Tile';
+import DonationTile from '../DonationTile/DonationTile';
 import './TileSection.css';
 
 // Shared UI Components
@@ -73,7 +73,7 @@ export class TileSection extends Component {
         const { id, name, icon, profile_image } = this.props;
         return tiles.map(tile => {
             return (
-                <Tile
+                <DonationTile
                     key={name + tile.tileNumber}
                     cause_id={id}
                     cause={name}

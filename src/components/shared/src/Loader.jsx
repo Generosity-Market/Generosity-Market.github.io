@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-// TODO: convert to functional component
-export default class Loader extends Component {
+export const Loader = () => {
+    return (
+        <div className="Loader">
+            <p>Loading ...</p>
+        </div>
+    );
+};
 
-    render() {
-        return (
-            <div className="Loader">
-                <p>Loading ...</p>
-            </div>
-        );
-    }
-}
+export default Loader;

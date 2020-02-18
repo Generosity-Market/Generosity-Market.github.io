@@ -20,11 +20,9 @@ export {
     causeSelected
 } from './actions';
 
-const updateDonations = (data) => {
+const updateDonations = ({ charge, status, donations }) => {
     return (dispatch, getState) => {
-        const { charge, status, response: donations } = data;
-
-        if (data.status === 'Success') {
+        if (status === 'Success') {
             const { causeList } = getState().cause;
 
             donations.forEach(donation => {
@@ -39,6 +37,21 @@ const updateDonations = (data) => {
     };
 };
 
+export const submitDonation = (args) => {
+    return (dispatch) => {
+        return submitPayment({
+            body: JSON.stringify(args),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+            .then(response => {
+                dispatch(updateDonations(response));
+                return { status: response.status };
+            });
+    };
+};
+
 // calling the api for the entire causelist
 export const getCauseList = () => makeFetchCreator(fetchCauseList, setData, null);
 
@@ -47,6 +60,3 @@ export const getSingleCause = (id) => makeFetchCreator(fetchSingleCause, causeSe
 
 // publishing the submitted cause page
 export const submitCauseForm = (args) => makeFetchCreator(submitCauseFormData, addCause, args);
-
-// submitting a payment for total donation
-export const submitDonation = (args) => makeFetchCreator(submitPayment, updateDonations, args);

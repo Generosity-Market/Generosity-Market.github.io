@@ -5,17 +5,23 @@
     padding: 0.5rem;
     position: relative;
     width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
 }
 
 .percent-bar {
     background-color: var(--light-green);
-    height: 20px;
+    height: 30px;
     overflow: visible;
-    padding: 0.8rem 0rem;
     transition: width 0.3s;
+    position: absolute;
+    left: 0.5rem;
+    max-width: 95%;
 }
 
-.percent-bar h3 {
+.ProgressBar h3 {
     color: var(--dark-green);
     letter-spacing: 0.1rem;
     position: absolute;

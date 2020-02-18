@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { removeFromCart, clearCart } from 'ducks/cart';
 import { submitDonation } from 'ducks/cause';
@@ -22,68 +22,60 @@ import {
 } from 'components/containers/Checkout';
 
 // TODO: Convert to functional?
-export class Checkout extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            // name: '',
-            // email: '',
-            // phone: '',
-            // address: '',
-            // city: '',
-            // state: '',
-            // zipCode: '',
-            // public_comment: '',
-            // private_comment: '',
-            showForm: false,
-            // TODO: Get this from .env for production. Do not commit the live key!!!
-            apiKey: 'pk_test_qojWn3GnI7Cr16kIvzOjMYiA',
-        };
-    }
+export const Checkout = ({
+    cart,
+    clearCart,
+    // user,
+    ...rest
+}) => {
+    const [showForm, setShowForm] = useState(false);
 
-    toggleCheckoutForm = () => {
-        this.setState({ showForm: !this.state.showForm });
+    const toggleCheckoutForm = () => {
+        setShowForm(state => !state);
     };
 
-    render() {
-        const {
-            cart,
-            // user,
-            clearCart,
-        } = this.props;
+    return (
+        <StripeProvider apiKey={process.env.REACT_APP_STRIPE_TEST}>
+            <div className="Checkout">
 
-        return (
-            <StripeProvider apiKey={this.state.apiKey}>
-                <div className="Checkout">
-
-                    {!cart.length > 0 ?
-                        <EmptyCart /> : <Cart {...this.props} />
-                    }
-
-                    {cart.length > 0 &&
-                        <CartFooter
-                            total={getTotal(cart, 'amount')}
-                            toggleCheckoutForm={() => this.toggleCheckoutForm()}
-                            {...this.props}
-                        />
-                    }
-
-                    <Elements>
-                        <CheckoutForm
-                            toggleCheckoutForm={this.toggleCheckoutForm}
-                            showForm={this.state.showForm}
-                            total={getTotal(cart, 'amount')}
-                            submitDonation={submitDonation}
+                {!cart.length > 0 ?
+                    <EmptyCart />
+                    : (
+                        <Cart
+                            cart={cart}
                             clearCart={clearCart}
-                            {...this.props}
+                            {...rest}
                         />
-                    </Elements>
+                    )
+                }
 
-                </div>
-            </StripeProvider>
-        );
-    }
-}
+                {cart.length > 0 &&
+                    <CartFooter
+                        total={getTotal(cart, 'amount')}
+                        toggleCheckoutForm={toggleCheckoutForm}
+                        cart={cart}
+                        clearCart={clearCart}
+                        {...rest}
+                    />
+                }
+
+                <Elements>
+                    <CheckoutForm
+                        toggleCheckoutForm={toggleCheckoutForm}
+                        showForm={showForm}
+                        total={getTotal(cart, 'amount')}
+                        submitDonation={submitDonation}
+                        cart={cart}
+                        clearCart={clearCart}
+                        {...rest}
+                    />
+                </Elements>
+
+            </div>
+        </StripeProvider>
+    );
+};
+
 const mapStateToProps = ({ cart, user }) => ({ cart, user });
 
 const mapDispatchToProps = { clearCart, removeFromCart, submitDonation };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import './Tile.css';
+import './DonationTile.css';
 
 import {
     addToCart,
@@ -12,7 +12,7 @@ import {
     removeIndexFromArray,
 } from 'utilities';
 
-export const Tile = ({
+export const DonationTile = ({
     addToCart,
     amount,
     cart,
@@ -54,14 +54,14 @@ export const Tile = ({
 
     return (
         <div
-            className={isPurchased ? 'Tile isPurchased' : 'Tile'}
+            className={isPurchased ? 'DonationTile isPurchased' : 'DonationTile'}
             onClick={isSelected ? removeTileFromCart :
                 () => addTileToCart({ tileIcon, amount, cause, ...rest })}
         >
 
             <p className={isSelected ? 'tile-amount isSelected' : 'tile-amount'}>${amount}</p>
 
-            <img src={getIconUrl(tileIcon)} alt='Tile Icon' />
+            <img src={getIconUrl(tileIcon)} alt={`${tileIcon} Icon`} />
 
         </div>
     );
@@ -72,4 +72,4 @@ const mapStateToProps = ({ cart }) => ({ cart });
 const mapDispatchToProps = { addToCart, removeFromCart };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Tile);
+export default connect(mapStateToProps, mapDispatchToProps)(DonationTile);
