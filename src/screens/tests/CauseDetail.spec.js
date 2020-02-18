@@ -8,6 +8,11 @@ const defaultProps = {
     cause: {
         Donations: [],
     },
+    match: {
+        params: {
+            id: 2,
+        },
+    },
 };
 
 const wrapper = shallow(<CauseDetail {...defaultProps} />);
