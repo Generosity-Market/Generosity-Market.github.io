@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import handleViewport from 'react-in-viewport';
+// import handleViewport from 'react-in-viewport';
+import { handleViewport } from 'react-in-viewport';
 import './UserCauses.css';
 
 // Shared UI Components
@@ -15,6 +16,7 @@ const CauseTileWithLazyLoad = handleViewport(CauseTile);
 const UserCauses = ({
     causes,
     causeSelected,
+    forwardedRef,
     highlightedCause,
     loading,
     selectCauseToHighlight,
@@ -51,7 +53,10 @@ const UserCauses = ({
     const hasCauses = (causes && causes.length > 0);
 
     return (
-        <div className="UserCauses">
+        <div
+            className="UserCauses"
+            ref={forwardedRef}
+        >
             <Heading text={'Your Causes'} />
 
             {!hasCauses &&

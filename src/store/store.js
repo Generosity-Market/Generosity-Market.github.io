@@ -5,7 +5,7 @@ const initialState = {
         causeList: [],
         selectedCause: '',
     },
-    token: Cookies.get('gm_id'),
+    token: Cookies.get('gm_id') || null,
     user: {},
     organization: {
         orgList: [],

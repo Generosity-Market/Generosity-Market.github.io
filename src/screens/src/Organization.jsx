@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getCauseList, causeSelected } from 'ducks/cause';
 import { getOrgData } from 'ducks/organization';
@@ -21,44 +21,42 @@ import {
     OrgDetails,
 } from 'components/containers/Organization';
 
-// TODO: Convert to functional component
-export class Organization extends Component {
+export const Organization = ({
+    causeSelected,
+    organization: {
+        id,
+        cover_image,
+        profile_image,
+        Preferences,
+        Causes,
+        heading,
+        mission,
+        email,
+        site_url,
+        display_name,
+    },
+    match,
+    getOrgData,
+}) => {
 
-    componentDidMount() {
-        this.props.getOrgData(2); // TODO: this id needs to come from the url param...
-    }
+    useEffect(() => {
+        getOrgData(match.params.id);
+        // eslint-disable-next-line
+    }, [match.params.id]);
 
-    render() {
-        const {
-            causeSelected,
-            organization,
-            organization: {
-                name,
-                cover_image,
-                profile_image,
-                Preferences,
-                Causes,
-                heading,
-                mission,
-                email,
-                site_url,
-                display_name,
+    return (
+        <div className="Organization">
+
+            {id &&
+                <Banner
+                    heading={display_name}
+                    BGimage={cover_image && getImageUrl(cover_image)}
+                    profile_image={profile_image && getImageUrl(profile_image)}
+                    round_image={Preferences[0] ? Preferences[0].round_image : false}
+                />
             }
-        } = this.props;
 
-        return (
-            <div className="Organization">
-
-                {organization &&
-                    <Banner
-                        heading={name}
-                        BGimage={cover_image && getImageUrl(cover_image)}
-                        profile_image={profile_image && getImageUrl(profile_image)}
-                        round_image={Preferences[0] ? Preferences[0].round_image : false}
-                    />
-                }
-
-                {/* organization &&
+            {/* id &&
                     <HeroSection
                         heading={name}
                         coverImgSrc={cover_image && getImageUrl(cover_image)}
@@ -69,33 +67,32 @@ export class Organization extends Component {
                     </HeroSection>
                 */}
 
-                <div className="Wrapper">
+            <div className="Wrapper">
 
-                    {organization &&
-                        <OrgCauses
-                            causes={Causes}
-                            causeSelected={causeSelected}
-                        />
-                    }
-
-                    <OrgDetails
-                        heading={heading}
-                        mission={mission}
-                        email={email}
+                {id &&
+                    <OrgCauses
+                        causes={Causes}
+                        causeSelected={causeSelected}
                     />
+                }
 
-                    <Button
-                        bsStyle='active'
-                        bsSize='full'
-                        href={site_url}
-                        label={`Visit ${display_name}`}
-                    />
+                <OrgDetails
+                    heading={heading}
+                    mission={mission}
+                    email={email}
+                />
 
-                </div>
+                <Button
+                    bsStyle='active'
+                    bsSize='full'
+                    href={site_url}
+                    label={`Visit ${display_name}`}
+                />
+
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
 const mapStateToProps = ({ organization }) => {
     const { selectedOrg } = organization;

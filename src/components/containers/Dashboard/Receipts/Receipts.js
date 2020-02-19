@@ -12,10 +12,10 @@ import {
     ReceiptItem,
 } from 'components/shared';
 
-export const Receipts = ({
+export const Receipts = React.forwardRef(({
     causeSelected,
     supportedCauses,
-}) => {
+}, ref) => {
     const causes = supportedCauses && supportedCauses.map(cause => {
         return (
             <ReceiptItem
@@ -27,12 +27,17 @@ export const Receipts = ({
     });
 
     return (
-        <div className="Receipts">
+        <div
+            className="Receipts"
+            ref={ref}
+        >
             <Heading text={'Causes I Support'} />
             {causes}
         </div>
     );
-};
+});
+
+Receipts.displayName = 'Receipts';
 
 const mapStateToProps = ({ cause }) => {
     const { causeList } = cause;

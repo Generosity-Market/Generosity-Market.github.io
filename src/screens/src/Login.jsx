@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import '../styles/Login.css';
@@ -13,122 +13,112 @@ import { Button } from '@jgordy24/stalls-ui';
 import { ActionButton } from 'components/shared';
 
 // TODO: Break up some of the components in this page...
-export class Login extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            email: '',
-            password: '',
-            loggingIn: false,
-            error: null,
-            context: 'login',
-        };
-    }
+export const Login = ({
+    location,
+    history,
+    ...rest
+}) => {
+    const [userState, setUserState] = useState({ email: '', password: '' });
+    const [status, setStatus] = useState({ error: null, submitting: false });
+    const [context, setContext] = useState('login');
 
-    componentDidMount() {
-        const { context } = this.props.location.state;
-        if (context === 'register') this.setState({ context: context });
-    }
+    useEffect(() => {
+        if (location.state.context === 'register') setContext(location.state.context);
+    }, [location.state.context]);
 
-    handleState = field => {
+    const handleState = field => {
         return (event) => {
-            this.handleError(null);
-            this.setState({
+            event.persist();
+
+            handleError(null);
+            setUserState(prevState => ({
+                ...prevState,
                 [field]: event.target.value
-            });
+            }));
         };
     };
 
-    handleError = error => {
-        this.setState({ error });
-    }
+    const handleError = error => {
+        setStatus(prevState => ({ ...prevState, error }));
+    };
 
-    handleSubmit = async (action) => {
-        const { history } = this.props;
-        const { email, password } = this.state;
-        this.setState({ loggingIn: true });
+    const handleSubmit = async (action) => {
+        const { email, password } = userState;
+        setStatus(prevState => ({
+            ...prevState,
+            submitting: true,
+        }));
 
         const { user, error } = await action({ email, password });
 
-        if (error) this.handleError(error); this.setState({ loggingIn: false });
-        // TODO Use location state to determine what page navigated to the login page... redirect there...
+        if (error) handleError(error); setStatus(prevState => ({ ...prevState, submitting: false }));
+        // TODO: Use location state to determine what page navigated to the login page... redirect there...
         if (user) history.push(`/users/${user.id}/dashboard`);
-    }
+    };
 
-    render() {
-        const {
-            email,
-            password,
-            error,
-            context,
-        } = this.state;
+    return (
+        <div className="Login">
+            <div className="sign-in">
+                <p
+                    className="error-message"
+                    style={{
+                        backgroundColor: `${status.error ? 'var(--danger)' : 'transparent'}`,
+                    }}
+                >
+                    {status.error}
+                </p>
 
-        return (
-            <div className="Login">
-                <div className="sign-in">
-                    <p
-                        className="error-message"
-                        style={{
-                            backgroundColor: `${error ? 'var(--danger)' : 'transparent'}`,
-                        }}
-                    >
-                        {error}
-                    </p>
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    onChange={handleState('email')}
+                    value={userState.email}
+                    autoFocus
+                />
 
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        onChange={this.handleState('email')}
-                        value={email}
-                        autoFocus
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    onChange={handleState('password')}
+                    value={userState.password}
+                />
+
+                <div className="submit-buttons">
+                    <Button
+                        bsStyle={context === 'register' ? 'active' : 'pale'}
+                        bsSize='long'
+                        onClick={() => handleSubmit(rest[context])}
+                        label={context === 'register' ? 'Sign up' : 'Log in'}
                     />
+                </div>
 
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        onChange={this.handleState('password')}
-                        value={password}
-                    />
-
-                    <div className="submit-buttons">
-                        <Button
-                            bsStyle={context === 'register' ? 'active' : 'pale'}
-                            bsSize='long'
-                            onClick={() => this.handleSubmit(this.props[context])}
-                            label={context === 'register' ? 'Sign up' : 'Log in'}
-                        />
-                    </div>
-
-                    {/*<a 
+                {/*<a 
                         href="/causes" 
                         className="forgot-password"
                     >
                         Forgot your password? Reset It Here
                     </a>*/}
-                </div>
+            </div>
 
-                <ActionButton
-                    action={() => this.setState({
-                        context: context === 'register' ? 'login' : 'register',
-                    })}
-                    classname={context === 'register' ? 'sign-up-link' : 'log-in-link'}
-                    actionText={context === 'register' ? 'Already a member? Log in here' : 'Not a member? Sign up here'}
-                />
+            <ActionButton
+                action={() => setContext(state => state === 'register' ? 'login' : 'register')}
+                classname={context === 'register' ? 'sign-up-link' : 'log-in-link'}
+                actionText={context === 'register' ? 'Already a member? Log in here' : 'Not a member? Sign up here'}
+            />
 
-                {/*<h3>OR</h3>*/}
+            {/*<h3>OR</h3>*/}
 
-                {/* <Button
+            {/* <Button
                         label='log in with facebook'
                         href='/causes'
                         bsStyle='info'
                         bsSize='full'
                 /> */}
-            </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
 const mapStateToProps = () => {
     return {};

@@ -21,7 +21,6 @@ import {
     EmptyCart,
 } from 'components/containers/Checkout';
 
-// TODO: Convert to functional?
 export const Checkout = ({
     cart,
     clearCart,

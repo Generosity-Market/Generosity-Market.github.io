@@ -10,8 +10,8 @@ import {
 const inputOptions = [
     {
         type: 'text',
-        name: 'name',
-        placeholder: 'Name of Organization',
+        name: 'legal_name',
+        placeholder: 'Legal Name of Organization',
     }, {
         type: 'text',
         name: 'tax_id',
