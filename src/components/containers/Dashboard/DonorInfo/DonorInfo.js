@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import './DonorInfo.css';
 
 // Shared UI Components
@@ -58,33 +58,26 @@ const formatDonorInfoForDownload = (info) => {
     });
 };
 
+const sorts = [
+    'By Date',
+    'By Amount',
+    // 'Lowest First',
+    'By Email',
+];
 
-export class DonorInfo extends Component {
-    constructor(props) {
-        super(props);
+export const DonorInfo = ({ cause }) => {
+    const [sort, setSort] = useState('');
 
-        this.sorts = [
-            'By Date',
-            'By Amount',
-            // 'Lowest First',
-            'By Email',
-        ];
-
-        this.state = {
-            sort: '',
-        };
-    }
-
-    renderSorts = (sort) => {
+    const renderSorts = (sort) => {
         return (
             <Slider>
-                {this.sorts.map(text => {
+                {sorts.map(text => {
                     return (
                         <Pill
                             key={text + text}
                             bsStyle='success'
                             active={sort === text}
-                            onClick={this.handleUpdateState('sort')}
+                            onClick={handleUpdateState}
                             label={text}
                         />
                     );
@@ -93,13 +86,12 @@ export class DonorInfo extends Component {
         );
     };
 
-    handleUpdateState = (field) => {
-        return (event) => {
-            this.setState({ [field]: event.target.textContent });
-        };
+    const handleUpdateState = (event) => {
+        event.persist();
+        setSort(event.target.textContent);
     };
 
-    renderDonations = (sortedDonations) => {
+    const renderDonations = (sortedDonations) => {
         if (sortedDonations.length <= 0) {
             return (
                 <p style={{ color: 'var(--text-gray', textAlign: 'center', marginTop: '1.5rem' }}>
@@ -125,54 +117,48 @@ export class DonorInfo extends Component {
                 })}
             </Fragment>
         );
+    };
+
+    const causeIsEmpty = isEmpty(cause);
+    const sortKey = getSortKey(sort);
+
+    let sortedArray;
+    if (!causeIsEmpty) {
+        sortedArray = sortByKey(cause.Donations, sortKey);
     }
 
-    render() {
-        const { cause } = this.props;
-        const { sort } = this.state;
+    return (
+        <div className="DonorInfo">
+            <Heading text={`Donations ${causeIsEmpty ? ' ' : `for ${cause.name}`}`} />
 
-        const causeIsEmpty = isEmpty(cause);
-        const sortKey = getSortKey(sort);
+            {causeIsEmpty && noCauseSelected()}
 
-        let sortedArray;
-        if (!causeIsEmpty) {
-            sortedArray = sortByKey(cause.Donations, sortKey);
-        }
+            {!causeIsEmpty &&
+                <div className="wrapper">
+                    <DownloadCSV
+                        buttonText={'Download Donor info'}
+                        className="donor-download"
+                        csvData={formatDonorInfoForDownload(sortedArray)}
+                        filename={cause.name}
+                    />
 
-        return (
-            <div className="DonorInfo">
-                <Heading text={`Donations ${causeIsEmpty ? ' ' : `for ${cause.name}`}`} />
+                    {renderSorts(sort)}
 
-                {causeIsEmpty && noCauseSelected()}
-
-                {!causeIsEmpty &&
-                    <div className="wrapper">
-                        <DownloadCSV
-                            buttonText={'Download Donor info'}
-                            className="donor-download"
-                            csvData={formatDonorInfoForDownload(sortedArray)}
-                            filename={cause.name}
-                        />
-
-                        {this.renderSorts(sort)}
-
-                        <div
-                            className="donation-card"
-                            style={{ backgroundColor: 'var(--black-10)', height: '2rem' }}
-                        >
-                            <p style={{ flex: '0 0 25%', color: 'var(--blackish)' }}>Amount</p>
-                            <p style={{ flex: '0 0 55%', color: 'var(--blackish)' }}>Email</p>
-                            <p style={{ flex: '0 0 20%', color: 'var(--blackish)' }}>Date</p>
-                        </div>
-
-                        {this.renderDonations(sortedArray)}
+                    <div
+                        className="donation-card"
+                        style={{ backgroundColor: 'var(--black-10)', height: '2rem' }}
+                    >
+                        <p style={{ flex: '0 0 25%', color: 'var(--blackish)' }}>Amount</p>
+                        <p style={{ flex: '0 0 55%', color: 'var(--blackish)' }}>Email</p>
+                        <p style={{ flex: '0 0 20%', color: 'var(--blackish)' }}>Date</p>
                     </div>
-                }
 
-            </div>
-        );
-    }
+                    {renderDonations(sortedArray)}
+                </div>
+            }
 
-}
+        </div>
+    );
+};
 
 export default DonorInfo;

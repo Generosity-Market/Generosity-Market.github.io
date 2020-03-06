@@ -16,11 +16,12 @@ const CauseTile = ({
     causeSelected,
     children,
     highlightedCause,
-    innerRef,
+    forwardedRef,
     inViewport,
     isFeatured,
     raised,
 }) => {
+
 
     const imageURL = (inViewport ? cause.profile_image : getPlaceholder());
     // TODO: update progress bar message when raised 100%
@@ -38,7 +39,7 @@ const CauseTile = ({
         <div
             className={isFeatured ? 'CauseTile featured' : 'CauseTile'}
             onClick={() => causeSelected(cause)}
-            ref={innerRef}
+            ref={forwardedRef}
             style={{
                 backgroundColor: (highlightedCause === cause.id ? 'var(--light-gray)' : '')
             }}

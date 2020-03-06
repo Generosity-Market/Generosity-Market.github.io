@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import './Receipts.css';
 
@@ -12,43 +12,38 @@ import {
     ReceiptItem,
 } from 'components/shared';
 
-// TODO turn this into functional component if we arent using state...
-export class Receipts extends PureComponent {
-
-    render() {
-        const {
-            causeSelected,
-            supportedCauses,
-        } = this.props;
-
-        const causes = supportedCauses && supportedCauses.map(cause => {
-            return (
-                <ReceiptItem
-                    key={cause.icon + cause.name}
-                    selectCause={causeSelected}
-                    cause={cause}
-                />
-            );
-        });
-
+export const Receipts = React.forwardRef(({
+    causeSelected,
+    supportedCauses,
+}, ref) => {
+    const causes = supportedCauses && supportedCauses.map(cause => {
         return (
-            <div className="Receipts">
-                <Heading text={'Causes I Support'} />
-                {causes}
-            </div>
+            <ReceiptItem
+                key={cause.icon + cause.name}
+                selectCause={causeSelected}
+                cause={cause}
+            />
         );
-    }
-}
+    });
 
-const mapStateToProps = (state) => {
-    const {
-        cause: {
-            causeList,
-        },
-    } = state;
+    return (
+        <div
+            className="Receipts"
+            ref={ref}
+        >
+            <Heading text={'Causes I Support'} />
+            {causes}
+        </div>
+    );
+});
+
+Receipts.displayName = 'Receipts';
+
+const mapStateToProps = ({ cause }) => {
+    const { causeList } = cause;
 
     return {
-        causeList,
+        causeList
     };
 };
 

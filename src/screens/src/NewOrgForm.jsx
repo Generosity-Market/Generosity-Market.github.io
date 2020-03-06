@@ -26,8 +26,8 @@ export class NewOrgForm extends Component {
         super(props);
         this.state = {
             tax_id: '',
-            name: '',
             display_name: '',
+            legal_name: '',
             heading: '', // called 'motto' on the front end
             mission: '',
             email: '',
@@ -74,8 +74,8 @@ export class NewOrgForm extends Component {
         }
     };
 
-    // TODO reverse this logic...instead of calling the service then dispatching the action.
-    // TODO We call the action and let the action call the service.
+    // TODO: reverse this logic...instead of calling the service then dispatching the action.
+    // TODO: We call the action and let the action call the service.
     handleSubmit = () => {
         // console.log('handle uploading-', this.state);
         delete this.state.mainImageURL;
@@ -95,13 +95,13 @@ export class NewOrgForm extends Component {
         })
             .then(res => {
                 // handle your response
-                // TODO cause some feedback on the screen that shows the user that an action is happening
-                // TODO the response we should call a redux action that adds the cause to the array of causes
-                // TODO then redirect to that organization page
+                // TODO: cause some feedback on the screen that shows the user that an action is happening
+                // TODO: the response we should call a redux action that adds the cause to the array of causes
+                // TODO: then redirect to that organization page
 
                 /* eslint-disable-next-line no-console */
                 console.log('Response: ', res);
-                // TODO do something with the response...
+                // TODO: do something with the response...
                 // this.props.addCause(res.Cause);
             }).catch(err => {
                 // handle your error

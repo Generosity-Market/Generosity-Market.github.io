@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 // import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 
@@ -7,33 +7,32 @@ import {
     InputGroup,
 } from 'components/shared';
 
-// Convert to functional component if not using state
-export class VerificationInputGroup extends Component {
+const inputOptions = [
+    {
+        type: 'text',
+        name: 'legal_name',
+        placeholder: 'Legal Name of Organization',
+    }, {
+        type: 'text',
+        name: 'tax_id',
+        placeholder: 'Tax Id #',
+    },
+];
 
-    render() {
-        const inputOptions = [
-            {
-                type: 'text',
-                name: 'name',
-                placeholder: 'Name of Organization',
-            }, {
-                type: 'text',
-                name: 'tax_id',
-                placeholder: 'Tax Id #',
-            },
-        ];
-
-        return (
-            <div className="VerificationInputGroup">
-                <InputGroup
-                    state={this.props.state}
-                    handleUpdateState={this.props.handleUpdateState}
-                    inputOptions={inputOptions}
-                />
-            </div>
-        );
-    }
-}
+export const VerificationInputGroup = ({
+    handleUpdateState,
+    state,
+}) => {
+    return (
+        <div className="VerificationInputGroup">
+            <InputGroup
+                state={state}
+                handleUpdateState={handleUpdateState}
+                inputOptions={inputOptions}
+            />
+        </div>
+    );
+};
 
 const mapStateToProps = () => {
     return {};

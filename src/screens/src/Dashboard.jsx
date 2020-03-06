@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import handleViewport from 'react-in-viewport';
+// import handleViewport from 'react-in-viewport';
+import { handleViewport } from 'react-in-viewport';
 import '../styles/Dashboard.css';
 
 import {
-    Button,
+    // Button,
     ImageUploader,
+    LinkButton,
     Pill,
 } from '@jgordy24/stalls-ui';
 
@@ -99,25 +101,31 @@ export const Dashboard = ({
         }
     };
 
-    const handleSaveImage = (imageData) => {
+    const handleSaveImage = async ({ profile_image, cover_image }) => {
         setIsUploading({ status: true, message: 'Uploading...' });
 
         const uploadData = {
-            profile_image: imageData.profileImage.file,
-            cover_image: imageData.coverImage.file,
+            profile_image: profile_image.file,
+            cover_image: cover_image.file,
             bucket: 'user',
         };
 
-        submitUserImages(user, uploadData)
-            .then(res => {
-                if (res.error) {
-                    setIsUploading({ status: true, message: 'Upload Failed' });
-                    setTimeout(() => setIsUploading({ status: false, message: null }), 3000);
-                }
+        const uploadFinished = (state) => {
+            setIsUploading(state);
+            setTimeout(() => setIsUploading({ status: false, message: null }), 3000);
+        };
 
-                setIsUploading({ status: true, message: 'Upload Successful' });
-                setTimeout(() => setIsUploading({ status: false, message: null }), 3000);
-            });
+        try {
+            const response = await submitUserImages(user, uploadData);
+
+            if (response.error) {
+                uploadFinished({ status: true, message: 'Upload Failed' });
+            } else {
+                uploadFinished({ status: true, message: 'Upload Successful' });
+            }
+        } catch (error) {
+            uploadFinished({ status: true, message: 'Upload Failed' });
+        }
     };
 
     return !user ? null : (
@@ -155,7 +163,7 @@ export const Dashboard = ({
                     onEnterViewport={getCauses}
                 />
 
-                <Button
+                <LinkButton
                     bsStyle='success'
                     bsSize='long'
                     label='Create a cause'

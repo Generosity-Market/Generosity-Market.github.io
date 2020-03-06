@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import { Tile } from './Tile.js';
+import { DonationTile } from './DonationTile.js';
 
 const defaultProps = {
     tileIcon: 'Africa',
@@ -10,11 +10,11 @@ const defaultProps = {
     amount: 5,
 };
 
-const wrapper = shallow(<Tile {...defaultProps} />);
+const wrapper = shallow(<DonationTile {...defaultProps} />);
 
 describe('<Tile />', () => {
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('.Tile')).toEqual(true);
+        expect(wrapper.exists('.DonationTile')).toEqual(true);
     });
 });

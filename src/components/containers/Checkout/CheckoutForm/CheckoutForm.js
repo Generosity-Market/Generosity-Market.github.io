@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import stripeServices from 'services/stripe';
 import './CheckoutForm.css';
 
@@ -17,155 +17,117 @@ import {
     injectStripe
 } from 'react-stripe-elements';
 
+const CheckoutForm = ({
+    cart,
+    clearCart,
+    history,
+    showForm,
+    stripe,
+    submitDonation,
+    toggleCheckoutForm,
+    total,
+    user,
+}) => {
+    const [loading, setLoading] = useState(false);
+    const [status, setStatus] = useState('');
+    const [email, setEmail] = useState(user.email);
 
-// TODO Add in the user's id if logged in, if not create a user and send the returned id...
-class CheckoutForm extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            loading: false,
-            status: '',
-            email: '',
-            // first_name: '',
-            // last_name: '',
-            // address: {
-            //     street: '',
-            //     city: '',
-            //     state: '',
-            //     zip: '',
-            // },
-        };
-        this.submit = this.submit.bind(this);
-    }
+    useEffect(() => {
+        setEmail(user.email);
+    }, [user.email]);
 
-    componentDidMount() {
-        const { user } = this.props;
-        if (user) {
-            /* eslint-disable-next-line no-console */
-            console.log();
-            this.setState({ email: user.email });
-        }
-    }
-
-    componentDidUpdate(prevProps) {
-        if (!prevProps.user && this.props.user) {
-            this.setState({ email: this.props.user.email });
-        }
-    }
-
-    handleButtonText = () => {
-        const { loading, status } = this.state;
+    const handleButtonText = () => {
         if (loading) return 'submitting payment...';
         if (status === 'complete') return 'donation complete';
         if (status === 'failed') return 'failed';
-        return `Charge $${this.props.total}`;
-    }
+        return `Charge $${total}`;
+    };
 
-    handleStateChange = (event) => {
-        this.setState({ email: event.target.value });
-    }
+    const handleStateChange = (event) => {
+        setEmail(event.target.value);
+    };
 
-    submit() {
-        const {
-            stripe,
-            total,
-            cart,
-            clearCart,
-            submitDonation,
-            user,
-        } = this.props;
+    const submit = async () => {
+        setLoading(true);
+        setStatus('');
 
-        this.setState({ loading: true, status: '' });
-        /* eslint-disable-next-line no-console */
-        console.log('Checkout props: ', this.props);
+        try {
+            const token = await stripeServices.createToken(stripe);
 
-        // TODO abstract this into a service?...
-        stripeServices.createToken(stripe)
-            .then(token => {
-                // TODO if token is undefined that means something wasnt filled in. We need to display an error message here...
-                if (!token) {
-                    this.setState({ loading: false, status: 'failed' });
-                    return;
-                }
+            if (!token) {
+                setLoading(false);
+                setStatus('failed');
+                return;
+            }
+            const donationDetails = {
+                ...token,
+                cart,
+                user_id: user.id,
+                id: user.id,
+                amount: total * 100,
+                email,
+            };
+            const response = await submitDonation(donationDetails);
 
-                submitDonation({
-                    body: JSON.stringify({
-                        ...token,
-                        cart,
-                        user_id: user.id,
-                        id: user.id,
-                        amount: total * 100,
-                        email: this.state.email
-                    }),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                })
-                    .then(response => {
-                        if (response.status === 'authorized') {
-                            // Update the button text
-                            this.setState({ loading: false, status: 'complete' });
-                            // Remove the checkout form from the screen
-                            setTimeout(() => this.props.toggleCheckoutForm(), 1500);
-                            // Navigate to the "Thank You" page
-                            setTimeout(() => this.props.history.push('/thankyou'), 1000);
-                            clearCart();
-                        } else if (response.status === 'failed') {
-                            this.setState({ loading: false, status: 'failed' });
-                        }
-                        return response;
-                    });
+            if (response.status === 'Success') {
+                // Update the button text
+                setLoading(false);
+                setStatus('complete');
+                // Remove the checkout form from the screen
+                setTimeout(() => toggleCheckoutForm(), 3250);
+                setTimeout(() => clearCart(), 3500);
+                // Navigate to the "Thank You" page
+                setTimeout(() => history.push('/thankyou'), 3500);
+            } else if (response.status === 'failed') {
+                setLoading(false);
+                setStatus('failed');
+            }
 
-            });
-    }
+        } catch (error) {
+            setLoading(false);
+            setStatus('failed');
+        }
+    };
 
-    render() {
-        const {
-            showForm,
-            toggleCheckoutForm,
-            total,
-        } = this.props;
+    return (
+        <div className="CheckoutForm" style={showForm && total > 0 ? { bottom: '-5%' } : { bottom: '-100%' }}>
+            <div className="card">
+                <Glyphicon
+                    onClick={toggleCheckoutForm}
+                    icon={['far', 'times-circle']}
+                />
+                <p>Would you like to complete the purchase?</p>
 
-        return (
-            <div className="CheckoutForm" style={showForm && total > 0 ? { bottom: '-5%' } : { bottom: '-100%' }}>
-                <div className="card">
-                    <Glyphicon
-                        onClick={toggleCheckoutForm}
-                        icon={['far', 'times-circle']}
-                    />
-                    <p>Would you like to complete the purchase?</p>
-
-                    <div className="stripe-field email">
-                        <input type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleStateChange} />
-                    </div>
-
-                    <div className="stripe-field">
-                        <CardNumberElement style={stripeStyles} />
-                    </div>
-
-                    <div className="card-info">
-                        <div className="stripe-field">
-                            <CardExpiryElement style={stripeStyles} />
-                        </div>
-                        <div className="stripe-field">
-                            <CardCVCElement style={stripeStyles} />
-                        </div>
-                        <div className="stripe-field">
-                            <PostalCodeElement style={stripeStyles} />
-                        </div>
-                    </div>
-
-                    <Button
-                        bsStyle='success'
-                        icon={this.state.status === 'complete' && 'check-circle'}
-                        label={this.handleButtonText()}
-                        onClick={this.submit}
-                    />
+                <div className="stripe-field email">
+                    <input type="email" name="email" placeholder="Email" value={email} onChange={handleStateChange} />
                 </div>
+
+                <div className="stripe-field">
+                    <CardNumberElement style={stripeStyles} />
+                </div>
+
+                <div className="card-info">
+                    <div className="stripe-field">
+                        <CardExpiryElement style={stripeStyles} />
+                    </div>
+                    <div className="stripe-field">
+                        <CardCVCElement style={stripeStyles} />
+                    </div>
+                    <div className="stripe-field">
+                        <PostalCodeElement style={stripeStyles} />
+                    </div>
+                </div>
+
+                <Button
+                    bsStyle='success'
+                    icon={status === 'complete' && 'check-circle'}
+                    label={handleButtonText()}
+                    onClick={submit}
+                />
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
 const stripeStyles = {
     base: {

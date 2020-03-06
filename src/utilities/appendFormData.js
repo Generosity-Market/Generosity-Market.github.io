@@ -9,8 +9,8 @@ const appendFormData = ({
 
     const formData = new FormData();
 
-    formData.append('profileImage', profile_image);
-    formData.append('coverImage', cover_image);
+    formData.append('profile_image', profile_image);
+    formData.append('cover_image', cover_image);
     formData.append('bucket', bucket); // AWS Bucket
     formData.append('state', JSON.stringify(rest)); // Typically other state data
 

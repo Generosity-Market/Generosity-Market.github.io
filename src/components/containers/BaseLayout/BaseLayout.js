@@ -1,4 +1,4 @@
-import React, { Component, Suspense } from 'react';
+import React, { Suspense, useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCauseList } from 'ducks/cause';
@@ -12,74 +12,66 @@ import bottomNavLinks from 'constants/BottomNavLinks';
 // Component imports
 import TopMenu from './components/TopMenu/TopMenu';
 import BottomMenu from './components/BottomMenu/BottomMenu';
-const SlideMenu = React.lazy(() => import('./components/SlideMenu/SlideMenu')); // See if this helps with the menu loading on top of the page, before css is loaded and moves it away
+// NOTE: Helps with the menu loading on top of the page, before css is loaded and then moves away
+const SlideMenu = React.lazy(() => import('./components/SlideMenu/SlideMenu'));
 
-export class BaseLayout extends Component {
-    constructor(props) {
-        super(props);
+export const BaseLayout = ({
+    causeList,
+    children,
+    getCauseList,
+    history,
+    loadTokenFromCookie,
+    user,
+    userLogout,
+}) => {
+    const [showMenu, setShowMenu] = useState(false);
 
-        this.state = {
-            showMenu: false,
-        };
-    }
-
-    componentDidMount() {
-        this.props.loadTokenFromCookie();
-        if (!this.props.causeList || !this.props.causeList.length) {
-            this.props.getCauseList();
+    useEffect(() => {
+        loadTokenFromCookie();
+        if (!causeList || !causeList.length) {
+            getCauseList();
         }
-    }
+        // eslint-disable-next-line
+    }, [causeList]);
 
-    navToggle = (endpoint) => {
-        setTimeout(() => this.setState({ showMenu: !this.state.showMenu }), 200);
-        if (endpoint) this.handleNavigation(endpoint);
+    const navToggle = (endpoint) => {
+        setTimeout(() => setShowMenu(state => !state), 200);
+        if (endpoint) handleNavigation(endpoint);
     };
 
-    handleNavigation = (endpoint) => {
-        this.props.history.replace(endpoint);
+    const handleNavigation = (endpoint) => {
+        history.replace(endpoint);
     };
 
-    render() {
+    return (
+        <div className="BaseLayout">
+            <TopMenu openMenu={navToggle} />
 
-        return (
-            <div className="BaseLayout">
-
-                <TopMenu
-                    openMenu={this.navToggle}
+            <Suspense fallback={null}>
+                <SlideMenu
+                    navLinks={navLinks}
+                    closeMenu={navToggle}
+                    showMenu={showMenu}
+                    handleNavigation={navToggle}
+                    logout={userLogout}
                 />
+            </Suspense>
 
-                <Suspense fallback={null}>
-                    <SlideMenu
-                        navLinks={navLinks}
-                        closeMenu={this.navToggle}
-                        showMenu={this.state.showMenu}
-                        handleNavigation={this.navToggle}
-                        logout={this.props.userLogout}
-                    />
-                </Suspense>
+            {children}
 
-                {this.props.children}
+            <BottomMenu
+                navLinks={bottomNavLinks}
+                handleNavigation={handleNavigation}
+                user={user}
+            />
+        </div>
+    );
+};
 
-                <BottomMenu
-                    navLinks={bottomNavLinks}
-                    handleNavigation={this.handleNavigation}
-                    user={this.props.user}
-                />
+BaseLayout.displayName = 'BaseLayout';
 
-            </div>
-        );
-    }
-}
-
-const mapStateToProps = (state) => {
-    const {
-        cause: {
-            causeList,
-        },
-        user: {
-            user,
-        },
-    } = state;
+const mapStateToProps = ({ cause, user }) => {
+    const { causeList } = cause;
 
     return {
         causeList,
@@ -93,4 +85,6 @@ const mapDispatchToProps = {
     userLogout,
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BaseLayout));
+export default withRouter(
+    connect(mapStateToProps, mapDispatchToProps)(BaseLayout)
+);

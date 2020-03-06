@@ -1,7 +1,7 @@
 const inputOptions = [
     {
         type: 'text',
-        name: 'short_name',
+        name: 'display_name',
         placeholder: 'Display Name',
     }, {
         type: 'text',

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './OrgCauses.css';
 
 // Shared UI Components
@@ -12,26 +12,23 @@ import handleViewport from 'react-in-viewport';
 
 const CauseTileWithLazyLoad = handleViewport(CauseTile);
 
-// TODO turn this into functional component if not using state
-export default class OrgCauses extends Component {
+const OrgCauses = ({ causes, causeSelected }) => {
+    return (
+        <div className="OrgCauses">
+            {causes.length > 0 && <h3>Get involved</h3>}
+            <Slider>
+                {causes.map((cause, index) =>
+                    <CauseTileWithLazyLoad
+                        key={cause.id}
+                        raised={58} // TODO: Hardcoded value?
+                        cause={cause}
+                        index={index}
+                        causeSelected={causeSelected}
+                    />
+                )}
+            </Slider>
+        </div>
+    );
+};
 
-    render() {
-        const { causes } = this.props;
-        return (
-            <div className="OrgCauses">
-                {causes.length > 0 && <h3>Get involved</h3>}
-                <Slider>
-                    {causes.map((cause, index) =>
-                        <CauseTileWithLazyLoad
-                            key={index}
-                            raised={58}
-                            cause={cause}
-                            index={index}
-                            causeSelected={this.props.causeSelected}
-                        />
-                    )}
-                </Slider>
-            </div>
-        );
-    }
-}
+export default OrgCauses;

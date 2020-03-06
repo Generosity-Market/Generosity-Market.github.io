@@ -1,5 +1,5 @@
 .TileSection {
-    padding: 1rem;
+    padding: 0rem 1rem;
     position: relative;
 }
 
@@ -35,9 +35,9 @@
 }
 
 .direction-arrows.left {
-    left: 1vw;
+    left: 0rem;
 }
 
 .direction-arrows.right {
-    right: 6vw;
+    right: 1.25rem;
 }

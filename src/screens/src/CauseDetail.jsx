@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import '../styles/CauseDetail.css';
 
 import {
     Button,
     Glyphicon,
+    LinkButton,
 } from '@jgordy24/stalls-ui';
 
 // Ducks
@@ -30,99 +31,95 @@ import {
     TileSection,
 } from 'components/containers/CauseDetail';
 
-export class CauseDetail extends Component {
+export const CauseDetail = ({
+    cause,
+    match,
+    getSingleCause,
+}) => {
+    const {
+        Donations,
+        name,
+        cover_image,
+        profile_image,
+        Preferences,
+        totalRaised,
+        goal_amount,
+        description,
+        purpose,
+    } = cause;
 
-    componentDidMount() {
-        // scrollTo('topnav');
-
-        // fetch the current cause if undefined (Usually on refreshing the screen)
-        if (!this.props.cause) {
-            const id = this.props.match.params.id;
-            this.props.getSingleCause(id);
+    useEffect(() => {
+        if (!cause) {
+            const id = match.params.id;
+            getSingleCause(id);
         }
+        // eslint-disable-next-line
+    }, [cause, match.params.id]);
+
+    let purchasedTiles = [];
+
+    if (Donations) {
+        purchasedTiles = Object.keys(Donations).map(index => Donations[index].amount);
     }
 
-    render() {
-        const {
-            cause,
-            cause: {
-                Donations,
-                name,
-                cover_image,
-                profile_image,
-                Preferences,
-                totalRaised,
-                goal_amount,
-                description,
-                purpose,
-            },
-        } = this.props;
+    return (
+        <div className="CauseDetail">
 
-        let purchasedTiles;
+            <Banner
+                heading={name}
+                cover_image={cover_image}
+                profile_image={profile_image}
+                round_image={Preferences ? Preferences[0].round_image : {}}
+            />
 
-        if (Donations) {
-            purchasedTiles = Object.keys(Donations).map(index => Donations[index].amount);
-        }
+            <div className="wrapper">
 
-        return (
-            <div className="CauseDetail">
-
-                <Banner
-                    heading={name}
-                    cover_image={cover_image}
-                    profile_image={profile_image}
-                    round_image={Preferences ? Preferences[0].round_image : {}}
+                <ProgressBar
+                    totalRaised={totalRaised}
+                    goal_amount={goal_amount}
                 />
 
-                <div className="wrapper">
+                <TileSection
+                    {...cause}
+                    purchasedTiles={purchasedTiles}
+                />
 
-                    <ProgressBar
-                        totalRaised={totalRaised}
-                        goal={goal_amount}
-                    />
+                <LinkButton
+                    label='Donate'
+                    bsStyle='active'
+                    bsSize='long'
+                    href='/checkout'
+                />
 
-                    <TileSection
-                        {...cause}
-                        purchasedTiles={purchasedTiles || []}
-                    />
-
-                    <Button
-                        label='Donate'
-                        bsStyle='active'
-                        bsSize='full'
-                        href='/checkout'
-                    />
-
-                    <div className="share-link" onClick={() => sharePage()}>
-                        <Glyphicon icon={'share-alt'} />
-                        Or Share This Page
-                    </div>
-
-                    <AboutCause
-                        title={name}
-                        aboutText={description}
-                        usageText={purpose}
-                    />
-
-                    {Donations && Donations.length > 0 &&
-                        <DonorComments
-                            donations={Donations}
-                        />
-                    }
-
-                    <Button
-                        bsStyle="success"
-                        bsSize="long"
-                        label="Share this page"
-                        onClick={sharePage}
-                        icon="share-alt"
-                    />
-
+                <div className="share-link" onClick={() => sharePage()}>
+                    <Glyphicon icon={'share-alt'} />
+                    Or Share This Page
                 </div>
+
+                <AboutCause
+                    title={name}
+                    aboutText={description}
+                    usageText={purpose}
+                />
+
+                {Donations && Donations.length > 0 &&
+                    <DonorComments
+                        donations={Donations}
+                    />
+                }
+
+                <Button
+                    bsStyle="success"
+                    bsSize="long"
+                    label="Share this page"
+                    onClick={sharePage}
+                    icon="share-alt"
+                />
+
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
 const mapStateToProps = ({ cause, user }) => {
     const { selectedCause } = cause;
