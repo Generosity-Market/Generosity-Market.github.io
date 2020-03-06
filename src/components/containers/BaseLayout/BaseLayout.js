@@ -32,7 +32,7 @@ export const BaseLayout = ({
             getCauseList();
         }
         // eslint-disable-next-line
-    }, [causeList]);
+    }, []);
 
     const navToggle = (endpoint) => {
         setTimeout(() => setShowMenu(state => !state), 200);

@@ -7,6 +7,7 @@
         "anazlye": "node scripts/analyzer.js",
         "start": "react-scripts start",
         "dev": "PORT=3001 react-scripts start",
+        "dev:local": "PORT=3001 REACT_APP_DEV_API=http://localhost:3002/api react-scripts start",
         "build": "react-scripts build",
         "test": "cross-env react-scripts test --watchAll=false --silent ",
         "test:watch": "react-scripts test --verbose",
