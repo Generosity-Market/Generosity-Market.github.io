@@ -15,6 +15,8 @@ import {
     submitPayment,
 } from 'services';
 
+import { appendFormData } from 'utilities';
+
 export {
     addCause,
     causeSelected
@@ -52,11 +54,29 @@ export const submitDonation = (args) => {
     };
 };
 
+// publishing the submitted cause page
+// TODO: BUG: Returning dispatch and getState doesnt seem to work here...
+export const submitCauseForm = (uploadData) => {
+    const headers = { 'Content-Type': 'multipart/form-data' };
+    const formData = appendFormData(uploadData);
+
+    return submitCauseFormData(formData, { headers })
+        .then(res => {
+            if (res.errors) {
+                return { error: res.error };
+            } else {
+                addCause(res);
+                causeSelected(res); // TODO: BUG: Why doesnt this select the currently created cause???
+                return { success: true, cause_id: res.id };
+            }
+        })
+        .catch(error => {
+            return { error };
+        });
+};
+
 // calling the api for the entire causelist
 export const getCauseList = () => makeFetchCreator(fetchCauseList, setData, null);
 
 // getting a single cause by the id passed
 export const getSingleCause = (id) => makeFetchCreator(fetchSingleCause, causeSelected, id);
-
-// publishing the submitted cause page
-export const submitCauseForm = (args) => makeFetchCreator(submitCauseFormData, addCause, args);

@@ -2,8 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-// NOTE must be exported/imported in this manner to work around the redux connection and only test the UI
-// NOTE Actions and Reducers should be tested for any other activities this component would handle.
+// NOTE: must be exported/imported in this manner to work around the redux connection and only test the UI
+// NOTE: Actions and Reducers should be tested for any other activities this component would handle.
 import { Organization } from '../src/Organization';
 
 const defaultProps = {

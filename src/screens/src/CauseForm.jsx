@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { addCause } from 'ducks/cause';
 import causeFormOptions from '../config/causeFormOptions';
 import '../styles/CauseForm.css';
 
-import { submitCauseFormData } from 'services';
-import { appendFormData } from 'utilities';
+import {
+    addCause,
+    submitCauseForm,
+} from 'ducks/cause';
 
 // Shared UI Component
 import { Button } from '@jgordy24/stalls-ui';
@@ -93,9 +94,7 @@ export class CauseForm extends Component {
         }
     };
 
-    // TODO reverse this logic...instead of calling the service then dispatching the action.
-    // TODO We call the action and let the action call the service.
-    handlePublish = () => {
+    handlePublish = async () => {
         // console.log('handle uploading-', this.state);
         this.setState({ status: 'loading' });
 
@@ -105,31 +104,23 @@ export class CauseForm extends Component {
             user_id: this.props.user.id,
         };
 
-        const formData = appendFormData(causeData);
+        const uploadFinished = (status) => {
+            this.setState({ status });
+            setTimeout(() => this.setState({ status: false }), 3000);
+        };
 
-        submitCauseFormData(formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data'
+        try {
+            const response = await submitCauseForm(causeData);
+
+            if (response.error) {
+                uploadFinished('failed');
+            } else {
+                uploadFinished('success');
+                setTimeout(() => this.props.history.push(`/cause/${response.cause_id}`), 1000);
             }
-        })
-            .then(res => {
-                // TODO look for the response to see if errors come here....
-                /* eslint-disable-next-line no-console */
-                console.log('Response: ', res);
-                if (res.errors) {
-                    // return // handle error...
-                }
-
-                this.setState({ status: 'success' });
-                this.props.addCause(res.Cause);
-                // BUG FIX -> Navigating to previously created page instead of the newly created one...
-                setTimeout(() => this.props.history.push(`/cause/${res.Cause.id}`), 1000);
-            })
-            .catch(err => {
-                // handle your error
-                /* eslint-disable-next-line no-console */
-                console.log('Error: ', err);
-            });
+        } catch (error) {
+            uploadFinished('failed');
+        }
     };
 
     render() {
