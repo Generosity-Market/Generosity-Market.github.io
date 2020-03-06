@@ -11,8 +11,8 @@ branches:
   - master
 
 script: 
-  - npm test
   - npm run build
+  - npm test -- --verbose
 
 notifications:
   slack:

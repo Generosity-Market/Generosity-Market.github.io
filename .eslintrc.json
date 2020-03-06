@@ -4,7 +4,8 @@
         "commonjs": true,
         "es6": true,
         "jest": true,
-        "node": true
+        "node": true,
+        "cypress/globals": true
     },
     "extends": [
         "eslint:recommended",
@@ -19,7 +20,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "cypress"
     ],
     "rules": {
         "no-console": "warn",
