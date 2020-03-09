@@ -11,6 +11,10 @@
     z-index: 5;
 }
 
+.Splash .LinkButton.long {
+    margin: 0;
+}
+
 .Splash .logo-container {
     background: linear-gradient(var(--white) 65%, rgba(255,255,255,0.0));
     display: flex;
