@@ -25,7 +25,7 @@ describe('App Startup/Login', () => {
     it('should sign into the application and navigate to the user dashboard', () => {
         cy.login('ci@genmar.com', 'ci@genmar');
 
-        cy.wait(1000);
+        cy.wait(3000);
 
         cy.location('pathname').should('include', 'users');
     });
