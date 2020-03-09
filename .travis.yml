@@ -2,17 +2,36 @@ os: osx
 language: node_js
 node_js: 
   - "lts/*"
+
+addons:
+apt:
+  packages:
+    # needed by Cypress, not in Ubuntu 16+ by default
+    - libgconf-2-4
+
 cache:
   directories:
     - node_modules
+    # folder with Cypress binary
+    - ~/.cache
 
 branches:
   only:
   - master
 
-script: 
-  - npm test
-  - npm run build
+stages:
+  - Build and run unit tests
+  - End to end tests
+
+jobs:
+  include:
+    - stage: Build and run unit tests
+      script: 
+      - npm run build
+      - npm run test
+    - stage: End to end tests
+      script:
+        - npm run test:ci
 
 notifications:
   slack:
