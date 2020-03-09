@@ -14,20 +14,32 @@ const SlideMenu = ({
     const logoURL = require('Assets/Logo/PNG/Artboard-1Generosity-Logo.png');
 
     const renderLink = ({
+        // color,
+        devModeOnly,
         endpoint,
         icon,
-        name
-    }) =>
-        (
+        name,
+    }) => {
+        const isDev = process.env.NODE_ENV === 'development';
+        const shouldRender = !devModeOnly || (devModeOnly && isDev);
+        const navigate = () => handleNavigation(endpoint);
+
+        return shouldRender && (
             <div
                 key={name + icon}
                 className='navLinks'
-                onClick={() => handleNavigation(endpoint)}
+                onClick={navigate}
             >
-                <Glyphicon icon={icon} fixedWidth />
+                {icon && <Glyphicon icon={icon} fixedWidth />}
                 {name}
             </div>
         );
+    };
+
+    const handleLogout = () => {
+        logout();
+        handleNavigation('/');
+    };
 
     return (
         <nav
@@ -42,7 +54,7 @@ const SlideMenu = ({
             <div className="LinksContainer">
                 {navLinks.map(link => renderLink(link))}
 
-                <div className="logout navLinks" onClick={() => { logout(); handleNavigation('/'); }}>
+                <div className="logout navLinks" onClick={handleLogout}>
                     <Glyphicon
                         icon={'arrow-alt-circle-left'}
                         style={{ color: 'var(--danger-65)' }}
