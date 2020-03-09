@@ -1,5 +1,6 @@
 {
     "baseUrl": "http://localhost:3001",
     "viewportHeight": 823,
-    "viewportWidth": 411
+    "viewportWidth": 411,
+    "ignoreTestFiles": "**/examples/*.spec.js"
 }
