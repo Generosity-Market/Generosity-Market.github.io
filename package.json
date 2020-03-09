@@ -11,7 +11,7 @@
         "build": "react-scripts build",
         "test": "cross-env react-scripts test --watchAll=false --silent ",
         "test:watch": "react-scripts test --verbose",
-        "test:ci": "npm run test -- --verbose && start-server-and-test dev http://localhost:3001 cy:ci",
+        "test:ci": "start-server-and-test dev http://localhost:3001 cy:ci",
         "cy:open": "cypress open",
         "cy:run": "cypress run",
         "cy:ci": "cypress run --config video=false",

@@ -19,9 +19,19 @@ branches:
   only:
   - master
 
-script: 
-  - npm run build
-  - npm run test:ci
+stages:
+  - Build and run unit tests
+  - End to end tests
+
+jobs:
+  include:
+    - stage: Build and run unit tests
+      script: 
+      - npm run build
+      - npm run test
+    - stage: End to end tests
+      script:
+        - npm run test:ci
 
 notifications:
   slack:
