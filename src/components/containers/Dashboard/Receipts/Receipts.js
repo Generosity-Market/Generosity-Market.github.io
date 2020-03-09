@@ -14,6 +14,7 @@ import {
 
 export const Receipts = React.forwardRef(({
     causeSelected,
+    loading,
     supportedCauses,
 }, ref) => {
     const causes = supportedCauses && supportedCauses.map(cause => {
@@ -26,13 +27,21 @@ export const Receipts = React.forwardRef(({
         );
     });
 
+    const noSupportedCauses = (
+        <div className="no-causes">
+            {loading ? 'Loading your receipts...' : 'You haven\'t supported any causes yet'}
+        </div>
+    );
+
+    const hasCauses = (causes && causes.length > 0);
+
     return (
         <div
             className="Receipts"
             ref={ref}
         >
             <Heading text={'Causes I Support'} />
-            {causes}
+            {hasCauses ? causes : noSupportedCauses}
         </div>
     );
 });
