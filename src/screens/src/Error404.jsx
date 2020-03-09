@@ -33,6 +33,7 @@ export const Error404 = ({
 
             <Button
                 bsStyle="warning"
+                bsSize='long'
                 label="Go back my friend, go back"
                 onClick={history.goBack}
             />

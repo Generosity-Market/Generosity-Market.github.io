@@ -107,7 +107,7 @@ export const editUserData = (id, { address, name, phone }) => {
                     // dispatch(setAlert({ type: 'error', message: data.error }));
                     return data;
                 } else {
-                    let prevUserState = getState().user.user;
+                    let prevUserState = getState().user || {};
 
                     const newUserState = {
                         ...data,

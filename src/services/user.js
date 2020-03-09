@@ -15,6 +15,6 @@ export const fetchUserCreatedCauses = (id) => fetchJSONData(`/users/${id}/causes
 
 export const fetchUserSupportedCauses = (id) => fetchJSONData(`/users/${id}/donations`);
 
-export const putEditedUser = (id, data) => putJSONData(`/users/${id}`, data);
+export const putEditedUser = (id, data) => putJSONData(`/users/${id}/edit`, data);
 
 export const postUserImages = (id, data) => postFormData(`/users/${id}/images`, data);

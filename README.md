@@ -18,10 +18,14 @@ npm install
 ## Start
 
 ```sh
-npm start
+npm run dev
+
+// OR to point to local dev server (If making changes to the api)
+
+npm run dev:local
 ```
 
-Application will be running on [localhost:3000](http://localhost:3000).
+Application will be running on [localhost:3001](http://localhost:3001).
 
 ## Test
 
@@ -29,7 +33,8 @@ Application will be running on [localhost:3000](http://localhost:3000).
 npm test
 ```
 
-Entire test suite will run
+Entire test suite will run.
+Use the option `-- --verbose` to show detailed results of each test.
 
 or
 
@@ -37,7 +42,7 @@ or
 npm run test:watch
 ```
 
-Runs test suite in watch mode, any component changes will rerun the test suite.
+Runs test suite in watch and verbose mode, any component changes will rerun the test suite.
 
 ## Meta
 

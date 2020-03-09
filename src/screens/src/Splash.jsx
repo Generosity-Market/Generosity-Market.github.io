@@ -14,7 +14,7 @@ export const Splash = ({ getCauseList, loadTokenFromCookie }) => {
         getCauseList();
         loadTokenFromCookie();
         // eslint-disable-next-line
-    }, []);
+    }, [getCauseList, loadTokenFromCookie]);
 
     return (
         <div className='Splash'>
