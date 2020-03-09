@@ -22,7 +22,7 @@ describe('App Startup/Login', () => {
         cy.location('pathname').should('include', 'login');
     });
 
-    it('should sign into the application', () => {
+    it('should sign into the application and navigate to the user dashboard', () => {
         cy.login('ci@genmar.com', 'ci@genmar');
 
         cy.wait(1000);
