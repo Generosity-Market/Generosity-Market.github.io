@@ -151,6 +151,7 @@ export class CauseForm extends Component {
 
                 <Button
                     bsStyle='success'
+                    bsSize='long'
                     label={this.handleButtonText()}
                     onClick={this.handlePublish}
                 />

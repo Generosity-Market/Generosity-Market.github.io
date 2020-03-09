@@ -49,6 +49,7 @@ export const Dashboard = ({
     const [highlightedCause, setHighlightedCause] = useState(null);
     const [editProfile, setEditProfile] = useState(false);
     const [loadingCauses, setLoadingCauses] = useState(false);
+    const [loadingReceipts, setLoadingReceipts] = useState(false);
     const [isUploading, setIsUploading] = useState({ status: false, message: null });
 
     useEffect(() => {
@@ -91,7 +92,10 @@ export const Dashboard = ({
     };
 
     const getReceipts = () => {
-        if (!user.SupportedCauses) getUserSupportedCauses(user.id);
+        if (!user.SupportedCauses) {
+            setLoadingReceipts(true);
+            getUserSupportedCauses(user.id).then(() => setLoadingReceipts(false));
+        }
     };
 
     const getCauses = () => {
@@ -128,7 +132,7 @@ export const Dashboard = ({
         }
     };
 
-    return !user ? null : (
+    return user && (
         <div className='Dashboard'>
             <ImageUploader
                 coverImgSrc={user.cover_image}
@@ -177,6 +181,7 @@ export const Dashboard = ({
                 }
 
                 <InViewportReceipts
+                    loading={loadingReceipts}
                     supportedCauses={user.SupportedCauses}
                     onEnterViewport={getReceipts}
                 />

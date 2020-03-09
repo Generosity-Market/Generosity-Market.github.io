@@ -35,7 +35,7 @@ const AddressInputs = ({
             <TextInput
                 label="City:"
                 name="city"
-                placeholder="Ex: 123 ABC Street"
+                placeholder="Ex: Atlanta"
                 value={city}
                 {...rest}
             />
