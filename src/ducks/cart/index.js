@@ -1,9 +1,9 @@
 import cartReducer from './reducer';
 
 export {
-    addToCart,
-    clearCart,
-    removeFromCart
+    addItemToCart,
+    clearAllCartItems,
+    removeItemFromCart
 } from './operations';
 
 export {
