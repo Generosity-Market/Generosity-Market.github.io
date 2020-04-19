@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { removeFromCart, clearCart } from 'ducks/cart';
+import { removeItemFromCart, clearAllCartItems } from 'ducks/cart';
 import { submitDonation } from 'ducks/cause';
 import '../styles/Checkout.css';
 
@@ -23,8 +23,8 @@ import {
 
 export const Checkout = ({
     cart,
-    clearCart,
-    // user,
+    clearAllCartItems,
+    user,
     ...rest
 }) => {
     const [showForm, setShowForm] = useState(false);
@@ -37,12 +37,12 @@ export const Checkout = ({
         <StripeProvider apiKey={process.env.REACT_APP_STRIPE_TEST}>
             <div className="Checkout">
 
-                {!cart.length > 0 ?
-                    <EmptyCart />
+                {!cart.length > 0
+                    ? <EmptyCart />
                     : (
                         <Cart
                             cart={cart}
-                            clearCart={clearCart}
+                            clearAllCartItems={clearAllCartItems}
                             {...rest}
                         />
                     )
@@ -53,22 +53,25 @@ export const Checkout = ({
                         total={getTotal(cart, 'amount')}
                         toggleCheckoutForm={toggleCheckoutForm}
                         cart={cart}
-                        clearCart={clearCart}
+                        clearAllCartItems={clearAllCartItems}
                         {...rest}
                     />
                 }
 
-                <Elements>
-                    <CheckoutForm
-                        toggleCheckoutForm={toggleCheckoutForm}
-                        showForm={showForm}
-                        total={getTotal(cart, 'amount')}
-                        submitDonation={submitDonation}
-                        cart={cart}
-                        clearCart={clearCart}
-                        {...rest}
-                    />
-                </Elements>
+                {user &&
+                    <Elements>
+                        <CheckoutForm
+                            toggleCheckoutForm={toggleCheckoutForm}
+                            showForm={showForm}
+                            total={getTotal(cart, 'amount')}
+                            submitDonation={submitDonation}
+                            cart={cart}
+                            clearAllCartItems={clearAllCartItems}
+                            user={user}
+                            {...rest}
+                        />
+                    </Elements>
+                }
 
             </div>
         </StripeProvider>
@@ -77,7 +80,7 @@ export const Checkout = ({
 
 const mapStateToProps = ({ cart, user }) => ({ cart, user });
 
-const mapDispatchToProps = { clearCart, removeFromCart, submitDonation };
+const mapDispatchToProps = { clearAllCartItems, removeItemFromCart, submitDonation };
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout);

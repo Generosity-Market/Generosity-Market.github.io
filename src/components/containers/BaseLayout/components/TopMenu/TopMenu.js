@@ -22,7 +22,7 @@ const TopMenu = ({ openMenu }) => {
             </div>
 
             <div className='links'>
-                <div onClick={() => openMenu()}>
+                <div onClick={openMenu}>
                     <Glyphicon icon={'bars'} />
                 </div>
             </div>

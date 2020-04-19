@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
-import { clearCart } from 'ducks/cart';
+import { clearAllCartItems } from 'ducks/cart';
 import DonationTile from '../DonationTile/DonationTile';
 import './TileSection.css';
 
@@ -119,7 +119,7 @@ export const TileSection = ({
 
 const mapStateToProps = ({ cart }) => ({ cart });
 
-const mapDispatchToProps = { clearCart };
+const mapDispatchToProps = { clearAllCartItems };
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(TileSection);

@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import './DonationTile.css';
 
 import {
-    addToCart,
-    removeFromCart,
+    addItemToCart,
+    removeItemFromCart,
 } from 'ducks/cart';
 
 import {
@@ -13,12 +13,12 @@ import {
 } from 'utilities';
 
 export const DonationTile = ({
-    addToCart,
+    addItemToCart,
     amount,
     cart,
     cause,
     isPurchased,
-    removeFromCart,
+    removeItemFromCart,
     tileIcon,
     ...rest
 }) => {
@@ -33,7 +33,7 @@ export const DonationTile = ({
     }, [amount, cause, cart]);
 
     const addTileToCart = (args) => {
-        addToCart({ ...args });
+        addItemToCart({ ...args });
         setIsSelected(true);
     };
 
@@ -48,7 +48,7 @@ export const DonationTile = ({
 
         let updatedCart = removeIndexFromArray(indexToRemove, cart);
 
-        removeFromCart(updatedCart);
+        removeItemFromCart(updatedCart);
         setIsSelected(false);
     };
 
@@ -69,7 +69,7 @@ export const DonationTile = ({
 
 const mapStateToProps = ({ cart }) => ({ cart });
 
-const mapDispatchToProps = { addToCart, removeFromCart };
+const mapDispatchToProps = { addItemToCart, removeItemFromCart };
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(DonationTile);

@@ -91,7 +91,7 @@ export const CauseDetail = ({
                     href='/checkout'
                 />
 
-                <div className="share-link" onClick={() => sharePage()}>
+                <div className="share-link" onClick={sharePage}>
                     <Glyphicon icon={'share-alt'} />
                     Or Share This Page
                 </div>

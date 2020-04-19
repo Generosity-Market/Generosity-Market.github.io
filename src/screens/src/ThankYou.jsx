@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { clearCart } from 'ducks/cart';
+import { clearAllCartItems } from 'ducks/cart';
 import '../styles/ThankYou.css';
 
 // Shared UI Components
@@ -29,7 +29,7 @@ export const ThankYou = (/* props */) => {
 
 const mapStateToProps = ({ cart, user }) => ({ cart, user });
 
-const mapDispatchToProps = { clearCart };
+const mapDispatchToProps = { clearAllCartItems };
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(ThankYou);

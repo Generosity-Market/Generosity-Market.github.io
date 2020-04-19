@@ -54,7 +54,7 @@ const SlideMenu = ({
 
             <div
                 className='closeMenu'
-                onClick={() => closeMenu()}
+                onClick={closeMenu}
             >
                 <Glyphicon icon={'times'} />
             </div>

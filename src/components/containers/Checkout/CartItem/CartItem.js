@@ -14,11 +14,11 @@ const CartItem = ({
     cart,
     cause,
     profile_image,
-    removeFromCart,
+    removeItemFromCart,
     type,
 }) => {
 
-    const removeItemFromCart = () => {
+    const removeItem = () => {
         let indexToRemove;
 
         for (var i = 0; i < cart.length; i++) {
@@ -27,7 +27,7 @@ const CartItem = ({
             }
         }
         let updatedCart = removeIndexFromArray(indexToRemove, cart);
-        removeFromCart(updatedCart);
+        removeItemFromCart(updatedCart);
     };
 
     return (
@@ -40,7 +40,7 @@ const CartItem = ({
                 <p>${amount}</p>
             </div>
 
-            <div className="clear" onClick={() => removeItemFromCart()}>
+            <div className="clear" onClick={removeItem}>
                 <Glyphicon icon={['far', 'times-circle']} />
             </div>
         </div>
