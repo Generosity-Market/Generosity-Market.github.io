@@ -6,7 +6,8 @@ import { loadTokenFromCookie } from 'ducks/user';
 import '../styles/Splash.css';
 
 // Shared UI Components
-import { Button } from '@jgordy24/stalls-ui';
+import { LinkButton } from '@jgordy24/stalls-ui';
+import { HeadContainer } from 'components/shared';
 
 export const Splash = ({ getCauseList, loadTokenFromCookie }) => {
 
@@ -18,6 +19,7 @@ export const Splash = ({ getCauseList, loadTokenFromCookie }) => {
 
     return (
         <div className='Splash'>
+            <HeadContainer />
 
             <div className='logo-container'>
                 <img
@@ -28,25 +30,25 @@ export const Splash = ({ getCauseList, loadTokenFromCookie }) => {
             </div>
 
             <div className='links'>
-                <Button
+                <LinkButton
                     bsStyle='success'
-                    bsSize='full'
+                    bsSize='long'
                     label='Create a cause'
                     href='/causes/new'
                     transparent={true}
                 />
 
-                <Button
+                <LinkButton
                     bsStyle='active'
-                    bsSize='full'
+                    bsSize='long'
                     label='Find a cause'
                     href='/causes'
                     transparent={true}
                 />
 
-                <Button
+                <LinkButton
                     bsStyle='pale'
-                    bsSize='full'
+                    bsSize='long'
                     label='Sign in'
                     href='/login'
                     linkContext='login'
