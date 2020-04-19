@@ -11,7 +11,7 @@ const initialState = {
         orgList: [],
         selectedOrg: '',
     },
-    cart: [],
+    cart: JSON.parse(localStorage.getItem('cart')) || [],
     // filter: 'all',
     // alert: { type: null, message: null }
 };
