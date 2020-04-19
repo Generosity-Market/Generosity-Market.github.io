@@ -7,8 +7,8 @@ import { Glyphicon } from '@jgordy24/stalls-ui';
 
 const Cart = ({
     cart,
-    clearCart,
-    removeFromCart,
+    clearAllCartItems,
+    removeItemFromCart,
     // user,
 }) => {
     // console.log("Cart User: ", user);
@@ -19,7 +19,7 @@ const Cart = ({
                 key={item.cause + item.amount}
                 {...item}
                 cart={cart}
-                removeFromCart={removeFromCart}
+                removeItemFromCart={removeItemFromCart}
             />
         );
     });
@@ -33,7 +33,7 @@ const Cart = ({
                 {cartItems}
 
                 {cart.length > 1 &&
-                    <div className="clear-cart" onClick={() => clearCart()}>
+                    <div className="clear-cart" onClick={clearAllCartItems}>
                         <p>clear cart</p>
                         <Glyphicon icon={'times'} />
                     </div>

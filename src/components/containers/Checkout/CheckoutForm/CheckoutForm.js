@@ -19,7 +19,7 @@ import {
 
 const CheckoutForm = ({
     cart,
-    clearCart,
+    clearAllCartItems,
     history,
     showForm,
     stripe,
@@ -75,7 +75,7 @@ const CheckoutForm = ({
                 setStatus('complete');
                 // Remove the checkout form from the screen
                 setTimeout(() => toggleCheckoutForm(), 3250);
-                setTimeout(() => clearCart(), 3500);
+                setTimeout(() => clearAllCartItems(), 3500);
                 // Navigate to the "Thank You" page
                 setTimeout(() => history.push('/thankyou'), 3500);
             } else if (response.status === 'failed') {
@@ -90,7 +90,10 @@ const CheckoutForm = ({
     };
 
     return (
-        <div className="CheckoutForm" style={showForm && total > 0 ? { bottom: '-5%' } : { bottom: '-100%' }}>
+        <div
+            className="CheckoutForm"
+            style={showForm && total > 0 ? { bottom: '-5%' } : { bottom: '-100%' }}
+        >
             <div className="card">
                 <Glyphicon
                     onClick={toggleCheckoutForm}
@@ -99,7 +102,13 @@ const CheckoutForm = ({
                 <p>Would you like to complete the purchase?</p>
 
                 <div className="stripe-field email">
-                    <input type="email" name="email" placeholder="Email" value={email} onChange={handleStateChange} />
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={handleStateChange}
+                    />
                 </div>
 
                 <div className="stripe-field">
