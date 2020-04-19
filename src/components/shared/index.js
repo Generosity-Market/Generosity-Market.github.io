@@ -5,6 +5,7 @@ export { default as Banner } from './src/Banner';
 export { default as CauseTile } from './src/CauseTile';
 export { default as DownloadCSV } from './src/DownloadCSV';
 export { default as Heading } from './src/Heading';
+export { default as HeadContainer } from './src/HeadContainer';
 export { default as ImageUploaderControlled } from './src/ImageUploader';
 export { default as InputGroup } from './src/InputGroup';
 export { default as Loader } from './src/Loader';
