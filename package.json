@@ -18,7 +18,7 @@
         "deploy": "gh-pages -d build"
     },
     "dependencies": {
-        "@jgordy24/react-hooks-lib": "^1.2.0",
+        "@jgordy24/react-hooks-lib": "^1.3.3",
         "@jgordy24/stalls-ui": "^0.4.3",
         "immutability-helper": "^2.8.1",
         "js-cookie": "^2.2.0",

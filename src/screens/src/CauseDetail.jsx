@@ -8,17 +8,11 @@ import {
     LinkButton,
 } from '@jgordy24/stalls-ui';
 
-// Ducks
-import {
-    causeSelected,
-    getSingleCause,
-} from 'ducks/cause';
+import { useWebShareApi } from '@jgordy24/react-hooks-lib';
 
-// Utilities
-import {
-    // scrollTo,
-    sharePage,
-} from 'utilities';
+// Ducks
+import { getSingleCause } from 'ducks/cause';
+import { setPageData } from 'ducks/pageData';
 
 // Shared UI Components
 import {
@@ -38,6 +32,8 @@ export const CauseDetail = ({
     cause,
     match,
     getSingleCause,
+    setPageData,
+    pageData,
 }) => {
     const {
         Donations,
@@ -51,6 +47,8 @@ export const CauseDetail = ({
         purpose,
     } = cause;
 
+    const [webShareIsSupported, share] = useWebShareApi(pageData);
+
     useEffect(() => {
         if (!cause) {
             const id = match.params.id;
@@ -58,6 +56,18 @@ export const CauseDetail = ({
         }
         // eslint-disable-next-line
     }, [cause, match.params.id]);
+
+    useEffect(() => {
+        if (cause) {
+            setPageData({
+                pageName: 'causeDetail',
+                title: `Generosity Market - ${name}`,
+                image: cover_image,
+                description,
+                text: description,
+            });
+        }
+    }, [cause, name, cover_image, description, setPageData]);
 
     let purchasedTiles = [];
 
@@ -67,11 +77,7 @@ export const CauseDetail = ({
 
     return (
         <div className="CauseDetail">
-            <HeadContainer
-                title={`Generosity Market - ${name}`}
-                image={cover_image}
-                description={description}
-            />
+            <HeadContainer />
 
             <Banner
                 heading={name}
@@ -99,10 +105,12 @@ export const CauseDetail = ({
                     href='/checkout'
                 />
 
-                <div className="share-link" onClick={sharePage}>
-                    <Glyphicon icon={'share-alt'} />
-                    Or Share This Page
-                </div>
+                {webShareIsSupported &&
+                    <div className="share-link" onClick={share}>
+                        <Glyphicon icon={'share-alt'} />
+                        Or Share This Page
+                    </div>
+                }
 
                 <AboutCause
                     title={name}
@@ -116,31 +124,31 @@ export const CauseDetail = ({
                     />
                 }
 
-                <Button
-                    bsStyle="success"
-                    bsSize="long"
-                    label="Share this page"
-                    onClick={sharePage}
-                    icon="share-alt"
-                />
+                {webShareIsSupported &&
+                    <Button
+                        bsStyle="success"
+                        bsSize="long"
+                        label="Share this page"
+                        onClick={share}
+                        icon="share-alt"
+                    />
+                }
 
             </div>
         </div>
     );
 };
 
-const mapStateToProps = ({ cause, user }) => {
+const mapStateToProps = ({ cause, user, pageData }) => {
     const { selectedCause } = cause;
 
     return {
         cause: selectedCause,
+        pageData,
         user,
     };
 };
 
-const mapDispatchToProps = {
-    causeSelected,
-    getSingleCause
-};
+const mapDispatchToProps = { getSingleCause, setPageData };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CauseDetail);
