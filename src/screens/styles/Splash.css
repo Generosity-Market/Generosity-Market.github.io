@@ -36,32 +36,9 @@
     text-align: center;
 }
 
-/* .Splash .LinkButton {
-    border-radius: var(--border-radius);
-    font-family: var(--main-font);
-    font-weight: 300;
-    letter-spacing: 0.2rem;
+.Splash .LinkButton {
+    margin: 1rem auto;
 }
-
-.Splash .LinkButton a {
-    border-radius: var(--border-radius);
-    box-shadow: var(--black-box-shadow);
-}
-
-.Splash .LinkButton .create-cause {
-    background-color: var(--bright-green-85);
-    color: var(--white);
-}
-
-.Splash .find-cause {
-    background-color: var(--dark-green-85);
-    color: var(--white);
-}
-
-.Splash .sign-in {
-    background-color: var(--white-85);
-    color: var(--dark-green);
-} */
 
 .Splash .sign-up {
     cursor: pointer;

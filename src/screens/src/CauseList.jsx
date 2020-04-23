@@ -4,16 +4,15 @@ import { getCauseList, causeSelected } from 'ducks/cause';
 import '../styles/CauseList.css';
 
 // CauseList components
-import {
-    SliderSection,
-} from 'components/containers/CauseList';
+import { SliderSection } from 'components/containers/CauseList';
+import { HeadContainer } from 'components/shared';
 
 const returnEmpty = (/* getCauseList */) => {
     // console.log('getCauseList', getCauseList);
     return (
         <div className="emptyCauses">
             <h2>There are no causes here my young padawan...</h2>
-            {/* TODO Add a button to reload the causelist */}
+            {/* TODO: Add a button to reload the causelist */}
         </div>
     );
 };
@@ -34,8 +33,14 @@ export const CauseList = ({
 
     // TODO: handle loading and state of no causes to show...
     // TODO: empty array could be cause by an error, give button to reload list if empty
-    return causeList && causeList.length ? (
+    if (!causeList || !causeList.length) {
+        return returnEmpty(getCauseList);
+    }
+
+    return (
         <div className="CauseList">
+            <HeadContainer />
+
             <SliderSection
                 headingText={'Featured'}
                 causeList={causeList}
@@ -58,7 +63,7 @@ export const CauseList = ({
             />
 
         </div>
-    ) : returnEmpty(getCauseList);
+    );
 };
 
 const mapStateToProps = ({ cause }) => {

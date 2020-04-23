@@ -21,7 +21,10 @@ import {
 } from 'utilities';
 
 // Shared UI Components
-import { Banner } from 'components/shared';
+import {
+    Banner,
+    HeadContainer,
+} from 'components/shared';
 
 // Cause Detail Components
 import {
@@ -64,6 +67,11 @@ export const CauseDetail = ({
 
     return (
         <div className="CauseDetail">
+            <HeadContainer
+                title={`Generosity Market - ${name}`}
+                image={cover_image}
+                description={description}
+            />
 
             <Banner
                 heading={name}

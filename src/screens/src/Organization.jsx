@@ -13,7 +13,10 @@ import {
     Button,
     // HeroSection,
 } from '@jgordy24/stalls-ui';
-import { Banner } from 'components/shared';
+import {
+    Banner,
+    HeadContainer,
+} from 'components/shared';
 
 // Organization Page UI Components
 import {
@@ -46,6 +49,11 @@ export const Organization = ({
 
     return (
         <div className="Organization">
+            <HeadContainer
+                title={`Generosity Market - ${display_name}`}
+                image={cover_image}
+                description={mission}
+            />
 
             {id &&
                 <Banner
