@@ -1,5 +1,5 @@
 import update from 'immutability-helper';
-import initialState from 'store/store';
+import initialState from 'store/initialState';
 
 import {
     EDIT_USER,
