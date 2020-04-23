@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getCauseList, causeSelected } from 'ducks/cause';
+import { resetPageData } from 'ducks/pageData';
 import '../styles/CauseList.css';
 
 // CauseList components
@@ -20,13 +21,15 @@ const returnEmpty = (/* getCauseList */) => {
 export const CauseList = ({
     causeList,
     causeSelected,
-    getCauseList
+    getCauseList,
+    resetPageData,
 }) => {
 
     useEffect(() => {
         if (!causeList || causeList.length === 0) {
             getCauseList();
         }
+        resetPageData();
         // eslint-disable-next-line
     }, [causeList]);
 
@@ -66,12 +69,12 @@ export const CauseList = ({
     );
 };
 
-const mapStateToProps = ({ cause }) => {
+const mapStateToProps = ({ cause, pageData }) => {
     const { causeList } = cause;
 
-    return { causeList };
+    return { causeList, pageData };
 };
 
-const mapDispatchToProps = { getCauseList, causeSelected };
+const mapDispatchToProps = { getCauseList, causeSelected, resetPageData };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CauseList);

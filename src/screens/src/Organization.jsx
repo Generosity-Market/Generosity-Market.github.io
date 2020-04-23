@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getCauseList, causeSelected } from 'ducks/cause';
 import { getOrgData } from 'ducks/organization';
+import { setPageData } from 'ducks/pageData';
 import '../styles/Organization.css';
 
 import {
@@ -40,6 +41,7 @@ export const Organization = ({
     },
     match,
     getOrgData,
+    setPageData,
 }) => {
 
     useEffect(() => {
@@ -47,13 +49,21 @@ export const Organization = ({
         // eslint-disable-next-line
     }, [match.params.id]);
 
+    useEffect(() => {
+        if (id) {
+            setPageData({
+                pageName: 'organization',
+                title: `Generosity Market - ${display_name}`,
+                image: cover_image,
+                description: mission,
+                text: mission,
+            });
+        }
+    }, [id, display_name, cover_image, mission, setPageData]);
+
     return (
         <div className="Organization">
-            <HeadContainer
-                title={`Generosity Market - ${display_name}`}
-                image={cover_image}
-                description={mission}
-            />
+            <HeadContainer />
 
             {id &&
                 <Banner
@@ -110,6 +120,11 @@ const mapStateToProps = ({ organization }) => {
     };
 };
 
-const mapDispatchToProps = { getOrgData, getCauseList, causeSelected };
+const mapDispatchToProps = {
+    getOrgData,
+    getCauseList,
+    causeSelected,
+    setPageData,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Organization);
