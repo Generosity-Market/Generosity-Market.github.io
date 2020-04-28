@@ -83,7 +83,7 @@ export const CauseDetail = ({
                 heading={name}
                 cover_image={cover_image}
                 profile_image={profile_image}
-                round_image={Preferences ? Preferences[0].round_image : {}}
+                round_image={Preferences ? Preferences[0].round_image : true}
             />
 
             <div className="wrapper">
