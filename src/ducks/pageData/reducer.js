@@ -2,23 +2,23 @@ import update from 'immutability-helper';
 import initialState from 'store/initialState';
 
 import {
-    REMOVE_TOKEN,
-    SET_TOKEN,
+    RESET_PAGE_DATA,
+    SET_PAGE_DATA,
 } from './types';
 
-const tokenReducer = (state = initialState.token, { type, payload }) => {
+const pageDataReducer = (state = initialState.pageData, { type, payload }) => {
     switch (type) {
-        case SET_TOKEN:
+        case SET_PAGE_DATA:
             return update(state, {
-                $set: payload,
+                $merge: payload,
             });
-        case REMOVE_TOKEN:
+        case RESET_PAGE_DATA:
             return update(state, {
-                $set: null,
+                $set: initialState.pageData,
             });
         default:
             return state;
     }
 };
 
-export default tokenReducer;
+export default pageDataReducer;

@@ -3,17 +3,23 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getCauseList } from 'ducks/cause';
 import { loadTokenFromCookie } from 'ducks/user';
+import { resetPageData } from 'ducks/pageData';
 import '../styles/Splash.css';
 
 // Shared UI Components
 import { LinkButton } from '@jgordy24/stalls-ui';
 import { HeadContainer } from 'components/shared';
 
-export const Splash = ({ getCauseList, loadTokenFromCookie }) => {
+export const Splash = ({
+    getCauseList,
+    loadTokenFromCookie,
+    resetPageData,
+}) => {
 
     useEffect(() => {
         getCauseList();
         loadTokenFromCookie();
+        resetPageData();
         // eslint-disable-next-line
     }, [getCauseList, loadTokenFromCookie]);
 
@@ -75,6 +81,7 @@ const mapStateToProps = ({ user }) => ({ user });
 const mapDispatchToProps = {
     getCauseList,
     loadTokenFromCookie,
+    resetPageData,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Splash);

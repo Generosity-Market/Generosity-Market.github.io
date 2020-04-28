@@ -1,5 +1,5 @@
 import update from 'immutability-helper';
-import initialState from 'store/store';
+import initialState from 'store/initialState';
 
 import {
     ADD_CAUSE,
@@ -9,8 +9,7 @@ import {
     UPDATE_TOTAL,
 } from './types';
 
-const causeReducer = (state = initialState.cause, action) => {
-    const { type, payload } = action;
+const causeReducer = (state = initialState.cause, { type, payload }) => {
     switch (type) {
         case SET_DATA:
             return update(state, {

@@ -13,6 +13,14 @@ const defaultProps = {
             id: 2,
         },
     },
+    pageData: {
+        pageName: null,
+        description: 'Fundraising platform for non-profits and charities',
+        text: 'Fundraising platform for non-profits and charities',
+        image: 'Artboard-1-copy-2Generosity-Logo.png',
+        title: 'Generosity Market',
+        url: window.location.href,
+    },
 };
 
 const wrapper = shallow(<CauseDetail {...defaultProps} />);

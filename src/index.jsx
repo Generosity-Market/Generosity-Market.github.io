@@ -12,7 +12,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import ReduxPromise from 'redux-promise';
 import rootReducer from './reducers/reducer';
-import initialState from './store/store';
+import initialState from './store/initialState';
 
 
 // Components and Routes

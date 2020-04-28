@@ -1,12 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 
-const HeadContainer = ({
+export const HeadContainer = ({
     children,
-    description = '',
-    image = require('../../../Assets/Logo/PNG/Artboard-1-copy-2Generosity-Logo.png'),
-    title = 'Generosity Market',
-    url = null,
+    pageData: {
+        description,
+        image,
+        title,
+        url,
+    },
 }) => {
     return (
         <Helmet>
@@ -22,4 +25,6 @@ const HeadContainer = ({
     );
 };
 
-export default HeadContainer;
+const mapStateToProps = ({ pageData }) => ({ pageData });
+
+export default connect(mapStateToProps, null)(HeadContainer);
