@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 
-const HeadContainer = ({
+export const HeadContainer = ({
     children,
     pageData: {
         description,

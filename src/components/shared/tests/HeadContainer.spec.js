@@ -2,10 +2,17 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import HeadContainer from '../src/HeadContainer';
+import { HeadContainer } from '../src/HeadContainer';
 
 const defaultProps = {
-    description: 'Some meta description',
+    pageData: {
+        pageName: null,
+        description: 'Fundraising platform for non-profits and charities',
+        text: 'Fundraising platform for non-profits and charities',
+        image: 'Artboard-1-copy-2Generosity-Logo.png',
+        title: 'Generosity Market',
+        url: window.location.href,
+    },
 };
 
 const wrapper = shallow(<HeadContainer {...defaultProps} />);
@@ -21,7 +28,7 @@ describe('<HeadContainer />', () => {
     });
 
     it('should render open graph meta description', () => {
-        expect(wrapper.find('meta[property="og:description"]').props().content).toEqual('Some meta description');
+        expect(wrapper.find('meta[property="og:description"]').props().content).toEqual('Fundraising platform for non-profits and charities');
     });
 
     it('should render open graph meta image', () => {
