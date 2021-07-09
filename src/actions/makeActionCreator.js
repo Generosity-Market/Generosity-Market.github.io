@@ -1,5 +1,5 @@
-export const makeActionCreator = actionType => {
+export const makeActionCreator = type => {
     return payload => {
-        return { type: actionType, payload };
+        return { type, payload };
     };
 };
