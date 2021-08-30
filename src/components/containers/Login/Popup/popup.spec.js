@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // Component import
-import Popup from './Popup.js';
+import Popup from './popup.js';
 
 const defaultProps = {};
 
