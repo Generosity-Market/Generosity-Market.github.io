@@ -35,6 +35,7 @@
         "react-stripe-elements": "^2.0.1",
         "react-transition-group": "^4.2.2",
         "redux": "^4.0.5",
+        "redux-devtools-extension": "^2.13.9",
         "redux-thunk": "^2.3.0",
         "usa-states": "0.0.5"
     },
@@ -51,7 +52,6 @@
         "lint-staged": "^9.2.1",
         "progress-bar-webpack-plugin": "^2.1.0",
         "prop-types": "^15.7.2",
-        "redux-devtools-extension": "^2.13.8",
         "redux-promise": "^0.6.0",
         "redux-test-utils": "^0.3.0",
         "webpack-bundle-analyzer": "^3.6.0"
