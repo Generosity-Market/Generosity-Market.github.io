@@ -56,6 +56,9 @@
         "redux-test-utils": "^0.3.0",
         "webpack-bundle-analyzer": "^3.6.0"
     },
+    "engines": {
+        "node": "12.x"
+    },
     "browserslist": [
         ">0.2%",
         "not dead",
