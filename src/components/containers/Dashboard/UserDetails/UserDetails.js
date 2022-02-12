@@ -94,7 +94,7 @@ const UserDetails = ({
             return succesfulActions();
         }
 
-        editUserData(user.id, userState)
+        editUserData(user.id, { ...userState, ...userState.address })
             .then(success => {
                 if (success) {
                     succesfulActions();
