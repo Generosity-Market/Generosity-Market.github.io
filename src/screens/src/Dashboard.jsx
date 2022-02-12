@@ -35,6 +35,8 @@ import {
 const InViewportUserCauses = handleViewport(UserCauses);
 const InViewportReceipts = handleViewport(Receipts);
 
+const placeholderCoverImage = 'https://generosity-market-user-images.s3.amazonaws.com/coverImages/placeholder_image.png';
+
 export const Dashboard = ({
     causeSelected,
     editUserData,
@@ -135,7 +137,7 @@ export const Dashboard = ({
     return user && (
         <div className='Dashboard'>
             <ImageUploader
-                coverImgSrc={user.cover_image}
+                coverImgSrc={user.cover_image || placeholderCoverImage}
                 profileImgSrc={user.profile_image}
                 onSubmit={handleSaveImage}
                 round_image={user.round_image}
