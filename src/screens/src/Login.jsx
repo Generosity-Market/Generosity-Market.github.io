@@ -12,7 +12,6 @@ import {
 import { Button } from '@jgordy24/stalls-ui';
 import { ActionButton } from 'components/shared';
 
-// TODO: Break up some of the components in this page...
 export const Login = ({
     location,
     history,
@@ -23,8 +22,10 @@ export const Login = ({
     const [context, setContext] = useState('login');
 
     useEffect(() => {
-        if (location.state.context === 'register') setContext(location.state.context);
-    }, [location.state.context]);
+        if (location.state && location.state.context === 'register') {
+            setContext(location.state.context);
+        }
+    }, [location.state]);
 
     const handleState = field => {
         return (event) => {
