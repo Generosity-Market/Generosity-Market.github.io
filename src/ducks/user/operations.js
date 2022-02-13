@@ -88,7 +88,7 @@ export const login = ({ email, password }) => {
     };
 };
 
-export const editUserData = (id, { address, name, phone }) => {
+export const editUserData = (id, { address, first_name, last_name, phone }) => {
     // TODO: this is called directly in component -> fetch(POST) -> action -> reducer -> rerender
     // TODO: Should do input validations here?
     return (dispatch, getState) => {
@@ -96,7 +96,8 @@ export const editUserData = (id, { address, name, phone }) => {
             body: JSON.stringify({
                 phone,
                 ...address,
-                name,
+                first_name,
+                last_name,
             }),
             headers: {
                 'Content-Type': 'application/json'
