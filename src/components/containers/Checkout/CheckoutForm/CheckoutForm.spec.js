@@ -1,19 +1,23 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import { loadStripe } from '@stripe/stripe-js';
+
 // Component import
 import CheckoutForm from './CheckoutForm.js';
 
 import {
     Elements,
-} from 'react-stripe-elements';
+} from '@stripe/react-stripe-js';
+
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_TEST);
 
 const defaultProps = {
     // Props go here...
 };
 
 const wrapper = shallow(
-    <Elements>
+    <Elements stripe={stripePromise}>
         <CheckoutForm {...defaultProps} />
     </Elements>
 );

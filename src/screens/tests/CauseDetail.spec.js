@@ -1,6 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import { BrowserRouter } from 'react-router-dom';
+
 // Component import
 import { CauseDetail } from '../src/CauseDetail';
 
@@ -23,12 +25,16 @@ const defaultProps = {
     },
 };
 
-const wrapper = shallow(<CauseDetail {...defaultProps} />);
+const wrapper = shallow(
+    <BrowserRouter>
+        <CauseDetail {...defaultProps} />
+    </BrowserRouter>
+);
 
 describe('<CauseDetail />', () => {
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('.CauseDetail')).toBe(true);
+        expect(wrapper.exists('CauseDetail')).toBe(true);
     });
 
     it.todo('Test other stuff on the CauseDetail page');

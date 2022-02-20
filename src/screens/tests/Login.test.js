@@ -1,8 +1,10 @@
 import React from 'react';
 
 // Enzyme imports
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+
+import { BrowserRouter } from 'react-router-dom';
 
 import { Login } from '../src/Login';
 
@@ -14,7 +16,11 @@ const defaultProps = {
     },
 };
 
-const wrapper = shallow(<Login {...defaultProps} />);
+const wrapper = mount(
+    <BrowserRouter>
+        <Login {...defaultProps} />
+    </BrowserRouter>
+);
 
 describe('<Login />', () => {
 
