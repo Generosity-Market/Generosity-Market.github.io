@@ -154,7 +154,7 @@ export const submitUserImages = (prevUser, uploadData) => {
 export const loadTokenFromCookie = () => {
     return async (dispatch) => {
         const token = Cookies.get('gm_id');
-        const user = Cookies.getJSON('user');
+        const user = JSON.parse(Cookies.get('user'));
         if (token && user) {
             dispatch(setToken(token));
             dispatch(getUserData(user.id));
