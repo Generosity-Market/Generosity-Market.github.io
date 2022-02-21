@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import '../styles/Login.css';
 
 import {
@@ -13,18 +13,17 @@ import { Button } from '@jgordy24/stalls-ui';
 import { ActionButton } from 'components/shared';
 
 // TODO: Break up some of the components in this page...
-export const Login = ({
-    location,
-    history,
-    ...rest
-}) => {
+export const Login = (props) => {
+    const location = useLocation();
+    const navigate = useNavigate();
+
     const [userState, setUserState] = useState({ email: '', password: '' });
     const [status, setStatus] = useState({ error: null, submitting: false });
     const [context, setContext] = useState('login');
 
     useEffect(() => {
-        if (location.state.context === 'register') setContext(location.state.context);
-    }, [location.state.context]);
+        if (location?.state?.context === 'register') setContext(location.state.context);
+    }, [location?.state?.context]);
 
     const handleState = field => {
         return (event) => {
@@ -53,7 +52,7 @@ export const Login = ({
 
         if (error) handleError(error); setStatus(prevState => ({ ...prevState, submitting: false }));
         // TODO: Use location state to determine what page navigated to the login page... redirect there...
-        if (user) history.push(`/users/${user.id}/dashboard`);
+        if (user) navigate(`/users/${user.id}/dashboard`);
     };
 
     return (
@@ -89,7 +88,7 @@ export const Login = ({
                     <Button
                         bsStyle={context === 'register' ? 'active' : 'pale'}
                         bsSize='long'
-                        onClick={() => handleSubmit(rest[context])}
+                        onClick={() => handleSubmit(props[context])}
                         label={context === 'register' ? 'Sign up' : 'Log in'}
                     />
                 </div>
@@ -129,6 +128,4 @@ const mapDispatchToProps = {
     register,
 };
 
-export default withRouter(
-    connect(mapStateToProps, mapDispatchToProps)(Login)
-);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

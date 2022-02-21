@@ -1,5 +1,5 @@
 import React, { Suspense, useState, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCauseList } from 'ducks/cause';
 import { loadTokenFromCookie, userLogout } from 'ducks/user';
@@ -24,6 +24,7 @@ export const BaseLayout = ({
     user,
     userLogout,
 }) => {
+    const navigate = useNavigate();
     const [showMenu, setShowMenu] = useState(false);
 
     useEffect(() => {
@@ -40,7 +41,7 @@ export const BaseLayout = ({
     };
 
     const handleNavigation = (endpoint) => {
-        history.replace(endpoint);
+        navigate(endpoint);
     };
 
     return (
@@ -85,6 +86,4 @@ const mapDispatchToProps = {
     userLogout,
 };
 
-export default withRouter(
-    connect(mapStateToProps, mapDispatchToProps)(BaseLayout)
-);
+export default connect(mapStateToProps, mapDispatchToProps)(BaseLayout);

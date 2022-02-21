@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // import handleViewport from 'react-in-viewport';
 import { handleViewport } from 'react-in-viewport';
 import '../styles/Dashboard.css';
@@ -40,10 +40,10 @@ export const Dashboard = ({
     editUserData,
     getUserCreatedCauses,
     getUserSupportedCauses,
-    history,
     user,
     userData, // NOTE: Cookie data?? I think
 }) => {
+    const navigate = useNavigate();
 
     // TODO: useReducer hook instead
     const [highlightedCause, setHighlightedCause] = useState(null);
@@ -55,9 +55,9 @@ export const Dashboard = ({
     useEffect(() => {
         // const idsDontMatch = (Number(match.params.id) !== Number(userData.id));
 
-        if (!user && !userData) history.push('/');
+        if (!user && !userData) navigate('/');
         // if (idsDontMatch) history.push(`/users/${userData.id}/dashboard`);
-    }, [history, user, userData]);
+    }, [navigate, user, userData]);
 
     // TODO: Convert this to hooks???
     // componentDidUpdate(prevProps) {
@@ -201,6 +201,4 @@ const mapDispatchToProps = {
     submitUserImages,
 };
 
-export default withRouter(
-    connect(mapStateToProps, mapDispatchToProps)(Dashboard)
-);
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

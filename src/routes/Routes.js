@@ -3,10 +3,10 @@ import Cookies from 'js-cookie';
 import './RouteTransitions.css';
 
 import {
-    Switch,
+    Routes as Router,
     Route,
-    withRouter,
-    Redirect,
+    Navigate,
+    useLocation,
 } from 'react-router-dom';
 
 import {
@@ -28,15 +28,18 @@ import {
     Error404,
 } from './LazyLoadedRoutes';
 
-
 // checking to see if there are cookies for authentication
 const loggedIn = () => {
     return !!Cookies.get('gm_id');
 };
 
-const userCookie = Cookies.getJSON('user');
+const userCookie = JSON.parse(Cookies.get('user'));
 
-const Routes = ({ location }) => {
+const Routes = () => {
+    const location = useLocation();
+
+    const isLoggedIn = loggedIn();
+
     return (
         <TransitionGroup>
             <CSSTransition
@@ -45,56 +48,71 @@ const Routes = ({ location }) => {
                 classNames={'fade'}
             >
                 <Suspense fallback={null}>
-                    <Switch location={location}>
+                    <Router location={location}>
 
-                        <Route exact path='/login' render={() => (
-                            !loggedIn() || !userCookie
-                                ? <Login />
-                                : <Redirect to={`/users/${userCookie.id}/dashboard`} />
-                        )} />
+                        <Route
+                            path='/login'
+                            element={
+                                isLoggedIn
+                                    ? <Login />
+                                    : <Navigate to={`/users/${userCookie.id}/dashboard`} />
+                            }
+                        />
 
-                        <Route exact path='/users/:id/dashboard' render={() => (
-                            loggedIn()
-                                ? <Dashboard userData={userCookie} />
-                                : <Redirect
-                                    to={{
-                                        pathname: '/login',
-                                        state: { from: '/users/:id/dashboard' }
-                                    }}
-                                />
-                        )} />
+                        <Route
+                            path='/users/:id/dashboard'
+                            element={
+                                isLoggedIn
+                                    ? <Dashboard userData={userCookie} />
+                                    : (
+                                        <Navigate
+                                            to={{
+                                                pathname: '/login',
+                                                state: { from: '/users/:id/dashboard' }
+                                            }}
+                                        />
+                                    )
+                            }
+                        />
 
-                        <Route exact path='/checkout' component={Checkout} />
 
-                        <Route exact path='/thankyou' component={ThankYou} />
+                        <Route path='/checkout' element={<Checkout />} />
 
-                        <Route exact path='/cause/:id' component={CauseDetail} />
+                        <Route path='/thankyou' element={ThankYou} />
 
-                        <Route exact path='/causes/new' render={() => (
-                            loggedIn()
-                                ? <CauseForm />
-                                : <Redirect to={{ pathname: '/login', state: { from: '/causes/new' } }} />
-                        )} />
+                        <Route path='/cause/:id' element={<CauseDetail />} />
 
-                        <Route exact path='/causes' component={CauseList} />
+                        <Route
+                            path='/causes/new'
+                            element={
+                                isLoggedIn
+                                    ? <CauseForm />
+                                    : <Navigate to={{ pathname: '/login', state: { from: '/causes/new' } }} />
+                            }
+                        />
 
-                        <Route exact path='/organizations/new' component={NewOrgForm} />
+                        <Route path='/causes' element={CauseList} />
 
-                        <Route exact path='/organizations/:id' component={Organization} />
+                        <Route path='/organizations/new' element={NewOrgForm} />
 
-                        <Route exact path='/' render={() => (
-                            !loggedIn()
-                                ? <Splash />
-                                : <Redirect to={{ pathname: `/users/${userCookie.id}/dashboard` }} />
-                        )} />
+                        <Route path='/organizations/:id' element={Organization} />
 
-                        <Route component={Error404} />
+                        <Route
+                            path='/'
+                            element={
+                                !isLoggedIn
+                                    ? <Splash />
+                                    : <Navigate to={{ pathname: `/users/${userCookie.id}/dashboard` }} />
+                            }
+                        />
 
-                    </Switch>
+                        <Route path="*" element={Error404} />
+
+                    </Router>
                 </Suspense>
             </CSSTransition>
         </TransitionGroup>
     );
 };
 
-export default withRouter(Routes);
+export default Routes;

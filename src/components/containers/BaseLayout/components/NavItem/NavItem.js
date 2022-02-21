@@ -12,13 +12,8 @@ const NavItem = ({
 
     return (
         <NavLink
-            exact
-            className='navLinks'
+            className={(navData) => navData.isActive ? 'navLinks active' : 'navLinks'}
             to={`${endpoint}`}
-            activeStyle={{
-                color: color,
-                transform: 'scale(1.1)',
-            }}
         >
             {icon && <Glyphicon icon={icon} />}
             {name}

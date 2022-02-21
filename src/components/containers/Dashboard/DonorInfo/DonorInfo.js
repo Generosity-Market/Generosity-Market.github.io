@@ -17,6 +17,7 @@ import {
 
 const isEmpty = (obj) => {
     for (var Donations in obj) {
+        /* eslint-disable-next-line no-prototype-builtins */
         if (obj.hasOwnProperty(Donations))
             return false;
     }
