@@ -17,17 +17,22 @@ const SlideMenu = ({
         endpoint,
         icon,
         name
-    }) =>
-        (
-            <div
-                key={name + icon}
-                className='navLinks'
-                onClick={() => handleNavigation(endpoint)}
-            >
-                <Glyphicon icon={icon} fixedWidth />
-                {name}
-            </div>
-        );
+    }) => (
+        <div
+            key={name + icon}
+            className='navLinks'
+            onClick={() => handleNavigation(endpoint)}
+        >
+            <Glyphicon icon={icon} fixedWidth />
+            {name}
+        </div>
+    );
+
+    const handleLogout = (event) => {
+        event.preventDefault();
+
+        logout(() => handleNavigation('/login'));
+    };
 
     return (
         <nav
@@ -42,7 +47,7 @@ const SlideMenu = ({
             <div className="LinksContainer">
                 {navLinks.map(link => renderLink(link))}
 
-                <div className="logout navLinks" onClick={() => { logout(); handleNavigation('/'); }}>
+                <div className="logout navLinks" onClick={handleLogout}>
                     <Glyphicon
                         icon={'arrow-alt-circle-left'}
                         style={{ color: 'var(--danger-65)' }}

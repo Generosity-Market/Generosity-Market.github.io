@@ -168,12 +168,14 @@ export const loadTokenFromCookie = () => {
     };
 };
 
-export const userLogout = () => {
+export const userLogout = (callback) => {
     return (dispatch) => {
         const token = Cookies.remove('gm_id');
         Cookies.remove('user');
         dispatch(removeToken(token));
         dispatch(logout());
+
+        callback();
     };
 };
 
