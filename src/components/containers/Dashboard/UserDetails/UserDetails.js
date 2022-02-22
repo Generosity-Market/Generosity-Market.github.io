@@ -61,13 +61,15 @@ const UserDetails = ({
 
     const usersInfoChanged = () => {
         const userInfo = {
-            name: userState.name,
+            first_name: userState.first_name,
+            last_name: userState.last_name,
             address: userState.address,
             phone: userState.phone,
         };
 
         const userProps = {
-            name: user.name,
+            first_name: user.first_name,
+            last_name: userState.last_name,
             address: {
                 city: user.city,
                 state: user.state,
@@ -94,7 +96,7 @@ const UserDetails = ({
             return succesfulActions();
         }
 
-        editUserData(user.id, userState)
+        editUserData(user.id, { ...userState, ...userState.address })
             .then(success => {
                 if (success) {
                     succesfulActions();

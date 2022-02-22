@@ -19,14 +19,14 @@ const AddressInputs = ({
         <div className="AddressInputs">
             <p>Address</p>
             <TextInput
-                label="Address:"
+                label="Street Address:"
                 name="address_1"
                 placeholder="Ex: 123 ABC Street"
                 value={address_1}
                 {...rest}
             />
             <TextInput
-                label="Address 2:"
+                label="Apt, Suite, etc:"
                 name="address_2"
                 placeholder="Ex: Apt 456"
                 value={address_2}
