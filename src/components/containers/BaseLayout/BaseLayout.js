@@ -19,16 +19,18 @@ export const BaseLayout = ({
     causeList,
     children,
     getCauseList,
-    history,
     loadTokenFromCookie,
     user,
     userLogout,
+    token,
 }) => {
     const navigate = useNavigate();
     const [showMenu, setShowMenu] = useState(false);
 
     useEffect(() => {
-        loadTokenFromCookie();
+        if (!token || !user) {
+            loadTokenFromCookie();
+        }
         if (!causeList || !causeList.length) {
             getCauseList();
         }
@@ -71,12 +73,13 @@ export const BaseLayout = ({
 
 BaseLayout.displayName = 'BaseLayout';
 
-const mapStateToProps = ({ cause, user }) => {
+const mapStateToProps = ({ cause, user, token }) => {
     const { causeList } = cause;
 
     return {
         causeList,
         user,
+        token,
     };
 };
 

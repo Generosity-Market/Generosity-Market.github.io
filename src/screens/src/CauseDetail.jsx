@@ -56,6 +56,7 @@ export const CauseDetail = ({
         if (!cause) {
             getSingleCause(id);
         }
+
         // eslint-disable-next-line
     }, [cause, id]);
 
@@ -94,7 +95,7 @@ export const CauseDetail = ({
                 heading={name}
                 cover_image={cover_image}
                 profile_image={profile_image}
-                round_image={Preferences ? Preferences[0].round_image : true}
+                round_image={Preferences?.[0] ? Preferences[0].round_image : true}
             />
 
             <div className="wrapper">

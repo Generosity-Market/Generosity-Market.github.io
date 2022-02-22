@@ -7,9 +7,7 @@ import {
     TexturedCircle,
 } from 'components/shared';
 
-export const Error404 = ({
-    history,
-}) => {
+export const Error404 = () => {
 
     return (
         <div className="Error404">
@@ -31,12 +29,12 @@ export const Error404 = ({
                 <p>{'This is awkward... \nYou are looking for something that doesn\'t actually exist.'}</p>
             </div>
 
-            <Button
+            {/* <Button
                 bsStyle="warning"
                 bsSize='long'
                 label="Go back my friend, go back"
                 onClick={history.goBack}
-            />
+            /> */}
         </div>
     );
 };
