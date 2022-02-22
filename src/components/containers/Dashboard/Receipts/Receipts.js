@@ -39,7 +39,7 @@ export const Receipts = ({
         }
     }, [inViewport]);
 
-    const causes = user?.SupportedCauses.map(cause => {
+    const causes = user?.SupportedCauses?.map(cause => {
         return (
             <ReceiptItem
                 key={cause.icon + cause.name}
