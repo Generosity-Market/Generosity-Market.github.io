@@ -2,7 +2,7 @@ const appendFormData = ({
     profile_image,
     cover_image,
     bucket,
-    ...rest,
+    ...rest
 }) => {
     delete rest.profileURL;
     delete rest.coverURL;

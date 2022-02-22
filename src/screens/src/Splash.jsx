@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getCauseList } from 'ducks/cause';
 import { loadTokenFromCookie } from 'ducks/user';
 import { resetPageData } from 'ducks/pageData';
@@ -14,14 +14,26 @@ export const Splash = ({
     getCauseList,
     loadTokenFromCookie,
     resetPageData,
+    isLoggedIn,
+    user,
 }) => {
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         getCauseList();
-        loadTokenFromCookie();
         resetPageData();
+        if (!isLoggedIn) {
+            loadTokenFromCookie();
+        }
         // eslint-disable-next-line
-    }, [getCauseList, loadTokenFromCookie]);
+    }, []);
+
+    useEffect(() => {
+        if (isLoggedIn) {
+            navigate(`/users/${user.id}/dashboard`, { replace: true });
+        }
+    }, [isLoggedIn]);
 
     return (
         <div className='Splash'>
@@ -63,10 +75,8 @@ export const Splash = ({
             </div>
 
             <Link
-                to={{
-                    pathname: '/login',
-                    state: { context: 'register' }
-                }}
+                to="/login"
+                state={{ context: 'register' }}
                 className='sign-up'
             >
                 Not a member? Sign up here
@@ -76,7 +86,12 @@ export const Splash = ({
     );
 };
 
-const mapStateToProps = ({ user }) => ({ user });
+const mapStateToProps = ({ user, token }) => {
+    return {
+        user,
+        isLoggedIn: !!token && !!user,
+    };
+};
 
 const mapDispatchToProps = {
     getCauseList,

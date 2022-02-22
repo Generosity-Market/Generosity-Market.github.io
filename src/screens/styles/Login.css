@@ -13,6 +13,12 @@
     z-index: 5;
 }
 
+.Login form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .Login .sign-in {
     display: flex;
     flex-direction: column;
@@ -33,6 +39,7 @@
     font-size: 24px;
     padding: 1rem;
     margin-bottom: 1rem;
+    width: 70%;
 }
 
 .sign-up-link,
@@ -48,6 +55,10 @@
 .forgot-password {
     color: var(--white);
     font-size: 18px;
+}
+
+.Login .submit-buttons {
+    width: 100%;
 }
 
 .Login h3 {

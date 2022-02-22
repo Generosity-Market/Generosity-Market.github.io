@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import '../styles/Login.css';
 
 import {
@@ -12,20 +12,24 @@ import {
 import { Button } from '@jgordy24/stalls-ui';
 import { ActionButton } from 'components/shared';
 
-export const Login = ({
-    location,
-    history,
-    ...rest
+// TODO: Break up some of the components in this page...
+export const Login = React.memo(({
+    isLoggedIn,
+    user,
+    ...props
 }) => {
+    const navigate = useNavigate();
+    let location = useLocation();
+
     const [userState, setUserState] = useState({ email: '', password: '' });
     const [status, setStatus] = useState({ error: null, submitting: false });
     const [context, setContext] = useState('login');
 
     useEffect(() => {
-        if (location.state && location.state.context === 'register') {
-            setContext(location.state.context);
+        if (isLoggedIn) {
+            navigate(`/users/${user.id}/dashboard`, { replace: true });
         }
-    }, [location.state]);
+    }, []);
 
     const handleState = field => {
         return (event) => {
@@ -43,7 +47,8 @@ export const Login = ({
         setStatus(prevState => ({ ...prevState, error }));
     };
 
-    const handleSubmit = async (action) => {
+    const handleSubmit = async (event, action) => {
+        event.preventDefault();
         const { email, password } = userState;
         setStatus(prevState => ({
             ...prevState,
@@ -52,9 +57,19 @@ export const Login = ({
 
         const { user, error } = await action({ email, password });
 
-        if (error) handleError(error); setStatus(prevState => ({ ...prevState, submitting: false }));
-        // TODO: Use location state to determine what page navigated to the login page... redirect there...
-        if (user) history.push(`/users/${user.id}/dashboard`);
+        if (error) {
+            handleError(error);
+            setStatus(prevState => ({ ...prevState, submitting: false }));
+        }
+
+        const from = location.state?.from?.pathname;
+
+        // Use location state to determine what page navigated to the login page... redirect there...
+        if (from) {
+            navigate(from, { replace: 'true' });
+        } else if (user) {
+            navigate(`/users/${user.id}/dashboard`, { replace: 'true' });
+        }
     };
 
     return (
@@ -69,31 +84,35 @@ export const Login = ({
                     {status.error}
                 </p>
 
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    onChange={handleState('email')}
-                    value={userState.email}
-                    autoFocus
-                />
-
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    onChange={handleState('password')}
-                    value={userState.password}
-                />
-
-                <div className="submit-buttons">
-                    <Button
-                        bsStyle={context === 'register' ? 'active' : 'pale'}
-                        bsSize='long'
-                        onClick={() => handleSubmit(rest[context])}
-                        label={context === 'register' ? 'Sign up' : 'Log in'}
+                <form onSubmit={(event) => handleSubmit(event, props[context])}>
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        onChange={handleState('email')}
+                        value={userState.email}
+                        autoFocus
                     />
-                </div>
+
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        onChange={handleState('password')}
+                        value={userState.password}
+                    />
+
+                    <div className="submit-buttons">
+                        <Button
+                            bsStyle={context === 'register' ? 'active' : 'pale'}
+                            bsSize='long'
+                            type="submit"
+                            // onClick={(event) => handleSubmit(event, props[context])}
+                            label={context === 'register' ? 'Sign up' : 'Log in'}
+                        />
+                    </div>
+                </form>
+
 
                 {/*<a 
                         href="/causes" 
@@ -119,10 +138,15 @@ export const Login = ({
                 /> */}
         </div>
     );
-};
+});
 
-const mapStateToProps = () => {
-    return {};
+Login.displayName = 'Login';
+
+const mapStateToProps = ({ user, token }) => {
+    return {
+        user,
+        isLoggedIn: !!user && !!token,
+    };
 };
 
 const mapDispatchToProps = {
@@ -130,6 +154,4 @@ const mapDispatchToProps = {
     register,
 };
 
-export default withRouter(
-    connect(mapStateToProps, mapDispatchToProps)(Login)
-);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

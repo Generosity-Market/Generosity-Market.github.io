@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
-// import handleViewport from 'react-in-viewport';
-import { handleViewport } from 'react-in-viewport';
+import React, { useState, useEffect, useRef } from 'react';
+import { connect } from 'react-redux';
+import { useInViewport } from 'react-in-viewport';
 import './UserCauses.css';
 
 // Shared UI Components
@@ -11,51 +11,67 @@ import {
     Slider,
 } from 'components/shared';
 
-const CauseTileWithLazyLoad = handleViewport(CauseTile);
+import { causeSelected } from 'ducks/cause';
+import { getUserCreatedCauses } from 'ducks/user';
 
-const UserCauses = ({
-    causes,
+export const UserCauses = ({
     causeSelected,
-    forwardedRef,
+    getUserCreatedCauses,
     highlightedCause,
-    loading,
     selectCauseToHighlight,
+    user,
 }) => {
 
-    const renderUserCauses = (causes) => {
-        return causes.map(cause => {
-            return (
-                <Fragment key={cause.id}>
-                    <CauseTileWithLazyLoad
-                        key={cause.id}
-                        raised={Number(cause.totalRaised)}
-                        cause={cause}
-                        causeSelected={causeSelected}
-                        highlightedCause={highlightedCause}
-                    >
-                        <p
-                            className="see-donors"
-                            onClick={() => selectCauseToHighlight(cause.id)}
-                        >
-                            <Glyphicon
-                                icon={'info-circle'}
-                                style={{
-                                    color: `${highlightedCause === cause.id ? 'var(--blackish)' : 'var(--text-gray)'}`,
-                                }}
-                            />
-                        </p>
-                    </CauseTileWithLazyLoad>
-                </Fragment>
-            );
-        });
+    const myRef = useRef();
+    const {
+        inViewport,
+    } = useInViewport(myRef);
+
+    const [loading, setLoading] = useState(false);
+
+    const getCauses = () => {
+        if (!user.CreatedCauses) {
+            setLoading(true);
+            getUserCreatedCauses(user.id).then(() => setLoading(false));
+        }
     };
 
-    const hasCauses = (causes && causes.length > 0);
+    useEffect(() => {
+        if (inViewport) {
+            getCauses();
+        }
+    }, [inViewport]);
+
+    const renderUserCauses = (causes) => {
+        return causes.map(cause => (
+            <CauseTile
+                key={cause.id}
+                raised={Number(cause.totalRaised)}
+                cause={cause}
+                causeSelected={causeSelected}
+                highlightedCause={highlightedCause}
+            >
+                <p
+                    className="see-donors"
+                    onClick={() => selectCauseToHighlight(cause.id)}
+                >
+                    <Glyphicon
+                        icon={'info-circle'}
+                        style={{
+                            color: `${highlightedCause === cause.id ? 'var(--blackish)' : 'var(--text-gray)'}`,
+                        }}
+                    />
+                </p>
+            </CauseTile>
+        ));
+    };
+
+    const hasCauses = (user?.CreatedCauses?.length > 0);
 
     return (
         <div
             className="UserCauses"
-            ref={forwardedRef}
+            ref={myRef}
         >
             <Heading text={'Your Causes'} />
 
@@ -67,11 +83,18 @@ const UserCauses = ({
 
             {hasCauses &&
                 <Slider>
-                    {renderUserCauses(causes)}
+                    {renderUserCauses(user?.CreatedCauses)}
                 </Slider>
             }
         </div>
     );
 };
 
-export default UserCauses;
+const mapStateToProps = ({ user }) => ({ user });
+
+const mapDispatchToProps = {
+    causeSelected,
+    getUserCreatedCauses,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserCauses);

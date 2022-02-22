@@ -12,7 +12,7 @@ const AddressInputs = ({
     city,
     state,
     zipcode,
-    ...rest,
+    ...rest
 }) => {
 
     return (

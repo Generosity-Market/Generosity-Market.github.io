@@ -27,7 +27,7 @@ describe('<ActionButton />', () => {
     });
 
     describe('when clicked', () => {
-        beforeAll(() => {
+        beforeEach(() => {
             wrapper.find('.submit').simulate('click');
         });
 

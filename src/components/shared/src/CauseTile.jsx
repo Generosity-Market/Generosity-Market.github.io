@@ -1,26 +1,27 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import '../styles/CauseTile.css';
 
-import {
-    getPlaceholder,
-} from 'services';
+import { useInViewport } from 'react-in-viewport';
 
-import {
-    getIconUrl,
-} from 'utilities';
+import { getPlaceholder } from 'services';
+
+import { getIconUrl } from 'utilities';
 
 const CauseTile = ({
     cause,
     causeSelected,
     children,
     highlightedCause,
-    forwardedRef,
-    inViewport,
     isFeatured,
     raised,
 }) => {
+
+    const componentRef = useRef();
+    const {
+        inViewport,
+    } = useInViewport(componentRef);
 
 
     const imageURL = (inViewport ? cause.profile_image : getPlaceholder());
@@ -39,7 +40,7 @@ const CauseTile = ({
         <div
             className={isFeatured ? 'CauseTile featured' : 'CauseTile'}
             onClick={() => causeSelected(cause)}
-            ref={forwardedRef}
+            ref={componentRef}
             style={{
                 backgroundColor: (highlightedCause === cause.id ? 'var(--light-gray)' : '')
             }}

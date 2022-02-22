@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import causeFormOptions from '../config/causeFormOptions';
 import '../styles/CauseForm.css';
 
@@ -22,33 +22,33 @@ import {
     IconSelector,
 } from 'components/containers/CauseForm';
 
-export class CauseForm extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            icon: null,
-            name: '',
-            type: '',
-            organization_name: '',
-            tax_id: '',
-            goal: '',
-            description: '',
-            purpose: '',
-            profile_image: '',
-            profileURL: '',
-            cover_image: '',
-            coverURL: '',
-            round_image: true,
-            white_text: true,
+const selectOptions = ['Trip', 'Mission', 'Adoption', 'Camp', 'Community Project'];
 
-            status: '',
-        };
+export const CauseForm = ({ user }) => {
 
-        this.selectOptions = ['Trip', 'Mission', 'Adoption', 'Camp', 'Community Project'];
-    }
+    const navigate = useNavigate();
 
-    handleButtonText = () => {
-        switch (this.state.status) {
+    // TODO: Split up state where applicable
+    const [state, setState] = useState({
+        icon: null,
+        name: '',
+        type: '',
+        organization_name: '',
+        tax_id: '',
+        goal: '',
+        description: '',
+        purpose: '',
+        profile_image: '',
+        profileURL: '',
+        cover_image: '',
+        coverURL: '',
+        round_image: true,
+        white_text: true,
+    });
+    const [status, setStatus] = useState('');
+
+    const handleButtonText = () => {
+        switch (status) {
             case 'loading':
                 return 'Sending...';
             case 'success':
@@ -57,56 +57,58 @@ export class CauseForm extends Component {
                 return 'Failed - Retry';
             default:
                 return 'Publish your cause';
-        }
-    }
+        };
+    };
 
-    handleSelectIcon = (name) => {
-        this.setState({ icon: name });
-    }
+    const handleSelectIcon = (name) => {
+        setState(state => ({ ...state, icon: name }));
+    };
 
-    handleUpdateState = (field) => {
+    const handleUpdateState = (field) => {
         return (event) => {
             if ((field === 'round_image') || (field === 'white_text')) {
-                this.setState({ [field]: !this.state[field] });
+                setState(state => ({ ...state, [field]: !state[field] }));
             } else {
-                this.setState({ [field]: event.target.value });
+                setState(state => ({ ...state, [field]: event.target.value }));
             }
         };
     };
 
-    handleImageChange = (event, field, url) => {
+    const handleImageChange = (event, field, url) => {
         event.preventDefault();
         if (event.target.files) {
             let reader = new FileReader();
             let file = event.target.files[0];
             reader.onloadend = () => {
-                this.setState({
+                setState(state => ({
+                    ...state,
                     [field]: file,
                     [url]: reader.result
-                });
+                }));
             };
             reader.readAsDataURL(file);
         } else {
-            this.setState({
+            setState(state => ({
+                ...state,
                 [field]: '',
                 [url]: ''
-            });
+            }));
         }
     };
 
-    handlePublish = async () => {
+    const handlePublish = async () => {
         // console.log('handle uploading-', this.state);
-        this.setState({ status: 'loading' });
+        setStatus('loading');
 
         const causeData = {
-            ...this.state,
+            ...state,
             bucket: 'cause',
-            user_id: this.props.user.id,
+            user_id: user.id,
         };
 
         const uploadFinished = (status) => {
-            this.setState({ status });
-            setTimeout(() => this.setState({ status: false }), 3000);
+            setStatus(`${status}`);
+            setTimeout(() => setStatus(''), 3000);
         };
 
         try {
@@ -116,53 +118,50 @@ export class CauseForm extends Component {
                 uploadFinished('failed');
             } else {
                 uploadFinished('success');
-                setTimeout(() => this.props.history.push(`/cause/${response.cause_id}`), 1000);
+                setTimeout(() => navigate(`/cause/${response.cause_id}`), 1000);
             }
         } catch (error) {
             uploadFinished('failed');
         }
     };
 
-    render() {
-        // console.log("Cause Form Props: ", this.props);
-        return (
-            <div className="CauseForm">
+    return (
+        <div className="CauseForm">
 
-                <ImageUploaderControlled
-                    handleImageChange={this.handleImageChange}
-                    handleUpdateState={this.handleUpdateState}
-                    name={this.state.name}
-                    profileURL={this.state.profileURL}
-                    coverURL={this.state.coverURL}
-                    round_image={this.state.round_image}
-                    whiteText={this.state.whiteText}
-                />
-                <Heading text={'Select Your Cause\'s Profile & Cover Images'} />
+            <ImageUploaderControlled
+                handleImageChange={handleImageChange}
+                handleUpdateState={handleUpdateState}
+                name={state.name}
+                profileURL={state.profileURL}
+                coverURL={state.coverURL}
+                round_image={state.round_image}
+                whiteText={state.whiteText}
+            />
+            <Heading text={'Select Your Cause\'s Profile & Cover Images'} />
 
-                <InputGroup
-                    state={this.state}
-                    handleUpdateState={this.handleUpdateState}
-                    inputOptions={causeFormOptions}
-                    selectOptions={this.selectOptions}
-                />
+            <InputGroup
+                state={state}
+                handleUpdateState={handleUpdateState}
+                inputOptions={causeFormOptions}
+                selectOptions={selectOptions}
+            />
 
-                <Heading text={'Select Your Fundraising Icon'} />
-                <IconSelector handleSelect={this.handleSelectIcon} />
+            <Heading text={'Select Your Fundraising Icon'} />
+            <IconSelector handleSelect={handleSelectIcon} />
 
-                <Button
-                    bsStyle='success'
-                    bsSize='long'
-                    label={this.handleButtonText()}
-                    onClick={this.handlePublish}
-                />
+            <Button
+                bsStyle='success'
+                bsSize='long'
+                label={handleButtonText()}
+                onClick={handlePublish}
+            />
 
-            </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
 const mapStateToProps = ({ user }) => ({ user });
 
 const mapDispatchToProps = { addCause };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CauseForm));
+export default connect(mapStateToProps, mapDispatchToProps)(CauseForm);

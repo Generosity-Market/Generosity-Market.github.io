@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import '../styles/CauseDetail.css';
 
+import { useParams } from 'react-router-dom';
+
 import {
     Button,
     Glyphicon,
@@ -30,7 +32,6 @@ import {
 
 export const CauseDetail = ({
     cause,
-    match,
     getSingleCause,
     setPageData,
     pageData,
@@ -47,15 +48,17 @@ export const CauseDetail = ({
         purpose,
     } = cause;
 
+    const { id } = useParams();
+
     const [webShareIsSupported, share] = useWebShareApi(pageData);
 
     useEffect(() => {
         if (!cause) {
-            const id = match.params.id;
             getSingleCause(id);
         }
+
         // eslint-disable-next-line
-    }, [cause, match.params.id]);
+    }, [cause, id]);
 
     useEffect(() => {
         if (cause) {
@@ -69,10 +72,19 @@ export const CauseDetail = ({
         }
     }, [cause, name, cover_image, description, setPageData]);
 
+    let total_raised = totalRaised || 0;
     let purchasedTiles = [];
 
     if (Donations) {
-        purchasedTiles = Object.keys(Donations).map(index => Donations[index].amount);
+        // NOTE: Removes duplicates in case there are any
+        const filteredDonations = Donations.filter((value, index, self) =>
+            index === self.findIndex((t) => t.amount === value.amount)
+        );
+
+        purchasedTiles = filteredDonations.map(donation => {
+            total_raised += donation.amount;
+            return donation.amount;
+        });
     }
 
     return (
@@ -83,13 +95,13 @@ export const CauseDetail = ({
                 heading={name}
                 cover_image={cover_image}
                 profile_image={profile_image}
-                round_image={Preferences ? Preferences[0].round_image : true}
+                round_image={Preferences?.[0] ? Preferences[0].round_image : true}
             />
 
             <div className="wrapper">
 
                 <ProgressBar
-                    totalRaised={totalRaised}
+                    totalRaised={totalRaised || total_raised}
                     goal_amount={goal_amount}
                 />
 
@@ -107,7 +119,7 @@ export const CauseDetail = ({
 
                 {webShareIsSupported &&
                     <div className="share-link" onClick={share}>
-                        <Glyphicon icon={'share-alt'} />
+                        <Glyphicon icon="share-alt" />
                         Or Share This Page
                     </div>
                 }

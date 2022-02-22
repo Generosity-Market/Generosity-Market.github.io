@@ -1,6 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import { BrowserRouter } from 'react-router-dom';
+
 // Component import
 import { Dashboard } from '../src/Dashboard';
 
@@ -18,12 +20,16 @@ const defaultProps = {
     }
 };
 
-const wrapper = shallow(<Dashboard {...defaultProps} />);
+const wrapper = shallow(
+    <BrowserRouter>
+        <Dashboard {...defaultProps} />
+    </BrowserRouter>
+);
 
 describe('<Dashboard />', () => {
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('.Dashboard')).toEqual(true);
+        expect(wrapper.exists('Dashboard')).toEqual(true);
     });
 
     it.todo('Test other things on the Dashboard page');

@@ -73,11 +73,11 @@ export const login = ({ email, password }) => {
                     dispatch(setUser({ ...user }));
 
                     Cookies.set('gm_id', data['auth_token'], { expires: 90 });
-                    Cookies.set('user', {
+                    Cookies.set('user', JSON.stringify({
                         email: user['email'],
                         name: user['name'],
                         id: user['id'],
-                    }, { expires: 90 }
+                    }), { expires: 90 }
                     );
                     return data;
                 } else {
@@ -155,7 +155,12 @@ export const submitUserImages = (prevUser, uploadData) => {
 export const loadTokenFromCookie = () => {
     return async (dispatch) => {
         const token = Cookies.get('gm_id');
-        const user = Cookies.getJSON('user');
+        const userCookie = Cookies.get('user');
+        let user;
+        if (userCookie) {
+            user = JSON.parse(userCookie);
+        }
+
         if (token && user) {
             dispatch(setToken(token));
             dispatch(getUserData(user.id));
@@ -164,12 +169,14 @@ export const loadTokenFromCookie = () => {
     };
 };
 
-export const userLogout = () => {
+export const userLogout = (callback) => {
     return (dispatch) => {
         const token = Cookies.remove('gm_id');
         Cookies.remove('user');
         dispatch(removeToken(token));
         dispatch(logout());
+
+        callback();
     };
 };
 

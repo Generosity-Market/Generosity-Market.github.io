@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import './Receipts.css';
 
-import {
-    causeSelected,
-} from 'ducks/cause';
+import { useInViewport } from 'react-in-viewport';
+
+import { getUserSupportedCauses } from 'ducks/user';
+
+import { causeSelected } from 'ducks/cause';
 
 // Shared UI Components
 import {
@@ -12,12 +14,32 @@ import {
     ReceiptItem,
 } from 'components/shared';
 
-export const Receipts = React.forwardRef(({
+export const Receipts = ({
     causeSelected,
-    loading,
-    supportedCauses,
-}, ref) => {
-    const causes = supportedCauses && supportedCauses.map(cause => {
+    getUserSupportedCauses,
+    user,
+}) => {
+    const myRef = useRef();
+    const {
+        inViewport,
+    } = useInViewport(myRef);
+
+    const [loading, setLoading] = useState(false);
+
+    const getReceipts = () => {
+        if (!user.SupportedCauses) {
+            setLoading(true);
+            getUserSupportedCauses(user.id).then(() => setLoading(false));
+        }
+    };
+
+    useEffect(() => {
+        if (inViewport) {
+            getReceipts();
+        }
+    }, [inViewport]);
+
+    const causes = user?.SupportedCauses?.map(cause => {
         return (
             <ReceiptItem
                 key={cause.icon + cause.name}
@@ -38,26 +60,28 @@ export const Receipts = React.forwardRef(({
     return (
         <div
             className="Receipts"
-            ref={ref}
+            ref={myRef}
         >
             <Heading text={'Causes I Support'} />
             {hasCauses ? causes : noSupportedCauses}
         </div>
     );
-});
+};
 
 Receipts.displayName = 'Receipts';
 
-const mapStateToProps = ({ cause }) => {
+const mapStateToProps = ({ cause, user }) => {
     const { causeList } = cause;
 
     return {
-        causeList
+        causeList,
+        user,
     };
 };
 
 const mapDispatchToProps = {
     causeSelected,
+    getUserSupportedCauses,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Receipts);
