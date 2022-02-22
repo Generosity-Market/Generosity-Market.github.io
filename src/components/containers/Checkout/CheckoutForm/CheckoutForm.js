@@ -37,7 +37,9 @@ const CheckoutForm = ({
     const [addressZip, setAddresZip] = useState(user.zipcode);
 
     useEffect(() => {
-        setEmail(user.email);
+        if (!email) {
+            setEmail(user.email);
+        }
     }, [user.email]);
 
     const handleButtonText = () => {
