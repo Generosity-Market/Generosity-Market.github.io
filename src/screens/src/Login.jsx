@@ -21,9 +21,9 @@ export const Login = (props) => {
     const [status, setStatus] = useState({ error: null, submitting: false });
     const [context, setContext] = useState('login');
 
-    useEffect(() => {
-        if (location?.state?.context === 'register') setContext(location.state.context);
-    }, [location?.state?.context]);
+    // useEffect(() => {
+    //     if (location?.state?.context === 'register') setContext(location.state.context);
+    // }, [location?.state?.context]);
 
     const handleState = field => {
         return (event) => {
@@ -41,7 +41,8 @@ export const Login = (props) => {
         setStatus(prevState => ({ ...prevState, error }));
     };
 
-    const handleSubmit = async (action) => {
+    const handleSubmit = async (event, action) => {
+        event.preventDefault();
         const { email, password } = userState;
         setStatus(prevState => ({
             ...prevState,
@@ -67,31 +68,35 @@ export const Login = (props) => {
                     {status.error}
                 </p>
 
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    onChange={handleState('email')}
-                    value={userState.email}
-                    autoFocus
-                />
-
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    onChange={handleState('password')}
-                    value={userState.password}
-                />
-
-                <div className="submit-buttons">
-                    <Button
-                        bsStyle={context === 'register' ? 'active' : 'pale'}
-                        bsSize='long'
-                        onClick={() => handleSubmit(props[context])}
-                        label={context === 'register' ? 'Sign up' : 'Log in'}
+                <form onSubmit={(event) => handleSubmit(event, props[context])}>
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        onChange={handleState('email')}
+                        value={userState.email}
+                        autoFocus
                     />
-                </div>
+
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        onChange={handleState('password')}
+                        value={userState.password}
+                    />
+
+                    <div className="submit-buttons">
+                        <Button
+                            bsStyle={context === 'register' ? 'active' : 'pale'}
+                            bsSize='long'
+                            type="submit"
+                            // onClick={(event) => handleSubmit(event, props[context])}
+                            label={context === 'register' ? 'Sign up' : 'Log in'}
+                        />
+                    </div>
+                </form>
+
 
                 {/*<a 
                         href="/causes" 
