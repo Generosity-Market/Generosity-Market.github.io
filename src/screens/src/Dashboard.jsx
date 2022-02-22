@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-// import handleViewport from 'react-in-viewport';
-import { handleViewport } from 'react-in-viewport';
+// import { useNavigate } from 'react-router-dom';
 import '../styles/Dashboard.css';
 
 import {
-    // Button,
     ImageUploader,
     LinkButton,
     Pill,
@@ -19,8 +16,6 @@ import {
 
 import {
     editUserData,
-    getUserCreatedCauses,
-    getUserSupportedCauses,
     submitUserImages,
 } from 'ducks/user';
 
@@ -32,43 +27,23 @@ import {
     UserDetails,
 } from 'components/containers/Dashboard';
 
-const InViewportUserCauses = handleViewport(UserCauses);
-const InViewportReceipts = handleViewport(Receipts);
-
 export const Dashboard = ({
-    causeSelected,
     editUserData,
-    getUserCreatedCauses,
-    getUserSupportedCauses,
     user,
-    userData, // NOTE: Cookie data?? I think
+    // userData, // NOTE: Cookie data?? I think
 }) => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    // TODO: useReducer hook instead
     const [highlightedCause, setHighlightedCause] = useState(null);
     const [editProfile, setEditProfile] = useState(false);
-    const [loadingCauses, setLoadingCauses] = useState(false);
-    const [loadingReceipts, setLoadingReceipts] = useState(false);
     const [isUploading, setIsUploading] = useState({ status: false, message: null });
 
-    useEffect(() => {
-        // const idsDontMatch = (Number(match.params.id) !== Number(userData.id));
+    // useEffect(() => {
+    //     // const idsDontMatch = (Number(match.params.id) !== Number(userData.id));
 
-        if (!user && !userData) navigate('/');
-        // if (idsDontMatch) history.push(`/users/${userData.id}/dashboard`);
-    }, [navigate, user, userData]);
-
-    // TODO: Convert this to hooks???
-    // componentDidUpdate(prevProps) {
-    //     // Typical usage (don't forget to compare props):
-    //     const previousUserWithoutCauses = (prevProps.user && !prevProps.user.Causes);
-    //     const userCurrentlyHasCauses = (this.props.user && this.props.user.Causes);
-
-    //     if (previousUserWithoutCauses && userCurrentlyHasCauses) {
-    //         this.setState({ loadingCauses: false });
-    //     }
-    // }
+    //     if (!user && !userData) navigate('/');
+    //     // if (idsDontMatch) navigate(`/users/${userData.id}/dashboard`);
+    // }, [navigate, user, userData]);
 
     const handleEditProfile = () => setEditProfile(!editProfile);
 
@@ -89,20 +64,6 @@ export const Dashboard = ({
 
     const getHighlightedCause = () => {
         return user.CreatedCauses.filter(cause => cause.id === highlightedCause)[0];
-    };
-
-    const getReceipts = () => {
-        if (!user.SupportedCauses) {
-            setLoadingReceipts(true);
-            getUserSupportedCauses(user.id).then(() => setLoadingReceipts(false));
-        }
-    };
-
-    const getCauses = () => {
-        if (!user.CreatedCauses) {
-            setLoadingCauses(true);
-            getUserCreatedCauses(user.id).then(() => setLoadingCauses(false));
-        }
     };
 
     const handleSaveImage = async ({ profile_image, cover_image }) => {
@@ -158,20 +119,9 @@ export const Dashboard = ({
                     editUserData={editUserData}
                 />
 
-                <InViewportUserCauses
-                    loading={loadingCauses}
-                    causes={user.CreatedCauses}
-                    causeSelected={causeSelected}
+                <UserCauses
                     selectCauseToHighlight={selectCauseToHighlight}
                     highlightedCause={highlightedCause}
-                    onEnterViewport={getCauses}
-                />
-
-                <LinkButton
-                    bsStyle='success'
-                    bsSize='long'
-                    label='Create a cause'
-                    href='/causes/new'
                 />
 
                 {(user.CreatedCauses && !!user.CreatedCauses.length) &&
@@ -180,11 +130,14 @@ export const Dashboard = ({
                     />
                 }
 
-                <InViewportReceipts
-                    loading={loadingReceipts}
-                    supportedCauses={user.SupportedCauses}
-                    onEnterViewport={getReceipts}
+                <LinkButton
+                    bsStyle='success'
+                    bsSize='long'
+                    label='Create a cause'
+                    href='/causes/new'
                 />
+
+                <Receipts />
             </div>
         </div>
     );
@@ -195,8 +148,6 @@ const mapStateToProps = ({ user }) => ({ user });
 const mapDispatchToProps = {
     causeSelected,
     editUserData,
-    getUserCreatedCauses,
-    getUserSupportedCauses,
     getCauseList,
     submitUserImages,
 };
