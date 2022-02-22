@@ -1,11 +1,10 @@
 import React, { Suspense } from 'react';
-import Cookies from 'js-cookie';
+import { connect } from 'react-redux';
 import './RouteTransitions.css';
 
 import {
     Routes as Router,
     Route,
-    Navigate,
     useLocation,
 } from 'react-router-dom';
 
@@ -28,17 +27,12 @@ import {
     Error404,
 } from './LazyLoadedRoutes';
 
-// checking to see if there are cookies for authentication
-const loggedIn = () => {
-    return !!Cookies.get('gm_id');
-};
+import ProtectedRoute from './ProtectedRoute';
 
-const userCookie = JSON.parse(Cookies.get('user'));
-
-const Routes = () => {
+const Routes = React.memo(({
+    user,
+}) => {
     const location = useLocation();
-
-    const isLoggedIn = loggedIn();
 
     return (
         <TransitionGroup>
@@ -48,71 +42,57 @@ const Routes = () => {
                 classNames={'fade'}
             >
                 <Suspense fallback={null}>
-                    <Router location={location}>
+                    <Router>
 
-                        <Route
-                            path='/login'
-                            element={
-                                isLoggedIn
-                                    ? <Login />
-                                    : <Navigate to={`/users/${userCookie.id}/dashboard`} />
-                            }
-                        />
+                        <Route path='/login' element={<Login />} />
 
                         <Route
                             path='/users/:id/dashboard'
                             element={
-                                isLoggedIn
-                                    ? <Dashboard userData={userCookie} />
-                                    : (
-                                        <Navigate
-                                            to={{
-                                                pathname: '/login',
-                                                state: { from: '/users/:id/dashboard' }
-                                            }}
-                                        />
-                                    )
+                                <ProtectedRoute>
+                                    <Dashboard userData={user} />
+                                </ProtectedRoute>
                             }
                         />
 
-
                         <Route path='/checkout' element={<Checkout />} />
 
-                        <Route path='/thankyou' element={ThankYou} />
+                        <Route path='/thankyou' element={<ThankYou />} />
 
                         <Route path='/cause/:id' element={<CauseDetail />} />
 
                         <Route
                             path='/causes/new'
                             element={
-                                isLoggedIn
-                                    ? <CauseForm />
-                                    : <Navigate to={{ pathname: '/login', state: { from: '/causes/new' } }} />
+                                <ProtectedRoute>
+                                    <CauseForm />
+                                </ProtectedRoute>
                             }
                         />
 
-                        <Route path='/causes' element={CauseList} />
+                        <Route path='/causes' element={<CauseList />} />
 
-                        <Route path='/organizations/new' element={NewOrgForm} />
+                        <Route path='/organizations/new' element={<NewOrgForm />} />
 
-                        <Route path='/organizations/:id' element={Organization} />
+                        <Route path='/organizations/:id' element={<Organization />} />
 
-                        <Route
-                            path='/'
-                            element={
-                                !isLoggedIn
-                                    ? <Splash />
-                                    : <Navigate to={{ pathname: `/users/${userCookie.id}/dashboard` }} />
-                            }
-                        />
+                        <Route path='/' element={<Splash />} />
 
-                        <Route path="*" element={Error404} />
+                        <Route path="*" element={<Error404 />} />
 
                     </Router>
                 </Suspense>
             </CSSTransition>
         </TransitionGroup>
     );
+});
+
+Routes.displayName = 'Routes';
+
+const mapStateToProps = ({ user }) => ({ user });
+
+const mapDispatchToProps = {
+    // loadTokenFromCookie,
 };
 
-export default Routes;
+export default connect(mapStateToProps, mapDispatchToProps)(Routes);
