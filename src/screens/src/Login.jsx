@@ -13,17 +13,23 @@ import { Button } from '@jgordy24/stalls-ui';
 import { ActionButton } from 'components/shared';
 
 // TODO: Break up some of the components in this page...
-export const Login = (props) => {
-    const location = useLocation();
+export const Login = React.memo(({
+    isLoggedIn,
+    user,
+    ...props
+}) => {
     const navigate = useNavigate();
+    let location = useLocation();
 
     const [userState, setUserState] = useState({ email: '', password: '' });
     const [status, setStatus] = useState({ error: null, submitting: false });
     const [context, setContext] = useState('login');
 
-    // useEffect(() => {
-    //     if (location?.state?.context === 'register') setContext(location.state.context);
-    // }, [location?.state?.context]);
+    useEffect(() => {
+        if (isLoggedIn) {
+            navigate(`/users/${user.id}/dashboard`, { replace: true });
+        }
+    }, []);
 
     const handleState = field => {
         return (event) => {
@@ -51,9 +57,19 @@ export const Login = (props) => {
 
         const { user, error } = await action({ email, password });
 
-        if (error) handleError(error); setStatus(prevState => ({ ...prevState, submitting: false }));
-        // TODO: Use location state to determine what page navigated to the login page... redirect there...
-        if (user) navigate(`/users/${user.id}/dashboard`);
+        if (error) {
+            handleError(error);
+            setStatus(prevState => ({ ...prevState, submitting: false }));
+        }
+
+        const from = location.state?.from?.pathname;
+
+        // Use location state to determine what page navigated to the login page... redirect there...
+        if (from) {
+            navigate(from, { replace: 'true' });
+        } else if (user) {
+            navigate(`/users/${user.id}/dashboard`, { replace: 'true' });
+        }
     };
 
     return (
@@ -122,10 +138,15 @@ export const Login = (props) => {
                 /> */}
         </div>
     );
-};
+});
 
-const mapStateToProps = () => {
-    return {};
+Login.displayName = 'Login';
+
+const mapStateToProps = ({ user, token }) => {
+    return {
+        user,
+        isLoggedIn: !!user && !!token,
+    };
 };
 
 const mapDispatchToProps = {
