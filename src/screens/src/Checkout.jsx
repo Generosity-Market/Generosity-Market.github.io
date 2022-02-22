@@ -4,10 +4,8 @@ import { removeItemFromCart, clearAllCartItems } from 'ducks/cart';
 import { submitDonation } from 'ducks/cause';
 import '../styles/Checkout.css';
 
-import {
-    Elements,
-    StripeProvider,
-} from 'react-stripe-elements';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 
 import {
     getTotal,
@@ -20,6 +18,8 @@ import {
     CheckoutForm,
     EmptyCart,
 } from 'components/containers/Checkout';
+
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_TEST);
 
 export const Checkout = ({
     cart,
@@ -34,47 +34,45 @@ export const Checkout = ({
     };
 
     return (
-        <StripeProvider apiKey={process.env.REACT_APP_STRIPE_TEST}>
-            <div className="Checkout">
+        <div className="Checkout">
 
-                {!cart.length > 0
-                    ? <EmptyCart />
-                    : (
-                        <Cart
-                            cart={cart}
-                            clearAllCartItems={clearAllCartItems}
-                            {...rest}
-                        />
-                    )
-                }
-
-                {cart.length > 0 &&
-                    <CartFooter
-                        total={getTotal(cart, 'amount')}
-                        toggleCheckoutForm={toggleCheckoutForm}
+            {!cart.length > 0
+                ? <EmptyCart />
+                : (
+                    <Cart
                         cart={cart}
                         clearAllCartItems={clearAllCartItems}
                         {...rest}
                     />
-                }
+                )
+            }
 
-                {user &&
-                    <Elements>
-                        <CheckoutForm
-                            toggleCheckoutForm={toggleCheckoutForm}
-                            showForm={showForm}
-                            total={getTotal(cart, 'amount')}
-                            submitDonation={submitDonation}
-                            cart={cart}
-                            clearAllCartItems={clearAllCartItems}
-                            user={user}
-                            {...rest}
-                        />
-                    </Elements>
-                }
+            {cart.length > 0 &&
+                <CartFooter
+                    total={getTotal(cart, 'amount')}
+                    toggleCheckoutForm={toggleCheckoutForm}
+                    cart={cart}
+                    clearAllCartItems={clearAllCartItems}
+                    {...rest}
+                />
+            }
 
-            </div>
-        </StripeProvider>
+            {user &&
+                <Elements stripe={stripePromise}>
+                    <CheckoutForm
+                        toggleCheckoutForm={toggleCheckoutForm}
+                        showForm={showForm}
+                        total={getTotal(cart, 'amount')}
+                        submitDonation={submitDonation}
+                        cart={cart}
+                        clearAllCartItems={clearAllCartItems}
+                        user={user}
+                        {...rest}
+                    />
+                </Elements>
+            }
+
+        </div>
     );
 };
 

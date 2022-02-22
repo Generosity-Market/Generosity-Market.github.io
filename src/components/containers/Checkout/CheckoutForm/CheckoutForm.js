@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import stripeServices from 'services/stripe';
+import { useNavigate } from 'react-router-dom';
 import './CheckoutForm.css';
 
 // Shared UI Components
@@ -12,25 +12,29 @@ import {
 import {
     CardNumberElement,
     CardExpiryElement,
-    CardCVCElement,
-    PostalCodeElement,
-    injectStripe
-} from 'react-stripe-elements';
+    CardCvcElement,
+    useElements,
+    useStripe,
+} from '@stripe/react-stripe-js';
 
 const CheckoutForm = ({
     cart,
     clearAllCartItems,
-    history,
     showForm,
-    stripe,
     submitDonation,
     toggleCheckoutForm,
     total,
     user,
 }) => {
+    const stripe = useStripe();
+    const elements = useElements();
+
+    const navigate = useNavigate();
+
     const [loading, setLoading] = useState(false);
     const [status, setStatus] = useState('');
     const [email, setEmail] = useState(user.email);
+    const [addressZip, setAddresZip] = useState(user.zipcode);
 
     useEffect(() => {
         setEmail(user.email);
@@ -47,12 +51,29 @@ const CheckoutForm = ({
         setEmail(event.target.value);
     };
 
-    const submit = async () => {
+    const handleZipChange = (event) => {
+        setAddresZip(event.target.value);
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        if (!stripe || !elements) {
+            // Stripe.js has not loaded yet. Make sure to disable
+            // form submission until Stripe.js has loaded.
+            return;
+        }
+
+        const card = elements.getElement(CardNumberElement);
+
+        if (card === null) {
+            return;
+        }
         setLoading(true);
         setStatus('');
 
         try {
-            const token = await stripeServices.createToken(stripe);
+            const { token } = await stripe.createToken(card, { address_zip: addressZip });
 
             if (!token) {
                 setLoading(false);
@@ -60,7 +81,7 @@ const CheckoutForm = ({
                 return;
             }
             const donationDetails = {
-                ...token,
+                token,
                 cart,
                 user_id: user.id,
                 id: user.id,
@@ -77,13 +98,15 @@ const CheckoutForm = ({
                 setTimeout(() => toggleCheckoutForm(), 3250);
                 setTimeout(() => clearAllCartItems(), 3500);
                 // Navigate to the "Thank You" page
-                setTimeout(() => history.push('/thankyou'), 3500);
+                setTimeout(() => navigate('/thankyou'), 3500);
             } else if (response.status === 'failed') {
                 setLoading(false);
                 setStatus('failed');
             }
 
         } catch (error) {
+            // eslint-disable-next-line no-console
+            console.log({ error });
             setLoading(false);
             setStatus('failed');
         }
@@ -103,6 +126,7 @@ const CheckoutForm = ({
 
                 <div className="stripe-field email">
                     <input
+                        style={{ ...stripeOptions.styles }}
                         type="email"
                         name="email"
                         placeholder="Email"
@@ -112,47 +136,58 @@ const CheckoutForm = ({
                 </div>
 
                 <div className="stripe-field">
-                    <CardNumberElement style={stripeStyles} />
+                    <CardNumberElement style={stripeOptions} />
                 </div>
 
                 <div className="card-info">
                     <div className="stripe-field">
-                        <CardExpiryElement style={stripeStyles} />
+                        <CardExpiryElement style={stripeOptions} />
                     </div>
                     <div className="stripe-field">
-                        <CardCVCElement style={stripeStyles} />
+                        <CardCvcElement style={stripeOptions} />
                     </div>
                     <div className="stripe-field">
-                        <PostalCodeElement style={stripeStyles} />
+                        <input
+                            style={{ ...stripeOptions.styles }}
+                            type="number"
+                            name="address_zip"
+                            placeholder="Zip code"
+                            value={addressZip}
+                            onChange={handleZipChange}
+                        />
                     </div>
                 </div>
 
                 <Button
+                    type='submit'
                     bsStyle='success'
-                    icon={status === 'complete' && 'check-circle'}
+                    icon={status === 'complete' ? 'check-circle' : ''}
                     label={handleButtonText()}
-                    onClick={submit}
+                    onClick={handleSubmit}
                 />
+
             </div>
         </div>
     );
 };
 
-const stripeStyles = {
-    base: {
-        color: '#707070',
-        fontSize: '18px',
-        fontSmoothing: 'antialiased',
-        '::placeholder': {
-            color: '#AAA',
+const stripeOptions = {
+    styles: {
+        base: {
+            color: '#707070',
+            fontSize: '18px',
+            fontSmoothing: 'antialiased',
+            '::placeholder': {
+                color: '#AAA',
+            },
         },
-    },
-    invalid: {
-        color: '#e5424d',
-        ':focus': {
-            color: '#303238',
+        invalid: {
+            color: '#e5424d',
+            ':focus': {
+                color: '#303238',
+            },
         },
     },
 };
 
-export default injectStripe(CheckoutForm);
+export default CheckoutForm;
