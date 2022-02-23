@@ -10,7 +10,7 @@ const pageDataReducer = (state = initialState.pageData, { type, payload }) => {
     switch (type) {
         case SET_PAGE_DATA:
             return update(state, {
-                $merge: payload,
+                $set: payload,
             });
         case RESET_PAGE_DATA:
             return update(state, {
