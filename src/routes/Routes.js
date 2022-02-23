@@ -28,11 +28,15 @@ import {
 } from './LazyLoadedRoutes';
 
 import ProtectedRoute from './ProtectedRoute';
+import RedirectRoute from './RedirectRoute';
 
 const Routes = React.memo(({
     user,
+    token,
 }) => {
     const location = useLocation();
+
+    const isLoggedIn = !!user && !!token;
 
     return (
         <TransitionGroup>
@@ -44,7 +48,17 @@ const Routes = React.memo(({
                 <Suspense fallback={null}>
                     <Router>
 
-                        <Route path='/login' element={<Login />} />
+                        <Route
+                            path='/login'
+                            element={
+                                <RedirectRoute
+                                    redirectIf={isLoggedIn}
+                                    to={`/users/${user?.id}/dashboard`}
+                                >
+                                    <Login />
+                                </RedirectRoute>
+                            }
+                        />
 
                         <Route
                             path='/users/:id/dashboard'
@@ -76,7 +90,17 @@ const Routes = React.memo(({
 
                         <Route path='/organizations/:id' element={<Organization />} />
 
-                        <Route path='/' element={<Splash />} />
+                        <Route
+                            path='/'
+                            element={
+                                <RedirectRoute
+                                    redirectIf={isLoggedIn}
+                                    to={`/users/${user?.id}/dashboard`}
+                                >
+                                    <Splash />
+                                </RedirectRoute>
+                            }
+                        />
 
                         <Route path="*" element={<Error404 />} />
 
@@ -89,7 +113,7 @@ const Routes = React.memo(({
 
 Routes.displayName = 'Routes';
 
-const mapStateToProps = ({ user }) => ({ user });
+const mapStateToProps = ({ user, token }) => ({ user, token });
 
 const mapDispatchToProps = {
     // loadTokenFromCookie,
