@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getCauseList } from 'ducks/cause';
 import { loadTokenFromCookie } from 'ducks/user';
 import { resetPageData } from 'ducks/pageData';
@@ -15,10 +15,7 @@ export const Splash = ({
     loadTokenFromCookie,
     resetPageData,
     isLoggedIn,
-    user,
 }) => {
-
-    const navigate = useNavigate();
 
     useEffect(() => {
         getCauseList();
@@ -28,12 +25,6 @@ export const Splash = ({
         }
         // eslint-disable-next-line
     }, []);
-
-    useEffect(() => {
-        if (isLoggedIn) {
-            navigate(`/users/${user.id}/dashboard`, { replace: true });
-        }
-    }, [isLoggedIn]);
 
     return (
         <div className='Splash'>
