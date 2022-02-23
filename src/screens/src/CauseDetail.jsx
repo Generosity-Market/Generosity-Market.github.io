@@ -86,14 +86,12 @@ export const CauseDetail = ({
     const webShareIsSupported = navigator.share;
     const handleWebShare = () => {
         if (webShareIsSupported) {
+            const { title, description: text } = pageData;
+            const _name = name.replace(/ /g, '-');
 
-            const shareData = {
-                title: pageData.title,
-                text: pageData.description,
-                url: encodeURI(`${window.location.href}/?title=${name}`),
-            };
+            const url = `${window.location.href}/?title=${_name}`;
 
-            navigator.share(shareData)
+            navigator.share({ title, text, url })
                 .then((response) => {
                     // if (onShareSuccess) {
                     //     onShareSuccess(response);

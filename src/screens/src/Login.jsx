@@ -25,12 +25,6 @@ export const Login = React.memo(({
     const [status, setStatus] = useState({ error: null, submitting: false });
     const [context, setContext] = useState('login');
 
-    useEffect(() => {
-        if (isLoggedIn) {
-            navigate(`/users/${user.id}/dashboard`, { replace: true });
-        }
-    }, [isLoggedIn]);
-
     const handleState = field => {
         return (event) => {
             event.persist();
