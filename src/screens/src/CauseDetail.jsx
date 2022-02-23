@@ -90,7 +90,7 @@ export const CauseDetail = ({
             const shareData = {
                 title: pageData.title,
                 text: pageData.description,
-                url: window.location.href,
+                url: encodeURI(`${window.location.href}/?title=${name}`),
             };
 
             navigator.share(shareData)
