@@ -19,7 +19,7 @@ export const Login = React.memo(({
     ...props
 }) => {
     const navigate = useNavigate();
-    let location = useLocation();
+    const location = useLocation();
 
     const [userState, setUserState] = useState({ email: '', password: '' });
     const [status, setStatus] = useState({ error: null, submitting: false });
@@ -29,7 +29,7 @@ export const Login = React.memo(({
         if (isLoggedIn) {
             navigate(`/users/${user.id}/dashboard`, { replace: true });
         }
-    }, []);
+    }, [isLoggedIn]);
 
     const handleState = field => {
         return (event) => {
