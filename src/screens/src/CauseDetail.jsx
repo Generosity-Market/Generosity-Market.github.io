@@ -10,8 +10,6 @@ import {
     LinkButton,
 } from '@jgordy24/stalls-ui';
 
-import { useWebShareApi } from '@jgordy24/react-hooks-lib';
-
 // Ducks
 import { getSingleCause } from 'ducks/cause';
 import { setPageData } from 'ducks/pageData';
@@ -50,8 +48,6 @@ export const CauseDetail = ({
 
     const { id } = useParams();
 
-    const [webShareIsSupported, share] = useWebShareApi(pageData);
-
     useEffect(() => {
         if (!cause) {
             getSingleCause(id);
@@ -87,6 +83,30 @@ export const CauseDetail = ({
         });
     }
 
+    const webShareIsSupported = navigator.share;
+    const handleWebShare = () => {
+        if (webShareIsSupported) {
+
+            const shareData = {
+                title: pageData.title,
+                text: pageData.description,
+                url: window.location.href,
+            };
+
+            navigator.share(shareData)
+                .then((response) => {
+                    // if (onShareSuccess) {
+                    //     onShareSuccess(response);
+                    // }
+                }).catch(error => {
+                    // console.log({ error });
+                    // if (onShareError) {
+                    //     onShareError(err);
+                    // }
+                });
+        }
+    };
+
     return (
         <div className="CauseDetail">
             <HeadContainer />
@@ -118,7 +138,7 @@ export const CauseDetail = ({
                 />
 
                 {webShareIsSupported &&
-                    <div className="share-link" onClick={share}>
+                    <div className="share-link" onClick={handleWebShare}>
                         <Glyphicon icon="share-alt" />
                         Or Share This Page
                     </div>
@@ -141,7 +161,7 @@ export const CauseDetail = ({
                         bsStyle="success"
                         bsSize="long"
                         label="Share this page"
-                        onClick={share}
+                        onClick={handleWebShare}
                         icon="share-alt"
                     />
                 }
