@@ -1,13 +1,17 @@
 import React from 'react';
 import '../styles/Error404.css';
 
-import { Button } from '@jgordy24/stalls-ui';
+import { useLocation } from 'react-router-dom';
+
+// import { Button } from '@jgordy24/stalls-ui';
 
 import {
     TexturedCircle,
 } from 'components/shared';
 
 export const Error404 = () => {
+
+    const location = useLocation();
 
     return (
         <div className="Error404">
@@ -20,8 +24,9 @@ export const Error404 = () => {
             </TexturedCircle>
 
             <h1>
-                <span>404</span>
-                Page Not Found
+                <span className="header-404">404</span>
+                {`"${location.pathname}"`}
+                <span style={{ display: 'block' }}>Not Found</span>
             </h1>
 
             <div className="message">
