@@ -1,6 +1,7 @@
 {
     "short_name": "Generosity Market",
     "name": "Generosity Market",
+    "description": "Generosity Market is a platform for non-profits and charities to raise funds.",
     "icons": [
         {
             "src": "favicons/favicon.ico",
@@ -30,6 +31,12 @@
             "sizes": "310x310",
             "type": "image/png",
             "density": "4.0"
+        },
+        {
+            "src": "favicons/favicon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "density": "4.0"
         }
     ],
     "shortcuts": [
@@ -39,9 +46,14 @@
             "description": "Create a new cause to share to the world."
         }
     ],
-    "start_url": "/?source=pwa",
-    "scope": "/",
+    "start_url": "https://generosity-market-stage.herokuapp.com/?source=pwa",
     "display": "standalone",
     "theme_color": "#3ABF49",
-    "background_color": "#ffffff"
+    "background_color": "#ffffff",
+    "orientation": "portrait",
+    "categories": [
+        "lifestyle",
+        "social",
+        "business"
+    ]
 }

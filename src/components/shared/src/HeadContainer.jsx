@@ -19,6 +19,7 @@ export const HeadContainer = ({
             <meta property="og:image" content={image} />
             <meta property="og:url" content={url || window.location.href} />
             <meta name="twitter:card" content="summary_large_image" />
+            <meta name="description" content={description} />
 
             {children}
         </Helmet>
