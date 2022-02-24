@@ -19,10 +19,10 @@ export const Receipts = ({
     getUserSupportedCauses,
     user,
 }) => {
-    const myRef = useRef();
+    const componentRef = useRef();
     const {
         inViewport,
-    } = useInViewport(myRef);
+    } = useInViewport(componentRef, { rootMargin: '100px 0px 0px 0px' });
 
     const [loading, setLoading] = useState(false);
 
@@ -60,7 +60,7 @@ export const Receipts = ({
     return (
         <div
             className="Receipts"
-            ref={myRef}
+            ref={componentRef}
         >
             <Heading text={'Causes I Support'} />
             {hasCauses ? causes : noSupportedCauses}

@@ -21,7 +21,7 @@ const CauseTile = ({
     const componentRef = useRef();
     const {
         inViewport,
-    } = useInViewport(componentRef);
+    } = useInViewport(componentRef, { rootMargin: '100px 0px 0px 0px' });
 
 
     const imageURL = (inViewport ? cause.profile_image : getPlaceholder());
