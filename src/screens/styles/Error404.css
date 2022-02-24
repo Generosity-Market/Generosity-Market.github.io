@@ -12,7 +12,7 @@
 .Error404 .message {
     font-size: 1.4rem;
     margin: 1.5rem auto;
-    width: 65%;
+    width: 70%;
 }
 
 .Error404 h1 {
@@ -20,7 +20,7 @@
     margin-top: 24rem;
 }
 
-.Error404 span {
+.Error404 .header-404 {
     color: var(--warning);
     display: block;
 }

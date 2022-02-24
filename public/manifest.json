@@ -32,7 +32,15 @@
             "density": "4.0"
         }
     ],
-    "start_url": "./",
+    "shortcuts": [
+        {
+            "name": "Create a Cause",
+            "url": "/causes/new",
+            "description": "Create a new cause to share to the world."
+        }
+    ],
+    "start_url": "/?source=pwa",
+    "scope": "/",
     "display": "standalone",
     "theme_color": "#3ABF49",
     "background_color": "#ffffff"
