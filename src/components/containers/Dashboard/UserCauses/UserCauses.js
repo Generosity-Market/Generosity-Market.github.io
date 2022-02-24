@@ -22,10 +22,10 @@ export const UserCauses = ({
     user,
 }) => {
 
-    const myRef = useRef();
+    const componentRef = useRef();
     const {
         inViewport,
-    } = useInViewport(myRef);
+    } = useInViewport(componentRef, { rootMargin: '100px 0px 0px 0px' });
 
     const [loading, setLoading] = useState(false);
 
@@ -71,7 +71,7 @@ export const UserCauses = ({
     return (
         <div
             className="UserCauses"
-            ref={myRef}
+            ref={componentRef}
         >
             <Heading text={'Your Causes'} />
 
