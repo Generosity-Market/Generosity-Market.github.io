@@ -1,10 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import './TopMenu.css';
+
+import { useFeature } from 'hooks';
 
 import { Glyphicon } from '@jgordy24/stalls-ui';
 
 const TopMenu = ({ openMenu }) => {
+
+    const [showDevMenu] = useSearchFeature('showDevMenu');
+
     return (
         <div className='topnav TopMenu' id='topnav'>
 
@@ -21,7 +26,7 @@ const TopMenu = ({ openMenu }) => {
                 />
             </div>
 
-            {process.env.NODE_ENV === 'development' && (
+            {showDevMenu && (
                 <div className='links menuButton'>
                     <div onClick={openMenu}>
                         <Glyphicon icon={'bars'} />
