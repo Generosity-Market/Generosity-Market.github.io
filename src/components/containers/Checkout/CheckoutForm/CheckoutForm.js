@@ -3,10 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './CheckoutForm.css';
 
 // Shared UI Components
-import {
-    Button,
-    Glyphicon,
-} from '@jgordy24/stalls-ui';
+import { Button } from '@jgordy24/stalls-ui';
 
 // Stripe UI Components
 import {
@@ -22,7 +19,6 @@ const CheckoutForm = ({
     clearAllCartItems,
     showForm,
     submitDonation,
-    toggleCheckoutForm,
     total,
     user,
 }) => {
@@ -96,8 +92,7 @@ const CheckoutForm = ({
                 // Update the button text
                 setLoading(false);
                 setStatus('complete');
-                // Remove the checkout form from the screen
-                setTimeout(() => toggleCheckoutForm(), 3250);
+
                 setTimeout(() => clearAllCartItems(), 3500);
                 // Navigate to the "Thank You" page
                 setTimeout(() => navigate('/thankyou'), 3500);
@@ -120,10 +115,6 @@ const CheckoutForm = ({
             style={showForm && total > 0 ? { bottom: '-5%' } : { bottom: '-100%' }}
         >
             <div className="card">
-                <Glyphicon
-                    onClick={toggleCheckoutForm}
-                    icon={['far', 'times-circle']}
-                />
                 <p>Would you like to complete the purchase?</p>
 
                 <div className="stripe-field email">
@@ -148,21 +139,23 @@ const CheckoutForm = ({
                     <div className="stripe-field">
                         <CardCvcElement style={stripeOptions} />
                     </div>
-                    <div className="stripe-field">
-                        <input
-                            style={{ ...stripeOptions.styles }}
-                            type="number"
-                            name="address_zip"
-                            placeholder="Zip code"
-                            value={addressZip}
-                            onChange={handleZipChange}
-                        />
-                    </div>
+                </div>
+
+                <div className="stripe-field">
+                    <input
+                        style={{ ...stripeOptions.styles }}
+                        type="number"
+                        name="address_zip"
+                        placeholder="Zip code"
+                        value={addressZip}
+                        onChange={handleZipChange}
+                    />
                 </div>
 
                 <Button
                     type='submit'
                     bsStyle='success'
+                    bsSize='long'
                     icon={status === 'complete' ? 'check-circle' : ''}
                     label={handleButtonText()}
                     onClick={handleSubmit}
