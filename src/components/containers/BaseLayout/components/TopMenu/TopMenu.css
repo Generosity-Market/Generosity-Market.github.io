@@ -2,7 +2,8 @@
     background-color: var(--black-30);
     display: flex;
     height: 57px;
-    justify-content: space-between;
+    /* convert back to space-between when adding the home button */
+    justify-content: center;
     position: fixed;
     width: 100vw;
     z-index: 5;
@@ -20,9 +21,14 @@
     font-size: 20px;
 }
 
-.topnav .menuLogo.links {
+.topnav .menuLogo {
     flex-basis: 40%;
     padding-top: 0rem !important;
+}
+
+.topnav .menuButton {
+    position: absolute;
+    right: 1rem;
 }
 
 .topnav .menuLogo img {
