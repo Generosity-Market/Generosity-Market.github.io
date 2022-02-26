@@ -18,6 +18,7 @@ const bottomNavLinks = [
         name: 'Checkout',
         icon: 'shopping-cart',
         endpoint: () => '/checkout',
+        withIndicator: true, // If items in cart
     },
 ];
 

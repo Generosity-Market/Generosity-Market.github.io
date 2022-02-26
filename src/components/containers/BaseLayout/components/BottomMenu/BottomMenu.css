@@ -25,7 +25,7 @@
 
 .BottomMenu .navLinks.active {
     color: var(--medium-green);
-    transform: 'scale(1.1)';
+    transform: scale(1.1);
 }
 
 .BottomMenu .navLinks svg {
@@ -33,4 +33,17 @@
     margin: 0 0 0.25rem 0;
     text-align: center;
     width: 100%;
+}
+
+.BottomMenu .navlink-wrapper {
+    position: relative;
+}
+
+.BottomMenu .indicator {
+    display: block;
+    position: absolute;
+    right: 5px;
+    top: 0px;
+    color: var(--danger);
+    font-size: 22px;
 }
