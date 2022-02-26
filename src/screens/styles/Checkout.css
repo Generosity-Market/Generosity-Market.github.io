@@ -1,3 +1,12 @@
 .Checkout {
   /* padding: 0rem 0rem 5rem; */
 }
+
+.Checkout .trigger-checkout-modal {
+    align-items: center;
+    bottom: 5rem;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+}

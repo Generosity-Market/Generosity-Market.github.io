@@ -7,6 +7,8 @@ import '../styles/Checkout.css';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 
+import { Modal } from '@jgordy24/stalls-ui';
+
 import {
     getTotal,
 } from 'utilities';
@@ -27,10 +29,13 @@ export const Checkout = ({
     user,
     ...rest
 }) => {
-    const [showForm, setShowForm] = useState(false);
 
-    const toggleCheckoutForm = () => {
-        setShowForm(state => !state);
+    const total = getTotal(cart, 'amount');
+
+    const modalTriggerProps = {
+        label: `Donate $${total}`,
+        disabled: !(total > 0),
+        bsSize: 'md',
     };
 
     return (
@@ -47,30 +52,24 @@ export const Checkout = ({
                 )
             }
 
-            {cart.length > 0 &&
-                <CartFooter
-                    total={getTotal(cart, 'amount')}
-                    toggleCheckoutForm={toggleCheckoutForm}
-                    cart={cart}
-                    clearAllCartItems={clearAllCartItems}
-                    {...rest}
-                />
-            }
-
-            {user &&
-                <Elements stripe={stripePromise}>
-                    <CheckoutForm
-                        toggleCheckoutForm={toggleCheckoutForm}
-                        showForm={showForm}
-                        total={getTotal(cart, 'amount')}
-                        submitDonation={submitDonation}
-                        cart={cart}
-                        clearAllCartItems={clearAllCartItems}
-                        user={user}
-                        {...rest}
-                    />
-                </Elements>
-            }
+            {user && cart?.length > 0 && (
+                <div className='trigger-checkout-modal'>
+                    <Modal triggerProps={modalTriggerProps}>
+                        <Elements stripe={stripePromise}>
+                            <CheckoutForm
+                                // toggleCheckoutForm={toggleCheckoutForm}
+                                // showForm={showForm}
+                                total={total}
+                                submitDonation={submitDonation}
+                                cart={cart}
+                                clearAllCartItems={clearAllCartItems}
+                                user={user}
+                                {...rest}
+                            />
+                        </Elements>
+                    </Modal>
+                </div>
+            )}
 
         </div>
     );
