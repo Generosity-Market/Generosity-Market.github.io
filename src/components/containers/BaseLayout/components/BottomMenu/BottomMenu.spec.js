@@ -20,7 +20,6 @@ const wrapper = shallow(
 describe('<BottomMenu />', () => {
 
     it('renders without crashing', () => {
-        console.log(wrapper.debug());
         expect(wrapper.exists('Memo(BottomMenu)')).toBe(true);
     });
 });
