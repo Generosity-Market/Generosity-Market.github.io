@@ -8,11 +8,11 @@ const TopMenu = ({ openMenu }) => {
     return (
         <div className='topnav TopMenu' id='topnav'>
 
-            <div className='links'>
+            {/* <div className='links'>
                 <Link to="/causes">
                     <Glyphicon icon={'home'} />
                 </Link>
-            </div>
+            </div> */}
 
             <div className="menuLogo links">
                 <img
@@ -21,11 +21,13 @@ const TopMenu = ({ openMenu }) => {
                 />
             </div>
 
-            <div className='links'>
-                <div onClick={openMenu}>
-                    <Glyphicon icon={'bars'} />
+            {process.env.NODE_ENV === 'development' && (
+                <div className='links menuButton'>
+                    <div onClick={openMenu}>
+                        <Glyphicon icon={'bars'} />
+                    </div>
                 </div>
-            </div>
+            )}
 
         </div>
     );
