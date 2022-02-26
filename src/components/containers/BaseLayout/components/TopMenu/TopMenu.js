@@ -8,7 +8,7 @@ import { Glyphicon } from '@jgordy24/stalls-ui';
 
 const TopMenu = ({ openMenu }) => {
 
-    const [showDevMenu] = useSearchFeature('showDevMenu');
+    const [showDevMenu] = useFeature('showDevMenu');
 
     return (
         <div className='topnav TopMenu' id='topnav'>
