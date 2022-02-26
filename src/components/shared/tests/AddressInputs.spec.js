@@ -3,7 +3,12 @@ import { shallow } from 'enzyme';
 
 import AddressInputs from '../src/AddressInputs';
 
-const defaultProps = {};
+const defaultProps = {
+    onChange: jest.fn(),
+    name: 'test-phone',
+    label: 'test-phone',
+    value: '',
+};
 
 const wrapper = shallow(<AddressInputs {...defaultProps} />);
 

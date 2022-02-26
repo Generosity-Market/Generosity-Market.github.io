@@ -144,11 +144,13 @@ const CheckoutForm = ({
                 <div className="stripe-field">
                     <input
                         style={{ ...stripeOptions.styles }}
-                        type="number"
+                        type="text"
+                        maxLength="5"
                         name="address_zip"
                         placeholder="Zip code"
                         value={addressZip}
                         onChange={handleZipChange}
+                        inputMode="numeric"
                     />
                 </div>
 

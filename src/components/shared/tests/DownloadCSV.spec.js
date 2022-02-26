@@ -6,6 +6,7 @@ import DownloadCSV from '../src/DownloadCSV';
 const defaultProps = {
     filename: 'my file',
     classname: 'my-file',
+    csvData: [],
 };
 
 const wrapper = shallow(<DownloadCSV {...defaultProps} />);

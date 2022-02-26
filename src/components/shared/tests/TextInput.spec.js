@@ -3,7 +3,12 @@ import { shallow } from 'enzyme';
 
 import TextInput from '../src/TextInput';
 
-const defaultProps = {};
+const defaultProps = {
+    value: '',
+    onChange: jest.fn(),
+    name: 'test-input',
+    label: 'test-input',
+};
 
 const wrapper = shallow(<TextInput {...defaultProps} />);
 

@@ -45,8 +45,7 @@
 }
 
 .CheckoutForm .stripe-field {
-    border-bottom: 1px solid var(--white);
-    margin: 0 auto;
+    margin: 0 0 0.75 0;
     padding-bottom: 0.5rem;
     width: 100%;
     border-bottom: 2px solid var(--bright-green);
@@ -58,6 +57,7 @@
     font-size: 1.1rem;
     width: 98%;
     height: 2rem;
+    border: none;
 }
 
 .stripe-field input[type="email"]::placeholder {
