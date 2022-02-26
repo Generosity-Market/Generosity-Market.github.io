@@ -9,6 +9,8 @@ const defaultProps = {
     name: '',
     phone: '',
     user: {},
+    editProfile: false,
+    handleEditProfile: jest.fn(),
 };
 
 const wrapper = shallow(<UserDetails {...defaultProps} />);
