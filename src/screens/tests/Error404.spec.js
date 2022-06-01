@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import { TestProvider } from 'utilities/testing';
 import { BrowserRouter } from 'react-router-dom';
 
 // Component import
@@ -11,16 +12,17 @@ const defaultProps = {
     }
 };
 
-const wrapper = shallow(
-    <BrowserRouter>
-        <Error404 {...defaultProps} />
-    </BrowserRouter>
-);
+const testComponent = <Error404 {...defaultProps} />;
 
 describe('<Error404 />', () => {
+    let container;
+
+    beforeEach(() => {
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('Error404')).toEqual(true);
+        expect(container.querySelector('.Error404')).toBeInTheDocument();
     });
 
     it.todo('Test other things on the 404 page');

@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import { TestProvider } from 'utilities/testing';
 
 import ReceiptItem from '../src/ReceiptItem';
 
@@ -9,11 +10,16 @@ const defaultProps = {
     },
 };
 
-const wrapper = shallow(<ReceiptItem {...defaultProps} />);
+const testComponent = <ReceiptItem {...defaultProps} />;
 
 describe('<ReceiptItem />', () => {
+    let container;
+
+    beforeEach(() => {
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('.ReceiptItem')).toBe(true);
+        expect(container.querySelector('.ReceiptItem')).toBeInTheDocument();
     });
 });

@@ -1,8 +1,14 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import Helmet from 'react-helmet';
+import { render, screen } from '@testing-library/react';
+import { TestProvider } from 'utilities/testing';
 
 // Component import
 import { HeadContainer } from '../src/HeadContainer';
+
+const getMetaTag = (metaTags, property) => {
+    return metaTags.filter(tag => tag.property === property || tag.name === property)[0];
+};
 
 const defaultProps = {
     pageData: {
@@ -15,36 +21,50 @@ const defaultProps = {
     },
 };
 
-const wrapper = shallow(<HeadContainer {...defaultProps} />);
+const testComponent = <HeadContainer {...defaultProps} />;
 
 describe('<HeadContainer />', () => {
+    let title;
+    let metaTags;
+
+    beforeEach(() => {
+        render(testComponent, { wrapper: TestProvider });
+
+        ({ title, metaTags } = Helmet.peek());
+    });
 
     it('should render page title element', () => {
-        expect(wrapper.find('title').text()).toEqual('Generosity Market');
+        expect(title).toEqual('Generosity Market');
     });
 
     it('should render open graph meta title', () => {
-        expect(wrapper.find('meta[property="og:title"]').props().content).toEqual('Generosity Market');
+        expect(getMetaTag(metaTags, 'og:title').content).toBe(defaultProps.pageData.title);
     });
 
     it('should render open graph meta description', () => {
-        expect(wrapper.find('meta[property="og:description"]').props().content).toEqual('Fundraising platform for non-profits and charities');
+        expect(getMetaTag(metaTags, 'og:description').content).toBe(defaultProps.pageData.description);
     });
 
     it('should render open graph meta image', () => {
-        expect(wrapper.find('meta[property="og:image"]').props().content).toEqual('Artboard-1-copy-2Generosity-Logo.png');
+        expect(getMetaTag(metaTags, 'og:image').content).toBe(defaultProps.pageData.image);
     });
 
     it('should render open graph meta url', () => {
-        expect(wrapper.find('meta[property="og:url"]').props().content).toEqual('http://localhost/');
+        expect(getMetaTag(metaTags, 'og:url').content).toBe(window.location.href);
     });
 
     it('should render twitter card meta tag', () => {
-        expect(wrapper.find('meta[name="twitter:card"]').props().content).toEqual('summary_large_image');
+        expect(getMetaTag(metaTags, 'twitter:card').content).toBe('summary_large_image');
     });
 
     it('should render children tags', () => {
-        wrapper.setProps({ children: <meta property="child-tag" content="child-content" /> });
-        expect(wrapper.find('meta[property="child-tag"]').exists()).toBe(true);
+        render(
+            <HeadContainer {...defaultProps}>
+                <meta property="child-tag" content="child-content" />
+            </HeadContainer>, { wrapper: TestProvider });
+
+        const { metaTags } = Helmet.peek();
+
+        expect(getMetaTag(metaTags, 'child-tag').content).toBe('child-content');
     });
 });

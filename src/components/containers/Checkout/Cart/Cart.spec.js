@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import { TestProvider } from 'utilities/testing';
 
 // Component import
 import Cart from './Cart.js';
@@ -12,11 +13,17 @@ const defaultProps = {
     }],
 };
 
-const wrapper = shallow(<Cart {...defaultProps} />);
+const testComponent = <Cart {...defaultProps} />;
 
 describe('<Cart />', () => {
 
+    let container;
+
+    beforeEach(() => {
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
+
     it('renders without crashing', () => {
-        expect(wrapper.exists('.cart-container')).toBe(true);
+        expect(container.querySelector('.cart-container')).toBeInTheDocument();
     });
 });

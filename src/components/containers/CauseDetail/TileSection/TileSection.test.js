@@ -1,18 +1,33 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+
+import { TestProvider } from 'utilities/testing';
 
 // Component import
 import { TileSection } from './TileSection.js';
 
 const defaultProps = {
-    match: { params: { id: 1 } },
+    goal_amount: 150,
+    purchasedTiles: [],
+    icon: 'Africa',
+    name: 'Mission Trip',
 };
 
-const wrapper = shallow(<TileSection {...defaultProps} />);
+const testComponent = <TileSection {...defaultProps} />;
 
 describe('<TileSection />', () => {
 
+    let container;
+
+    beforeEach(() => {
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
+
     it('renders without crashing', () => {
-        expect(wrapper.exists('.TileSection')).toBe(true);
+        expect(container.querySelector('.TileSection')).toBeInTheDocument();
+    });
+
+    it('should render donation tiles', () => {
+        expect(container.querySelectorAll('.DonationTile')).not.toHaveLength(0);
     });
 });

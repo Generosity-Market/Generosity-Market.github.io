@@ -1,30 +1,33 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 
-import { BrowserRouter } from 'react-router-dom';
+import { TestProvider } from 'utilities/testing';
 
 // Component import
-import { BaseLayout } from './BaseLayout.js';
+import BaseLayout from './BaseLayout.js';
 
-const defaultProps = {
-    match: {
-        params: {
-            id: 1,
-        }
-    },
-    loadTokenFromCookie: jest.fn(),
-    getCauseList: jest.fn(),
-};
-
-const wrapper = shallow(
-    <BrowserRouter>
-        <BaseLayout {...defaultProps} />
-    </BrowserRouter>
-);
+const testComponent = <BaseLayout />;
 
 describe('<BaseLayout />', () => {
+    let container;
+    let getByTestId;
+
+    beforeEach(() => {
+        ({
+            container,
+            getByTestId,
+        } = render(testComponent, { wrapper: TestProvider }));
+    });
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('BaseLayout')).toEqual(true);
+        expect(getByTestId('BaseLayout')).toBeInTheDocument();
+    });
+
+    it('should contain the logo image', () => {
+        expect(getByTestId('menuLogo')).toBeInTheDocument();
+    });
+
+    it('should contain the bottom menu', () => {
+        expect(container.querySelector('.BottomMenu')).toBeInTheDocument();
     });
 });

@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import { TestProvider } from 'utilities/testing';
 
 import DownloadCSV from '../src/DownloadCSV';
 
@@ -9,11 +10,17 @@ const defaultProps = {
     csvData: [],
 };
 
-const wrapper = shallow(<DownloadCSV {...defaultProps} />);
+const testComponent = <DownloadCSV {...defaultProps} />;
 
 describe('<DownloadCSV />', () => {
 
+    let container;
+
+    beforeEach(() => {
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
+
     it('renders without crashing', () => {
-        expect(wrapper.exists('.csv-download')).toEqual(true);
+        expect(container.querySelector('.csv-download')).toBeInTheDocument();
     });
 });

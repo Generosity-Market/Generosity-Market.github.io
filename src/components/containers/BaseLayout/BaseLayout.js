@@ -48,7 +48,7 @@ export const BaseLayout = ({
     };
 
     return (
-        <div className="BaseLayout">
+        <div className="BaseLayout" data-testid="BaseLayout">
             <TopMenu openMenu={navToggle} />
 
             <Suspense fallback={null}>

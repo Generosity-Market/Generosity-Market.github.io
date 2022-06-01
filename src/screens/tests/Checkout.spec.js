@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import { TestProvider } from 'utilities/testing';
 
 // Component import
 import { Checkout } from '../src/Checkout';
@@ -10,12 +11,17 @@ const defaultProps = {
     }],
 };
 
-const wrapper = shallow(<Checkout {...defaultProps} />);
+const testComponent = <Checkout {...defaultProps} />;
 
 describe('<Checkout />', () => {
+    let container;
+
+    beforeEach(() => {
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('.Checkout')).toEqual(true);
+        expect(container.querySelector('.Checkout')).toBeInTheDocument();
     });
 
     it.todo('Test other things on the Checkout page');

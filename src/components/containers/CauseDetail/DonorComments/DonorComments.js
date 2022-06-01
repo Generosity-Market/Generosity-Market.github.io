@@ -6,6 +6,7 @@ import {
     Heading,
 } from 'components/shared';
 
+// TODO: This component doesn't seem to do what we want - is it still needed??
 const DonorComments = ({ donations }) => {
     const getDonorImage = imageURL => require(`Assets/Photography/Mobile/${imageURL}`);
 

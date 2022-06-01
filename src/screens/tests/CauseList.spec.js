@@ -1,33 +1,50 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import { TestProvider, mockState } from 'utilities/testing';
 
 // Component import
 import { CauseList } from '../src/CauseList';
 
 const defaultProps = {
+    ...mockState,
     causeList: [],
     causeSelected: jest.fn(),
     getCauseList: jest.fn(),
+    resetPageData: jest.fn(),
 };
 
-const wrapper = shallow(<CauseList {...defaultProps} />);
+const testComponent = <CauseList {...defaultProps} />;
+
+const observe = jest.fn();
+const unobserve = jest.fn();
+const disconnect = jest.fn();
 
 describe('<CauseList />', () => {
 
     it('should not render when there are no causes', () => {
-        expect(wrapper.exists('.CauseList')).toBe(false);
+        const { container } = render(testComponent, { wrapper: TestProvider });
+        expect(container.querySelector('.CauseList')).not.toBeInTheDocument();
     });
 
     it('renders without crashing', () => {
-        wrapper.setProps({
+        window.IntersectionObserver = jest.fn(() => ({
+            observe,
+            unobserve,
+            disconnect,
+        }));
+
+        const newProps = {
+            ...defaultProps,
             causeList: [
                 {
                     id: 1,
+                    icon: 'africa'
                 },
             ]
-        });
+        };
+        const { container } = render(<CauseList {...newProps} />, { wrapper: TestProvider });
 
-        expect(wrapper.exists('.CauseList')).toBe(true);
+        expect(container.querySelector('.CauseList')).toBeInTheDocument();
     });
 
     it.todo('Test other things on the CauseList page');

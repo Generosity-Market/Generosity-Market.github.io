@@ -1,16 +1,22 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import { TestProvider } from 'utilities/testing';
 
 // Component import
 import TexturedCircle from '../src/TexturedCircle';
 
 const defaultProps = {};
 
-const wrapper = shallow(<TexturedCircle {...defaultProps} />);
+const testComponent = <TexturedCircle {...defaultProps} />;
 
 describe('<TexturedCircle />', () => {
+    let container;
+
+    beforeEach(() => {
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('.textured')).toBe(true);
+        expect(container.querySelector('.textured')).toBeInTheDocument();
     });
 });

@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import { TestProvider } from 'utilities/testing';
 
 // Component import
 import Slider from '../src/Slider';
@@ -11,11 +12,16 @@ const defaultProps = {
     },
 };
 
-const wrapper = shallow(<Slider {...defaultProps} />);
+const testComponent = <Slider {...defaultProps} />;
 
 describe('<Slider />', () => {
+    let container;
+
+    beforeEach(() => {
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('.Slider')).toBe(true);
+        expect(container.querySelector('.Slider')).toBeInTheDocument();
     });
 });

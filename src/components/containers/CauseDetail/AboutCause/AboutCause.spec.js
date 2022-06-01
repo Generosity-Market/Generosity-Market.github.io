@@ -1,18 +1,57 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+
+import { TestProvider } from 'utilities/testing';
+
 
 // Component import
 import AboutCause from './AboutCause.js';
 
 const defaultProps = {
-    // props...
+    title: 'Gordy Adoption',
+    aboutText: 'We\'re adopting!',
+    usageText: 'Will raise money for adoption expenses',
 };
 
-const wrapper = shallow(<AboutCause {...defaultProps} />);
+const testComponent = <AboutCause {...defaultProps} />;
 
 describe('<AboutCause />', () => {
 
+    let container;
+    let getAllByRole;
+    let getByText;
+
+    beforeEach(() => {
+        ({
+            container,
+            getAllByRole,
+            getByText,
+        } = render(testComponent, { wrapper: TestProvider }));
+    });
+
     it('renders without crashing', () => {
-        expect(wrapper.exists('.AboutCause')).toBe(true);
+        const aboutCause = container.querySelector('.AboutCause');
+
+        expect(aboutCause).toBeInTheDocument();
+    });
+
+    it('should have a title and about section', () => {
+        expect(getAllByRole('heading')).toHaveLength(2);
+    });
+
+    it('should have correct title text', () => {
+        expect(getByText(`About the ${defaultProps.title} Cause`)).toBeInTheDocument();
+    });
+
+    it('should have correct details text', () => {
+        expect(getByText(defaultProps.aboutText)).toBeInTheDocument();
+    });
+
+    it('should have correct useage title text', () => {
+        expect(getByText('How your gift will be used')).toBeInTheDocument();
+    });
+
+    it('should have correct useage text', () => {
+        expect(getByText(defaultProps.usageText)).toBeInTheDocument();
     });
 });

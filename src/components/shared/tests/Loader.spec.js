@@ -1,14 +1,20 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import { TestProvider } from 'utilities/testing';
 
 // Component import
 import Loader from '../src/Loader';
 
-const wrapper = shallow(<Loader />);
+const testComponent = <Loader />;
 
 describe('<Loader />', () => {
+    let container;
+
+    beforeEach(() => {
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('.Loader')).toBe(true);
+        expect(container.querySelector('.Loader')).toBeInTheDocument();
     });
 });

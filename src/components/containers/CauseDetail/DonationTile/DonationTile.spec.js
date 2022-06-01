@@ -1,5 +1,8 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+
+import { TestProvider } from 'utilities/testing';
+
 
 // Component import
 import { DonationTile } from './DonationTile.js';
@@ -10,11 +13,31 @@ const defaultProps = {
     amount: 5,
 };
 
-const wrapper = shallow(<DonationTile {...defaultProps} />);
+const testComponent = <DonationTile {...defaultProps} />;
 
 describe('<Tile />', () => {
 
+    let container;
+    let getByText;
+    let getByAltText;
+
+    beforeEach(() => {
+        ({
+            container,
+            getByText,
+            getByAltText,
+        } = render(testComponent, { wrapper: TestProvider }));
+    });
+
     it('renders without crashing', () => {
-        expect(wrapper.exists('.DonationTile')).toEqual(true);
+        expect(container.querySelector('.DonationTile')).toBeInTheDocument();
+    });
+
+    it('should contain the icon image', () => {
+        expect(getByAltText('Africa Icon')).toBeInTheDocument();
+    });
+
+    it('should display an amount to donate', () => {
+        expect(getByText(`$${defaultProps.amount}`)).toBeInTheDocument();
     });
 });

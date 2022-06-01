@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import { TestProvider } from 'utilities/testing';
 
 // Component import
 import OrgCauses from './OrgCauses.js';
@@ -8,11 +9,17 @@ const defaultProps = {
     causes: [],
 };
 
-const wrapper = shallow(<OrgCauses {...defaultProps} />);
+const testComponent = <OrgCauses {...defaultProps} />;
 
 describe('<OrgCauses />', () => {
 
+    let container;
+
+    beforeEach(() => {
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
+
     it('renders without crashing', () => {
-        expect(wrapper.exists('.OrgCauses')).toBe(true);
+        expect(container.querySelector('.OrgCauses')).toBeInTheDocument();
     });
 });

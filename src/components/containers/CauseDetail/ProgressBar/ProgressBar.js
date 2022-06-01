@@ -5,7 +5,9 @@ import './ProgressBar.css';
 const ProgressBar = ({ goal_amount = 0, totalRaised = 0 }) => {
     const calculateBarWidth = (percentRaised) => {
         if (percentRaised > 5) {
-            return percentRaised - 7;
+            return percentRaised;
+        } else if (percentRaised > 92) {
+            return 100;
         } else {
             return 1;
         }

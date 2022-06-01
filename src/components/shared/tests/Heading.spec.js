@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import { TestProvider } from 'utilities/testing';
 
 // Component import
 import Heading from '../src/Heading';
@@ -8,11 +9,16 @@ const defaultProps = {
     text: 'Nearly Funded',
 };
 
-const wrapper = shallow(<Heading {...defaultProps} />);
+const testComponent = <Heading {...defaultProps} />;
 
 describe('<Heading />', () => {
+    let container;
+
+    beforeEach(() => {
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('.Heading')).toBe(true);
+        expect(container.querySelector('.Heading')).toBeInTheDocument();
     });
 });

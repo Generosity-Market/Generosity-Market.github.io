@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import { TestProvider } from 'utilities/testing';
 
 // Component import
 import { NewOrgForm } from '../src/NewOrgForm';
@@ -8,12 +9,17 @@ const defaultProps = {
     // props...
 };
 
-const wrapper = shallow(<NewOrgForm {...defaultProps} />);
+const testComponent = <NewOrgForm {...defaultProps} />;
 
 describe('<NewOrgForm />', () => {
+    let container;
+
+    beforeEach(() => {
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('.NewOrgForm')).toEqual(true);
+        expect(container.querySelector('.NewOrgForm')).toBeInTheDocument();
     });
 
     it.todo('Test other things on the NewOrgForm page');

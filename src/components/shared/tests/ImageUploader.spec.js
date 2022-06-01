@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import { TestProvider } from 'utilities/testing';
 
 // Component import
 import ImageUploaderControlled from '../src/ImageUploader';
@@ -8,11 +9,16 @@ const defaultProps = {
     handleUpdateState: () => { },
 };
 
-const wrapper = shallow(<ImageUploaderControlled {...defaultProps} />);
+const testComponent = <ImageUploaderControlled {...defaultProps} />;
 
 describe('<ImageUploaderControlled />', () => {
+    let container;
+
+    beforeEach(() => {
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('.ImageUploaderControlled')).toBe(true);
+        expect(container.querySelector('.ImageUploaderControlled')).toBeInTheDocument();
     });
 });

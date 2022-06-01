@@ -1,6 +1,7 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import { BrowserRouter } from 'react-router-dom';
+import { render } from '@testing-library/react';
+
+import { TestProvider } from 'utilities/testing';
 
 // Component import
 import EmptyCart from './EmptyCart.js';
@@ -9,15 +10,16 @@ const defaultProps = {
     // Props go here...
 };
 
-const wrapper = shallow(
-    <BrowserRouter>
-        <EmptyCart {...defaultProps} />
-    </BrowserRouter>
-);
+const testComponent = <EmptyCart {...defaultProps} />;
 
 describe('<EmptyCart />', () => {
+    let container;
+
+    beforeEach(() => {
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('EmptyCart')).toBe(true);
+        expect(container.querySelector('.EmptyCart')).toBeInTheDocument();
     });
 });
