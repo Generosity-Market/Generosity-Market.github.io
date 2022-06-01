@@ -11,6 +11,7 @@ export { default as removeIndexFromArray } from './removeIndexFromArray';
 export { default as scrollTo } from './scrollTo';
 export { default as sharePage } from './sharePage';
 export { default as sortByKey } from './sortByKey';
+export { default as TestProvider } from './testing/TestProvider';
 
 // Validation utilities
 export { isValidUsState } from './inputStateValidator';
