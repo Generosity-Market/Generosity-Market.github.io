@@ -38,7 +38,7 @@ describe('<CauseList />', () => {
             causeList: [
                 {
                     id: 1,
-                    icon: 'africa'
+                    icon: 'Africa'
                 },
             ]
         };
