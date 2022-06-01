@@ -1,5 +1,7 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+
+import { TestProvider } from 'utilities';
 
 // Component import
 import SlideMenu from './SlideMenu.js';
@@ -9,11 +11,22 @@ const defaultProps = {
     navLinks: navLinks,
 };
 
-const wrapper = shallow(<SlideMenu {...defaultProps} />);
+const testComponent = <SlideMenu {...defaultProps} />;
 
 describe('<SlideMenu />', () => {
+    let container;
+    let getByRole;
+
+    beforeEach(() => {
+        ({ container, getByRole } = render(testComponent, { wrapper: TestProvider }));
+    });
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('.SlideMenu')).toBe(true);
+        expect(getByRole('navigation')).toBeInTheDocument();
+    });
+
+    it('should render a list of navigation links', () => {
+        const navLinks = container.querySelector('.LinksContainer').querySelectorAll('.navLinks');
+        expect(navLinks).toHaveLength(8);
     });
 });

@@ -1,27 +1,31 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 
-import { BrowserRouter } from 'react-router-dom';
+import { TestProvider } from 'utilities';
 
 // Component import
 import NavItem from './NavItem.js';
 
 const defaultProps = {
-    classname: 'submit',
     style: {
         color: 'white'
     },
 };
 
-const wrapper = shallow(
-    <BrowserRouter>
-        <NavItem {...defaultProps} />
-    </BrowserRouter>
-);
+const testComponent = <NavItem {...defaultProps} />;
 
 describe('<NavItem />', () => {
+    let getByRole;
+
+    beforeEach(() => {
+        ({ getByRole } = render(testComponent, { wrapper: TestProvider }));
+    });
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('NavItem')).toEqual(true);
+        expect(getByRole('link')).toBeInTheDocument();
+    });
+
+    it('should have .navLinks class', () => {
+        expect(getByRole('link')).toHaveClass('navLinks');
     });
 });

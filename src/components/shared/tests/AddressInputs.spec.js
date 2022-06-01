@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import { TestProvider } from 'utilities/testing';
 
 import AddressInputs from '../src/AddressInputs';
 
@@ -10,11 +11,16 @@ const defaultProps = {
     value: '',
 };
 
-const wrapper = shallow(<AddressInputs {...defaultProps} />);
+const testComponent = <AddressInputs {...defaultProps} />;
 
 describe('<AddressInputs />', () => {
+    let container;
+
+    beforeEach(() => {
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
 
     it('renders without crashing', () => {
-        expect(wrapper.exists()).toBe(true);
+        expect(container.querySelector('.AddressInputs')).toBeInTheDocument();
     });
 });

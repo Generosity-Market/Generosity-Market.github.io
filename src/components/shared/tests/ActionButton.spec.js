@@ -1,5 +1,7 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { TestProvider } from 'utilities/testing';
 
 // Shared UI Components
 import { ActionButton } from 'components/shared';
@@ -11,28 +13,30 @@ const defaultProps = {
     icon: ''
 };
 
-const wrapper = shallow(<ActionButton {...defaultProps} />);
+const testComponent = <ActionButton {...defaultProps} />;
 
 describe('<ActionButton />', () => {
+    let container;
+    let getByText;
+
+    beforeEach(() => {
+        ({ container, getByText } = render(testComponent, { wrapper: TestProvider }));
+    });
+
     it('should render without crashing', () => {
-        expect(wrapper.exists('.ActionButton')).toEqual(true);
+        expect(container.querySelector('.ActionButton')).toBeInTheDocument();
     });
 
     it('should have the classname passed as props', () => {
-        expect(wrapper.find('.submit').hasClass('submit')).toBe(true);
+        expect(getByText('submit')).toHaveClass('submit');
     });
 
-    it('should render the text passed through props', () => {
-        expect(wrapper.text()).toBe('submit');
+    it('should call the callback action function when clicked', async () => {
+        const submitButton = getByText('submit');
+
+        const user = userEvent.setup();
+        await user.click(submitButton);
+        expect(defaultProps.action).toHaveBeenCalled();
     });
 
-    describe('when clicked', () => {
-        beforeEach(() => {
-            wrapper.find('.submit').simulate('click');
-        });
-
-        it('should call the callback action function', () => {
-            expect(defaultProps.action).toHaveBeenCalled();
-        });
-    });
 });

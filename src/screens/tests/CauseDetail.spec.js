@@ -1,13 +1,14 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-
-import { BrowserRouter } from 'react-router-dom';
+import { render } from '@testing-library/react';
+import { TestProvider, mockState } from 'utilities/testing';
 
 // Component import
 import { CauseDetail } from '../src/CauseDetail';
 
 const defaultProps = {
+    ...mockState,
     cause: {
+        ...mockState.selectedCause,
         Donations: [],
     },
     match: {
@@ -15,26 +16,20 @@ const defaultProps = {
             id: 2,
         },
     },
-    pageData: {
-        pageName: null,
-        description: 'Fundraising platform for non-profits and charities',
-        text: 'Fundraising platform for non-profits and charities',
-        image: 'Artboard-1-copy-2Generosity-Logo.png',
-        title: 'Generosity Market',
-        url: window.location.href,
-    },
+    setPageData: jest.fn(),
 };
 
-const wrapper = shallow(
-    <BrowserRouter>
-        <CauseDetail {...defaultProps} />
-    </BrowserRouter>
-);
+const testComponent = <CauseDetail {...defaultProps} />;
 
 describe('<CauseDetail />', () => {
+    let container;
+
+    beforeEach(() => {
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('CauseDetail')).toBe(true);
+        expect(container.querySelector('.CauseDetail')).toBeInTheDocument();
     });
 
     it.todo('Test other stuff on the CauseDetail page');

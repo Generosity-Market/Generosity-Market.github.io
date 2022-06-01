@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import { TestProvider } from 'utilities/testing';
 
 // Component import
 import Banner from '../src/Banner';
@@ -9,11 +10,16 @@ const defaultProps = {
     profile_image: 'dilly dilly',
 };
 
-const wrapper = shallow(<Banner {...defaultProps} />);
+const testComponent = <Banner {...defaultProps} />;
 
 describe('<Banner />', () => {
+    let container;
+
+    beforeEach(() => {
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('.Header')).toEqual(true);
+        expect(container.querySelector('.Header')).toBeInTheDocument();
     });
 });

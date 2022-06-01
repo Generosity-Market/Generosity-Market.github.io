@@ -1,14 +1,8 @@
 import React from 'react';
-
-// Enzyme imports
-import Enzyme, { mount } from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-
-import { BrowserRouter } from 'react-router-dom';
+import { render } from '@testing-library/react';
+import { TestProvider } from 'utilities/testing';
 
 import { Login } from '../src/Login';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 const defaultProps = {
     location: {
@@ -16,16 +10,17 @@ const defaultProps = {
     },
 };
 
-const wrapper = mount(
-    <BrowserRouter>
-        <Login {...defaultProps} />
-    </BrowserRouter>
-);
+const testComponent = <Login {...defaultProps} />;
 
 describe('<Login />', () => {
+    let container;
+
+    beforeEach(() => {
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('.Login')).toEqual(true);
+        expect(container.querySelector('.Login')).toBeInTheDocument();
     });
 
     it.todo('Test other things on the Login page');

@@ -1,5 +1,8 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+
+import { TestProvider } from 'utilities/testing';
+
 
 // Component import
 import { DonorInfo } from './DonorInfo.js';
@@ -8,11 +11,17 @@ const defaultProps = {
     // Props go here...
 };
 
-const wrapper = shallow(<DonorInfo {...defaultProps} />);
+const testComponent = <DonorInfo {...defaultProps} />;
 
 describe('<DonorInfo />', () => {
 
+    let container;
+
+    beforeEach(() => {
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
+
     it('renders without crashing', () => {
-        expect(wrapper.exists('.DonorInfo')).toBe(true);
+        expect(container.querySelector('.DonorInfo')).toBeInTheDocument();
     });
 });

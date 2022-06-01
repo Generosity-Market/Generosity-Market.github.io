@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import { TestProvider } from 'utilities/testing';
 
 import { BrowserRouter } from 'react-router-dom';
 
@@ -9,18 +10,20 @@ import { Splash } from '../src/Splash';
 const defaultProps = {
     getCauseList: jest.fn(),
     loadTokenFromCookie: jest.fn(),
+    resetPageData: jest.fn(),
 };
 
-const wrapper = shallow(
-    <BrowserRouter>
-        <Splash {...defaultProps} />
-    </BrowserRouter>
-);
+const testComponent = <Splash {...defaultProps} />;
 
 describe('<Splash />', () => {
+    let container;
+
+    beforeEach(() => {
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('Splash')).toEqual(true);
+        expect(container.querySelector('.Splash')).toBeInTheDocument();
     });
 
     it.todo('Test other things on the Splash page');

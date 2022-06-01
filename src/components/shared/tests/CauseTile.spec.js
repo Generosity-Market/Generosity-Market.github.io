@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import { TestProvider } from 'utilities/testing';
 
 // Component import
 import CauseTile from '../src/CauseTile';
@@ -14,11 +15,26 @@ const defaultProps = {
     },
 };
 
-const wrapper = shallow(<CauseTile {...defaultProps} />);
+const testComponent = <CauseTile {...defaultProps} />;
 
 describe('<CauseTile />', () => {
+    let container;
+
+    const observe = jest.fn();
+    const unobserve = jest.fn();
+    const disconnect = jest.fn();
+
+    beforeEach(() => {
+        window.IntersectionObserver = jest.fn(() => ({
+            observe,
+            unobserve,
+            disconnect,
+        }));
+
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('.CauseTile')).toEqual(true);
+        expect(container.querySelector('.CauseTile')).toBeInTheDocument();
     });
 });

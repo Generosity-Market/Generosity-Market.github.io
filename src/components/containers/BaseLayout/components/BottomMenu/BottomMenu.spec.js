@@ -1,7 +1,7 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import { Provider } from 'react-redux';
-import store from 'store';
+import { render } from '@testing-library/react';
+
+import { TestProvider } from 'utilities';
 
 // Component import
 import BottomMenu from './BottomMenu.js';
@@ -11,15 +11,29 @@ const defaultProps = {
     navLinks: bottomNavLinks,
 };
 
-const wrapper = shallow(
-    <Provider store={store}>
-        <BottomMenu {...defaultProps} />
-    </Provider>
-);
+const testComponent = <BottomMenu {...defaultProps} />;
 
 describe('<BottomMenu />', () => {
+    let container;
+    let getAllByRole;
+    let bottomMenu;
+
+    beforeEach(() => {
+        ({
+            container,
+            getAllByRole,
+        } = render(testComponent, { wrapper: TestProvider }));
+
+        bottomMenu = container.querySelector('.BottomMenu');
+    });
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('Memo(BottomMenu)')).toBe(true);
+        expect(bottomMenu).toBeInTheDocument();
+    });
+
+    it('contains navigation links', () => {
+        const navLinks = getAllByRole('link');
+
+        expect(navLinks).toHaveLength(3);
     });
 });

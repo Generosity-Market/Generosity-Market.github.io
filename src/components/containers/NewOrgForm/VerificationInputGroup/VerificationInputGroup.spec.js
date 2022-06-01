@@ -1,18 +1,26 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import { TestProvider } from 'utilities/testing';
 
 // Component import
 import { VerificationInputGroup } from './VerificationInputGroup.js';
 
 const defaultProps = {
-    // props...
+    handleUpdateState: jest.fn(),
+    state: { legal_name: 'my_org' },
 };
 
-const wrapper = shallow(<VerificationInputGroup {...defaultProps} />);
+const testComponent = <VerificationInputGroup {...defaultProps} />;
 
 describe('<VerificationInputGroup />', () => {
 
+    let container;
+
+    beforeEach(() => {
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
+
     it('renders without crashing', () => {
-        expect(wrapper.exists('.VerificationInputGroup')).toBe(true);
+        expect(container.querySelector('.VerificationInputGroup')).toBeInTheDocument();
     });
 });

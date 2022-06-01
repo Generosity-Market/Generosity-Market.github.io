@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import { TestProvider } from 'utilities/testing';
 
 // Component import
 import InputGroup from '../src/InputGroup';
@@ -23,11 +24,16 @@ const defaultProps = {
     handleUpdateState: () => { },
 };
 
-const wrapper = shallow(<InputGroup {...defaultProps} />);
+const testComponent = <InputGroup {...defaultProps} />;
 
 describe('<InputGroup />', () => {
+    let container;
+
+    beforeEach(() => {
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('.InputGroup')).toEqual(true);
+        expect(container.querySelector('.InputGroup')).toBeInTheDocument();
     });
 });

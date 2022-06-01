@@ -1,16 +1,22 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import { TestProvider } from 'utilities/testing';
 
 // Component import
 import Popup from './popup.js';
 
 const defaultProps = {};
 
-const wrapper = shallow(<Popup {...defaultProps} />);
+const testComponent = <Popup {...defaultProps} />;
 
 describe('<Popup />', () => {
+    let container;
+
+    beforeEach(() => {
+        ({ container } = render(testComponent, { wrapper: TestProvider }));
+    });
 
     it('renders without crashing', () => {
-        expect(wrapper.exists('.Popup')).toBe(true);
+        expect(container.querySelector('.Popup')).toBeInTheDocument();
     });
 });

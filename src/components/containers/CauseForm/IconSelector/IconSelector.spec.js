@@ -1,18 +1,46 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
+import { TestProvider } from 'utilities/testing';
+
 
 // Component import
 import IconSelector from './IconSelector.js';
 
 const defaultProps = {
-    handleSelectIcon: () => { },
+    handleSelect: jest.fn(),
 };
 
-const wrapper = shallow(<IconSelector {...defaultProps} />);
+const testComponent = <IconSelector {...defaultProps} />;
 
 describe('<IconSelector />', () => {
 
+    let container;
+    let getAllByAltText;
+
+    beforeEach(() => {
+        ({
+            container,
+            getAllByAltText,
+        } = render(testComponent, { wrapper: TestProvider }));
+    });
+
     it('renders without crashing', () => {
-        expect(wrapper.exists('.IconSelector')).toBe(true);
+        expect(container.querySelector('.IconSelector')).toBeInTheDocument();
+    });
+
+    it('renders all icon selections', () => {
+        expect(getAllByAltText(/.*(?:)/)).toHaveLength(7);
+    });
+
+    it('focuses on selected icon', async () => {
+        const firstIcon = getAllByAltText(/.*(?:)/)[0];
+
+        const user = userEvent.setup();
+        await user.click(firstIcon);
+
+        expect(defaultProps.handleSelect).toHaveBeenCalled();
+        expect(container.querySelector('.icon-tile.selected')).toBeInTheDocument();
     });
 });
