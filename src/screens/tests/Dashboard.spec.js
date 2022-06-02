@@ -22,16 +22,28 @@ const defaultProps = {
 const testComponent = <Dashboard {...defaultProps} />;
 
 // TODO: Getting an error from the ImageUploader from stalls-ui package
-describe.skip('<Dashboard />', () => {
+describe('<Dashboard />', () => {
     let container;
 
+    const observe = jest.fn();
+    const unobserve = jest.fn();
+    const disconnect = jest.fn();
     beforeEach(() => {
+        window.IntersectionObserver = jest.fn(() => ({
+            observe,
+            unobserve,
+            disconnect,
+        }));
+
         ({ container } = render(testComponent, { wrapper: TestProvider }));
     });
 
     it('renders without crashing', () => {
-        screen.debug();
         expect(container.querySelector('.Dashboard')).toBeInTheDocument();
+    });
+
+    it('calls the intersection observer api', () => {
+        expect(observe).toHaveBeenCalled();
     });
 
     it.todo('Test other things on the Dashboard page');
