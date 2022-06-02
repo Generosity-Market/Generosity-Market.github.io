@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { TestProvider, mockState } from 'utilities/testing';
+import { TestProvider, mockState, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 // Component import
 import { CauseDetail } from '../src/CauseDetail';
@@ -22,6 +22,8 @@ const defaultProps = {
 const testComponent = <CauseDetail {...defaultProps} />;
 
 describe('<CauseDetail />', () => {
+    checkConsoleWarnOrErrors();
+
     let container;
 
     beforeEach(() => {

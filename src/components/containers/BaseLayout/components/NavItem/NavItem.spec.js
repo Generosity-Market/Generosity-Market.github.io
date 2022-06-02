@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import { TestProvider } from 'utilities';
+import { TestProvider, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 // Component import
 import NavItem from './NavItem.js';
@@ -15,6 +15,8 @@ const defaultProps = {
 const testComponent = <NavItem {...defaultProps} />;
 
 describe('<NavItem />', () => {
+    checkConsoleWarnOrErrors();
+
     let getByRole;
 
     beforeEach(() => {

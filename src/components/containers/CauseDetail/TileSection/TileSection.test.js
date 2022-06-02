@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import { TestProvider } from 'utilities/testing';
+import { TestProvider, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 // Component import
 import { TileSection } from './TileSection.js';
@@ -16,6 +16,7 @@ const defaultProps = {
 const testComponent = <TileSection {...defaultProps} />;
 
 describe('<TileSection />', () => {
+    checkConsoleWarnOrErrors();
 
     let container;
 

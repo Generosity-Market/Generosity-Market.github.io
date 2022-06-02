@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { TestProvider } from 'utilities/testing';
+import { TestProvider, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 // Component import
 import OrgCauses from './OrgCauses.js';
@@ -12,6 +12,7 @@ const defaultProps = {
 const testComponent = <OrgCauses {...defaultProps} />;
 
 describe('<OrgCauses />', () => {
+    checkConsoleWarnOrErrors();
 
     let container;
 

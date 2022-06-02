@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import { TestProvider } from 'utilities';
+import { TestProvider, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 // Component import
 import SlideMenu from './SlideMenu.js';
@@ -14,6 +14,8 @@ const defaultProps = {
 const testComponent = <SlideMenu {...defaultProps} />;
 
 describe('<SlideMenu />', () => {
+    checkConsoleWarnOrErrors();
+
     let container;
     let getByRole;
 

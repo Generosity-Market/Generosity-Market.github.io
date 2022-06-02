@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import { TestProvider, mockState } from 'utilities/testing';
+import { TestProvider, mockState, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 import { loadStripe } from '@stripe/stripe-js';
 
@@ -23,6 +23,9 @@ const testComponent = (
 );
 
 describe('<CheckoutForm />', () => {
+
+    checkConsoleWarnOrErrors();
+
     let container;
 
     beforeEach(() => {

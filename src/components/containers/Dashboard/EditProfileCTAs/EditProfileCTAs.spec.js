@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { TestProvider } from 'utilities/testing';
+import { TestProvider, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 // Component import
 import EditProfileCTAs from './EditProfileCTAs.jsx';
@@ -18,6 +18,8 @@ const defaultProps = {
 const testComponent = <EditProfileCTAs {...defaultProps} />;
 
 describe('<EditProfileCTAs />', () => {
+    checkConsoleWarnOrErrors();
+
     let container;
     let getByText;
 

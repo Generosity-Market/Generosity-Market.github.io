@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { TestProvider } from 'utilities/testing';
+import { TestProvider, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 import TextInput from '../src/TextInput';
 
@@ -15,6 +15,8 @@ const defaultProps = {
 const testComponent = <TextInput {...defaultProps} />;
 
 describe('<TextInput />', () => {
+    checkConsoleWarnOrErrors();
+
     let container;
 
     beforeEach(() => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { TestProvider } from 'utilities/testing';
+import { TestProvider, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 // Shared UI Components
 import { ActionButton } from 'components/shared';
@@ -16,6 +16,8 @@ const defaultProps = {
 const testComponent = <ActionButton {...defaultProps} />;
 
 describe('<ActionButton />', () => {
+    checkConsoleWarnOrErrors();
+
     let container;
     let getByText;
 

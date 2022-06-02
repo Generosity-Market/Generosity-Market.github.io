@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { TestProvider } from 'utilities/testing';
+import { TestProvider, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 import { BrowserRouter } from 'react-router-dom';
 
@@ -12,6 +12,8 @@ const defaultProps = {};
 const testComponent = <CauseForm {...defaultProps} />;
 
 describe('<CauseForm />', () => {
+    checkConsoleWarnOrErrors();
+
     let container;
 
     beforeEach(() => {

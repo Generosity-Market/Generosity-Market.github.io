@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import { TestProvider, mockState } from 'utilities/testing';
+import { TestProvider, mockState, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 // Component import
 import SliderSection from './SliderSection.js';
@@ -15,6 +15,8 @@ const defaultProps = {
 const testComponent = <SliderSection {...defaultProps} />;
 
 describe('<SliderSection />', () => {
+    checkConsoleWarnOrErrors();
+
     let container;
     let getByText;
 

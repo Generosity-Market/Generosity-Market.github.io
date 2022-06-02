@@ -27,6 +27,7 @@ const defaultProps = {
 const testComponent = <InputGroup {...defaultProps} />;
 
 describe('<InputGroup />', () => {
+
     let container;
 
     beforeEach(() => {

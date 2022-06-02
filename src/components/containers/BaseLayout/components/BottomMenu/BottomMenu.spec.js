@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import { TestProvider } from 'utilities';
+import { TestProvider, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 // Component import
 import BottomMenu from './BottomMenu.js';
@@ -14,6 +14,8 @@ const defaultProps = {
 const testComponent = <BottomMenu {...defaultProps} />;
 
 describe('<BottomMenu />', () => {
+    checkConsoleWarnOrErrors();
+
     let container;
     let getAllByRole;
     let bottomMenu;

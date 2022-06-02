@@ -1,6 +1,6 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { TestProvider } from 'utilities/testing';
+import { render } from '@testing-library/react';
+import { TestProvider, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 // Component import
 import { Dashboard } from '../src/Dashboard';
@@ -23,6 +23,7 @@ const testComponent = <Dashboard {...defaultProps} />;
 
 // TODO: Getting an error from the ImageUploader from stalls-ui package
 describe('<Dashboard />', () => {
+    checkConsoleWarnOrErrors();
     let container;
 
     const observe = jest.fn();

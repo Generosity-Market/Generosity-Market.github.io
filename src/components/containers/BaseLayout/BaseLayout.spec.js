@@ -9,6 +9,7 @@ import BaseLayout from './BaseLayout.js';
 const testComponent = <BaseLayout />;
 
 describe('<BaseLayout />', () => {
+
     let container;
     let getByTestId;
 

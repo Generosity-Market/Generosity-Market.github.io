@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { render, screen } from '@testing-library/react';
-import { TestProvider } from 'utilities/testing';
+import { render } from '@testing-library/react';
+import { TestProvider, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 // Component import
 import { HeadContainer } from '../src/HeadContainer';
@@ -24,6 +24,8 @@ const defaultProps = {
 const testComponent = <HeadContainer {...defaultProps} />;
 
 describe('<HeadContainer />', () => {
+    checkConsoleWarnOrErrors();
+
     let title;
     let metaTags;
 

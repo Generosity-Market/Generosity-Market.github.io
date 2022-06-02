@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { TestProvider, mockState } from 'utilities/testing';
+import { TestProvider, mockState, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 // Component import
 import { CauseList } from '../src/CauseList';
@@ -20,6 +20,7 @@ const unobserve = jest.fn();
 const disconnect = jest.fn();
 
 describe('<CauseList />', () => {
+    checkConsoleWarnOrErrors();
 
     it('should not render when there are no causes', () => {
         const { container } = render(testComponent, { wrapper: TestProvider });

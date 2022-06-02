@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { TestProvider } from 'utilities/testing';
+import { TestProvider, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 // Component import
 import UserDetails from './UserDetails.js';
@@ -17,6 +17,7 @@ const defaultProps = {
 const testComponent = <UserDetails {...defaultProps} />;
 
 describe('<UserDetails />', () => {
+    checkConsoleWarnOrErrors();
 
     let container;
 

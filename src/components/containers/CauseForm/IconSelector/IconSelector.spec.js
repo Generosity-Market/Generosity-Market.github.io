@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { TestProvider } from 'utilities/testing';
+import { TestProvider, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 
 // Component import
@@ -15,6 +15,7 @@ const defaultProps = {
 const testComponent = <IconSelector {...defaultProps} />;
 
 describe('<IconSelector />', () => {
+    checkConsoleWarnOrErrors();
 
     let container;
     let getAllByAltText;

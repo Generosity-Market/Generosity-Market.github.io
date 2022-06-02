@@ -1,10 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { TestProvider } from 'utilities/testing';
+import { TestProvider, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 // Component import
-// NOTE: must be exported/imported in this manner to work around the redux connection and only test the UI
-// NOTE: Actions and Reducers should be tested for any other activities this component would handle.
 import { Organization } from '../src/Organization';
 
 const mockGetOrgDataFunc = jest.fn();
@@ -25,6 +23,8 @@ const defaultProps = {
 const testComponent = <Organization {...defaultProps} />;
 
 describe('<Organization />', () => {
+    checkConsoleWarnOrErrors();
+
     let container;
 
     beforeEach(() => {
