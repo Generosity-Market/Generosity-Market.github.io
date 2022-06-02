@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { TestProvider } from 'utilities/testing';
+import { TestProvider, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 // Component import
 import { Checkout } from '../src/Checkout';
@@ -14,6 +14,8 @@ const defaultProps = {
 const testComponent = <Checkout {...defaultProps} />;
 
 describe('<Checkout />', () => {
+    checkConsoleWarnOrErrors();
+
     let container;
 
     beforeEach(() => {

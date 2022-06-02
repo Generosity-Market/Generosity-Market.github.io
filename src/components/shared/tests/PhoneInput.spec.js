@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { TestProvider } from 'utilities/testing';
+import { TestProvider, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 import PhoneInput from '../src/PhoneInput';
 
@@ -15,6 +15,8 @@ const defaultProps = {
 const testComponent = <PhoneInput {...defaultProps} />;
 
 describe('<PhoneInput />', () => {
+    checkConsoleWarnOrErrors();
+
     let container;
 
     beforeEach(() => {

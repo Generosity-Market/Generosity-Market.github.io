@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { TestProvider } from 'utilities/testing';
+import { TestProvider, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 // Component import
 import CauseTile from '../src/CauseTile';
@@ -18,6 +18,8 @@ const defaultProps = {
 const testComponent = <CauseTile {...defaultProps} />;
 
 describe('<CauseTile />', () => {
+    checkConsoleWarnOrErrors();
+
     let container;
 
     const observe = jest.fn();

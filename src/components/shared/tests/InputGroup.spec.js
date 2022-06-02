@@ -26,7 +26,9 @@ const defaultProps = {
 
 const testComponent = <InputGroup {...defaultProps} />;
 
+// TODO: Investigate console warnings and errors in tests
 describe('<InputGroup />', () => {
+
     let container;
 
     beforeEach(() => {

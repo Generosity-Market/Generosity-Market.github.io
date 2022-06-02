@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import { TestProvider } from 'utilities/testing';
+import { TestProvider, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 
 // Component import
@@ -15,6 +15,8 @@ const defaultProps = {
 const testComponent = <ProgressBar {...defaultProps} />;
 
 describe('<ProgressBar />', () => {
+    checkConsoleWarnOrErrors();
+
     let container;
     let getByText;
 

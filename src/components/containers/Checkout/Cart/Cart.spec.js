@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { TestProvider } from 'utilities/testing';
+import { TestProvider, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 // Component import
 import Cart from './Cart.js';
@@ -16,6 +16,7 @@ const defaultProps = {
 const testComponent = <Cart {...defaultProps} />;
 
 describe('<Cart />', () => {
+    checkConsoleWarnOrErrors();
 
     let container;
 

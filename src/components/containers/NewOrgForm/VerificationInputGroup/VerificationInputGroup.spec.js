@@ -12,6 +12,7 @@ const defaultProps = {
 
 const testComponent = <VerificationInputGroup {...defaultProps} />;
 
+// TODO: Investigate console warnings and errors in tests
 describe('<VerificationInputGroup />', () => {
 
     let container;

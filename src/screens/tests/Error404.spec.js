@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { TestProvider } from 'utilities/testing';
-import { BrowserRouter } from 'react-router-dom';
+import { TestProvider, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 // Component import
 import { Error404 } from '../src/Error404';
@@ -15,6 +14,8 @@ const defaultProps = {
 const testComponent = <Error404 {...defaultProps} />;
 
 describe('<Error404 />', () => {
+    checkConsoleWarnOrErrors();
+
     let container;
 
     beforeEach(() => {

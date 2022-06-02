@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { TestProvider } from 'utilities/testing';
+import { TestProvider, checkConsoleWarnOrErrors } from 'utilities/testing';
 
 // Component import
 import { NewOrgForm } from '../src/NewOrgForm';
@@ -12,6 +12,8 @@ const defaultProps = {
 const testComponent = <NewOrgForm {...defaultProps} />;
 
 describe('<NewOrgForm />', () => {
+    checkConsoleWarnOrErrors();
+
     let container;
 
     beforeEach(() => {
