@@ -1,0 +1,12 @@
+.trigger-glyph-container {
+    color: var(--dark-gray);
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+.qr-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
