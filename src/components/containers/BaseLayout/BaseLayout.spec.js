@@ -8,6 +8,7 @@ import BaseLayout from './BaseLayout.js';
 
 const testComponent = <BaseLayout />;
 
+// TODO: Investigate console warnings and errors in tests
 describe('<BaseLayout />', () => {
 
     let container;
