@@ -26,6 +26,7 @@ import {
     DonorComments,
     ProgressBar,
     TileSection,
+    QrModalContainer,
 } from 'components/containers/CauseDetail';
 
 export const CauseDetail = ({
@@ -141,6 +142,8 @@ export const CauseDetail = ({
                         Or Share This Page
                     </div>
                 }
+
+                <QrModalContainer name={name} />
 
                 <AboutCause
                     title={name}
