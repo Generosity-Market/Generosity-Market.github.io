@@ -1,6 +1,6 @@
 // Boilerplate imports from create-react-app
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './styles/index.css';
 // import registerServiceWorker from './registerServiceWorker';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
@@ -15,15 +15,17 @@ import store from 'store';
 import { BaseLayout } from 'components/containers';
 import Routes from './routes/Routes';
 
-ReactDOM.render(
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(
     <Provider store={store}>
         <BrowserRouter>
             <BaseLayout>
                 <Routes />
             </BaseLayout>
         </BrowserRouter>
-    </Provider>,
-    document.getElementById('root')
+    </Provider>
 );
 // registerServiceWorker();
 
