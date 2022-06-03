@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { TestProvider } from 'utilities/testing';
+import { checkConsoleWarnOrErrors, TestProvider } from 'utilities/testing';
 
 // Component import
 import InputGroup from '../src/InputGroup';
@@ -21,13 +21,15 @@ const defaultProps = {
             placeholder: 'Tax Id #',
         },
     ],
-    handleUpdateState: () => { },
+    handleUpdateState: (event) => jest.fn(),
 };
 
 const testComponent = <InputGroup {...defaultProps} />;
 
 // TODO: Investigate console warnings and errors in tests
 describe('<InputGroup />', () => {
+
+    checkConsoleWarnOrErrors();
 
     let container;
 
