@@ -1,12 +1,42 @@
-.trigger-glyph-container {
-    color: var(--dark-gray);
-    margin: auto;
+.qr-modal-content {
+    /* width: 100%; */
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
 }
 
-.qr-container {
+.qr-modal-content .qr-code {
+    width: 70%;
+    margin: 2rem 0;
+}
+
+.qr-modal-content .inline-logo-green {
+    width: 90%;
+}
+
+.qr-modal-content .qr-download-trigger {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    align-items: center;
+    color: var(--text-gray);
+    text-decoration: none;
+}
+
+.qr-download-trigger .btns {
+    margin-left: 0;
+}
+
+.qr-container .trigger-glyph-container {
+    color: var(--text-gray);
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: auto;
+    width: 45%;
+}
+
+.qr-container .trigger-glyph-container span {
+    margin-left: 10px;
 }

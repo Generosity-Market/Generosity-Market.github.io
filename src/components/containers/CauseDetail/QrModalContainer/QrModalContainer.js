@@ -1,7 +1,11 @@
 import React from 'react';
 import './QrModalContainer.css';
 
-import { Modal, QrCode } from '@jgordy24/stalls-ui';
+import {
+    MiniButton,
+    Modal,
+    QrCode,
+} from '@jgordy24/stalls-ui';
 
 const QrModalContainer = ({ name = '' }) => {
 
@@ -9,20 +13,36 @@ const QrModalContainer = ({ name = '' }) => {
     const url = `${window.location.href}/?title=${_name}`;
 
     const modalTriggerProps = {
-        label: 'Share with Code',
         iconOnly: true,
         icon: 'qrcode',
-        size: 'lg',
+        size: '2x',
+        label: 'Share This Cause',
     };
 
+    const downloadTrigger = (qrSrc) => qrSrc && (
+        <a href={qrSrc} className="qr-download-trigger" download>
+            <MiniButton icon="download" bsStyle="success" />
+            Download Code
+        </a>
+    );
+
     return (
-        <>
+        <div className="qr-container">
             <Modal triggerProps={modalTriggerProps}>
-                <div className="qr-container">
-                    <QrCode url={url} />
+                <div className="qr-modal-content">
+                    <img
+                        className="inline-logo-green"
+                        src={require('Assets/Logo/PNG/Artboard-1-copy-5Generosity-Logo.png')}
+                        alt="Generosity Market logo"
+                    />
+                    <QrCode
+                        url={url}
+                        download
+                        downloadTrigger={downloadTrigger}
+                    />
                 </div>
             </Modal>
-        </>
+        </div>
     );
 };
 
