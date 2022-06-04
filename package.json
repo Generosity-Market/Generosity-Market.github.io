@@ -19,7 +19,7 @@
     },
     "dependencies": {
         "@jgordy24/react-hooks-lib": "^1.4.2",
-        "@jgordy24/stalls-ui": "^1.1.0",
+        "@jgordy24/stalls-ui": "^1.2.8",
         "@stripe/react-stripe-js": "^1.8.0-0",
         "@stripe/stripe-js": "^1.23.0",
         "immutability-helper": "^3.1.1",
@@ -28,6 +28,7 @@
         "postcss-flexbugs-fixes": "^5.0.2",
         "postcss-normalize": "^10.0.1",
         "postcss-preset-env": "^7.4.1",
+        "qrcode": "^1.5.0",
         "react": "^18.1.0",
         "react-csv": "^2.2.2",
         "react-dom": "^18.1.0",
